@@ -13,7 +13,7 @@ const Card = ({ children, hexColor, colSpan, rowSpan, rowStart, colStart ,path})
         rowStart && `row-start-${rowStart}`
       } ${
         colStart && `col-start-${colStart}`
-      } h-full w-full capitalize bg-[${hexColor}] rounded-3xl p-6 cursor-pointer flex items-center justify-center relative   shadow-xl shadow-[${hexColor}]`}
+      } h-full w-full capitalize bg-[${hexColor}] rounded-3xl p-4 cursor-pointer flex items-center justify-center relative   shadow-xl shadow-[${hexColor}]`}
     >
       {children}
     </div>
