@@ -3,8 +3,7 @@ import {
   ThemeProvider,
   StyledEngineProvider,
 } from "@mui/material/styles";
-
-import Typography from "@mui/material/Typography";
+import { Paper, Typography } from "@mui/material";
 
 const App = () => {
   const font = "'Poppins', sans-serif";
@@ -13,14 +12,20 @@ const App = () => {
       fontFamily: [font].join(","),
     },
   });
-
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <Typography variant="h5">world</Typography>
+        <Main />
       </ThemeProvider>
     </StyledEngineProvider>
   );
 };
 
+const Main = () => {
+  return (
+    <Paper variant="outlined" className="h-screen w-80 box-border font-poppins">
+      <Typography variant="p" color="initial">text</Typography>
+    </Paper>
+  );
+};
 export default App;
