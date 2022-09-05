@@ -1,13 +1,14 @@
-
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  corePlugins: {
+    preflight: false,
+  },
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  important: '#root',
   theme: {
     extend: {},
-    fontFamily:{
-      "jakarta":['Plus Jakarta Sans', 'sans-serif']
-    }
+    fontFamily: {
+      jakarta: ["Plus Jakarta Sans", "sans-serif"],
+    },
   },
   plugins: [],
-}
+};

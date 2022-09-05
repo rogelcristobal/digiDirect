@@ -1,22 +1,26 @@
-import {createTheme,ThemeProvider} from "@mui/material/styles";
-import Typography from '@mui/material/Typography'
-const App = () => {
+import {
+  createTheme,
+  ThemeProvider,
+  StyledEngineProvider,
+} from "@mui/material/styles";
 
-  const font =  "'Poppins', sans-serif"
+import Typography from "@mui/material/Typography";
+
+const App = () => {
+  const font = "'Poppins', sans-serif";
   const theme = createTheme({
-    typography:{
-      fontFamily:[
-        font
-      ].join(',')
-    }
-  })
-  
+    typography: {
+      fontFamily: [font].join(","),
+    },
+  });
+
   return (
-    <ThemeProvider theme={theme}>
-      <Typography variant="p">world</Typography>
-     
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <Typography variant="h5">world</Typography>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
-}
+};
 
 export default App;
