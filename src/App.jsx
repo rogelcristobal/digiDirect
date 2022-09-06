@@ -19,7 +19,6 @@ import {
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import DigiLogoInJs from "./components/DigiLogoInJs";
 import { AiFillEye } from "react-icons/ai";
-import { useState } from "react";
 import ListItemBtnComponent from "./components/ListItemBtnComponent";
 import ListItemBtnExpandable from "./components/ListItemBtnExpandable";
 const App = () => {
@@ -47,26 +46,21 @@ const Bordered = ({ children }) => {
 };
 
 const Main = () => {
-  const [open, setOpen] = useState(true);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
   return (
     <Box className="h-screen w-full box-border flex items-start justify-start bg-[#f9fafc]">
-      <Box className="h-[4.5rem]  w-full top-0 left-0 fixed shadow-sm">
+      <Box className="h-[4.5rem]  w-full top-0 left-0 fixed shadow-sm bg-[#ffffff]">
         {/* Nav */}
       </Box>
 
-      <Box className="h-screen w-80 bg-black z-10 box-border ">
+      <Box className="h-screen w-80 bg-black z-10 box-border shadow-lg ">
         {/* sidebar */}
-        <Box className="h-fit w-full flex flex-col items-start justify-start px-4 py-6   box-border space-y-16 ">
+        <Box className="h-fit w-full flex flex-col items-start justify-start px-5 py-6   box-border space-y-12 ">
           {/* digi logo */}
           <DigiLogoInJs />
 
           <Link
             variant="button"
-            className="w-full py-4 rounded-xl bg-[rgba(34,34,34,255)]/30 hover:bg-[rgba(34,34,34,255)]/50 px-5 flex flex-col justify-start items-start box-border transition-all ease-in-out  duration-300"
+            className="w-full py-4 rounded-lg bg-[rgba(34,34,34,255)]/30 hover:bg-[rgba(34,34,34,255)]/50 px-5 flex flex-col justify-start items-start box-border transition-all ease-in-out  duration-300"
             underline="none"
             href="https://www.digidirect.com.au/"
             target="_blank"
@@ -108,25 +102,43 @@ const Main = () => {
             {/* general */}
             <Typography
               variant="body1"
-              className="text-neutral-500 text-xs font-medium"
+              className="text-neutral-700 text-xs font-medium"
             >
               General
             </Typography>
 
             <List>
-              <ListItemBtnExpandable
+              <ListItemBtnExpandable 
+
                 title="product listing"
-                initialState={false}
-                enableIcon={
-                  <HiChevronDown className="text-inherit "/>
-                }
-                disableIcon={
-                  <HiChevronRight className="text-inherit"/>
-                }
-                children={
-                  <ListItemBtnComponent title="normal listing"></ListItemBtnComponent>
-                }
-              ></ListItemBtnExpandable>
+                initialState={true}
+                enableIcon={<HiChevronDown className="text-inherit " />}
+                disableIcon={<HiChevronRight className="text-inherit" />}
+              >
+
+              {
+                [{title:'normal listing'},{title:'open box'}].map((item,idx)=>(
+                  <ListItemBtnComponent title={item.title} key={idx}/>
+                ))
+              }
+
+              
+              </ListItemBtnExpandable>
+              <ListItemBtnExpandable
+                title="image converter"
+              
+                enableIcon={<HiChevronDown className="text-inherit " />}
+                disableIcon={<HiChevronRight className="text-inherit" />}
+              >
+
+              {
+                [{title:'webp to jpg'},{title:'png to jpg'}].map((item,idx)=>(
+                  <ListItemBtnComponent title={item.title} key={idx}/>
+                ))
+              }
+
+              
+              </ListItemBtnExpandable>
             </List>
           </Paper>
         </Box>

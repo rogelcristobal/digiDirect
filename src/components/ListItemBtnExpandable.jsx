@@ -10,7 +10,7 @@ const ListItemBtnExpandable = ({children,initialState,enableIcon,disableIcon,tit
     <>
       <ListItemButton
         onClick={handleClick}
-        className={`flex justify-between  rounded-xl py-4  transition-all duration-300 ease-int-out ${
+        className={`flex justify-between  rounded-lg py-4  transition-all duration-300 ease-int-out ${
           isOpen && "bg-[rgba(34,34,34,255)]/30"
         } text-neutral-500 hover:text-neutral-300`}
       >
@@ -28,11 +28,11 @@ const ListItemBtnExpandable = ({children,initialState,enableIcon,disableIcon,tit
          </>
         )}
       </ListItemButton>
-      <Collapse in={isOpen} timeout="auto" unmountOnExit dense>
+      <Collapse in={isOpen} timeout="auto" >
         <List
           component="div"
-          disablPadding
-          className="flex justify-between  py-2 hover:text-neutral-300 text-neutral-600 transition-all duration-300 ease-int-out "
+          
+          className=" py-2 hover:text-neutral-300 text-neutral-600 transition-all duration-300 ease-int-out "
         >
         {children}
         </List>
