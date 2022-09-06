@@ -6,4 +6,10 @@
     /* *{
         @apply bg-blue-500/10
     } */
+    ::-webkit-scrollbar {
+		@apply w-2 ;
+	}
+    ::-webkit-scrollbar-thumb {
+        @apply hover:bg-[#233044]/25 bg-gray-400/20 rounded-full
+    }
 }
