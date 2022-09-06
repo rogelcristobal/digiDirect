@@ -7,14 +7,21 @@ import {
   Paper,
   Typography,
   Box,
-  Divider,
-  Button,
   Stack,
   Link,
   Badge,
+  List,
+  ListItemIcon,
+  ListItemButton,
+  Collapse,
+  ListItemText,
 } from "@mui/material";
+import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import DigiLogoInJs from "./components/DigiLogoInJs";
 import { AiFillEye } from "react-icons/ai";
+import { useState } from "react";
+import ListItemBtnComponent from "./components/ListItemBtnComponent";
+import ListItemBtnExpandable from "./components/ListItemBtnExpandable";
 const App = () => {
   const font = "'Poppins', sans-serif";
   const theme = createTheme({
@@ -40,6 +47,11 @@ const Bordered = ({ children }) => {
 };
 
 const Main = () => {
+  const [open, setOpen] = useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
   return (
     <Box className="h-screen w-full box-border flex items-start justify-start bg-[#f9fafc]">
       <Box className="h-[4.5rem]  w-full top-0 left-0 fixed shadow-sm">
@@ -48,26 +60,35 @@ const Main = () => {
 
       <Box className="h-screen w-80 bg-black z-10 box-border ">
         {/* sidebar */}
-        <Box className="h-44 w-full flex flex-col items-start justify-start p-4 box-border space-y-6">
+        <Box className="h-fit w-full flex flex-col items-start justify-start px-4 py-6   box-border space-y-16 ">
           {/* digi logo */}
           <DigiLogoInJs />
 
           <Link
             variant="button"
-            className="w-full py-4 rounded-xl bg-[rgba(34,34,34,255)]/30 hover:bg-[rgba(34,34,34,255)]/50 px-5 flex flex-col justify-start items-start box-border"
+            className="w-full py-4 rounded-xl bg-[rgba(34,34,34,255)]/30 hover:bg-[rgba(34,34,34,255)]/50 px-5 flex flex-col justify-start items-start box-border transition-all ease-in-out  duration-300"
             underline="none"
             href="https://www.digidirect.com.au/"
             target="_blank"
             rel="noopener"
-           
           >
             <Stack
               direction="row"
               justifyContent="space-between"
               className="w-full"
             >
-              <Badge variant="dot" componentsProps={{badge: {className: 'bg-green-800 top-1 -right-1  rounded-full'}}}>
-                <Typography variant="body2" className="capitalize text-xs text-neutral-300">
+              <Badge
+                variant="dot"
+                componentsProps={{
+                  badge: {
+                    className: "bg-green-800 top-1 -right-1  rounded-full",
+                  },
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  className="capitalize text-xs text-neutral-300"
+                >
                   view dashboard
                 </Typography>
               </Badge>
@@ -82,16 +103,31 @@ const Main = () => {
             </Typography>
           </Link>
         </Box>
-        <Divider light className="bg-neutral-800" />
-
         <Box className="w-full px-4 box-border h-60 ">
           <Paper variant="outlined" className="w-full h-full mt-4 bg-inherit">
+            {/* general */}
             <Typography
-              variant="body2"
-              className="text-neutral-800 font-semibold"
+              variant="body1"
+              className="text-neutral-500 text-xs font-medium"
             >
               General
             </Typography>
+
+            <List>
+              <ListItemBtnExpandable
+                title="product listing"
+                initialState={false}
+                enableIcon={
+                  <HiChevronDown className="text-inherit "/>
+                }
+                disableIcon={
+                  <HiChevronRight className="text-inherit"/>
+                }
+                children={
+                  <ListItemBtnComponent title="normal listing"></ListItemBtnComponent>
+                }
+              ></ListItemBtnExpandable>
+            </List>
           </Paper>
         </Box>
       </Box>

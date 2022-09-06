@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 const DigiLogoInJs = ({dark}) => {
   return (
     <>
-      <Typography variant="h6" className="text-[#ff3c00]">
+      <Typography variant="h6" className="text-[#ff3c00] px-2 ">
         digi
         <span className={`font-semibold text-neutral-300 relative ${dark && 'text-black'}`}>
           Direct
