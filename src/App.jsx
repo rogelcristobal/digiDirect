@@ -15,6 +15,8 @@ import {
   ListItemButton,
   Collapse,
   ListItemText,
+  Grid,
+  Divider
 } from "@mui/material";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import DigiLogoInJs from "./components/DigiLogoInJs";
@@ -47,12 +49,13 @@ const Bordered = ({ children }) => {
 
 const Main = () => {
   return (
-    <Box className="h-screen w-full box-border flex items-start justify-start bg-[#f9fafc]">
-      <Box className="h-[4.5rem]  w-full top-0 left-0 fixed shadow-sm bg-[#ffffff]">
+    <Box className="h-screen w-full box-border flex items-start justify-start bg-[#ffffff]">
+      <Box className="h-[4.5rem]  w-full top-0 left-0 fixed  bg-[#ffffff]">
         {/* Nav */}
+        <Divider></Divider>
       </Box>
 
-      <Box className="h-screen w-80 bg-black z-10 box-border shadow-lg ">
+      <Box className="h-screen w-[22rem] bg-black z-10 box-border shadow-lg ">
         {/* sidebar */}
         <Box className="h-fit w-full flex flex-col items-start justify-start px-5 py-6   box-border space-y-12 ">
           {/* digi logo */}
@@ -108,45 +111,68 @@ const Main = () => {
             </Typography>
 
             <List>
-              <ListItemBtnExpandable 
-
+              <ListItemBtnExpandable
                 title="product listing"
                 initialState={true}
                 enableIcon={<HiChevronDown className="text-inherit " />}
                 disableIcon={<HiChevronRight className="text-inherit" />}
               >
-
-              {
-                [{title:'normal listing'},{title:'open box'}].map((item,idx)=>(
-                  <ListItemBtnComponent title={item.title} key={idx}/>
-                ))
-              }
-
-              
+                {[{ title: "normal listing" }, { title: "open box" }].map(
+                  (item, idx) => (
+                    <ListItemBtnComponent title={item.title} key={idx} />
+                  )
+                )}
               </ListItemBtnExpandable>
               <ListItemBtnExpandable
                 title="image converter"
-              
                 enableIcon={<HiChevronDown className="text-inherit " />}
                 disableIcon={<HiChevronRight className="text-inherit" />}
               >
-
-              {
-                [{title:'webp to jpg'},{title:'png to jpg'}].map((item,idx)=>(
-                  <ListItemBtnComponent title={item.title} key={idx}/>
-                ))
-              }
-
-              
+                {[{ title: "webp to jpg" }, { title: "png to jpg" }].map(
+                  (item, idx) => (
+                    <ListItemBtnComponent title={item.title} key={idx} />
+                  )
+                )}
               </ListItemBtnExpandable>
             </List>
           </Paper>
         </Box>
       </Box>
-      <Box className="h-full w-full pt-20 px-6 box-border flex items-start justify-center">
-        <Box className="h-full w-full box-border flex items-start gap-3">
-          <Box className="h-full overflow-auto w-full ">{/* content */}</Box>
+      <Box className="h-full w-full pt-16 px-8 box-border flex items-start justify-center">
+        <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-4 ">
+          <Box className="h-full overflow-auto w-full space-y-0 box-border">
+            {/* content */}
 
+             <Box className=" mt-6">
+              <Typography variant="h5" className="font-semibold text-2xl tracking-thin">Good afternoon, User</Typography>
+             </Box>
+
+            <Grid container columns={12} columnSpacing={2} rowSpacing={2} className="box-border p-4"> 
+              <Grid item xs={6}>
+                <Paper
+                  variant="contained"
+                  className="h-52 w-full  rounded-lg bg-[#e6e6e6] box-border drop-shadow-sm"
+                >
+                  
+                </Paper>
+              </Grid>
+              <Grid item xs={4}>
+                <Paper
+                  variant="outlined"
+                  className="h-40 w-full rounded-lg bg-[#ffffff] box-border drop-shadow-sm"
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <Paper
+                  variant="outlined"
+                  className="h-[30rem] w-full rounded-lg bg-[#ffffff] box-border drop-shadow-sm"
+                />
+              </Grid>
+
+
+            </Grid>
+          </Box>
           <Box className="h-60 w-60">{/* page nav */}</Box>
         </Box>
       </Box>
@@ -154,3 +180,5 @@ const Main = () => {
   );
 };
 export default App;
+
+// https://material-kit-pro-react.devias.io/dashboard
