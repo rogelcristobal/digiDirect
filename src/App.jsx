@@ -64,9 +64,10 @@ const Main = () => {
       >
         
       </Box>
-      <Box className="h-screen w-80 bg-[#ffffff] z-10 box-border  pt-2">
+      <Box className="h-screen w-[22rem] bg-[#ffffff] z-10 box-border relative pt-0 ">
+        <Divider orientation="vertical" className="absolute right-0 top-0" light></Divider>
         {/* sidebar */}
-        <Box className="h-24 w-full flex flex-col items-start justify-start px-5 py-6  box-border space-y-12 ">
+        <Box className="h-28 w-full flex flex-col items-start justify-center px-5 py-6  box-border space-y-12 ">
           {/* digi logo */}
           <DigiLogoInJs dark size="text-xl" />
         </Box>
@@ -75,7 +76,7 @@ const Main = () => {
             {/* general */}
             <Typography
               variant="body1"
-              className="text-neutral-500/40 text-xs font-medium ml-4"
+              className="text-neutral-900/25 text-xs font-medium ml-2"
             >
               General
             </Typography>
@@ -108,9 +109,9 @@ const Main = () => {
           </Paper>
         </Box>
       </Box>
-      <Box className="h-full w-full pt-[4.5rem] px-4 box-border flex items-start justify-center">
-        <Box className="h-full w-full box-border flex items-start gap-3 rounded-2xl p-0 bg-[#f9fafc]  ">
-          <Box className="h-full overflow-auto w-full space-y-3 box-border px-4 pt-5">
+      <Box className="h-full w-full pt-[4.5rem]  box-border flex items-start justify-center">
+        <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">
+          <Box className="h-full overflow-auto w-full space-y-3 box-border px-8 pt-5">
             {/* content */}
 
             {/* <Box className=" mt-12">
@@ -126,26 +127,26 @@ const Main = () => {
             >
               <Grid item xs={6}>
                 <Paper
-                  variant="contained"
+                  variant="outlined"
                   className="h-60 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
                 ></Paper>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <Paper
-                  variant="contained"
+                  variant="outlined"
                   className="h-48 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
                 />
               </Grid>
               <Grid item xs={8}>
                 <Paper
-                  variant="contained"
+                  variant="outlined"
                   className="h-48 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
                 />
               </Grid>
 
               <Grid item xs={12}>
                 <Paper
-                  variant="contained"
+                  variant="outlined"
                   className="h-[30rem] w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
                 />
               </Grid>

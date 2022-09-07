@@ -23,11 +23,11 @@ const ListItemBtnExpandable = ({
 
       <ListItemButton
         onClick={handleClick}
-        className={`flex justify-between   rounded-xl py-3.5 px-5 ttransition-all duration-300 ease-int-out ${
-          isOpen ? "bg-blue-50 text-blue-500": 'bg-inherit text-neutral-600'
+        className={`flex justify-between   rounded-xl py-4 px-4 transition-all duration-300 ease-int-out ${
+          isOpen ? "bg-blue-50 text-blue-500": 'bg-inherit text-neutral-500'
         }  `}
       >
-        <Typography variant="body2" className=" text-sm font-medium capitalize">
+        <Typography variant="body2" className=" text-[0.775rem] font-medium capitalize">
           {title}
         </Typography>
         {/* icon conditional render */}
@@ -36,7 +36,7 @@ const ListItemBtnExpandable = ({
       <Collapse in={isOpen} timeout="auto">
         <List
           component="div"
-          className=" py-2 hover:text-neutral-300 text-neutral-600 transition-all duration-300 ease-int-out "
+          className=" py-2 pl-2 hover:text-neutral-300 text-neutral-300 transition-all duration-300 ease-int-out "
         >
           {children}
         </List>
