@@ -27,7 +27,7 @@ const ListItemBtnExpandable = ({
           isOpen ? "bg-blue-50 text-blue-500": 'bg-inherit text-neutral-500'
         }  `}
       >
-        <Typography variant="body2" className=" text-[0.775rem] font-medium capitalize">
+        <Typography variant="body2" className=" text-sm font-medium capitalize">
           {title}
         </Typography>
         {/* icon conditional render */}

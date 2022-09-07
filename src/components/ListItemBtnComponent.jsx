@@ -13,7 +13,7 @@ const ListItemBtnComponent = ({icon,title,handleClick}) => {
        
         className={` text-neutral-500 hover:text-blue-500 py-3.5 rounded-xl  bg-inherit transition-all duration-300 ease-int-out capitalize`}
       >
-        <Typography variant="body1" className=" text-xs font-medium">
+        <Typography variant="body1" className=" text-sm font-medium">
           {title}
         </Typography>
         {/* icon conditional render */}
