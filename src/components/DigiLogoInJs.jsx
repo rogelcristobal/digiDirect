@@ -1,10 +1,10 @@
 import React from "react";
 import { Typography } from "@mui/material";
-const DigiLogoInJs = ({dark,size}) => {
+const DigiLogoInJs = ({dark,size,color}) => {
   return (
     <>
     {/* [#ff3c00] */}
-      <Typography variant="h6" className={` text-blue-500  px-2 box-border`}>
+      <Typography variant="h6" className={` ${color} ${size}  px-2 box-border`}>
         digi
         <span className={`font-semibold  relative ${dark ? 'text-black':'text-neutral-300'}`}>
           Direct
@@ -18,7 +18,8 @@ const DigiLogoInJs = ({dark,size}) => {
 };
 
 DigiLogoInJs.defaultProps={
-    dark:false
+    dark:false,
+    color: 'text-[#ff3c00]'
 }
 
 export default DigiLogoInJs;

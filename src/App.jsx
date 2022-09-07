@@ -67,16 +67,26 @@ const Main = () => {
       <Box className="h-screen w-[22rem] bg-[#ffffff] z-10 box-border relative pt-0 ">
         <Divider orientation="vertical" className="absolute right-0 top-0" light></Divider>
         {/* sidebar */}
-        <Box className="h-28 w-full flex flex-col items-start justify-center px-5 py-6  box-border space-y-12 ">
+        <Box className="h-28 w-full flex flex-col items-start justify-center px-6 py-6  box-border space-y-12 ">
           {/* digi logo */}
-          <DigiLogoInJs dark size="text-xl" />
+          <DigiLogoInJs dark size="text-2xl" color="text-blue-500"/>
         </Box>
-        <Box className="w-full px-4 box-border h-60 ">
+        <Box className="w-full px-6 box-border h-60 ">
           <Paper variant="contained" className="w-full h-full mt-4 bg-inherit">
+          <Typography
+              variant="body1"
+              className="text-neutral-900/40 text-xs font-medium ml-2"
+            >
+              Dashboard
+            </Typography>
+            <List>
+              <ListItemBtnComponent title="dashboard"  />
+            </List>
             {/* general */}
+            
             <Typography
               variant="body1"
-              className="text-neutral-900/25 text-xs font-medium ml-2"
+              className="text-neutral-900/40 text-xs font-medium ml-2"
             >
               General
             </Typography>
@@ -106,6 +116,8 @@ const Main = () => {
                 )}
               </ListItemBtnExpandable>
             </List>
+
+            
           </Paper>
         </Box>
       </Box>
