@@ -44,29 +44,32 @@ const Main = () => {
 		// bg-[#f9fafc]
 		<Box className="h-screen w-full box-border flex items-start justify-start bg-[#ffffff] ">
 			<Box className="h-[4.5rem]   w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  "></Box>
-			<Box className="h-screen w-[22rem] bg-[#ffffff] z-10 box-border relative pt-0 ">
+			<Box className="h-screen w-[22rem] bg-[#ffffff] z-10 box-border relative pt-0 shadow">
 				<Divider
 					orientation="vertical"
 					className="absolute right-0 top-0"
 					light
 				></Divider>
 				{/* sidebar */}
-				<Box className="h-28 w-full flex flex-col items-start justify-center px-5 py-6  box-border space-y-12 ">
+				<Box className="h-32 w-full flex flex-col items-start justify-center px-5 py-6 bg-black  relative box-border space-y-12 ">
 					{/* digi logo */}
-					<DigiLogoInJs dark size="text-xl" />
+					<DigiLogoInJs  size="text-xl" color='text-blue-500'/>
+          {/* <div className="h-1 w-full absolute bottom-0 left-0 bg-blue-500"></div> */}
 				</Box>
-				<Box className="w-full px-4 box-border h-60 ">
+				<Box className="w-full px-5 box-border h-60 mt-8">
 					<Paper variant="contained" className="w-full h-full mt-4 bg-inherit">
 						{/* general */}
 						<Typography
 							variant="body1"
-							className="text-neutral-900/25 text-xs font-medium ml-2"
+							className="text-neutral-700/50 text-xs font-semibold ml-2"
 						>
 							General
 						</Typography>
 
 						<List>
 							<ListItemBtnExpandable
+                textColor='text-blue-500'
+                bgColor='bg-blue-50'
 								title="product listing"
 								initialState={true}
 								enableIcon={<HiChevronDown className="text-inherit " />}
@@ -74,18 +77,20 @@ const Main = () => {
 							>
 								{[{ title: "normal listing" }, { title: "open box" }].map(
 									(item, idx) => (
-										<ListItemBtnComponent title={item.title} key={idx} />
+										<ListItemBtnComponent hoverColor='hover:text-blue-500' title={item.title} key={idx} />
 									)
 								)}
 							</ListItemBtnExpandable>
 							<ListItemBtnExpandable
+                textColor='text-blue-500'
+                bgColor='bg-blue-50'
 								title="image converter"
 								enableIcon={<HiChevronDown className="text-inherit " />}
 								disableIcon={<HiChevronRight className="text-inherit" />}
 							>
 								{[{ title: "webp to jpg" }, { title: "png to jpg" }].map(
 									(item, idx) => (
-										<ListItemBtnComponent title={item.title} key={idx} />
+										<ListItemBtnComponent hoverColor='hover:text-blue-500' title={item.title} key={idx} />
 									)
 								)}
 							</ListItemBtnExpandable>

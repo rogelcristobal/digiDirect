@@ -7,6 +7,9 @@ const ListItemBtnExpandable = ({
   enableIcon,
   disableIcon,
   title,
+  textColor,
+  bgColor
+
 }) => {
   const [isOpen, setState] = useState(initialState);
   const handleClick = () => {
@@ -24,7 +27,7 @@ const ListItemBtnExpandable = ({
       <ListItemButton
         onClick={handleClick}
         className={`flex justify-between   rounded-xl py-4 px-4 transition-all duration-300 ease-int-out ${
-          isOpen ? "bg-blue-50 text-blue-500": 'bg-inherit text-neutral-500'
+          isOpen ? `${bgColor} ${textColor}` : 'bg-inherit text-neutral-600'
         }  `}
       >
         <Typography variant="body2" className=" text-sm font-medium capitalize">
@@ -36,7 +39,8 @@ const ListItemBtnExpandable = ({
       <Collapse in={isOpen} timeout="auto">
         <List
           component="div"
-          className=" py-2 pl-2 hover:text-neutral-300 text-neutral-300 transition-all duration-300 ease-int-out "
+          className=" py-2 pl-1  transition-all duration-300 ease-int-out "
+          
         >
           {children}
         </List>
@@ -44,5 +48,11 @@ const ListItemBtnExpandable = ({
     </>
   );
 };
+
+
+ListItemBtnExpandable.defaultProps={
+  bgColor:'bg-purple-50',
+  textColor:'text-purple-500'
+}
 
 export default ListItemBtnExpandable;
