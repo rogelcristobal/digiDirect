@@ -10,6 +10,6 @@
 		@apply w-2 ;
 	}
     ::-webkit-scrollbar-thumb {
-        @apply hover:bg-[#233044]/25 bg-gray-400/20 rounded-full
+        @apply hover:bg-gray-400/25 bg-gray-300/25 rounded-full
     }
 }

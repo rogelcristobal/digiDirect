@@ -24,7 +24,7 @@ import { AiFillEye } from "react-icons/ai";
 import ListItemBtnComponent from "./components/ListItemBtnComponent";
 import ListItemBtnExpandable from "./components/ListItemBtnExpandable";
 const App = () => {
-  const font = "'Poppins', sans-serif";
+  const font = "'poppins', sans-serif";
   const theme = createTheme({
     typography: {
       fontFamily: [font].join(","),
@@ -38,6 +38,7 @@ const App = () => {
     </StyledEngineProvider>
   );
 };
+
 
 const Bordered = ({ children }) => {
   return (
@@ -55,23 +56,19 @@ const Bordered = ({ children }) => {
 
 const Main = () => {
   return (
-    <Box className="h-screen w-full box-border flex items-start justify-start bg-[#e3ebeb]">
+    // bg-[#f9fafc]
+    <Box className="h-screen w-full box-border flex items-start justify-start bg-[#ffffff] ">
       <Box
-      // dark:bg-[#111827]
-        className="h-[4.5rem] shadow-sm  w-full top-0 left-0 fixed flex items-end bg-[#ffffff]  "
        
+        className="h-[4.5rem]   w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  "
       >
-        {/* Nav */}
+        
       </Box>
-      <Box className="h-screen w-80 bg-[#ffffff] z-10 box-border  pt-2"
-     
-      >
+      <Box className="h-screen w-80 bg-[#ffffff] z-10 box-border  pt-2">
         {/* sidebar */}
-        <Box className="h-32 w-full flex flex-col items-start justify-start px-5 py-6  box-border space-y-12 ">
+        <Box className="h-24 w-full flex flex-col items-start justify-start px-5 py-6  box-border space-y-12 ">
           {/* digi logo */}
-          <DigiLogoInJs dark size="text-xl"/>
-
-         
+          <DigiLogoInJs dark size="text-xl" />
         </Box>
         <Box className="w-full px-4 box-border h-60 ">
           <Paper variant="contained" className="w-full h-full mt-4 bg-inherit">
@@ -112,8 +109,8 @@ const Main = () => {
         </Box>
       </Box>
       <Box className="h-full w-full pt-[4.5rem] px-4 box-border flex items-start justify-center">
-        <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0 ">
-          <Box className="h-full overflow-auto w-full space-y-3 box-border px-4 pt-8">
+        <Box className="h-full w-full box-border flex items-start gap-3 rounded-2xl p-0 bg-[#f9fafc]  ">
+          <Box className="h-full overflow-auto w-full space-y-3 box-border px-4 pt-5">
             {/* content */}
 
             {/* <Box className=" mt-12">
@@ -130,26 +127,26 @@ const Main = () => {
               <Grid item xs={6}>
                 <Paper
                   variant="contained"
-                  className="h-60 w-full  rounded-lg bg-[#ffffff] box-border shadow-sm"
+                  className="h-60 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
                 ></Paper>
               </Grid>
               <Grid item xs={4}>
                 <Paper
                   variant="contained"
-                  className="h-48 w-full rounded-lg bg-[#ffffff] box-border shadow-sm"
+                  className="h-48 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
                 />
               </Grid>
               <Grid item xs={8}>
                 <Paper
                   variant="contained"
-                  className="h-48 w-full rounded-lg bg-[#ffffff] box-border shadow-sm"
+                  className="h-48 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
                 />
               </Grid>
 
               <Grid item xs={12}>
                 <Paper
                   variant="contained"
-                  className="h-[30rem] w-full rounded-lg bg-[#ffffff] box-border shadow-sm"
+                  className="h-[30rem] w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
                 />
               </Grid>
             </Grid>

@@ -24,7 +24,7 @@ const ListItemBtnExpandable = ({
       <ListItemButton
         onClick={handleClick}
         className={`flex justify-between   rounded-xl py-3.5 px-5 ttransition-all duration-300 ease-int-out ${
-          isOpen ? "bg-orange-50 text-orange-600": 'bg-inherit text-neutral-600'
+          isOpen ? "bg-blue-50 text-blue-500": 'bg-inherit text-neutral-600'
         }  `}
       >
         <Typography variant="body2" className=" text-sm font-medium capitalize">

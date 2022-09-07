@@ -11,7 +11,7 @@ const ListItemBtnComponent = ({icon,title,handleClick}) => {
      > */}
       <ListItemButton
        
-        className={`pl-8 text-neutral-600 hover:text-orange-600 py-3.5 rounded-xl  bg-inherit transition-all duration-300 ease-int-out capitalize`}
+        className={`pl-8 text-neutral-600 hover:text-blue-500 py-3.5 rounded-xl  bg-inherit transition-all duration-300 ease-int-out capitalize`}
       >
         <Typography variant="body1" className=" text-xs font-medium">
           {title}
