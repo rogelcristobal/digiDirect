@@ -122,6 +122,7 @@ const Main = () => {
 											textColor="text-blue-500"
 											bgColor="bg-blue-50"
 											title="templates"
+											initialState
 											enableIcon={<HiChevronDown className="text-inherit " />}
 											disableIcon={<HiChevronRight className="text-inherit" />}
 										>
