@@ -62,18 +62,19 @@ const Main = () => {
                 <DigiLogoInJs size="text-xl" color="text-blue-500" />
                 {/* <div className="h-1 w-full absolute bottom-0 left-0 bg-blue-500"></div> */}
               </Box>
-              <Box className="w-full px-4 box-border h-60 mt-8 ">
+              <Box className="w-full px-0 box-border h-60 mt-6 ">
                 <Paper
-                  variant="outlined"
-                  className="w-full rounded-2xl h-auto max-h-[25rem] py-4 px-2 overflow-y-scroll box-border mt-4 bg-inherit"
+                  variant="contained"
+                  className="w-full bg-inherit rounded-2xl h-auto max-h-[25rem] py-4 px-6 overflow-y-scroll box-border mt-4 "
                 >
                   {/* general */}
                   <Typography
                     variant="body1"
-                    className="text-neutral-700/50 text-xs font-semibold ml-2"
+                    className="text-neutral-700/40 text-xs font-semibold ml-2"
                   >
                     General
                   </Typography>
+                 
 
                   <List>
                     <ListItemBtnExpandable
