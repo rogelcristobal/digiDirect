@@ -11,6 +11,11 @@ import ListItemBtnComponent from "./components/ListItemBtnComponent";
 import ListItemBtnExpandable from "./components/ListItemBtnExpandable";
 import useRequest from "./requests/useRequest";
 import { useEffect } from "react";
+
+// tanstack
+
+import { useQueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 const App = () => {
 	const font = "'poppins', sans-serif";
 	const theme = createTheme({
@@ -18,13 +23,16 @@ const App = () => {
 			fontFamily: [font].join(","),
 		},
 	});
+	const queryClient = useQueryClient();
 	return (
 		<HashRouter>
-			<StyledEngineProvider injectFirst>
-				<ThemeProvider theme={theme}>
-					<Main />
-				</ThemeProvider>
-			</StyledEngineProvider>
+			<QueryClientProvider client={queryClient}>
+				<StyledEngineProvider injectFirst>
+					<ThemeProvider theme={theme}>
+						<Main />
+					</ThemeProvider>
+				</StyledEngineProvider>
+			</QueryClientProvider>
 		</HashRouter>
 	);
 };
