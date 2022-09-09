@@ -10,7 +10,7 @@ import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 import ListItemBtnComponent from "./components/ListItemBtnComponent";
 import ListItemBtnExpandable from "./components/ListItemBtnExpandable";
 import { AiFillTags, AiFillFileImage, AiFillLayout } from "react-icons/ai";
-
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
@@ -24,6 +24,7 @@ const App = () => {
   });
   return (
     <QueryClientProvider client={queryClient}>
+		  <ReactQueryDevtools initialIsOpen={false} />
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
