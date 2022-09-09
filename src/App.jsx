@@ -4,7 +4,7 @@ import {
   StyledEngineProvider,
 } from "@mui/material/styles";
 import { Box,Divider} from "@mui/material";
-
+import { useLocation } from "react-router-dom";
 import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 // icons
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -13,6 +13,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
+import NormalListing from "./pages/NormalListing";
 
 // query
 const queryClient = new QueryClient();
@@ -39,9 +40,11 @@ const App = () => {
 };
 
 const Main = () => {
+	const {pathname} = useLocation()
+	console.log(pathname)
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/dashboard" />} />
+      <Route  path="/" element={<Navigate to="/dashboard" />} />
       <Route
         path="/dashboard/*"
         element={
@@ -59,6 +62,9 @@ const Main = () => {
             <Box className="h-full w-full pt-[5rem]  box-border flex items-start justify-center">
               <Routes>
                 <Route index element={<Dashboard />} />
+				<Route path="/normal-listing" element={<NormalListing/>}/>
+				<Route path="/open-box-listing" element={<NormalListing/>}/>
+
               </Routes>
             </Box>
           </Box>

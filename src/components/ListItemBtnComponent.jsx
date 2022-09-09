@@ -17,10 +17,10 @@ const ListItemBtnComponent = ({
        className={`pl-8 text-neutral-600 py-4 rounded-lg hover:bg-[rgba(34,34,34,255)]/50 hover:text-neutral-300 transition-all duration-300 ease-int-out capitalize`}
      > */}
       <NavLink to={`${path}`}
-      
       className={({ isActive }) =>
-      isActive ? `${activeStyle}`: 'text-neutral-500 no-underline'
+      isActive ? `${activeStyle}`: 'bg-inherit text-neutral-500 no-underline'
       }
+      
       >
         <ListItemButton
           className={`  ${hoverColor} py-4 rounded-2xl  flex items-center justify-start bg-inherit transition-all duration-300 ease-int-out capitalize  ${parentBtn?'px-6':'px-10'} space-x-4`}
