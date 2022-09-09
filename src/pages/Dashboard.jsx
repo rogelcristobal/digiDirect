@@ -17,6 +17,23 @@ const Dashboard = () => {
             rowSpacing={2.5}
             className="box-border p-0"
           >
+            <Grid item xs={4}>
+              <Paper
+                variant="outlined"
+                className="h-60 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
+              ></Paper>
+            </Grid>
+            <Grid item xs={8} >
+              <Paper
+                variant="outlined"
+                className="h-full w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
+              >
+
+
+
+                
+              </Paper>
+            </Grid>
             <Grid item xs={6}>
               <Paper
                 variant="outlined"
@@ -26,13 +43,19 @@ const Dashboard = () => {
             <Grid item xs={6}>
               <Paper
                 variant="outlined"
-                className="h-48 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
+                className="h-full w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
               />
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={6}>
               <Paper
                 variant="outlined"
-                className="h-48 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
+                className="h-24 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Paper
+                variant="outlined"
+                className="h-24 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
               />
             </Grid>
 

@@ -6,9 +6,9 @@ import ListItemBtnComponent from './ListItemBtnComponent'
 import ListItemBtnExpandable from './ListItemBtnExpandable'
 import DigiLogoInJs from "./DigiLogoInJs";
 // icon
-import { AiFillTags, AiFillFileImage, AiFillLayout } from "react-icons/ai";
+import { AiOutlineTags, AiOutlineFileImage, AiOutlineLayout } from "react-icons/ai";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
-import {MdDashboard} from 'react-icons/md'
+import {AiOutlineDashboard} from 'react-icons/ai'
 const SideBar = () => {
   return (
     <Box className="h-screen w-[22rem] bg-[#ffffff] z-10 box-border relative pt-0 shadow">
@@ -30,7 +30,7 @@ const SideBar = () => {
         >
           <Typography
             variant="body1"
-            className="text-neutral-700/30 text-xs font-semibold ml-2"
+            className="text-neutral-900/30 text-xs font-semibold ml-2"
           >
             Dashboard
           </Typography>
@@ -39,15 +39,14 @@ const SideBar = () => {
               path="/dashboard"
               hoverColor="hover:text-blue-500"
               title="dashboard"
-              icon={<MdDashboard />}
+              icon={<AiOutlineDashboard />}
               parentBtn
               activeStyle="bg-blue-50 text-blue-500  no-underline "
             />
           </List>
-          {/* general */}
           <Typography
             variant="body1"
-            className="text-neutral-700/30 text-xs font-semibold ml-2"
+            className="text-neutral-900/30 text-xs font-semibold ml-2"
           >
             General
           </Typography>
@@ -58,7 +57,7 @@ const SideBar = () => {
               bgColor="bg-blue-50"
               title="product listing"
               initialState={true}
-              icon={<AiFillTags className="text-sm " />}
+              icon={<AiOutlineTags className="text-sm " />}
               enableIcon={<HiChevronDown className="text-inherit " />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
@@ -78,7 +77,7 @@ const SideBar = () => {
             <ListItemBtnExpandable
               textColor="text-blue-500"
               bgColor="bg-blue-50"
-              icon={<AiFillFileImage className="text-sm" />}
+              icon={<AiOutlineFileImage className="text-sm" />}
               title="image converter"
               enableIcon={<HiChevronDown className="text-inherit " />}
               disableIcon={<HiChevronRight className="text-inherit" />}
@@ -101,7 +100,7 @@ const SideBar = () => {
               bgColor="bg-blue-50"
               title="templates"
               initialState
-              icon={<AiFillLayout className="text-sm" />}
+              icon={<AiOutlineLayout className="text-sm" />}
               enableIcon={<HiChevronDown className="text-inherit " />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >

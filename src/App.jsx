@@ -3,7 +3,7 @@ import {
   ThemeProvider,
   StyledEngineProvider,
 } from "@mui/material/styles";
-import { Box } from "@mui/material";
+import { Box,Divider} from "@mui/material";
 
 import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 // icons
@@ -38,20 +38,6 @@ const App = () => {
   );
 };
 
-const Bordered = ({ children }) => {
-  return (
-    <Box
-      variant="contained"
-      className="h-full  w-full box-border bg-inherit"
-      sx={{
-        border: (theme) => `0.75px solid ${theme.palette.divider}`,
-      }}
-    >
-      {children}
-    </Box>
-  );
-};
-
 const Main = () => {
   return (
     <Routes>
@@ -61,11 +47,16 @@ const Main = () => {
         element={
           <Box className="h-screen w-full box-border flex items-start justify-start bg-[#ffffff] ">
 			{/* navbar */}
-            <Box className="h-[4.5rem]   w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  "></Box>
+            <Box className="h-[4.5rem]   w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  shadow-sm">
+				<div className="w-full h-full relative">
+					<Divider variant="fullWidth" className="absolute bottom-0 right-0 w-full" light></Divider>
+				</div>
+				
+			</Box>
             
             <SideBar />
 			{/* content */}
-            <Box className="h-full w-full pt-[4.5rem]  box-border flex items-start justify-center">
+            <Box className="h-full w-full pt-[5rem]  box-border flex items-start justify-center">
               <Routes>
                 <Route index element={<Dashboard />} />
               </Routes>

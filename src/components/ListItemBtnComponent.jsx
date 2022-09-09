@@ -19,11 +19,11 @@ const ListItemBtnComponent = ({
       <NavLink to={`${path}`}
       
       className={({ isActive }) =>
-      isActive ? `${activeStyle}`: 'text-neutral-600 no-underline'
+      isActive ? `${activeStyle}`: 'text-neutral-500 no-underline'
       }
       >
         <ListItemButton
-          className={`  ${hoverColor} py-4 rounded-2xl  flex items-center justify-start bg-inherit transition-all duration-300 ease-int-out capitalize px-6 space-x-4`}
+          className={`  ${hoverColor} py-4 rounded-2xl  flex items-center justify-start bg-inherit transition-all duration-300 ease-int-out capitalize  ${parentBtn?'px-6':'px-10'} space-x-4`}
         >
           {icon}
           <Typography
