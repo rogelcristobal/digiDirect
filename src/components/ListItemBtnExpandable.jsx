@@ -8,7 +8,8 @@ const ListItemBtnExpandable = ({
   disableIcon,
   title,
   textColor,
-  bgColor
+  bgColor,
+  icon
 
 }) => {
   const [isOpen, setState] = useState(initialState);
@@ -26,20 +27,24 @@ const ListItemBtnExpandable = ({
 
       <ListItemButton
         onClick={handleClick}
-        className={`flex justify-between   rounded-xl py-4 px-4 transition-all duration-300 ease-int-out ${
+        className={`flex justify-between   rounded-xl py-4 px-3 transition-all duration-300 ease-int-out ${
           isOpen ? `${bgColor} ${textColor}` : 'bg-inherit text-neutral-600'
         }  `}
       >
+        <div className="flex items-center justify-center space-x-3">
+        {icon}
+
         <Typography variant="body2" className=" text-sm font-medium capitalize">
           {title}
         </Typography>
+        </div>
         {/* icon conditional render */}
         {isOpen ? <>{enableIcon}</> : <>{disableIcon}</>}
       </ListItemButton>
       <Collapse in={isOpen} timeout="auto">
         <List
           component="div"
-          className=" py-2 pl-1  transition-all duration-300 ease-int-out "
+          className=" py-2 pl-0  transition-all duration-300 ease-int-out "
           
         >
           {children}
