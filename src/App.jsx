@@ -27,8 +27,8 @@ const App = () => {
   });
   return (
     <QueryClientProvider client={queryClient} >
-      <ReactQueryDevtools initialIsOpen={false} />
-      <HashRouter basename="digiDirect">
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <HashRouter basename="/digiDirect">
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
             <Main />
