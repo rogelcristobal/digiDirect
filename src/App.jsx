@@ -3,7 +3,7 @@ import {
   ThemeProvider,
   StyledEngineProvider,
 } from "@mui/material/styles";
-import { Box,Divider} from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 // icons
@@ -26,9 +26,9 @@ const App = () => {
     },
   });
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient} >
       <ReactQueryDevtools initialIsOpen={false} />
-      <HashRouter>
+      <HashRouter basename="digiDirect">
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
             <Main />
@@ -40,31 +40,32 @@ const App = () => {
 };
 
 const Main = () => {
-	const {pathname} = useLocation()
-	console.log(pathname)
+  const { pathname } = useLocation();
   return (
     <Routes>
-      <Route  path="/" element={<Navigate to="/dashboard" />} />
+      {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
-        path="/dashboard/*"
+        path="/*"
         element={
           <Box className="h-screen w-full box-border flex items-start justify-start bg-[#ffffff] ">
-			{/* navbar */}
+            {/* navbar */}
             <Box className="h-[4.5rem]   w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  shadow-sm">
-				<div className="w-full h-full relative">
-					<Divider variant="fullWidth" className="absolute bottom-0 right-0 w-full" light></Divider>
-				</div>
-				
-			</Box>
-            
+              <div className="w-full h-full relative">
+                <Divider
+                  variant="fullWidth"
+                  className="absolute bottom-0 right-0 w-full"
+                  light
+                ></Divider>
+              </div>
+            </Box>
+
             <SideBar />
-			{/* content */}
+            {/* content */}
             <Box className="h-full w-full pt-[5rem]  box-border flex items-start justify-center">
               <Routes>
                 <Route index element={<Dashboard />} />
-				<Route path="/normal-listing" element={<NormalListing/>}/>
-				<Route path="/open-box-listing" element={<NormalListing/>}/>
-
+                <Route path="/normal-listing" element={<NormalListing />} />
+                <Route path="/open-box-listing" element={<NormalListing />} />
               </Routes>
             </Box>
           </Box>

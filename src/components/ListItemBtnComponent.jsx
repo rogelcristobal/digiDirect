@@ -12,10 +12,7 @@ const ListItemBtnComponent = ({
 }) => {
   return (
     <>
-      {/* <ListItemButton
-       
-       className={`pl-8 text-neutral-600 py-4 rounded-lg hover:bg-[rgba(34,34,34,255)]/50 hover:text-neutral-300 transition-all duration-300 ease-int-out capitalize`}
-     > */}
+    
       <NavLink to={`${path}`}
       className={({ isActive }) =>
       isActive ? `${activeStyle}`: 'bg-inherit text-neutral-500 no-underline'
