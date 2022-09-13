@@ -10,9 +10,9 @@ const NormalListing = () => {
 
 // const {fetch,state} = useImportFromURL()
 const {mutate,state} = useImportFromURL()
-useEffect(()=>{
-  mutate()
-},[])
+// useEffect(()=>{
+//   mutate()
+// },[])
 console.log(state.data)
 
 

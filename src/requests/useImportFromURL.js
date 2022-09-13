@@ -35,7 +35,6 @@ const useImportFromURL = () => {
             header:res.headers,
             status:res.status
         }
-
         setState(result)
       },
     }

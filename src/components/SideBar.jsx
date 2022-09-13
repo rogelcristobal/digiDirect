@@ -35,7 +35,7 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-900/50 text-xs font-semibold ml-2 mb-2"
+            className="text-neutral-600/50 text-xs font-semibold ml-2 mb-2"
           >
             Dashboard
           </Typography>
@@ -55,7 +55,7 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-900/50 text-xs font-semibold ml-2 mb-2"
+            className="text-neutral-600/50 text-xs font-semibold ml-2 mb-2"
           >
             General
           </Typography>
@@ -89,7 +89,7 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-900/50 text-xs font-semibold ml-2 mb-2"
+            className="text-neutral-600/50 text-xs font-semibold ml-2 mb-2"
           >
             Tools & API's
           </Typography>
