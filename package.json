@@ -4,7 +4,6 @@
   "homepage": "https://rogelcristobal.github.io",
   "private": true,
   "dependencies": {
-    "@codesandbox/sandpack-react": "^1.7.2",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.3",
@@ -20,6 +19,7 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-syntax-highlighter": "^15.5.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },

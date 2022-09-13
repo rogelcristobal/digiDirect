@@ -45,7 +45,7 @@ const Main = () => {
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
-        path="/*"
+       path="/*"
         element={
           <Box className="h-screen w-full box-border flex items-start justify-start bg-[#ffffff] ">
             {/* navbar */}
