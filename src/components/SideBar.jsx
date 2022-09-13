@@ -35,7 +35,7 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-900/30 text-xs font-medium ml-2 mb-2"
+            className="text-neutral-900/30 text-xs font-semibold ml-2 mb-2"
           >
             Dashboard
           </Typography>

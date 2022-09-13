@@ -28,7 +28,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient} >
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-      <HashRouter basename="/digiDirect">
+      <HashRouter>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
             <Main />
@@ -49,7 +49,7 @@ const Main = () => {
         element={
           <Box className="h-screen w-full box-border flex items-start justify-start bg-[#ffffff] ">
             {/* navbar */}
-            <Box className="h-[4.5rem]   w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  shadow-sm">
+            <Box className="h-[4.5rem]   w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  ">
               <div className="w-full h-full relative">
                 <Divider
                   variant="fullWidth"

@@ -1,4 +1,6 @@
-import  {Box,Grid,Paper} from '@mui/material'
+import  {Box,Paper} from '@mui/material'
+import Masonry from '@mui/lab/Masonry'
+
 const Dashboard = () => {
   return (
     <>
@@ -9,66 +11,22 @@ const Dashboard = () => {
           {/* <Box className=" mt-12">
             <Typography variant="h5" className="font-semibold text-[1.75rem] tracking-tight">Good afternoon, User</Typography>
           </Box> */}
+          {/* <Paper
+                variant="outlined"
+                className="h-52 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
+              ></Paper> */}
 
-          <Grid
-            container
-            columns={12}
-            columnSpacing={2.5}
-            rowSpacing={2.5}
-            className="box-border p-0"
-          >
-            <Grid item xs={4}>
+              <Masonry columns={5} spacing={3}>
               <Paper
                 variant="outlined"
-                className="h-60 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
+                className="h-52 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
               ></Paper>
-            </Grid>
-            <Grid item xs={8} >
-              <Paper
-                variant="outlined"
-                className="h-full w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
-              >
+              </Masonry>
 
-
-
-                
-              </Paper>
-            </Grid>
-            <Grid item xs={6}>
-              <Paper
-                variant="outlined"
-                className="h-60 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
-              ></Paper>
-            </Grid>
-            <Grid item xs={6}>
-              <Paper
-                variant="outlined"
-                className="h-full w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <Paper
-                variant="outlined"
-                className="h-24 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <Paper
-                variant="outlined"
-                className="h-24 w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
-              />
-            </Grid>
-
-            <Grid item xs={12}>
-              <Paper
-                variant="outlined"
-                className="h-[30rem] w-full rounded-2xl bg-[#ffffff] box-border shadow-sm"
-              />
-            </Grid>
-          </Grid>
+        
         </Box>
 
-        <Box className="h-60 w-60">{/* page nav */}</Box>
+        {/* <Box className="h-52 w-60">page nav</Box> */}
       </Box>
     </>
   );
