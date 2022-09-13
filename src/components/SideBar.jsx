@@ -15,7 +15,7 @@ import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import { AiOutlineDashboard } from "react-icons/ai";
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[22rem] bg-[#ffffff] z-10 box-border relative pt-0 shadow">
+    <Box className="h-screen w-[22rem] bg-[#ffffff] z-10 box-border relative pt-0 ">
       <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -35,7 +35,7 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-900/30 text-xs font-semibold ml-2 mb-2"
+            className="text-neutral-900/50 text-xs font-semibold ml-2 mb-2"
           >
             Dashboard
           </Typography>
@@ -55,7 +55,7 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-900/30 text-xs font-semibold ml-2 mb-2"
+            className="text-neutral-900/50 text-xs font-semibold ml-2 mb-2"
           >
             General
           </Typography>
@@ -89,7 +89,7 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-900/30 text-xs font-semibold ml-2 mb-2"
+            className="text-neutral-900/50 text-xs font-semibold ml-2 mb-2"
           >
             Tools & API's
           </Typography>
@@ -102,8 +102,8 @@ const SideBar = () => {
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
-                { title: "webp to jpg", path: "/webp-to-jpg" },
-                { title: "png to jpg", path: "/png-to-jpg" },
+                { title: "WebP to JPG", path: "/webp-to-jpg" },
+                { title: "PNG to JPG", path: "/png-to-jpg" },
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}

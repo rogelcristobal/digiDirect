@@ -1,5 +1,5 @@
 import  {Box,Paper} from '@mui/material'
-import Masonry from '@mui/lab/Masonry'
+
 
 const Dashboard = () => {
   return (
@@ -16,12 +16,12 @@ const Dashboard = () => {
                 className="h-52 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
               ></Paper> */}
 
-              <Masonry columns={5} spacing={3}>
+           
               <Paper
                 variant="outlined"
                 className="h-52 w-full  rounded-2xl bg-[#ffffff] box-border shadow-sm"
               ></Paper>
-              </Masonry>
+          
 
         
         </Box>

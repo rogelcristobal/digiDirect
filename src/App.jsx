@@ -14,7 +14,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
 import NormalListing from "./pages/NormalListing";
-
+import useRequest from "./requests/useRequest";
+import { useEffect } from "react";
 // query
 const queryClient = new QueryClient();
 
@@ -40,7 +41,7 @@ const App = () => {
 };
 
 const Main = () => {
-  const { pathname } = useLocation();
+
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
