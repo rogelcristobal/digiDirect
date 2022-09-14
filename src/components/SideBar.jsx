@@ -15,27 +15,27 @@ import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import { AiOutlineDashboard } from "react-icons/ai";
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[22rem] bg-[#ffffff] z-10 box-border relative pt-0 ">
+    <Box className="h-screen w-[22rem] bg-[#ffffff] z-20 box-border relative pt-0 ">
       <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
         light
       ></Divider>
-      {/* sidebar */}
-      <Box className="h-32 w-full flex flex-col items-start justify-center px-5 py-6 bg-[#111827] relative box-border space-y-12 ">
+      {/* sidebar bg-[#111827] */}
+      <Box className="h-36 w-full flex flex-col items-start bg-[#111827] justify-center px-5 py-6  relative box-border space-y-12 ">
         {/* digi logo */}
-        <DigiLogoInJs size="text-xl" color="text-blue-500" />
+        <DigiLogoInJs size="text-xl"  color="text-blue-500" />
       </Box>
-      <Box className="w-full px-0 box-border h-60 mt-6 ">
+      <Box className="w-full px-0 box-border h-60 mt-4 ">
         <Paper
           variant="contained"
-          className="w-full bg-inherit rounded-2xl h-auto max-h-[25rem]  py-4 px-4 overflow-y-scroll box-border mt-4 space-y-1"
+          className="w-full bg-[] rounded-2xl h-auto max-h-[25rem]  py-4 px-4 overflow-y-scroll box-border mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-600/50 text-xs font-semibold ml-2 mb-2"
+            className="text-gray-900/60 text-xs font-semibold ml-2 mb-1"
           >
             Dashboard
           </Typography>
@@ -45,7 +45,7 @@ const SideBar = () => {
               title="dashboard"
               icon={<AiOutlineDashboard />}
               parentBtn
-              activeStyle="bg-blue-50 text-blue-500  no-underline "
+              activeStyle="bg-blue-100 text-blue-500  no-underline "
             />
           </List>
 
@@ -55,13 +55,13 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-600/50 text-xs font-semibold ml-2 mb-2"
+            className="text-gray-900/60 text-xs font-semibold ml-2 mb-1"
           >
             General
           </Typography>
             <ListItemBtnExpandable
               textColor="text-blue-500"
-              bgColor="bg-blue-50"
+              bgColor="bg-inherit"
               title="product listing"
               initialState={true}
               icon={<AiOutlineTags className="text-sm " />}
@@ -74,7 +74,7 @@ const SideBar = () => {
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}
-                  activeStyle="bg-blue-50 text-blue-500  no-underline "
+                  activeStyle="bg-blue-100 text-blue-500  no-underline "
                   hoverColor="hover:text-blue-500"
                   title={item.title}
                   key={idx}
@@ -89,13 +89,13 @@ const SideBar = () => {
           <List>
           <Typography
             variant="body1"
-            className="text-neutral-600/50 text-xs font-semibold ml-2 mb-2"
+            className="text-gray-900/60 text-xs font-semibold ml-2 mb-1"
           >
             Tools & API's
           </Typography>
           <ListItemBtnExpandable
               textColor="text-blue-500"
-              bgColor="bg-blue-50"
+              bgColor="bg-inherit"
               icon={<AiOutlineFileImage className="text-sm" />}
               title="image converter"
               enableIcon={<HiChevronDown className="text-inherit " />}
@@ -107,7 +107,7 @@ const SideBar = () => {
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}
-                  activeStyle="bg-blue-50 text-blue-500  no-underline "
+                  activeStyle="bg-blue-100 text-blue-500  no-underline "
                   hoverColor="hover:text-blue-500"
                   title={item.title}
                   key={idx}
@@ -116,7 +116,7 @@ const SideBar = () => {
             </ListItemBtnExpandable>
             <ListItemBtnExpandable
               textColor="text-blue-500"
-              bgColor="bg-blue-50"
+              bgColor="bg-inherit"
               title="templates"
               initialState
               icon={<AiOutlineLayout className="text-sm" />}
@@ -135,7 +135,7 @@ const SideBar = () => {
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}
-                  activeStyle="bg-blue-50 text-blue-500  no-underline "
+                  activeStyle="bg-blue-100 text-blue-500  no-underline "
                   hoverColor="hover:text-blue-500"
                   title={item.title}
                   key={idx}

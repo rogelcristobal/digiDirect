@@ -28,13 +28,13 @@ const ListItemBtnExpandable = ({
       <ListItemButton
         onClick={handleClick}
         className={`flex justify-between   rounded-xl py-4 px-6 transition-all duration-300 ease-int-out ${
-          isOpen ? `${bgColor} ${textColor}` : `bg-inherit text-neutral-900 hover:${textColor}`
+          isOpen ? `${bgColor} ${textColor}` : `bg-inherit text-neutral-600 hover:${textColor}`
         }  `}
       >
         <div className="flex items-center justify-center space-x-3">
         {icon}
 
-        <Typography variant="body2" className=" text-sm font-semibold capitalize">
+        <Typography variant="body2" className=" text-sm font-medium capitalize">
           {title}
         </Typography>
         </div>

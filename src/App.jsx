@@ -48,9 +48,9 @@ const Main = () => {
       <Route
        path="/*"
         element={
-          <Box className="h-screen w-full box-border flex items-start justify-start bg-[#ffffff] ">
+          <Box className="h-screen w-full text-white box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
-            <Box className="h-[4.5rem]   w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  ">
+            <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  ">
               <div className="w-full h-full relative">
                 <Divider
                   variant="fullWidth"
@@ -62,7 +62,7 @@ const Main = () => {
 
             <SideBar />
             {/* content */}
-            <Box className="h-full w-full pt-[5rem]  box-border flex items-start justify-center">
+            <Box className="h-full w-full pt-[4rem]  box-border flex items-start justify-center">
               <Routes>
                 <Route index element={<Dashboard />} />
                 <Route path="/normal-listing" element={<NormalListing />} />
