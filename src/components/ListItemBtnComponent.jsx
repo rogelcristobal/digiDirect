@@ -20,7 +20,7 @@ const ListItemBtnComponent = ({
       
       >
         <ListItemButton
-          className={`  ${hoverColor} py-4 rounded-xl  flex items-center justify-start bg-inherit transition-all duration-300 ease-int-out capitalize  ${parentBtn?'px-6':'px-10'} space-x-4`}
+          className={`  ${hoverColor} py-4 rounded-2xl  flex items-center justify-start bg-inherit transition-all duration-300 ease-int-out capitalize  ${parentBtn?'px-6':'px-10'} space-x-4`}
         >
           {icon}
           <Typography

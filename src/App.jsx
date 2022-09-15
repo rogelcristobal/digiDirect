@@ -48,7 +48,7 @@ const Main = () => {
       <Route
        path="/*"
         element={
-          <Box className="h-screen w-full text-white box-border flex items-start justify-start bg-[#ffffff] relative">
+          <Box className="h-screen w-full text-white box-border flex items-start justify-start bg-[#f9fafc] relative">
             {/* navbar */}
             <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  ">
               <div className="w-full h-full relative">
