@@ -25,7 +25,7 @@ const ListItemBtnComponent = ({
           {icon}
           <Typography
             variant="body1"
-            className={` font-medium ${parentBtn ? "text-sm" : "text-xs"}`}
+            className={` font-semibold ${parentBtn ? "text-sm" : "text-xs"}`}
           >
             {title}
           </Typography>

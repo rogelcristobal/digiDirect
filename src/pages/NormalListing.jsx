@@ -5,15 +5,18 @@ import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useEffect } from "react";
 import useImportFromURL from "../requests/useImportFromURL";
+import CloudConvert from 'cloudconvert';
+
+
 const NormalListing = () => {
 
 
 // const {fetch,state} = useImportFromURL()
-const {mutate,state} = useImportFromURL()
+// const {mutate,state} = useImportFromURL()
 // useEffect(()=>{
 //   mutate()
 // },[])
-console.log(state.data)
+// console.log(state.data)
 
 
 
@@ -23,11 +26,6 @@ console.log(state.data)
 
           <Box>
             <Typography variant="h6" className="font-semibold text-3xl tracking-tight">WebP to JPG</Typography>
-
-
-
-
-
 
           </Box>
 

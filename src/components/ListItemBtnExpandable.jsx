@@ -34,7 +34,7 @@ const ListItemBtnExpandable = ({
         <div className="flex items-center justify-center space-x-3">
         {icon}
 
-        <Typography variant="body2" className=" text-sm font-medium capitalize">
+        <Typography variant="body2" className=" text-sm font-semibold capitalize">
           {title}
         </Typography>
         </div>
