@@ -15,7 +15,7 @@ const ListItemBtnComponent = ({
     
       <NavLink to={`${path}`}
       className={({ isActive }) =>
-      isActive ? `${activeStyle}`: 'bg-inherit text-neutral-600 no-underline'
+      isActive ? `${activeStyle}`: 'bg-inherit text-neutral-500 no-underline'
       }
       
       >
@@ -24,8 +24,8 @@ const ListItemBtnComponent = ({
         >
           {icon}
           <Typography
-            variant="body1"
-            className={` font-semibold ${parentBtn ? "text-sm" : "text-xs"}`}
+            variant="body2"
+            className={` font-medium ${parentBtn ? "text-[0.875]" : "text-xs"}`}
           >
             {title}
           </Typography>

@@ -48,7 +48,7 @@ const Main = () => {
       <Route
        path="/*"
         element={
-          <Box className="h-screen w-full  box-border flex items-start justify-start bg-[#f9fafc] relative">
+          <Box className="h-screen w-full  box-border flex items-start justify-start bg-[#f8f9fa] relative">
             {/* navbar */}
             <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  ">
               <div className="w-full h-full relative">
@@ -81,7 +81,7 @@ const Main = () => {
 };
 export default App;
 
-// https://material-kit-pro-react.devias.io/dashboard
+// https://demos.creative-tim.com/soft-ui-dashboard-pro-react/marketplace/#/ecommerce/overview
 
 // code blocks with copy btn (https://www.npmjs.com/package/react-code-blocks)
 // html playground (https://www.npmjs.com/package/playground-elements)

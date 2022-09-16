@@ -1,4 +1,4 @@
-import { Box, Paper, Typography, Grid } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 
 const Dashboard = () => {
   return (
@@ -7,14 +7,14 @@ const Dashboard = () => {
         <Box className="h-full overflow-auto w-full  space-y-3 box-border px-8 pt-16">
           {/* content */}
 
-          {/* <Box className="mb-6">
+          <Box className="mb-6">
             <Typography
-              variant="h5"
+              variant="h6"
               className="font-semibold text-3xl tracking-tight"
             >
               Good afternoon
             </Typography>
-          </Box> */}
+          </Box>
 
           <Box className="grid grid-flow-row grid-cols-12 gap-6 ">
             <Box className="col-span-8">
@@ -34,10 +34,9 @@ const Dashboard = () => {
                 variant="contained"
                 className="h-20 w-full  rounded-2xl  bg-[#ffffff] drop-shadow-sm text-white box-border px-8 flex items-center justify-end"
               >
-
-                <Typography variant="h6" className=" font-base  text-sm">WebP to JPG</Typography>
-
-
+                <Typography variant="h6" className=" font-base  text-sm">
+                  WebP to JPG
+                </Typography>
               </Paper>
             </Box>
             <Box className="col-span-4">
