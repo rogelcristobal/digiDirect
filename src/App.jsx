@@ -27,7 +27,7 @@ const App = () => {
     },
   });
   return (
-    <QueryClientProvider client={queryClient} >
+    <QueryClientProvider client={queryClient}>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       <HashRouter>
         <StyledEngineProvider injectFirst>
@@ -41,28 +41,28 @@ const App = () => {
 };
 
 const Main = () => {
-
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
-       path="/*"
+        path="/*"
         element={
           <Box className="h-screen w-full text-gray-800  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
-            <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  shadow-sm">
-              {/* <div className="w-full h-full relative">
+            {/* <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  shadow-sm">
+              <div className="w-full h-full relative">
                 <Divider
                   variant="fullWidth"
                   className="absolute bottom-0 right-0 w-full"
                   light
                 ></Divider>
-              </div> */}
-            </Box>
+              </div>
+              
+            </Box> */}
 
             <SideBar />
             {/* content */}
-            <Box className="h-full w-full pt-[4rem]  box-border flex items-start justify-center">
+            <Box className="h-full w-full   box-border flex items-start justify-center">
               <Routes>
                 <Route index element={<Dashboard />} />
                 <Route path="/normal-listing" element={<NormalListing />} />

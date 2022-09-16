@@ -22,7 +22,7 @@ const NormalListing = () => {
 
   return (
     <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">
-      <Box className="h-full overflow-auto w-full  space-y-3 box-border px-16  pt-16">
+      <Box className="h-full overflow-auto w-full  space-y-3 box-border px-16  pt-28 ">
 
           <Box>
             <Typography variant="h6" className="font-medium text-3xl tracking-tight">WebP to JPG</Typography>

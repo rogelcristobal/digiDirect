@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <>
       <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">
-        <Box className="h-full overflow-auto w-full  space-y-3 box-border px-16 pt-16">
+        <Box className="h-full overflow-auto w-full  space-y-3 box-border px-16 pt-28">
           {/* content */}
 
           <Box className="mb-6">
