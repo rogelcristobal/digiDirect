@@ -23,12 +23,12 @@ const SideBar = () => {
         light
       ></Divider>
       {/* sidebar bg-[#111827] */}
-      <Box className="h-36  w-full flex flex-col items-start justify-center px-6 py-6  relative box-border space-y-12 ">
+      <Box className="h-36 bg-[#111827]  w-full flex flex-col items-start justify-center px-6 py-6  relative box-border space-y-12 ">
         {/* digi logo */}
-        <DigiLogoInJs size="text-xl" dark color="text-blue-500" />
+        <DigiLogoInJs size="text-xl"  color="text-blue-500" />
        
       </Box>
-      <Box className="w-full px-0 box-border h-60 mt-4 ">
+      <Box className="w-full px-0 box-border h-60 mt-6 ">
         <Paper
           variant="contained"
           className="w-full bg-[] rounded-2xl h-auto max-h-[25rem]  py-4 px-4 overflow-y-scroll box-border mt-4 space-y-0"

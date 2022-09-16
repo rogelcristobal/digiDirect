@@ -12,4 +12,10 @@
     ::-webkit-scrollbar-thumb {
         @apply hover:bg-gray-500/25 bg-gray-400/25 rounded-full
     }
+    .shad{
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; 
+    }
 }
+
+
+/* https://getcssscan.com/css-box-shadow-examples */
