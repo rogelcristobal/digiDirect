@@ -17,6 +17,7 @@ import Dashboard from "./pages/Dashboard";
 import NormalListing from "./pages/NormalListing";
 import useRequest from "./requests/useRequest";
 import { useEffect } from "react";
+import ImageConverter from "./pages/ImageConverter";
 // query
 const queryClient = new QueryClient();
 
@@ -65,6 +66,7 @@ const Main = () => {
                 <Route index element={<Dashboard />} />
                 <Route path="/normal-listing" element={<NormalListing />} />
                 <Route path="/open-box-listing" element={<NormalListing />} />
+                <Route path="/image-converter" element={<ImageConverter />} />
               </Routes>
             </Box>
           </Box>

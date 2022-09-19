@@ -9,7 +9,7 @@ const Dashboard = () => {
 
           <Box className="mb-6">
             
-              <Texthighlight text="dashboard" variant="h6" sx="capitalize font-medium text-3xl"/>
+              <Texthighlight text="dashboard" variant="h6" sx="capitalize font-semibold text-3xl"/>
             
           </Box>
 

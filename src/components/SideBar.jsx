@@ -91,27 +91,15 @@ const SideBar = () => {
             >
               Tools & API's
             </Typography>
-            <ListItemBtnExpandable
-              textColor="text-blue-500"
-              bgColor="bg-inherit "
+            <ListItemBtnComponent
+              parentBtn
+              path="/image-converter"
+              activeStyle="bg-blue-50 text-blue-500  no-underline "
+              hoverColor="hover:text-blue-500 "
+              title="Image Converter"
               icon={<AiOutlineFileImage className="text-sm" />}
-              title="image converter"
-              enableIcon={<HiChevronDown className="text-inherit " />}
-              disableIcon={<HiChevronRight className="text-inherit" />}
-            >
-              {[
-                { title: "WebP to JPG", path: "/webp-to-jpg" },
-                { title: "PNG to JPG", path: "/png-to-jpg" },
-              ].map((item, idx) => (
-                <ListItemBtnComponent
-                  path={item.path}
-                  activeStyle="bg-blue-50 text-blue-500  no-underline "
-                  hoverColor="hover:text-blue-500 "
-                  title={item.title}
-                  key={idx}
-                />
-              ))}
-            </ListItemBtnExpandable>
+            />
+            
             <ListItemBtnExpandable
               textColor="text-blue-500"
               bgColor="bg-inherit "

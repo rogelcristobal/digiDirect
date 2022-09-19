@@ -3,7 +3,7 @@ import { Box, } from "@mui/material";
 import Texthighlight from "../components/Texthighlight";
 
 
-const NormalListing = () => {
+const ImageConverter = () => {
 
  
   return (
@@ -11,7 +11,7 @@ const NormalListing = () => {
       <Box className="h-full overflow-auto w-full  box-border px-20  py-32">
         <Box className="space-y-2 mb-8">
           <Texthighlight
-            text="Normal Listing"
+            text="Image Converter"
             variant="h6"
             sx="font-semibold text-3xl tracking-tight "
           />
@@ -23,4 +23,4 @@ const NormalListing = () => {
   );
 };
 
-export default NormalListing;
+export default ImageConverter;
