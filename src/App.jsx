@@ -3,6 +3,7 @@ import {
   ThemeProvider,
   StyledEngineProvider,
 } from "@mui/material/styles";
+
 import { Box, Divider } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
@@ -26,6 +27,7 @@ const App = () => {
       fontFamily: [font].join(","),
     },
   });
+  
   return (
     <QueryClientProvider client={queryClient}>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
