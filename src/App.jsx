@@ -51,16 +51,12 @@ const Main = () => {
         element={
           <Box className="h-screen w-full text-gray-800  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
-            {/* <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  shadow-sm">
+            <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  border-thin">
               <div className="w-full h-full relative">
-                <Divider
-                  variant="fullWidth"
-                  className="absolute bottom-0 right-0 w-full"
-                  light
-                ></Divider>
+              
               </div>
               
-            </Box> */}
+            </Box>
 
             <SideBar />
             {/* content */}

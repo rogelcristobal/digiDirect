@@ -4,7 +4,7 @@ const Texthighlight = ({ text,variant,sx }) => {
   return (
     <Typography variant={variant} className={`${sx} `}>
       {[...text].map((item, id) => {
-        if(id < 4){
+        if(id < 2){
             return <span className="text-blue-500">{item}</span>
         }else{
             return item
