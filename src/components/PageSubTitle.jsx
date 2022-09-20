@@ -5,13 +5,13 @@ const PageSubTitle = ({ title, subtitle }) => {
     <>
       <Typography
         variant="h6"
-        className=" leading-5 text-xl font-semibold  "
+        className=" leading-5 text-2xl font-semibold  "
       >
         {title}
       </Typography>
       <Typography
         variant="subtitle1"
-        className=" leading-5  text-sm font-medium mt-2 text-neutral-600"
+        className=" leading-5 indent-5  text-sm font-medium mt-2 text-neutral-600"
       >
         {subtitle}
       </Typography>

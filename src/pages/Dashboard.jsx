@@ -1,16 +1,15 @@
 import { Box, Paper, Typography } from "@mui/material";
-import Texthighlight from "../components/Texthighlight";
+import PageTitle from "../components/PageTitle";
 const Dashboard = () => {
   return (
     <>
       <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">
-        <Box className="h-full overflow-auto w-full  space-y-3 box-border px-20  py-32">
+        <Box className="h-full overflow-auto w-full  space-y-8 box-border px-20  pt-8 pb-32">
           {/* content */}
 
-          <Box className="mb-6">
-            
-          <Typography variant="h6" className="font-medium text-3xl tracking-tight ">Dashboard</Typography>
-            
+          <Box className="mb-12">
+
+            <PageTitle category="dashboard" title='Good afternoon, user'></PageTitle>
           </Box>
 
           <Box className="grid grid-flow-row grid-cols-12 gap-6 ">

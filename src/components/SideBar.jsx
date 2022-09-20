@@ -13,6 +13,7 @@ import {
 } from "react-icons/ai";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import { AiOutlineDashboard } from "react-icons/ai";
+
 const SideBar = () => {
   return (
     <Box className="h-screen w-[22rem] bg-[#ffffff] z-20 box-border relative pt-0 ">
@@ -37,7 +38,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/30 text-xs font-semibold ml-2 "
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
             >
               Dashboard
             </Typography>
@@ -55,7 +56,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/30 text-xs font-semibold ml-2 "
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
             >
               General
             </Typography>
@@ -87,7 +88,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/30 text-xs font-semibold ml-2 "
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
             >
               Tools & API's
             </Typography>

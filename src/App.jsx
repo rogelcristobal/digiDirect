@@ -66,7 +66,7 @@ const Main = () => {
 
             <SideBar />
             {/* content */}
-            <Box className="h-full w-full   box-border flex items-start justify-center">
+            <Box className="h-full w-full  pt-20 box-border flex items-start justify-center">
               <Routes>
                 <Route index element={<Dashboard />} />
                 <Route path="/normal-listing" element={<NormalListing />} />
