@@ -78,7 +78,7 @@ const NormalListing = () => {
   `
   return (
     <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">
-      <Box className="h-full overflow-auto w-full  box-border px-20  pt-8 pb-32">
+      <Box className="h-full overflow-auto w-full  box-border px-16  pt-8 pb-32">
         <PageTitle
           category="general"
           title="normal listing"

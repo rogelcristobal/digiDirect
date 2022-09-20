@@ -24,7 +24,7 @@ const SideBar = () => {
         light
       ></Divider>
       {/* sidebar bg-[#111827] */}
-      <Box className="h-28   w-full flex flex-col items-start justify-start px-6 py-6   relative box-border ">
+      <Box className="h-20   w-full flex flex-col items-start justify-start px-6 py-6   relative box-border ">
         {/* digi logo */}
         <DigiLogoInJs size="text-xl" dark color="text-blue-500" />
        
@@ -38,7 +38,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 "
+              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-2"
             >
               Dashboard
             </Typography>
@@ -56,7 +56,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 "
+              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-2"
             >
               General
             </Typography>
@@ -88,7 +88,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 "
+              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-2"
             >
               Tools & API's
             </Typography>
