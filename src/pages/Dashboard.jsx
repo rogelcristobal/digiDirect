@@ -4,12 +4,12 @@ const Dashboard = () => {
   return (
     <>
       <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">
-        <Box className="h-full overflow-auto w-full  space-y-3 box-border px-16 py-28">
+        <Box className="h-full overflow-auto w-full  space-y-3 box-border px-20  py-32">
           {/* content */}
 
           <Box className="mb-6">
             
-              <Texthighlight text="dashboard" variant="h6" sx="capitalize font-semibold text-3xl"/>
+          <Typography variant="h6" className="font-medium text-3xl tracking-tight ">Dashboard</Typography>
             
           </Box>
 

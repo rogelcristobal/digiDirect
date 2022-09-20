@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 // icons
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import {AiOutlineUser} from 'react-icons/ai'
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
@@ -53,8 +54,12 @@ const Main = () => {
           <Box className="h-screen w-full text-gray-800  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
             <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  border-thin">
-              <div className="w-full h-full relative">
-              
+              <div className="w-[calc(100%-17.5rem)]  h-full relative flex items-center justify-end px-12">
+
+                <Box className="p-2 grid place-content-center cursor-pointer hover:text-blue-500 transition-all dration-300 ease-in-out border-thin text-lg rounded-xl">
+                  <AiOutlineUser></AiOutlineUser>
+                </Box>
+                  
               </div>
               
             </Box>
