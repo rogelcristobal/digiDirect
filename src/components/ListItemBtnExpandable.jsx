@@ -9,8 +9,7 @@ const ListItemBtnExpandable = ({
   title,
   textColor,
   bgColor,
-  icon
-
+  icon,
 }) => {
   const [isOpen, setState] = useState(initialState);
   const handleClick = () => {
@@ -28,15 +27,20 @@ const ListItemBtnExpandable = ({
       <ListItemButton
         onClick={handleClick}
         className={`flex justify-between   rounded-2xl py-4 px-6 transition-all duration-300 ease-int-out ${
-          isOpen ? `${bgColor} ${textColor}` : `bg-inherit text-neutral-600 hover:${textColor}`
+          isOpen
+            ? `${bgColor} ${textColor}`
+            : `bg-inherit text-neutral-700 hover:${textColor}`
         }  `}
       >
         <div className="flex items-center justify-center space-x-3">
-        {icon}
+          {icon}
 
-        <Typography variant="body2" className=" text-sm font-semibold capitalize">
-          {title}
-        </Typography>
+          <Typography
+            variant="body2"
+            className=" text-[0.875] font-medium capitalize"
+          >
+            {title}
+          </Typography>
         </div>
         {/* icon conditional render */}
         {isOpen ? <>{enableIcon}</> : <>{disableIcon}</>}
@@ -45,7 +49,6 @@ const ListItemBtnExpandable = ({
         <List
           component="div"
           className=" py-2 pl-0  transition-all duration-300 ease-int-out "
-          
         >
           {children}
         </List>
@@ -54,10 +57,9 @@ const ListItemBtnExpandable = ({
   );
 };
 
-
-ListItemBtnExpandable.defaultProps={
-  bgColor:'bg-purple-50',
-  textColor:'text-purple-500'
-}
+ListItemBtnExpandable.defaultProps = {
+  bgColor: "bg-purple-50",
+  textColor: "text-purple-500",
+};
 
 export default ListItemBtnExpandable;

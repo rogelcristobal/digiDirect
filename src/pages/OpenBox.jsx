@@ -4,15 +4,15 @@ import PageTitle from "../components/PageTitle";
 import PageSubTitle from "../components/PageSubTitle";
 import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
-const NormalListing = () => {
+const OpenBox = () => {
   const  {inTheBoxMarkup,specsMarkup} = template()
   return (
     <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">
-      <Box className="h-full overflow-auto w-full  box-border px-16  pt-14 pb-36">
+      <Box className="h-full overflow-auto w-full  box-border px-14  pt-16 pb-36">
         {/* page title */}
         <PageTitle
           category="general"
-          title="normal listing"
+          title="OpenBox listing"
           subTitle="Create and copy a normal listing template for digiDirect products. Copy the raw template or edit it in the customize tab."
         />
         {/* in the box */}
@@ -42,4 +42,4 @@ const NormalListing = () => {
   );
 };
 // https://codingbeautydev.com/blog/material-ui-tabs/
-export default NormalListing;
+export default OpenBox;
