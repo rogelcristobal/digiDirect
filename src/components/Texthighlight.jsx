@@ -1,16 +1,9 @@
 import React from "react";
 import { Typography } from "@mui/material";
-const Texthighlight = ({ text,variant,sx }) => {
+const Texthighlight = ({ children,variant,sx }) => {
   return (
     <Typography variant={variant} className={`${sx} `}>
-      {[...text].map((item, id) => {
-        if(id < 2){
-            return <span className="text-blue-500">{item}</span>
-        }else{
-            return item
-        }     
-        
-      })}
+      {children}
     </Typography>
   );
 };

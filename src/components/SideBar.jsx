@@ -24,7 +24,7 @@ const SideBar = () => {
         light
       ></Divider>
       {/* sidebar bg-[#111827] */}
-      <Box className="h-20   w-full flex flex-col items-start justify-start px-6 py-6   relative box-border ">
+      <Box className="h-32   w-full flex flex-col items-start justify-center px-6 py-6   relative box-border ">
         {/* digi logo */}
         <DigiLogoInJs size="text-xl" dark color="text-blue-500" />
        

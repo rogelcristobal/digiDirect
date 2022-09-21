@@ -11,7 +11,7 @@ const PageSubTitle = ({ title, subtitle }) => {
       </Typography>
       <Typography
         variant="subtitle1"
-        className=" leading-5 indent-5  text-sm font-medium mt-2 text-neutral-600"
+        className=" leading-5   text-sm font-medium mt-3 text-neutral-600"
       >
         {subtitle}
       </Typography>
