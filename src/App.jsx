@@ -9,15 +9,15 @@ import { useLocation } from "react-router-dom";
 import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 // icons
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import {AiOutlineUser} from 'react-icons/ai'
+import { AiOutlineUser } from "react-icons/ai";
+import { HiOutlineMoon } from "react-icons/hi";
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
 import NormalListing from "./pages/NormalListing";
-import useRequest from "./requests/useRequest";
-import { useEffect } from "react";
+import OpenBox from "./pages/OpenBox";
 import ImageConverter from "./pages/ImageConverter";
 // query
 const queryClient = new QueryClient();
@@ -29,7 +29,7 @@ const App = () => {
       fontFamily: [font].join(","),
     },
   });
-  
+
   return (
     <QueryClientProvider client={queryClient}>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
@@ -55,13 +55,16 @@ const Main = () => {
             {/* navbar */}
             <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  border-thin">
               <div className="w-[calc(100%-17.5rem)]  h-full relative flex items-center justify-end px-12">
-
-                <Box className="p-2 grid place-content-center cursor-pointer hover:text-blue-500 transition-all dration-300 ease-in-out border-thin text-lg rounded-xl">
-                  <AiOutlineUser></AiOutlineUser>
+                {/* rightside box icons */}
+                <Box className="flex items-center justify-around space-x-4">
+                  <Box className="p-2 grid place-content-center cursor-pointer hover:text-blue-500 transition-all dration-300 ease-in-out text-gray-600 border-thin text-lg rounded-xl">
+                    <HiOutlineMoon></HiOutlineMoon>
+                  </Box>
+                  <Box className="p-2 grid place-content-center cursor-pointer hover:text-blue-500 transition-all dration-300 ease-in-out text-gray-600 border-thin text-lg rounded-xl">
+                    <AiOutlineUser></AiOutlineUser>
+                  </Box>
                 </Box>
-                  
               </div>
-              
             </Box>
 
             <SideBar />
@@ -70,7 +73,7 @@ const Main = () => {
               <Routes>
                 <Route index element={<Dashboard />} />
                 <Route path="/normal-listing" element={<NormalListing />} />
-                <Route path="/open-box-listing" element={<NormalListing />} />
+                <Route path="/open-box-listing" element={<OpenBox />} />
                 <Route path="/image-converter" element={<ImageConverter />} />
               </Routes>
             </Box>

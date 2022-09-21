@@ -10,7 +10,7 @@ const CodeSnippetComponent = ({ code }) => {
         centered
         value={tabValue}
         onChange={(e, newValue) => setTabValue(newValue)}
-        className=" mt-2 "
+        
         sx={{
           "& .MuiTabs-indicator": { backgroundColor: "rgb(59 130 246)" },
           "& .Mui-selected": { color: "rgb(59 130 246)" },
