@@ -1,14 +1,34 @@
-import { useState } from "react";
+import { useState,useRef,useContext } from "react";
 import { Box } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import PageSubTitle from "../components/PageSubTitle";
 import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
+import NavScrollContext from "../context/NavScrollContext";
+import { useEffect } from "react";
 const NormalListing = () => {
   const { inTheBoxMarkup, specsMarkup } = template();
+
+  
+  const {  setState: setScrollPos } =useContext(NavScrollContext);
+  const scrollRef = useRef(null)
+
+  useEffect(() => {
+    const element = scrollRef.current;
+    const handleScroll = () => {
+      let x = element.scrollTop;
+      setScrollPos(x);
+    };
+    element.addEventListener("scroll", handleScroll);
+    return () => {
+      element.removeEventListener("scroll", handleScroll);
+      setScrollPos(0)
+    };
+  }, []);
+ 
   return (
     <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]   ">
-      <Box className="h-full overflow-auto w-full  box-border px-16  pt-12 pb-36 space-y-16">
+      <Box ref={scrollRef} className="h-full overflow-auto w-full  box-border px-16  pt-12 pb-36 space-y-16">
         {/* page title */}
         <Box className="pb-16">
         <PageTitle
