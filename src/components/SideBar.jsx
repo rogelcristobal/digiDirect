@@ -7,16 +7,16 @@ import ListItemBtnExpandable from "./ListItemBtnExpandable";
 import DigiLogoInJs from "./DigiLogoInJs";
 // icon
 import {
-  AiOutlineTags,
-  AiOutlineFileImage,
+  AiFillTags,
+  AiFillFileImage,
   AiOutlineLayout,
 } from "react-icons/ai";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
-import { AiOutlineDashboard } from "react-icons/ai";
+import { AiFillDashboard } from "react-icons/ai";
 
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[22rem] bg-[#ffffff] z-20 box-border relative pt-0 ">
+    <Box className="h-screen w-[22rem] bg-inherit z-20 box-border relative pt-0 ">
       <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -24,21 +24,21 @@ const SideBar = () => {
         light
       ></Divider>
       {/* sidebar bg-[#111827] */}
-      <Box className="h-32   w-full flex flex-col items-start justify-center px-6 py-6   relative box-border ">
+      <Box className="h-32   w-full flex flex-col items-start justify-center px-8   box-border ">
         {/* digi logo */}
-        <DigiLogoInJs size="text-xl" dark color="text-blue-500" />
+        <DigiLogoInJs size="text-xl" dark  color="text-blue-500" />
        
       </Box>
-      <Box className="w-full px-0 box-border h-60 mt-6 ">
+      <Box className="w-full  box-border h-60 mt-4  ">
          <Paper
           variant="contained"
-          className="w-full bg-[] rounded-2xl h-auto max-h-[25rem]  py-4 px-4 overflow-y-scroll box-border mt-4 space-y-0"
+          className="w-full bg-inherit rounded-2xl h-auto max-h-[25rem]  py-4 px-4 overflow-y-scroll box-border mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-2"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
             >
               Dashboard
             </Typography>
@@ -46,7 +46,7 @@ const SideBar = () => {
               path="/"
               hoverColor="hover:text-blue-500 "
               title="dashboard"
-              icon={<AiOutlineDashboard />}
+              icon={<AiFillDashboard className="text-sm"/>}
               parentBtn
               activeStyle="bg-blue-50 text-blue-500  no-underline "
             />
@@ -56,7 +56,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-2"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
             >
               General
             </Typography>
@@ -65,7 +65,7 @@ const SideBar = () => {
               bgColor="bg-inherit "
               title="product listing"
               initialState={true}
-              icon={<AiOutlineTags className="text-sm " />}
+              icon={<AiFillTags className="text-sm " />}
               enableIcon={<HiChevronDown className="text-inherit " />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
@@ -88,7 +88,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-2"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
             >
               Tools & API's
             </Typography>
@@ -98,10 +98,10 @@ const SideBar = () => {
               activeStyle="bg-blue-50 text-blue-500  no-underline "
               hoverColor="hover:text-blue-500 "
               title="Image Converter"
-              icon={<AiOutlineFileImage className="text-sm" />}
+              icon={<AiFillFileImage className="text-sm" />}
             />
             
-            <ListItemBtnExpandable
+            {/* <ListItemBtnExpandable
               textColor="text-blue-500"
               bgColor="bg-inherit "
               title="templates"
@@ -128,7 +128,7 @@ const SideBar = () => {
                   key={idx}
                 />
               ))}
-            </ListItemBtnExpandable>
+            </ListItemBtnExpandable> */}
           </List>
         </Paper>
       </Box>

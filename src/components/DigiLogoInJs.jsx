@@ -4,7 +4,7 @@ const DigiLogoInJs = ({dark,size,color}) => {
   return (
     <>
     {/* [#ff3c00] */}
-      <Typography variant="h6" className={` ${color} ${size} font-poppins  px-2 box-border`}>
+      <Typography variant="h6" className={` ${color} ${size} font-poppins   box-border `}>
         digi
         <span className={`font-semibold  relative ${dark ? 'text-black':'text-neutral-300'}`}>
           Direct

@@ -10,7 +10,7 @@ const ImageConverter = () => {
     <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">
       <Box className="h-full overflow-auto w-full  box-border px-16   pt-14 pb-36">
         <Box className="space-y-2 mb-8">
-          <PageTitle category="tools & API's" title="image converter"/>
+          <PageTitle category="tools & API's" title="image converter" subTitle={`Easily convert images from one format to another, online. `}/>
         </Box>
       
       </Box>

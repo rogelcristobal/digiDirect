@@ -24,9 +24,9 @@ const CodeSnippetComponent = ({ code }) => {
         ></Tab>
       </Tabs>
       {tabValue === 0 ? (
-        <Box className="border-thin h-fit w-full  py-4  box-border">
+        <Box className=" h-fit w-full  py-0  box-border">
           <Box className=" w-full flex flex-col items-center box-border">
-            <Box className="max-w-[85%] w-full text-[.8rem] box-border">
+            <Box className="max-w-[100%] w-full text-[.8rem] box-border">
               <CodeBlock code={code}></CodeBlock>
             </Box>
           </Box>

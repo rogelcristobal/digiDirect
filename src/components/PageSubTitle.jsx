@@ -5,7 +5,7 @@ const PageSubTitle = ({ title, subtitle }) => {
     <>
       <Typography
         variant="h6"
-        className=" leading-5 text-2xl font-semibold  "
+        className=" leading-5 text-xl font-medium  "
       >
         {title}
       </Typography>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, ListItemButton } from "@mui/material";
+import { Typography, ListItemButton,Box } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 const ListItemBtnComponent = ({
@@ -21,16 +21,22 @@ const ListItemBtnComponent = ({
       
       >
         <ListItemButton
-          className={`  ${hoverColor} py-4 rounded-2xl  flex items-center justify-start bg-inherit transition-all duration-300 ease-int-out capitalize  ${parentBtn?'px-6':'px-10'} space-x-4`}
+          className={`   py-4 rounded-2xl  flex items-center justify-start bg-inherit transition-all duration-300 ease-int-out capitalize  ${parentBtn?'px-4':'px-10'} space-x-4 `}
+          
         >
-          {icon}
+          {icon&&
+          <Box className="px-2 py-1.5 text-neutral-100 bg-blue-500 rounded-lg grid place-content-center">
+
+            {icon}
+          </Box>
+          }
           <Typography
             variant="body2"
-            className={` font-medium ${parentBtn ? "text-[0.875]" : "text-xs"}`}
+            className={`  font-medium ${parentBtn ? "text-[0.875]" : "text-xs"}`}
           >
             {title}
           </Typography>
-          {/* icon conditional render */}
+         
         </ListItemButton>
       </NavLink>
     </>

@@ -4,21 +4,21 @@ import {
   StyledEngineProvider,
 } from "@mui/material/styles";
 
-import { Box, Divider } from "@mui/material";
-import { useLocation } from "react-router-dom";
-import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
+import { Box } from "@mui/material";
+import { Routes, Route, HashRouter } from "react-router-dom";
 // icons
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { AiOutlineUser } from "react-icons/ai";
-import { HiOutlineMoon } from "react-icons/hi";
+
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
+import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
 import NormalListing from "./pages/NormalListing";
 import OpenBox from "./pages/OpenBox";
 import ImageConverter from "./pages/ImageConverter";
+import { useEffect, useState } from "react";
 // query
 const queryClient = new QueryClient();
 
@@ -45,6 +45,8 @@ const App = () => {
 };
 
 const Main = () => {
+
+
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
@@ -53,23 +55,12 @@ const Main = () => {
         element={
           <Box className="h-screen w-full text-gray-800  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
-            <Box className="h-[4.5rem]  z-10 w-full top-0 left-0 fixed flex items-end justify-end bg-[#ffffff]  border-thin">
-              <div className="w-[calc(100%-17.5rem)]  h-full relative flex items-center justify-end px-12">
-                {/* rightside box icons */}
-                <Box className="flex items-center justify-around space-x-4">
-                  <Box className="p-2 grid place-content-center cursor-pointer hover:text-blue-500 transition-all dration-300 ease-in-out text-gray-600 border-thin text-lg rounded-xl">
-                    <HiOutlineMoon></HiOutlineMoon>
-                  </Box>
-                  <Box className="p-2 grid place-content-center cursor-pointer hover:text-blue-500 transition-all dration-300 ease-in-out text-gray-600 border-thin text-lg rounded-xl">
-                    <AiOutlineUser></AiOutlineUser>
-                  </Box>
-                </Box>
-              </div>
-            </Box>
 
             <SideBar />
+
             {/* content */}
-            <Box className="h-full w-full  pt-20 box-border flex items-start justify-center">
+            <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
+              <Navbar />
               <Routes>
                 <Route index element={<Dashboard />} />
                 <Route path="/normal-listing" element={<NormalListing />} />

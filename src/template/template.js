@@ -2,9 +2,9 @@ const template = () => {
   const inTheBoxMarkup = {
     tags: `
 <ul>
-  <li> item 1 </li>
-  <li> item 2 </li>
-  <li> item 3 </li>
+  <li> item1 </li>
+  <li> item2 </li>
+  <li> item3 </li>
 </ul>
     `,
   };
@@ -27,16 +27,16 @@ const template = () => {
 <table class="specTable">
   <tbody>
     <tr>
-      <th> Attribute 1 </th>
-      <td> Value 1 </td>
+      <th> Attribute1 </th>
+      <td> Value1 </td>
     </tr>
     <tr>
-      <th> Attribute 2 </th>
-      <td> Value 2 </td>
+      <th> Attribute2 </th>
+      <td> Value2 </td>
     </tr>
     <tr>
-      <th> Attribute 3 </th>
-      <td> Value 3 </td>
+      <th> Attribute3 </th>
+      <td> Value3 </td>
     </tr>   
   </tbody>
 </table>`,
