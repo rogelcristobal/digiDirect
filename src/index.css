@@ -25,6 +25,9 @@
     .border-strong{
         box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
     }
+    .navBorder{
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
 }
 
 
