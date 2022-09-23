@@ -2,9 +2,10 @@ import { Box, Paper, Typography } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import NavScrollContext from "../context/NavScrollContext";
 import { useEffect, useState, useRef, useContext } from "react";
+
 const Dashboard = () => {
   const {  setState: setScrollPos } =useContext(NavScrollContext);
-  
+    
   // useEffect(() => {
   //   const observer = new IntersectionObserver((entries) => {
   //     const entry = entries[0];
@@ -32,6 +33,9 @@ const Dashboard = () => {
       setScrollPos(0)
     };
   }, []);
+
+
+
   return (
     <>
       <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg p-0   ">

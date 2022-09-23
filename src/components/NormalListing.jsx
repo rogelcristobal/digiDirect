@@ -1,20 +1,40 @@
-import { useState } from "react";
+import { useState,useRef,useContext } from "react";
 import { Box } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import PageSubTitle from "../components/PageSubTitle";
 import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
-const OpenBox = () => {
+import NavScrollContext from "../context/NavScrollContext";
+import { useEffect } from "react";
+const NormalListing = () => {
   const { inTheBoxMarkup, specsMarkup,descriptionSimple } = template();
+
+  
+  const {  setState: setScrollPos } =useContext(NavScrollContext);
+  const scrollRef = useRef(null)
+
+  useEffect(() => {
+    const element = scrollRef.current;
+    const handleScroll = () => {
+      let x = element.scrollTop;
+      setScrollPos(x);
+    };
+    element.addEventListener("scroll", handleScroll);
+    return () => {
+      element.removeEventListener("scroll", handleScroll);
+      setScrollPos(0)
+    };
+  }, []);
+ 
   return (
     <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]   ">
-      <Box className="h-full overflow-auto w-full  box-border px-16  pt-12 pb-36 space-y-16">
+      <Box ref={scrollRef} className="h-full overflow-auto w-full  box-border px-16  pt-12 pb-36 space-y-16">
         {/* page title */}
         <Box className="pb-16">
         <PageTitle
           category="general"
-          title="open box listing"
-          subTitle="Create and copy a open box listing template for digiDirect products. Copy the raw template or edit it in the customize tab."
+          title="normal listing"
+          subTitle="Create and copy a normal listing template for digiDirect products. Copy the raw template or edit it in the customize tab."
         />
         </Box>
         {/* in the box */}
@@ -43,8 +63,8 @@ const OpenBox = () => {
           </Box>
         </Box>
 
-         {/* description */}
-         <Box>
+        {/* description */}
+        <Box>
           <Box>
             <PageSubTitle
               title="Description"
@@ -52,7 +72,7 @@ const OpenBox = () => {
             />
           </Box>
           <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
-            <CodeSnippetComponent code={descriptionSimple} canEdit></CodeSnippetComponent>
+            <CodeSnippetComponent code={descriptionSimple} canEdit={true}></CodeSnippetComponent>
           </Box>
         </Box>
       </Box>
@@ -63,4 +83,4 @@ const OpenBox = () => {
   );
 };
 // https://codingbeautydev.com/blog/material-ui-tabs/
-export default OpenBox;
+export default NormalListing;

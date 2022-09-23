@@ -18,7 +18,7 @@ const PageTitle = ({ category, title, subTitle }) => {
 
       <Typography
         variant="subtitle1"
-        className="text-neutral-600 leading-6 text-base font-medium mt-2"
+        className="text-neutral-600 leading-6 text-base font-[500] mt-2"
       >
         {subTitle}
       </Typography>

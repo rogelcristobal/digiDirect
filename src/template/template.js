@@ -85,7 +85,8 @@ const template = () => {
 </style>
     `,
     tags:`
-<p class="mText">The <strong class="h1Lit">ProductName</strong> 
+<p class="mText">
+The <strong class="h1Lit">ProductName</strong> decription
 </p>     
 
 <h2 class="h2Lit">Key Features of the ProductName</h2>

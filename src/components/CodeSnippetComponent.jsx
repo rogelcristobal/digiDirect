@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
-import { Box, Tabs, Tab } from "@mui/material";
+import { Box, Tabs, Tab, Tooltip } from "@mui/material";
+import { BiPencil } from "react-icons/bi";
+import { Zoom } from "@mui/material";
 const CodeSnippetComponent = ({ code, canEdit }) => {
   const [tabValue, setTabValue] = useState(0);
   return (
     <Box className="relative h-fit w-full ">
       <Tabs
-        centered
         value={tabValue}
         onChange={(e, newValue) => setTabValue(newValue)}
         sx={{
@@ -20,14 +21,10 @@ const CodeSnippetComponent = ({ code, canEdit }) => {
         {!canEdit ? (
           <Tab
             label="customize"
-            className="text-sm capitalize font-medium"
-            disabled
-          ></Tab>
+            className="text-sm capitalize font-medium p-0 m-0"
+          />
         ) : (
-          <Tab
-            label="customize"
-            className="text-sm capitalize font-medium"
-          ></Tab>
+          <Tab label="customize" className="text-sm capitalize font-medium" />
         )}
       </Tabs>
       {tabValue === 0 ? (
