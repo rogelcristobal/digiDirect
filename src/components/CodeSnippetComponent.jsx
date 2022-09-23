@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { Box, Tabs, Tab } from "@mui/material";
-const CodeSnippetComponent = ({ code }) => {
+const CodeSnippetComponent = ({ code, canEdit }) => {
   const [tabValue, setTabValue] = useState(0);
   return (
     <Box className="relative h-fit w-full ">
@@ -10,18 +10,25 @@ const CodeSnippetComponent = ({ code }) => {
         centered
         value={tabValue}
         onChange={(e, newValue) => setTabValue(newValue)}
-        
         sx={{
           "& .MuiTabs-indicator": { backgroundColor: "rgb(59 130 246)" },
           "& .Mui-selected": { color: "rgb(59 130 246)" },
         }}
       >
         <Tab label="raw" className="text-sm capitalize  font-medium"></Tab>
-        <Tab
-          label="customize"
-          className="text-sm capitalize font-medium"
-          disabled
-        ></Tab>
+
+        {!canEdit ? (
+          <Tab
+            label="customize"
+            className="text-sm capitalize font-medium"
+            disabled
+          ></Tab>
+        ) : (
+          <Tab
+            label="customize"
+            className="text-sm capitalize font-medium"
+          ></Tab>
+        )}
       </Tabs>
       {tabValue === 0 ? (
         <Box className=" h-fit w-full  py-0  box-border">
@@ -32,7 +39,6 @@ const CodeSnippetComponent = ({ code }) => {
           </Box>
         </Box>
       ) : null}
-      
     </Box>
   );
 };

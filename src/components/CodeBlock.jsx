@@ -66,6 +66,8 @@ const CodeBlock = ({ code }) => {
           borderRadius: "15px",
           overflowX: "hidden",
           boxSizing: "border-box",
+          minHeight: !code?'12rem':'fit',
+          maxHeight:'25rem'
         }}
       >
         {styleVisibility
@@ -74,7 +76,7 @@ const CodeBlock = ({ code }) => {
             : code.tags
           : code.tags}
       </SyntaxHighlighter>
-      <Box className="absolute bg-transparent top-3 right-3 flex items-center justify-around space-x-2">
+      <Box className="absolute bg-transparent top-3 right-4 flex items-center justify-around space-x-2">
         {code.styles && (
           <Paper
             variant="outlined"

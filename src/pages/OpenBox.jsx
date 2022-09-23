@@ -5,7 +5,7 @@ import PageSubTitle from "../components/PageSubTitle";
 import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
 const OpenBox = () => {
-  const { inTheBoxMarkup, specsMarkup } = template();
+  const { inTheBoxMarkup, specsMarkup,descriptionSimple } = template();
   return (
     <Box className="h-full w-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]   ">
       <Box className="h-full overflow-auto w-full  box-border px-16  pt-12 pb-36 space-y-16">
@@ -13,7 +13,7 @@ const OpenBox = () => {
         <Box className="pb-16">
         <PageTitle
           category="general"
-          title="normal listing"
+          title="open box listing"
           subTitle="Create and copy a normal listing template for digiDirect products. Copy the raw template or edit it in the customize tab."
         />
         </Box>
@@ -40,6 +40,19 @@ const OpenBox = () => {
           </Box>
           <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
             <CodeSnippetComponent code={specsMarkup}></CodeSnippetComponent>
+          </Box>
+        </Box>
+
+         {/* description */}
+         <Box>
+          <Box>
+            <PageSubTitle
+              title="Description"
+              subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
+            />
+          </Box>
+          <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
+            <CodeSnippetComponent code={descriptionSimple} canEdit></CodeSnippetComponent>
           </Box>
         </Box>
       </Box>
