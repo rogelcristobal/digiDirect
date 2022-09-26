@@ -79,7 +79,6 @@ const NormalListing = () => {
             <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
               <CodeSnippetComponent
                 code={descriptionSimple}
-                canEdit={true}
               ></CodeSnippetComponent>
             </Box>
           </Box>

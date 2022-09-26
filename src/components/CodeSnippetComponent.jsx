@@ -18,13 +18,13 @@ const CodeSnippetComponent = ({ code, canEdit }) => {
       >
         <Tab label="raw" className="text-sm capitalize  font-medium"></Tab>
 
-        {!canEdit ? (
+        {canEdit ? (
           <Tab
             label="customize"
             className="text-sm capitalize font-medium p-0 m-0"
           />
         ) : (
-          <Tab label="customize" className="text-sm capitalize font-medium" />
+          <Tab label="customize" className="text-sm capitalize font-medium" disabled/>
         )}
       </Tabs>
       {tabValue === 0 ? (
