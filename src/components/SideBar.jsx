@@ -9,7 +9,7 @@ import DigiLogoInJs from "./DigiLogoInJs";
 import {
   AiFillTags,
   AiFillFileImage,
-  AiOutlineLayout,
+  
 } from "react-icons/ai";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import { AiFillDashboard } from "react-icons/ai";
@@ -70,7 +70,7 @@ const SideBar = () => {
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
-                { title: "normal listing", path: "/normal-listing" },
+                { title: "basic listing", path: "/basic-listing" },
                 { title: "open box", path: "/open-box-listing" },
               ].map((item, idx) => (
                 <ListItemBtnComponent

@@ -12,11 +12,15 @@ const CodeSnippetComponent = ({ code, canEdit }) => {
         value={tabValue}
         onChange={(e, newValue) => setTabValue(newValue)}
         sx={{
-          "& .MuiTabs-indicator": { backgroundColor: "rgb(59 130 246)" },
+          "& .MuiTabs-indicator": { 
+            backgroundColor: "rgb(59 130 246)",position:'absolute',bottom:3},
+          // "& .MuiTabs-indicatorSpan":{ 
+         
+          //   backgroundColor: '#635ee7',},
           "& .Mui-selected": { color: "rgb(59 130 246)" },
         }}
       >
-        <Tab label="raw" className="text-sm capitalize  font-medium"></Tab>
+        <Tab label="raw" className="text-sx  capitalize  font-medium"></Tab>
 
         {canEdit ? (
           <Tab

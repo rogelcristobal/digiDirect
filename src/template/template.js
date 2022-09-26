@@ -25,20 +25,24 @@ const template = () => {
        `,
     tags: `
 <table class="specTable">
+
   <tbody>
     <tr>
       <th> Attribute1 </th>
       <td> Value1 </td>
     </tr>
+
     <tr>
       <th> Attribute2 </th>
       <td> Value2 </td>
     </tr>
+
     <tr>
       <th> Attribute3 </th>
       <td> Value3 </td>
     </tr>   
   </tbody>
+
 </table>`,
   };
   const descriptionSimple={
@@ -145,13 +149,17 @@ The <strong class="h1Lit">ProductName</strong> decription
 </style>
     `,
     tags:`
-<p class="mText">The <strong class="h1Lit">ProductName</strong> description.</p>
+<p class="mText">
+The <strong class="h1Lit">ProductName</strong> description.
+</p>
 <br />
+
 <h2 class="h2Lit">Key Features of the ProductName</h2>
 <ul>
   <li>item1</li>
 </ul>
 <br />
+
 <div class="gText">
   <div>
     <h2 class="h2Lit"><span class="h2Lit">feature</h2>
@@ -171,6 +179,7 @@ The <strong class="h1Lit">ProductName</strong> decription
   </div>
 </div>
 <br/>
+
 <ul class="mpn">
   <li>MPN - bar1</li>
   <li>GTIN - bar2</li>

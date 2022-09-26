@@ -15,7 +15,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
-import NormalListing from "./pages/NormalListing";
+import BasicListing from "./pages/BasicListing";
 import OpenBox from "./pages/OpenBox";
 import ImageConverter from "./pages/ImageConverter";
 import { useEffect, useState } from "react";
@@ -63,7 +63,7 @@ const Main = () => {
               <Navbar />
               <Routes>
                 <Route index element={<Dashboard />} />
-                <Route path="/normal-listing" element={<NormalListing />} />
+                <Route path="/basic-listing" element={<BasicListing />} />
                 <Route path="/open-box-listing" element={<OpenBox />} />
                 <Route path="/image-converter" element={<ImageConverter />} />
               </Routes>
