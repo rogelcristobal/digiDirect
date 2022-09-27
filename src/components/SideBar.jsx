@@ -9,14 +9,14 @@ import DigiLogoInJs from "./DigiLogoInJs";
 import {
   AiFillTags,
   AiFillFileImage,
-  AiOutlineLayout,
+  
 } from "react-icons/ai";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import { AiFillDashboard } from "react-icons/ai";
 
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[22rem] bg-inherit z-20 box-border relative pt-0 ">
+    <Box className="h-screen w-[22rem]  bg-inherit z-20 box-border relative pt-0 ">
       <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -70,7 +70,7 @@ const SideBar = () => {
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
-                { title: "normal listing", path: "/normal-listing" },
+                { title: "basic listing", path: "/basic-listing" },
                 { title: "open box", path: "/open-box-listing" },
               ].map((item, idx) => (
                 <ListItemBtnComponent

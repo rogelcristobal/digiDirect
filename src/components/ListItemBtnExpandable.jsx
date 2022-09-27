@@ -34,7 +34,7 @@ const ListItemBtnExpandable = ({
       >
         <div className="flex items-center justify-center space-x-3">
         {icon&&
-          <Box className="px-2 py-1.5 text-neutral-100 bg-blue-500 rounded-lg grid place-content-center">
+          <Box className="px-1 py-1 text-neutral-100 bg-blue-500 rounded-lg grid place-content-center">
 
             {icon}
           </Box>

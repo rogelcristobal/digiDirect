@@ -1,7 +1,15 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { Box, Paper, Typography, Snackbar, Alert } from "@mui/material";
-import Slide from '@mui/material/Slide';
+import {
+  Box,
+  Paper,
+  Typography,
+  Snackbar,
+  Alert,
+  Zoom
+} from "@mui/material";
+import Tooltip,{ tooltipClasses } from '@mui/material/Tooltip' 
+import Slide from "@mui/material/Slide";
 
 import {
   AiOutlineCopy,
@@ -15,7 +23,7 @@ const CodeBlock = ({ code }) => {
 
   const handleShowStyles = () => {
     setStyleVisibility((prev) => (prev = !prev));
-    handleClose()
+    handleClose();
   };
   const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
@@ -27,10 +35,8 @@ const CodeBlock = ({ code }) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(mergeTagsAndStyles(code));
     setOpen(true);
-    
   };
 
-  
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -44,11 +50,25 @@ const CodeBlock = ({ code }) => {
 
   return (
     <Box className="h-full w-full relative box-border">
-      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose} direction="left" TransitionComponent={SlideTransition}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: "100%","& .MuiAlert-icon":{
-          color:'white',
-          fontSize:'0.875rem'
-        } }} className="bg-blue-500 text-white text-xs flex items-center">
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        direction="left"
+        TransitionComponent={SlideTransition}
+      >
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          sx={{
+            width: "100%",
+            "& .MuiAlert-icon": {
+              color: "white",
+              fontSize: "0.875rem",
+            },
+          }}
+          className="bg-blue-500 text-white text-xs flex items-center"
+        >
           Copied to Clipboard!
         </Alert>
       </Snackbar>
@@ -66,6 +86,8 @@ const CodeBlock = ({ code }) => {
           borderRadius: "15px",
           overflowX: "hidden",
           boxSizing: "border-box",
+          minHeight: !code ? "12rem" : "fit",
+          maxHeight: "25rem",
         }}
       >
         {styleVisibility
@@ -74,7 +96,7 @@ const CodeBlock = ({ code }) => {
             : code.tags
           : code.tags}
       </SyntaxHighlighter>
-      <Box className="absolute bg-transparent top-3 right-3 flex items-center justify-around space-x-2">
+      <Box className="absolute bg-transparent top-3 right-4 flex items-center justify-around space-x-2">
         {code.styles && (
           <Paper
             variant="outlined"
@@ -87,13 +109,15 @@ const CodeBlock = ({ code }) => {
             </Typography>
           </Paper>
         )}
-        <Paper
-          variant="outlined"
-          className={`p-2 text-sm  bg-inherit border-neutral-600 flex items-center justify-center rounded-lg text-neutral-300 cursor-pointer gap-3 `}
-          onClick={handleCopy}
-        >
-          <AiOutlineCopy />
-        </Paper>
+      
+          <Paper
+            variant="outlined"
+            className={`p-2 text-sm  bg-inherit border-neutral-600 flex items-center justify-center rounded-lg text-neutral-300 cursor-pointer gap-3 `}
+            onClick={handleCopy}
+          >
+            <AiOutlineCopy />
+          </Paper>
+        
       </Box>
     </Box>
   );

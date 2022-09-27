@@ -7,7 +7,7 @@ import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
 const NormalListing = () => {
-  const { inTheBoxMarkup, specsMarkup } = template();
+  const { inTheBoxMarkup, specsMarkup,descriptionSimple } = template();
 
   
   const {  setState: setScrollPos } =useContext(NavScrollContext);
@@ -60,6 +60,19 @@ const NormalListing = () => {
           </Box>
           <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
             <CodeSnippetComponent code={specsMarkup}></CodeSnippetComponent>
+          </Box>
+        </Box>
+
+        {/* description */}
+        <Box>
+          <Box>
+            <PageSubTitle
+              title="Description"
+              subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
+            />
+          </Box>
+          <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
+            <CodeSnippetComponent code={descriptionSimple} canEdit={true}></CodeSnippetComponent>
           </Box>
         </Box>
       </Box>
