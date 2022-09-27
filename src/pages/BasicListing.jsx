@@ -15,21 +15,32 @@ import PageSubTitle from "../components/PageSubTitle";
 import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
-import { useInView,InView } from "react-intersection-observer";
+// import { useInView,InView } from "react-intersection-observer";
 const BasicListing = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
 
   const { setState: setScrollPos } = useContext(NavScrollContext);
-  const scrollRef = useRef(null);
-  const inBoxRef= useRef(null)
+  const scrollRef = useRef(null); // for navbar purposes
 
+  // const inViewOptions={
+  //   threshold:0.6,
+  //   delay:200,
+  //   rootMargin:'60px 0px'
+  // }
+  // const [viewRef_0,inView_0] = useInView(inViewOptions)
+  // const [viewRef_1,inView_1] = useInView(inViewOptions)
+  // const [viewRef_2,inView_2] = useInView(inViewOptions)
+  // const [viewRef_3,inView_3] = useInView(inViewOptions)
+  const inTheBoxRef = useRef(null);
+  const specsRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const description2Ref = useRef(null);
 
-  const [view,setView]=useState({
-    anchorItemOne:null
-  })
+  const [view, setView] = useState({
+    anchorItemOne: null,
+  });
   // const [activeStep, setStep] = useState(0);
-  // const { inView, ref, entry } = useInView();
 
   useEffect(() => {
     const element = scrollRef.current;
@@ -43,8 +54,6 @@ const BasicListing = () => {
       setScrollPos(0);
     };
   }, []);
-  
-
 
   return (
     <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]   w-full ">
@@ -54,15 +63,17 @@ const BasicListing = () => {
       >
         <Box className="w-full max-w-4xl h-auto box-border px-16  pt-12 pb-36 space-y-28">
           {/* page title */}
-          <Box className="pb-16  w-full">
+          <Box className="pb-16  w-full ">
             <PageTitle
               category="general"
               title="Basic listing"
               subTitle="Create and copy a Basic listing template for digiDirect products. Copy the raw template or edit it in the customize tab."
             />
           </Box>
+
           {/* in the box */}
-          <Box className=" w-full" >
+
+          <Box ref={inTheBoxRef} className="w-full">
             <Box>
               <PageSubTitle
                 id="gab"
@@ -78,7 +89,8 @@ const BasicListing = () => {
           </Box>
 
           {/* sepcs */}
-          <Box className=" w-fulln">
+
+          <Box ref={specsRef} className="w-full">
             <Box>
               <PageSubTitle
                 // ref={ref}
@@ -92,7 +104,8 @@ const BasicListing = () => {
           </Box>
 
           {/* description */}
-          <Box className=" w-full">
+
+          <Box ref={descriptionRef} className="w-full">
             <Box>
               <PageSubTitle
                 title="Description"
@@ -105,14 +118,15 @@ const BasicListing = () => {
               ></CodeSnippetComponent>
             </Box>
           </Box>
+
           {/* description v2 */}
-          <Box className=" w-full">
-            <InView as="div" onChange={(inView,entry)=>setView({anchorItemOne:inView})}>
+          <Box ref={description2Ref} className="w-full">
+            <Box>
               <PageSubTitle
                 title="Description ver.2 "
                 subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
               />
-            </InView>
+            </Box>
             <Box className=" h-fit w-full box-border rounded-3xl  mt-4 px-8  ">
               <CodeSnippetComponent
                 code={descriptionBest}
@@ -135,32 +149,30 @@ const BasicListing = () => {
             on this page
           </Typography>
 
-          <Box className="flex flex-col box-border pl-6 items-start justify-start h-full mt-6 w-full space-y-4 relative">
-            {/* <Stepper  activeStep={activeStep} orientation="vertical">
-              <Step>
-                <StepIcon>
-                <AiOutlineCheckCircle></AiOutlineCheckCircle>
-                </StepIcon>
-                <StepLabel>what's in the box</StepLabel>
-              </Step>
-            </Stepper> */}
-
+          <Box className="flex flex-col box-border pl-6 items-start justify-start h-full mt-6 w-full space-y-3 relative">
             <Divider
               orientation="vertical"
               variant="fullWidth"
               className="absolute left-0 top-0"
             ></Divider>
             {[
-              { title: "what's in the box", path: "#" ,ref:view.anchorItemOne},
-              { title: "specification", path: "#" },
-              { title: "description", path: "#" },
-              { title: "description ver.2", path: "#" },
+              { title: "what's in the box", path: inTheBoxRef },
+              { title: "specification", path: specsRef },
+              { title: "description", path: descriptionRef },
+              { title: "description ver.2", path: description2Ref },
             ].map((item, idx) => (
               <Link
                 key={idx}
                 underline="none"
-                href={item.path}
-                className={`font-poppins text-[0.775rem] font-medium  ${item.ref?'text-blue-500':'text-neutral-600'} capitalize`}
+                onClick={() =>
+                  item.path.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  })
+                }
+                className={`font-poppins text-[0.775rem] font-medium cursor-pointer text-neutral-600
+             
+                  capitalize transition-all duration-700 ease-in-out`}
               >
                 {item.title}
               </Link>

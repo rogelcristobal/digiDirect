@@ -7,15 +7,18 @@ import { Zoom } from "@mui/material";
 const CodeSnippetComponent = ({ code, canEdit }) => {
   const [tabValue, setTabValue] = useState(0);
   return (
-    <Box className="relative h-fit w-full ">
+    <Box  className="relative h-fit w-full ">
       <Tabs
         value={tabValue}
         onChange={(e, newValue) => setTabValue(newValue)}
         sx={{
-          "& .MuiTabs-indicator": { 
-            backgroundColor: "rgb(59 130 246)",position:'absolute',bottom:3},
-          // "& .MuiTabs-indicatorSpan":{ 
-         
+          "& .MuiTabs-indicator": {
+            backgroundColor: "rgb(59 130 246)",
+            position: "absolute",
+            bottom: 3,
+          },
+          // "& .MuiTabs-indicatorSpan":{
+
           //   backgroundColor: '#635ee7',},
           "& .Mui-selected": { color: "rgb(59 130 246)" },
         }}
@@ -28,7 +31,11 @@ const CodeSnippetComponent = ({ code, canEdit }) => {
             className="text-sm capitalize font-medium p-0 m-0"
           />
         ) : (
-          <Tab label="customize" className="text-sm capitalize font-medium" disabled/>
+          <Tab
+            label="customize"
+            className="text-sm capitalize font-medium"
+            disabled
+          />
         )}
       </Tabs>
       {tabValue === 0 ? (
