@@ -16,7 +16,7 @@ const ListItemBtnComponent = ({
     
       <NavLink to={`${path}`}
       className={({ isActive }) =>
-      isActive ? `${activeStyle}`: 'bg-inherit text-neutral-700 no-underline '
+      isActive ? `${activeStyle}`: 'bg-white text-neutral-700 no-underline '
       }
       
       >
@@ -25,7 +25,7 @@ const ListItemBtnComponent = ({
           
         >
           {icon&&
-          <Box className="px-1 py-1 text-neutral-100 bg-blue-500 rounded-lg grid place-content-center">
+          <Box className="px-1 py-1 text-neutral-100 bg-blue-500 rounded-md grid place-content-center">
 
             {icon}
           </Box>

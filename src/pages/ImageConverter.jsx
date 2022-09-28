@@ -61,24 +61,7 @@ const ImageConverter = () => {
                 className="h-8 w-52 rounded-lg border-0 outline-none bg-neutral-100 hover:cursor-pointer focus:cursor-text px-4 py-2 text-md font-poppins font-medium text-neutral-500 focus:text-neutral-900"
               />
             </Tooltip>
-            <button
-              onClick={() => {
-                mutate({
-                  url: "https://www.digidirect.com.au/media/catalog/product/a/t/atr2100x-usb_01.jpg",
-                  filename: "some.jpg",
-                });
-                
-              }}
-            >
-              send
-            </button>
-            <button
-              onClick={() => {
-                startConvert();
-              }}
-            >
-              convert
-            </button>
+           
           </Box>
         </Box>
         <Box

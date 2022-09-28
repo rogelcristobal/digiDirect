@@ -1,12 +1,12 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { stackoverflowLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {
   Box,
   Paper,
   Typography,
   Snackbar,
   Alert,
-  Zoom
+  Divider 
 } from "@mui/material";
 import Tooltip,{ tooltipClasses } from '@mui/material/Tooltip' 
 import Slide from "@mui/material/Slide";
@@ -16,6 +16,7 @@ import {
   AiOutlineEyeInvisible,
   AiOutlineEye,
 } from "react-icons/ai";
+import {BsCode,BsCodeSlash} from 'react-icons/bs'
 import { useState, useRef } from "react";
 const CodeBlock = ({ code }) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
@@ -49,7 +50,7 @@ const CodeBlock = ({ code }) => {
   }
 
   return (
-    <Box className="h-full w-full relative box-border">
+    <Box className="h-full w-full relative box-border font-medium ">
       <Snackbar
         open={open}
         autoHideDuration={3000}
@@ -67,7 +68,7 @@ const CodeBlock = ({ code }) => {
               fontSize: "0.875rem",
             },
           }}
-          className="bg-blue-500 text-white text-xs flex items-center"
+          className="bg-blue-500 text-white text-xs flex items-center "
         >
           Copied to Clipboard!
         </Alert>
@@ -76,7 +77,7 @@ const CodeBlock = ({ code }) => {
         wrapLongLines={true}
         wrapLines={true}
         language="css"
-        style={nightOwl}
+        style={stackoverflowLight}
         // showLineNumbers={true}
         customStyle={{
           paddingTop: "0.7rem",
@@ -88,6 +89,9 @@ const CodeBlock = ({ code }) => {
           boxSizing: "border-box",
           minHeight: !code ? "12rem" : "fit",
           maxHeight: "25rem",
+          backgroundColor:'#fafafa'
+         
+          
         }}
       >
         {styleVisibility
@@ -96,26 +100,27 @@ const CodeBlock = ({ code }) => {
             : code.tags
           : code.tags}
       </SyntaxHighlighter>
-      <Box className="absolute bg-transparent top-3 right-4 flex items-center justify-around space-x-2">
+      <Box className="absolute bg-transparent -bottom-12 box-border   right-4 flex items-center justify-around space-x-2 ">
         {code.styles && (
           <Paper
-            variant="outlined"
-            className={`p-2  bg-inherit border-neutral-600 flex items-center justify-center rounded-lg text-neutral-300 cursor-pointer gap-3 `}
+            variant="contained"
+            className={`py-2 px-3.5 rounded-md border-medium flex items-center justify-center text-neutral-600  cursor-pointer gap-2 `}
             onClick={handleShowStyles}
           >
-            {!styleVisibility ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-            <Typography variant="body2" className="text-xs capitalize ">
-              {!styleVisibility ? "view styles" : "hide styles"}
+            {!styleVisibility ? <BsCode  className="font-bold text-md"/> : <BsCodeSlash />}
+            <Typography variant="body2" className=" text-xs font-medium tracking-tight  ">
+              {!styleVisibility ? "View styles" : "Hide styles"}
             </Typography>
           </Paper>
         )}
       
           <Paper
-            variant="outlined"
-            className={`p-2 text-sm  bg-inherit border-neutral-600 flex items-center justify-center rounded-lg text-neutral-300 cursor-pointer gap-3 `}
+            variant="contained"
+            className={`p-2 text-md  rounded-md border-medium flex items-center justify-center text-neutral-700 border-2  cursor-pointer gap-3 `}
             onClick={handleCopy}
           >
-            <AiOutlineCopy />
+            <AiOutlineCopy/>
+           
           </Paper>
         
       </Box>

@@ -7,10 +7,7 @@ const useImportFromURL = () => {
     status:null,
     headers:null
   });
-  const input = {
-    url: "https://www.digidirect.com.au/media/catalog/product/a/t/atr2100x-usb_01.jpg",
-    filename: "some.jpg",
-  };
+  
 
   const headers = {
     "Content-Type": "application/json",

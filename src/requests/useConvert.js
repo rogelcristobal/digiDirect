@@ -12,15 +12,12 @@ const useConvert = () => {
     Accept: "application/json",
     Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
   };
-  const input = {
-    input: "633295e6a479650012ab5d02",
-    output_format:'png',
-  };
+ 
 
-  const { mutate } = useMutation(async () => {
+  const { mutate } = useMutation(async (payload) => {
     return await axios.post(
       "https://api.freeconvert.com/v1/process/convert",
-      input,
+      payload,
       {
         headers: headers,
       }
