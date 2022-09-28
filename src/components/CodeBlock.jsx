@@ -89,7 +89,7 @@ const CodeBlock = ({ code }) => {
           boxSizing: "border-box",
           minHeight: !code ? "12rem" : "fit",
           maxHeight: "25rem",
-          backgroundColor:'#fafafa'
+          backgroundColor:'rgb(245, 245, 245)'
          
           
         }}

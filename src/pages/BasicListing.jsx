@@ -15,31 +15,23 @@ import PageSubTitle from "../components/PageSubTitle";
 import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
-// import { useInView,InView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 const BasicListing = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
 
   const { setState: setScrollPos } = useContext(NavScrollContext);
   const scrollRef = useRef(null); // for navbar purposes
+  const inViewOptions = {
+    threshold: 0.6,
+    delay: 200,
+    rootMargin: "60px 0px",
+  };
+  const [viewRef_0,inView_0] = useInView(inViewOptions)
+  const [viewRef_1,inView_1] = useInView(inViewOptions)
+  const [viewRef_2,inView_2] = useInView(inViewOptions)
+  const [viewRef_3,inView_3] = useInView(inViewOptions)
 
-  // const inViewOptions={
-  //   threshold:0.6,
-  //   delay:200,
-  //   rootMargin:'60px 0px'
-  // }
-  // const [viewRef_0,inView_0] = useInView(inViewOptions)
-  // const [viewRef_1,inView_1] = useInView(inViewOptions)
-  // const [viewRef_2,inView_2] = useInView(inViewOptions)
-  // const [viewRef_3,inView_3] = useInView(inViewOptions)
-  const inTheBoxRef = useRef(null);
-  const specsRef = useRef(null);
-  const descriptionRef = useRef(null);
-  const description2Ref = useRef(null);
-
-  const [view, setView] = useState({
-    anchorItemOne: null,
-  });
   // const [activeStep, setStep] = useState(0);
 
   useEffect(() => {
@@ -73,7 +65,7 @@ const BasicListing = () => {
 
           {/* in the box */}
 
-          <Box ref={inTheBoxRef} className="w-full">
+          <Box className="w-full">
             <Box>
               <PageSubTitle
                 id="gab"
@@ -90,10 +82,10 @@ const BasicListing = () => {
 
           {/* sepcs */}
 
-          <Box ref={specsRef} className="w-full">
+          <Box className="w-full">
             <Box>
               <PageSubTitle
-                // ref={ref}
+                //
                 title="Specification"
                 subtitle={`Displays the specification of the product. Copy and paste it in 'Specification' tab in Magento. `}
               />
@@ -105,7 +97,7 @@ const BasicListing = () => {
 
           {/* description */}
 
-          <Box ref={descriptionRef} className="w-full">
+          <Box className="w-full">
             <Box>
               <PageSubTitle
                 title="Description"
@@ -120,7 +112,7 @@ const BasicListing = () => {
           </Box>
 
           {/* description v2 */}
-          <Box ref={description2Ref} className="w-full">
+          <Box className="w-full">
             <Box>
               <PageSubTitle
                 title="Description ver.2 "
@@ -138,7 +130,7 @@ const BasicListing = () => {
 
         {/* page navigation */}
         <Box
-          className="h-72 w-72 box-border  p-4 sticky top-0  mt-16 flex flex-col items-start justify-start
+          className="h-72 w-72 box-border  p-4 sticky top-8  mt-20 flex flex-col items-start justify-start
         "
         >
           <Typography
@@ -149,17 +141,12 @@ const BasicListing = () => {
             on this page
           </Typography>
 
-          <Box className="flex flex-col box-border pl-6 items-start justify-start h-full mt-6 w-full space-y-3 relative">
-            <Divider
-              orientation="vertical"
-              variant="fullWidth"
-              className="absolute left-0 top-0"
-            ></Divider>
+          <Box className="flex flex-col box-border pl-4 items-start justify-start h-full mt-6 w-full space-y-3 relative">
             {[
-              { title: "what's in the box", path: inTheBoxRef },
-              { title: "specification", path: specsRef },
-              { title: "description", path: descriptionRef },
-              { title: "description ver.2", path: description2Ref },
+              { title: "what's in the box" },
+              { title: "specification"},
+              { title: "description" },
+              { title: "description ver.2"},
             ].map((item, idx) => (
               <Link
                 key={idx}
@@ -172,7 +159,7 @@ const BasicListing = () => {
                 }
                 className={`font-poppins text-[0.775rem] font-medium cursor-pointer text-neutral-600
              
-                  capitalize transition-all duration-700 ease-in-out`}
+                capitalize transition-all duration-700 ease-in-out`}
               >
                 {item.title}
               </Link>
