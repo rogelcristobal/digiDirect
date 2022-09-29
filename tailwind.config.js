@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      poppins: ["Poppins", "sans-serif"],
+      general: ["General Sans", "sans-serif"],
+      satoshi: ["Satoshi", "sans-serif"],
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],

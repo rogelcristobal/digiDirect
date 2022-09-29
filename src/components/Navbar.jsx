@@ -11,10 +11,10 @@ const Navbar = () => {
       <div className="w-[calc(100%-23.5rem)]  h-full  flex items-center justify-end px-8 ">
         {/* rightside box icons */}
         <Box className="flex items-center justify-around space-x-4">
-          <Box className="p-2 grid place-content-center cursor-pointer hover:text-blue-500 transition-all dration-300 ease-in-out text-gray-600 border-thin text-lg rounded-xl">
+          <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md rounded-xl">
             <HiOutlineMoon></HiOutlineMoon>
           </Box>
-          <Box className="p-2 grid place-content-center cursor-pointer hover:text-blue-500 transition-all dration-300 ease-in-out text-gray-600 border-thin text-lg rounded-xl">
+          <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md rounded-xl">
             <AiOutlineUser></AiOutlineUser>
           </Box>
         </Box>

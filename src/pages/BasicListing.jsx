@@ -48,12 +48,12 @@ const BasicListing = () => {
   }, []);
 
   return (
-    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]   w-full ">
+    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]  w-full ">
       <Box
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-start box-border"
       >
-        <Box className="w-full max-w-4xl h-auto box-border px-16  pt-12 pb-36 space-y-28">
+        <Box className="w-full max-w-4xl h-auto box-border px-20  pt-12 pb-36 space-y-28">
           {/* page title */}
           <Box className="pb-16  w-full ">
             <PageTitle
@@ -65,7 +65,7 @@ const BasicListing = () => {
 
           {/* in the box */}
 
-          <Box className="w-full">
+          <Box className="w-full box-border space-y-8 ">
             <Box>
               <PageSubTitle
                 id="gab"
@@ -82,7 +82,7 @@ const BasicListing = () => {
 
           {/* sepcs */}
 
-          <Box className="w-full">
+          <Box className="w-full box-border space-y-8">
             <Box>
               <PageSubTitle
                 //
@@ -97,7 +97,7 @@ const BasicListing = () => {
 
           {/* description */}
 
-          <Box className="w-full">
+          <Box className="w-full box-border space-y-8">
             <Box>
               <PageSubTitle
                 title="Description"
@@ -112,7 +112,7 @@ const BasicListing = () => {
           </Box>
 
           {/* description v2 */}
-          <Box className="w-full">
+          <Box className="w-full box-border space-y-8">
             <Box>
               <PageSubTitle
                 title="Description ver.2 "
@@ -130,7 +130,7 @@ const BasicListing = () => {
 
         {/* page navigation */}
         <Box
-          className="h-72 w-72 box-border  p-4 sticky top-8  mt-20 flex flex-col items-start justify-start
+          className="h-72 mx-8 rounded-2xl w-72 box-border  p-6 sticky top-8  mt-20 flex flex-col items-start justify-start
         "
         >
           <Typography

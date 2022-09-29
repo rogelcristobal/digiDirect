@@ -7,10 +7,10 @@
         @apply bg-blue-500/10
     } */
     ::-webkit-scrollbar {
-		@apply w-2 ;
+		@apply w-2 bg-neutral-200;
 	}
     ::-webkit-scrollbar-thumb {
-        @apply hover:bg-gray-500/25 bg-gray-400/25 rounded-full
+        @apply hover:bg-gray-500/30 bg-gray-400/25 rounded-full
     }
     .shad{
         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; 
