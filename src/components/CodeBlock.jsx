@@ -1,5 +1,5 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { stackoverflowLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {
   Box,
   Paper,
@@ -9,6 +9,7 @@ import {
   Divider 
 } from "@mui/material";
 import Tooltip,{ tooltipClasses } from '@mui/material/Tooltip' 
+import {DiCss3Full} from 'react-icons/di'
 import Slide from "@mui/material/Slide";
 
 import {
@@ -50,7 +51,7 @@ const CodeBlock = ({ code }) => {
   }
 
   return (
-    <Box className="h-full w-full relative box-border font-medium ">
+    <Box className="h-full w-full relative box-border text-md font-medium  ">
       <Snackbar
         open={open}
         autoHideDuration={3000}
@@ -74,10 +75,11 @@ const CodeBlock = ({ code }) => {
         </Alert>
       </Snackbar>
       <SyntaxHighlighter
+      className="scrollbar-hide hover:scrollbar-default "
         wrapLongLines={true}
         wrapLines={true}
         language="css"
-        style={stackoverflowLight}
+        style={nightOwl}
         // showLineNumbers={true}
         customStyle={{
           paddingTop: "0.7rem",
@@ -88,8 +90,8 @@ const CodeBlock = ({ code }) => {
           overflowX: "hidden",
           boxSizing: "border-box",
           minHeight: !code ? "12rem" : "fit",
-          maxHeight: "25rem",
-          backgroundColor:'rgb(245, 245, 245)'
+          maxHeight: "22rem",
+          // backgroundColor:'rgb(245, 245, 245)'
          
           
         }}
@@ -100,32 +102,32 @@ const CodeBlock = ({ code }) => {
             : code.tags
           : code.tags}
       </SyntaxHighlighter>
-      <Box className="absolute bg-transparent -bottom-12 box-border   right-4 flex items-center justify-around space-x-2 ">
-        {code.styles && (
+      <Box className="absolute bg-transparent -bottom-14 box-border py-2 px-2 w-full flex items-center justify-end space-x-3 ">
           <Paper
             variant="contained"
-            className={`py-2 px-3.5 rounded-md border-medium flex items-center justify-center text-neutral-600  cursor-pointer gap-2 `}
-            onClick={handleShowStyles}
-          >
-            {!styleVisibility ? <BsCode  className="font-bold text-md"/> : <BsCodeSlash />}
-            <Typography variant="body2" className=" text-xs font-medium tracking-tight  ">
-              {!styleVisibility ? "View styles" : "Hide styles"}
-            </Typography>
-          </Paper>
-        )}
-      
-          <Paper
-            variant="contained"
-            className={`p-2 text-md  rounded-md border-medium flex items-center justify-center text-neutral-700 border-2  cursor-pointer gap-3 `}
+            className={`p-2 text-base    flex items-center bg-[#f5f5f5] rounded-lg justify-center text-neutral-400 hover:text-neutral-500 hover:border-thin   cursor-pointer gap-3 `}
             onClick={handleCopy}
           >
-            <AiOutlineCopy/>
+            <AiOutlineCopy />
            
           </Paper>
+      {code.styles && (
+        <Paper
+          variant="contained"
+          className={`p-2    flex items-center bg-[#f5f5f5] rounded-lg justify-center text-neutral-400 hover:text-neutral-500 hover:border-thin  cursor-pointer gap-2 `}
+          onClick={handleShowStyles}
+        >
+          {!styleVisibility ? <DiCss3Full  className="font-bold text-base"/> : <BsCodeSlash  className="font-bold text-base"/>}
+          {/* <Typography variant="body2" className=" text-xs font-medium  tracking-tight  ">
+            {!styleVisibility ? "View styles" : "Hide styles"}
+          </Typography> */}
+        </Paper>
+      )}
         
       </Box>
     </Box>
   );
+
 };
 
 export default CodeBlock;

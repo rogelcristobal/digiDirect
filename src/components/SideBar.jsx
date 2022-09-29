@@ -32,14 +32,15 @@ const SideBar = () => {
       <Box className="w-full  box-border h-auto mt-4   ">
          <Paper
           variant="contained"
-          className="w-full  rounded-xl h-auto max-h-[25rem]  py-4 px-4 overflow-y-scroll box-border mt-4 space-y-0"
+          className="w-full  rounded-xl h-auto max-h-[25rem]  py-4 px-4 overflow-y-scroll box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
+
             <Typography
               variant="body1"
               className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
-            >
+              >
               Dashboard
             </Typography>
             <ListItemBtnComponent

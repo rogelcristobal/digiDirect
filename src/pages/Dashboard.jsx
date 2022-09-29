@@ -53,19 +53,19 @@ const Dashboard = () => {
             <Box className="col-span-8">
               <Paper
                 variant="contained"
-                className="h-56 w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-56 w-full  rounded-2xl  bg-[#ffffff]  box-border border-xl "
               ></Paper>
             </Box>
             <Box className="col-span-4 row-span-2">
               <Paper
                 variant="contained"
-                className="h-full w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-full w-full  rounded-2xl  bg-[#ffffff]  box-border border-xl "
               ></Paper>
             </Box>
             <Box className="col-span-4">
               <Paper
                 variant="contained"
-                className="h-20 w-full  rounded-2xl  bg-[#ffffff]  text-white box-border px-8 flex items-center justify-end border-strong"
+                className="h-20 w-full  rounded-2xl  bg-[#ffffff]  text-white box-border px-8 flex items-center justify-end border-xl"
               >
                 <Typography variant="h6" className=" font-base  text-sm">
                   WebP to JPG
@@ -75,21 +75,21 @@ const Dashboard = () => {
             <Box className="col-span-4">
               <Paper
                 variant="contained"
-                className="h-20 w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-20 w-full  rounded-2xl  bg-[#ffffff]  box-border border-xl "
               ></Paper>
             </Box>
 
             <Box className="col-span-4">
               <Paper
                 variant="contained"
-                className="h-60 w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-60 w-full  rounded-2xl  bg-[#ffffff]  box-border border-xl "
               ></Paper>
             </Box>
 
             <Box className="col-span-8 ">
               <Paper
                 variant="contained"
-                className="h-[38rem] w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-[38rem] w-full  rounded-2xl  bg-[#ffffff]  box-border border-xl "
               ></Paper>
             </Box>
           </Box>
