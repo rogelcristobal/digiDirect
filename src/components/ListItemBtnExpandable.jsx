@@ -1,5 +1,5 @@
 import React from "react";
-import { ListItemButton, Typography, Collapse, List ,Box} from "@mui/material";
+import { ListItemButton, Typography, Collapse, List ,Paper} from "@mui/material";
 import { useState } from "react";
 const ListItemBtnExpandable = ({
   children,
@@ -33,12 +33,14 @@ const ListItemBtnExpandable = ({
         }  `}
       >
         <div className="flex items-center justify-center space-x-3">
-        {icon&&
-          <Box className="px-1 py-1 text-neutral-100 bg-blue-500 rounded-md grid place-content-center">
-
-            {icon}
-          </Box>
-          }
+        {icon && (
+            <Paper
+              variant="contained"
+              className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointergap-2 text-blue-500 bg-blue-200`}
+            >
+              {icon}
+            </Paper>
+          )}
 
           <Typography
             variant="body2"

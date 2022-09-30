@@ -73,7 +73,7 @@ const BasicListing = () => {
                 subtitle={`Displays the accesories included in the product package. Copy and paste the template in 'What\'s in the box' tab in Magento. `}
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl py-2 mt-4 px-8  ">
+            <Box className=" h-fit w-full box-border rounded-3xl py-2 mt-4  ">
               <CodeSnippetComponent
                 code={inTheBoxMarkup}
               ></CodeSnippetComponent>
@@ -90,7 +90,7 @@ const BasicListing = () => {
                 subtitle={`Displays the specification of the product. Copy and paste it in 'Specification' tab in Magento. `}
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl  mt-4 px-8  ">
+            <Box className=" h-fit w-full box-border rounded-3xl  mt-4  ">
               <CodeSnippetComponent code={specsMarkup}></CodeSnippetComponent>
             </Box>
           </Box>
@@ -104,7 +104,7 @@ const BasicListing = () => {
                 subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl  mt-4 px-8  ">
+            <Box className=" h-fit w-full box-border rounded-3xl  mt-4  ">
               <CodeSnippetComponent
                 code={descriptionSimple}
               ></CodeSnippetComponent>
@@ -119,7 +119,7 @@ const BasicListing = () => {
                 subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl  mt-4 px-8  ">
+            <Box className=" h-fit w-full box-border rounded-3xl  mt-4  ">
               <CodeSnippetComponent
                 code={descriptionBest}
                 canEdit={true}

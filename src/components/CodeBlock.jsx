@@ -13,11 +13,11 @@ import {DiCss3Full} from 'react-icons/di'
 import Slide from "@mui/material/Slide";
 
 import {
-  AiOutlineCopy,
   AiOutlineEyeInvisible,
   AiOutlineEye,
 } from "react-icons/ai";
-import {BsCode,BsCodeSlash} from 'react-icons/bs'
+import {FaClipboard} from 'react-icons/fa'
+import {BiCodeAlt} from 'react-icons/bi'
 import { useState, useRef } from "react";
 const CodeBlock = ({ code }) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
@@ -105,19 +105,19 @@ const CodeBlock = ({ code }) => {
       <Box className="absolute bg-transparent -bottom-16 box-border py-2 px-2 w-full flex items-center justify-end space-x-3 ">
           <Paper
             variant="contained"
-            className={`p-2 text-base    flex items-center bg-[#f5f5f5] rounded-lg justify-center text-neutral-400 hover:text-neutral-500 hover:border-thin   cursor-pointer gap-3 `}
+            className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-200   cursor-pointer gap-3 `}
             onClick={handleCopy}
           >
-            <AiOutlineCopy />
+            <FaClipboard />
            
           </Paper>
       {code.styles && (
         <Paper
           variant="contained"
-          className={`p-2    flex items-center bg-[#f5f5f5] rounded-lg justify-center text-neutral-400 hover:text-neutral-500 hover:border-thin  cursor-pointer gap-2 `}
+          className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 ${!styleVisibility?'text-blue-500 bg-blue-200':'text-white bg-blue-500'}`}
           onClick={handleShowStyles}
         >
-          {!styleVisibility ? <DiCss3Full  className="font-bold text-base"/> : <BsCodeSlash  className="font-bold text-base"/>}
+          {!styleVisibility ? <DiCss3Full  className="font-bold text-base"/> : <BiCodeAlt  className="font-bold text-base"/>}
           {/* <Typography variant="body2" className=" text-xs font-medium  tracking-tight  ">
             {!styleVisibility ? "View styles" : "Hide styles"}
           </Typography> */}

@@ -16,7 +16,7 @@ import { AiFillDashboard } from "react-icons/ai";
 
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[22rem]  bg-inherit z-20 box-border relative pt-0 border-thin">
+    <Box className="h-screen w-[22rem]  bg-inherit z-20 box-border relative pt-20 border-thin">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -24,15 +24,15 @@ const SideBar = () => {
         light
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
-      <Box className="h-32   w-full flex flex-col items-start justify-center px-9   box-border ">
-        {/* digi logo */}
+      {/* <Box className="h-32   w-full flex flex-col items-start justify-center px-9   box-border ">
+        digi logo
         <DigiLogoInJs size="text-xl" dark  color="text-blue-500" />
        
-      </Box>
-      <Box className="w-full  box-border h-auto mt-4   ">
+      </Box> */}
+      <Box className="w-full  box-border h-auto    ">
          <Paper
           variant="contained"
-          className="w-full  rounded-xl h-auto max-h-[26rem]   py-4 px-4 overflow-y-scroll box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
+          className="w-full  rounded-xl h-auto max-h-[80%]  py-4 px-4 overflow-y-scroll box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
