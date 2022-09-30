@@ -32,7 +32,7 @@ const BasicListing = () => {
   const [viewRef_2,inView_2] = useInView(inViewOptions)
   const [viewRef_3,inView_3] = useInView(inViewOptions)
 
-  // const [activeStep, setStep] = useState(0);
+  
 
   useEffect(() => {
     const element = scrollRef.current;

@@ -8,12 +8,7 @@ import DigiLogoInJs from "./DigiLogoInJs";
 const Navbar = () => {
   const { state, transparency } = useContext(NavScrollContext);
   return (
-    // <Box
-    //   className={`h-[4.5rem] fixed  ${
-    //     state >= 100 ? "bg-transparent" : "bg-white "
-    //   } trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0 pt-3  left-0 box-border flex items-center justify-end   
-    // `}
-    // >
+    
     <Box
       className={`h-[4.5rem] fixed  ${
         state >= 100 ? !transparency? 'bg-transparent':'bg-white shadow-sm' : "bg-white "

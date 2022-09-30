@@ -105,7 +105,7 @@ const CodeBlock = ({ code }) => {
       <Box className="absolute bg-transparent -bottom-16 box-border py-2 px-2 w-full flex items-center justify-end space-x-3 ">
           <Paper
             variant="contained"
-            className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-200   cursor-pointer gap-3 `}
+            className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-100   cursor-pointer gap-3 `}
             onClick={handleCopy}
           >
             <FaClipboard />
@@ -114,7 +114,7 @@ const CodeBlock = ({ code }) => {
       {code.styles && (
         <Paper
           variant="contained"
-          className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 ${!styleVisibility?'text-blue-500 bg-blue-200':'text-white bg-blue-500'}`}
+          className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 ${!styleVisibility?'text-blue-500 bg-blue-100':'text-white bg-blue-500'}`}
           onClick={handleShowStyles}
         >
           {!styleVisibility ? <DiCss3Full  className="font-bold text-base"/> : <BiCodeAlt  className="font-bold text-base"/>}
