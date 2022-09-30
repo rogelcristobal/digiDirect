@@ -25,22 +25,22 @@ const BasicListing = () => {
     useContext(NavScrollContext);
   const scrollRef = useRef(null); // for navbar purposes
   const inViewOptions = {
-    threshold: 0.6,
+    threshold: 1,
     delay: 200,
-    rootMargin: "60px 0px",
+    rootMargin: "90px 0px",
   };
   const inTheBoxTab = useRef(null);
   const specsTab = useRef(null);
   const descriptionTab = useRef(null);
-  const descriptionVerTwoTab = useRef(null);
-
-  const [tabInViewState,setTabInViewState] = useState({
-    inTheBox:false,
-    spec:false,
-  })
+  const descriptionVer2Tab = useRef(null);
 
  
-  
+
+  const [inTheBoxView, inTheBoxState] = useInView(inViewOptions);
+  const [specsView, specsState] = useInView(inViewOptions);
+  const [descriptionView, descriptionState] = useInView(inViewOptions);
+  const [descriptionVer2View, descriptionVer2State] = useInView(inViewOptions);
+
 
   useEffect(() => {
     const element = scrollRef.current;
@@ -76,8 +76,8 @@ const BasicListing = () => {
 
           {/* in the box */}
 
-          <Box  ref={inTheBoxTab} className="w-full box-border space-y-8 ">
-            <Box>
+          <Box ref={inTheBoxTab} className="w-full box-border space-y-8 ">
+            <Box ref={inTheBoxView}>
               <PageSubTitle
                 id="gab"
                 title=" What's in the box"
@@ -93,10 +93,9 @@ const BasicListing = () => {
 
           {/* sepcs */}
 
-          <Box  ref={specsTab} className="w-full box-border space-y-8">
-            <Box>
+          <Box ref={specsTab} className="w-full box-border space-y-8 ">
+            <Box  ref={specsView}>
               <PageSubTitle
-                
                 title="Specification"
                 subtitle={`Displays the specification of the product. Copy and paste it in 'Specification' tab in Magento. `}
               />
@@ -108,8 +107,8 @@ const BasicListing = () => {
 
           {/* description */}
 
-          <Box  ref={descriptionTab} className="w-full box-border space-y-8">
-            <Box>
+          <Box  ref={descriptionTab} className="w-full box-border space-y-8 ">
+            <Box  ref={descriptionView}>
               <PageSubTitle
                 title="Description"
                 subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
@@ -123,8 +122,8 @@ const BasicListing = () => {
           </Box>
 
           {/* description v2 */}
-          <Box ref={descriptionVerTwoTab} className="w-full box-border space-y-8">
-            <Box>
+          <Box  ref={descriptionVer2Tab} className="w-full box-border space-y-8 ">
+            <Box ref={descriptionVer2View}>
               <PageSubTitle
                 title="Description ver.2 "
                 subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
@@ -148,28 +147,55 @@ const BasicListing = () => {
             variant="body1"
             className="text-sm text-blue-500 capitalize font-medium"
           >
-            {" "}
             on this page
           </Typography>
 
           <Box className="flex flex-col box-border pl-4 items-start justify-start h-full mt-6 w-full space-y-3 relative">
             {[
-              { title: "what's in the box", reference:inTheBoxTab},
-              { title: "specification", reference: specsTab},
-              { title: "description", reference: descriptionTab},
-              { title: "description ver.2", reference: descriptionVerTwoTab },
+              {
+                title: "what's in the box",
+                reference: {
+                  tab: inTheBoxTab,
+                  viewRef: inTheBoxView,
+                  viewState: inTheBoxState,
+                },
+              },
+              {
+                title: "specification",
+                reference: {
+                  tab: specsTab,
+                  viewRef: specsView,
+                  viewState: specsState,
+                },
+              },
+              {
+                title: "description",
+                reference: {
+                  tab: descriptionTab,
+                  viewRef: descriptionView,
+                  viewState: descriptionState,
+                },
+              },
+              {
+                title: "description ver.2",
+                reference: {
+                  tab: descriptionVer2Tab,
+                  viewRef: descriptionVer2View,
+                  viewState: descriptionVer2State,
+                },
+              },
             ].map((item, idx) => (
               <Link
                 key={idx}
                 underline="none"
                 onClick={() =>
-                  item.reference.current.scrollIntoView({
+                  item.reference.tab.current.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
                   })
                 }
                 className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
-                ${item.stateView? 'text-blue-500':'text-neutral-600'}
+                ${item.reference.viewState ? "text-blue-500" : "text-neutral-600"}
                 capitalize transition-all duration-700 ease-in-out  flex items-center justify-center`}
               >
                 <BiChevronRight></BiChevronRight>
