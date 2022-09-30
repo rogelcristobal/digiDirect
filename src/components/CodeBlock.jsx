@@ -1,5 +1,4 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {
   Box,
   Paper,
@@ -18,7 +17,8 @@ import {
 } from "react-icons/ai";
 import {FaClipboard} from 'react-icons/fa'
 import {BiCodeAlt} from 'react-icons/bi'
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
 const CodeBlock = ({ code }) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
   const [open, setOpen] = useState(false);
@@ -79,7 +79,7 @@ const CodeBlock = ({ code }) => {
         wrapLongLines={true}
         wrapLines={true}
         language="css"
-        style={nightOwl}
+        style={googlecode}
         // showLineNumbers={true}
         customStyle={{
           paddingTop: "0.7rem",
@@ -91,7 +91,6 @@ const CodeBlock = ({ code }) => {
           boxSizing: "border-box",
           minHeight: !code ? "12rem" : "fit",
           maxHeight: "22rem",
-          // backgroundColor:'rgb(245, 245, 245)'
          
           
         }}
@@ -102,7 +101,7 @@ const CodeBlock = ({ code }) => {
             : code.tags
           : code.tags}
       </SyntaxHighlighter>
-      <Box className="absolute bg-transparent -bottom-16 box-border py-2 px-2 w-full flex items-center justify-end space-x-3 ">
+      <Box className="absolute bg-transparent right-0 -bottom-[4.5rem] box-border py-2 px-2 w-fit min-w-[10rem] flex items-center justify-end space-x-3 rounded-md">
           <Paper
             variant="contained"
             className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-100   cursor-pointer gap-3 `}

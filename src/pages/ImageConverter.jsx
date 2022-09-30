@@ -28,11 +28,11 @@ const ImageConverter = () => {
 
   const [URLInput, setURLInput] = useState("");
 
-  const { mutate, state } = useImportFromURL();
-  const { mutate: startConvert, state: convertStatus } = useConvert();
+  // const { mutate, state } = useImportFromURL();
+  // const { mutate: startConvert, state: convertStatus } = useConvert();
 
-  console.log("import", state);
-  console.log("convertStatus", convertStatus);
+  // console.log("import", state);
+  // console.log("convertStatus", convertStatus);
   return (
     <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]   w-full ">
       <Box
