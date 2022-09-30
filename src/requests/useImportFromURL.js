@@ -7,10 +7,7 @@ const useImportFromURL = () => {
     status:null,
     headers:null
   });
-  const input = {
-    url: "https://www.digidirect.com.au/media/catalog/product/a/t/atr2100x-usb_01.jpg",
-    filename: "some.jpg",
-  };
+  
 
   const headers = {
     "Content-Type": "application/json",
@@ -18,15 +15,15 @@ const useImportFromURL = () => {
     Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
   };
 
-  const { mutate } = useMutation(
-    async () => {
+  const { mutate } = useMutation(async (payload) => {
       return await axios.post(
         "https://api.freeconvert.com/v1/process/import/url",
-        input,
+        payload,
         {
           headers: headers,
         }
       );
+     
     },
     {
       onSuccess: (res) => {

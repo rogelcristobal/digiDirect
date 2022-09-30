@@ -31,7 +31,7 @@ const OpenBox = () => {
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-start box-border"
       >
-        <Box className="w-full max-w-4xl h-auto box-border px-16  pt-12 pb-36 space-y-20">
+        <Box className="w-full max-w-4xl h-auto box-border px-20  pt-12 pb-36 space-y-20">
           {/* page title */}
           <Box className="pb-16  w-full">
             <PageTitle

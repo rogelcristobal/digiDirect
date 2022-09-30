@@ -7,8 +7,11 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
+      general: ["Inter Tight", "sans-serif"],
+      open: ["Open Sans", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
+      roboto: ["Roboto", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };

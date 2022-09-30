@@ -23,7 +23,7 @@ import { useEffect, useState } from "react";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const font = "'poppins', sans-serif";
+  const font = "'Poppins', sans-serif";
   const theme = createTheme({
     typography: {
       fontFamily: [font].join(","),
@@ -53,7 +53,7 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800  box-border flex items-start justify-start bg-[#ffffff] relative">
+          <Box className="h-screen w-full text-gray-800  font-poppins  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
 
             <SideBar />
