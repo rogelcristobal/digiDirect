@@ -15,39 +15,46 @@ import PageSubTitle from "../components/PageSubTitle";
 import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
-import { useInView } from "react-intersection-observer";
+import { InView, useInView } from "react-intersection-observer";
+import { BiChevronRight } from "react-icons/bi";
 const BasicListing = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
 
-  const { setState: setScrollPos,setTransparency } = useContext(NavScrollContext);
+  const { setState: setScrollPos, setTransparency } =
+    useContext(NavScrollContext);
   const scrollRef = useRef(null); // for navbar purposes
   const inViewOptions = {
     threshold: 0.6,
     delay: 200,
     rootMargin: "60px 0px",
   };
-  const [viewRef_0,inView_0] = useInView(inViewOptions)
-  const [viewRef_1,inView_1] = useInView(inViewOptions)
-  const [viewRef_2,inView_2] = useInView(inViewOptions)
-  const [viewRef_3,inView_3] = useInView(inViewOptions)
+  const inTheBoxTab = useRef(null);
+  const specsTab = useRef(null);
+  const descriptionTab = useRef(null);
+  const descriptionVerTwoTab = useRef(null);
 
+  const [tabInViewState,setTabInViewState] = useState({
+    inTheBox:false,
+    spec:false,
+  })
+
+ 
   
 
   useEffect(() => {
     const element = scrollRef.current;
-   
+
     const handleScroll = () => {
       let x = element.scrollTop;
       setScrollPos(x);
-      setTransparency(true)
-      
+      setTransparency(true);
     };
     element.addEventListener("scroll", handleScroll);
     return () => {
       element.removeEventListener("scroll", handleScroll);
       setScrollPos(0);
-      setTransparency(false)
+      setTransparency(false);
     };
   }, []);
 
@@ -69,7 +76,7 @@ const BasicListing = () => {
 
           {/* in the box */}
 
-          <Box className="w-full box-border space-y-8 ">
+          <Box  ref={inTheBoxTab} className="w-full box-border space-y-8 ">
             <Box>
               <PageSubTitle
                 id="gab"
@@ -86,10 +93,10 @@ const BasicListing = () => {
 
           {/* sepcs */}
 
-          <Box className="w-full box-border space-y-8">
+          <Box  ref={specsTab} className="w-full box-border space-y-8">
             <Box>
               <PageSubTitle
-                //
+                
                 title="Specification"
                 subtitle={`Displays the specification of the product. Copy and paste it in 'Specification' tab in Magento. `}
               />
@@ -101,7 +108,7 @@ const BasicListing = () => {
 
           {/* description */}
 
-          <Box className="w-full box-border space-y-8">
+          <Box  ref={descriptionTab} className="w-full box-border space-y-8">
             <Box>
               <PageSubTitle
                 title="Description"
@@ -116,7 +123,7 @@ const BasicListing = () => {
           </Box>
 
           {/* description v2 */}
-          <Box className="w-full box-border space-y-8">
+          <Box ref={descriptionVerTwoTab} className="w-full box-border space-y-8">
             <Box>
               <PageSubTitle
                 title="Description ver.2 "
@@ -134,7 +141,7 @@ const BasicListing = () => {
 
         {/* page navigation */}
         <Box
-          className="h-72 mx-8 rounded-2xl w-72 box-border  p-6 sticky top-20  mt-36 flex flex-col items-start justify-start
+          className="h-72 mx-8 rounded-2xl w-72 box-border  p-6 sticky top-20  mt-28 flex flex-col items-start justify-start
         "
         >
           <Typography
@@ -147,24 +154,25 @@ const BasicListing = () => {
 
           <Box className="flex flex-col box-border pl-4 items-start justify-start h-full mt-6 w-full space-y-3 relative">
             {[
-              { title: "what's in the box" },
-              { title: "specification"},
-              { title: "description" },
-              { title: "description ver.2"},
+              { title: "what's in the box", reference:inTheBoxTab},
+              { title: "specification", reference: specsTab},
+              { title: "description", reference: descriptionTab},
+              { title: "description ver.2", reference: descriptionVerTwoTab },
             ].map((item, idx) => (
               <Link
                 key={idx}
                 underline="none"
                 onClick={() =>
-                  item.path.current.scrollIntoView({
+                  item.reference.current.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
                   })
                 }
-                className={`font-poppins text-[0.775rem] font-medium cursor-pointer text-neutral-600
-             
-                capitalize transition-all duration-700 ease-in-out`}
+                className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
+                ${item.stateView? 'text-blue-500':'text-neutral-600'}
+                capitalize transition-all duration-700 ease-in-out  flex items-center justify-center`}
               >
+                <BiChevronRight></BiChevronRight>
                 {item.title}
               </Link>
             ))}
