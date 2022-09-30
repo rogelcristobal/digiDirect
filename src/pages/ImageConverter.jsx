@@ -1,12 +1,9 @@
 import { useState, useRef, useContext } from "react";
 import { Box, Tooltip, Button } from "@mui/material";
 import PageTitle from "../components/PageTitle";
-import PageSubTitle from "../components/PageSubTitle";
-import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
-import useScrollRefHook from "../hooks/useScrollRefHook";
 import useImportFromURL from "../requests/useImportFromURL";
 import useConvert from "../requests/useConvert";
 const ImageConverter = () => {

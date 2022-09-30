@@ -20,7 +20,7 @@ const BasicListing = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
 
-  const { setState: setScrollPos } = useContext(NavScrollContext);
+  const { setState: setScrollPos,setTransparency } = useContext(NavScrollContext);
   const scrollRef = useRef(null); // for navbar purposes
   const inViewOptions = {
     threshold: 0.6,
@@ -36,24 +36,28 @@ const BasicListing = () => {
 
   useEffect(() => {
     const element = scrollRef.current;
+   
     const handleScroll = () => {
       let x = element.scrollTop;
       setScrollPos(x);
+      setTransparency(true)
+      
     };
     element.addEventListener("scroll", handleScroll);
     return () => {
       element.removeEventListener("scroll", handleScroll);
       setScrollPos(0);
+      setTransparency(false)
     };
   }, []);
 
   return (
-    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]  w-full ">
+    <Box className="h-full box-border flex items-start gap-3 rounded-lg   w-full ">
       <Box
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-start box-border"
       >
-        <Box className="w-full max-w-4xl h-auto box-border px-20  pt-12 pb-36 space-y-28">
+        <Box className="w-full max-w-4xl h-auto box-border px-20  pt-24 pb-36 space-y-28">
           {/* page title */}
           <Box className="pb-16  w-full ">
             <PageTitle
@@ -130,7 +134,7 @@ const BasicListing = () => {
 
         {/* page navigation */}
         <Box
-          className="h-72 mx-8 rounded-2xl w-72 box-border  p-6 sticky top-8  mt-20 flex flex-col items-start justify-start
+          className="h-72 mx-8 rounded-2xl w-72 box-border  p-6 sticky top-20  mt-36 flex flex-col items-start justify-start
         "
         >
           <Typography

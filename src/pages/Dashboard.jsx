@@ -23,6 +23,7 @@ const Dashboard = () => {
 // for scrolling not using hooks
   useEffect(() => {
     const element = scrollRef.current;
+    
     const handleScroll = () => {
       let x = element.scrollTop;
       setScrollPos(x);

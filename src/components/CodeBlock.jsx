@@ -1,5 +1,5 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {
   Box,
   Paper,
@@ -79,7 +79,7 @@ const CodeBlock = ({ code }) => {
         wrapLongLines={true}
         wrapLines={true}
         language="css"
-        style={googlecode}
+        style={nightOwl}
         // showLineNumbers={true}
         customStyle={{
           paddingTop: "0.7rem",

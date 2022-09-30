@@ -29,7 +29,7 @@ const ListItemBtnComponent = ({
           {icon && (
             <Paper
               variant="contained"
-              className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointergap-2 text-blue-500 bg-blue-200`}
+              className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointergap-2 text-blue-500 bg-blue-100`}
             >
               {icon}
             </Paper>
