@@ -10,16 +10,12 @@ import {
 import Tooltip,{ tooltipClasses } from '@mui/material/Tooltip' 
 import {DiCss3Full} from 'react-icons/di'
 import Slide from "@mui/material/Slide";
-
-import {
-  AiOutlineEyeInvisible,
-  AiOutlineEye,
-} from "react-icons/ai";
+import {MdEdit} from 'react-icons/md'
 import {FaClipboard} from 'react-icons/fa'
 import {BiCodeAlt} from 'react-icons/bi'
 import { useState } from "react";
 import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
-const CodeBlock = ({ code }) => {
+const CodeBlock = ({ code ,canEdit}) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -108,6 +104,14 @@ const CodeBlock = ({ code }) => {
             onClick={handleCopy}
           >
             <FaClipboard />
+           
+          </Paper>
+          <Paper
+            variant="contained"
+            className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-100   cursor-pointer gap-3 `}
+            onClick={handleCopy}
+          >
+            <MdEdit />
            
           </Paper>
       {code.styles && (
