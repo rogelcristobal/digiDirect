@@ -98,7 +98,7 @@ const SideBar = () => {
               path="/image-converter"
               activeStyle="bg-blue-50 text-blue-500  no-underline "
               hoverColor="hover:text-blue-500 "
-              title="Image Converter"
+              title="Converter"
               icon={<AiFillFileImage className="text-sm" />}
             />
              <ListItemBtnComponent

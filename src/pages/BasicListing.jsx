@@ -62,9 +62,9 @@ const BasicListing = () => {
     <Box className="h-full box-border flex items-start gap-3 rounded-lg   w-full ">
       <Box
         ref={scrollRef}
-        className="h-full  overflow-auto w-full  flex  items-start justify-start box-border"
+        className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full max-w-4xl h-auto box-border px-20  pt-24 pb-36 space-y-28">
+        <Box className="w-full  h-auto box-border px-20  pt-24 pb-36 space-y-28">
           {/* page title */}
           <Box className="pb-16  w-full ">
             <PageTitle

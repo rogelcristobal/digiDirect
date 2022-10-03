@@ -1,32 +1,44 @@
 import { useState, useRef, useContext } from "react";
-import { Box, Tooltip, Button } from "@mui/material";
+import { Box, Tooltip, IconButton, Button, Typography } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
 import useImportFromURL from "../requests/useImportFromURL";
 import useConvert from "../requests/useConvert";
+import { AiOutlinePlus, AiOutlineLink } from "react-icons/ai";
+import PageSubTitle from "../components/PageSubTitle";
 const ImageConverter = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
 
-  const { setState: setScrollPos } = useContext(NavScrollContext);
+  const { setState: setScrollPos, setTransparency } =
+    useContext(NavScrollContext);
   const scrollRef = useRef(null);
 
   useEffect(() => {
     const element = scrollRef.current;
+
     const handleScroll = () => {
-      let position = element.scrollTop;
-      setScrollPos(position);
+      let x = element.scrollTop;
+      setScrollPos(x);
+      setTransparency(true);
     };
     element.addEventListener("scroll", handleScroll);
     return () => {
       element.removeEventListener("scroll", handleScroll);
       setScrollPos(0);
+      setTransparency(false);
     };
   }, []);
+  const [URLInput, setURLInput] = useState([{ input: "" }]);
 
-  const [URLInput, setURLInput] = useState("");
+  const handleAddURL = () => {
+    setURLInput([...URLInput, { input: "" }]);
+  };
+  const handleTextChange = (e, id) => {
+    console.log(e, id);
+  };
 
   // const { mutate, state } = useImportFromURL();
   // const { mutate: startConvert, state: convertStatus } = useConvert();
@@ -39,40 +51,81 @@ const ImageConverter = () => {
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-start box-border"
       >
-        <Box className="w-full max-w-4xl h-auto box-border px-16  pt-12 pb-36 space-y-16">
+        <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-28">
           {/* page title */}
-          <Box className="pb-0  w-full">
+          <Box className="  w-full">
             <PageTitle
               category="Tools & API's"
-              title="Image Converter"
-              subTitle="Convert Image format to JPG"
+              title="Converters"
+            
             />
           </Box>
-
-          <Box className="h-96 border-thin rounded-2xl flex flex-col items-center justify-center">
-            <Box className="flex items-center justify-end h-fit">
-              <Tooltip title={URLInput ? URLInput : "URL text field"}>
+          <Box>
+            <PageSubTitle title="Image Converter"  subtitle="Easily convert images  from one format to another, online. (FreeConvert.com API)"></PageSubTitle>
+            <Box className="h-96 box-border pt-8 flex flex-col items-start justify-start">
+              <Box className="w-full rounded-xl  box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
+                {/* URLInput[].text*/}
+                {/* {URLInput.map((item, idx) => (
+                <Tooltip key={idx} title={"URL text field"}>
                 <input
-                  value={URLInput}
-                  onChange={(e) =>
-                    setURLInput((prev) => (prev = e.target.value))
-                  }
-                  type="text"
-                  className="h-8 w-72 rounded-l-lg border-0 outline-none bg-neutral-100 hover:cursor-pointer focus:cursor-text px-4 py-2 text-md font-general font-medium text-neutral-500 focus:text-neutral-900"
+                name="url_input"
+                value={item.input}
+                onChange={(e) => {
+                  const list = [...URLInput];
+                  list[idx].input = e.target.value;
+                  setURLInput(list);
+                }}
+                type="text"
+                className="h-8 w-96 rounded-lg border-0 outline-none bg-gray-100 hover:cursor-pointer focus:cursor-text px-4 py-2 text-md font-general font-medium text-gray-400 focus:text-gray-900"
                 />
-              </Tooltip>
-              <Button
-                variant="contained"
-                className="bg-blue-400 h-full shadow-none capitalize text-sm  rounded-r-lg"
-              >
-                covnert
-              </Button>
+                </Tooltip>
+              ))} */}
+                <Box className="max-w-[40rem] w-full h-fit flex flex-col items-end justify-start">
+                  <Box className="h-60 bg-blue-50 cursor-pointer border-2 border-blue-300 border-dashed rounded-xl text-blue-500 w-full  flex flex-col items-center justify-center text-2xl gap-4">
+                    <AiOutlinePlus className="text-3xl"></AiOutlinePlus>
+                    <Typography variant="" className="text-sm capitalize">
+                      choose files
+                    </Typography>
+                  </Box>
+                  <Box className="h-fit w-full flex items-center justify-end space-x-3 mt-8">
+                    {/* <IconButton
+                  onClick={handleAddURL}
+                  className="h-8 w-8  text-sm rounded-lg shadow-none text-blue-500 bg-blue-100"
+                  >
+                  <AiOutlinePlus></AiOutlinePlus>
+                </IconButton> */}
+                    <Button
+                      startIcon={<AiOutlineLink className="text-blue-500"/>}
+                      variant="contained"
+                      className="px-6 py-2 bg-blue-100 shadow-none  rounded-lg "
+                    >
+                      <Typography
+                        variant="body1"
+                        className="font-medium text-sm text-blue-500 capitalize"
+                      >
+                        From URL
+                      </Typography>
+                    </Button>
+                    <Button
+                      variant="contained"
+                      className="px-6 py-2 bg-blue-500 shadow-none  rounded-lg "
+                    >
+                      <Typography
+                        variant="body1"
+                        className=" text-sm text-white capitalize"
+                      >
+                        Submit
+                      </Typography>
+                    </Button>
+                  </Box>
+                </Box>
+              </Box>
             </Box>
           </Box>
         </Box>
         <Box
           className="h-72 w-72   sticky top-0 mt-16 flex flex-col items-start justify-start
-        "
+          "
         ></Box>
       </Box>
 
