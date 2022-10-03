@@ -6,7 +6,7 @@ import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
 import useImportFromURL from "../requests/useImportFromURL";
 import useConvert from "../requests/useConvert";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineLink } from "react-icons/ai";
 import PageSubTitle from "../components/PageSubTitle";
 const ImageConverter = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
@@ -61,8 +61,6 @@ const ImageConverter = () => {
             />
           </Box>
           <Box>
-          
-
             <Box className="h-96 box-border pt-4 flex flex-col items-start justify-start">
               <Box className="w-full rounded-xl  box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
                 {/* URLInput[].text*/}
@@ -81,37 +79,48 @@ const ImageConverter = () => {
                 />
                 </Tooltip>
               ))} */}
-              <Box className="max-w-[40rem] w-full h-fit flex flex-col items-end justify-start">
-
-                <Box className="h-60 bg-blue-50 cursor-pointer border-2 border-blue-300 border-dashed rounded-xl text-blue-500 w-full  flex flex-col items-center justify-center text-2xl gap-3">
-                  <AiOutlinePlus></AiOutlinePlus>
-                  <Typography variant="" className="text-sm capitalize">
-                    choose files
-                  </Typography>
-                </Box>
-                <Box className="h-fit w-full flex items-center justify-end space-x-3 mt-8">
-                  {/* <IconButton
+                <Box className="max-w-[40rem] w-full h-fit flex flex-col items-end justify-start">
+                  <Box className="h-60 bg-blue-50 cursor-pointer border-2 border-blue-300 border-dashed rounded-xl text-blue-500 w-full  flex flex-col items-center justify-center text-2xl gap-4">
+                    <AiOutlinePlus className="text-3xl"></AiOutlinePlus>
+                    <Typography variant="" className="text-sm capitalize">
+                      choose files
+                    </Typography>
+                  </Box>
+                  <Box className="h-fit w-full flex items-center justify-end space-x-3 mt-8">
+                    {/* <IconButton
                   onClick={handleAddURL}
                   className="h-8 w-8  text-sm rounded-lg shadow-none text-blue-500 bg-blue-100"
                   >
                   <AiOutlinePlus></AiOutlinePlus>
                 </IconButton> */}
-                  <Button
-                    variant="contained"
-                    className="px-6 py-2 bg-blue-500 shadow-none  rounded-lg "
+                    <Button
+                      startIcon={<AiOutlineLink className="text-blue-500"/>}
+                      variant="contained"
+                      className="px-6 py-2 bg-blue-100 shadow-none  rounded-lg "
                     >
-                    <Typography
-                      variant="body1"
-                      className=" text-sm text-white capitalize"
+                      <Typography
+                        variant="body1"
+                        className="font-medium text-sm text-blue-500 capitalize"
                       >
-                      Submit
-                    </Typography>
-                  </Button>
+                        From URL
+                      </Typography>
+                    </Button>
+                    <Button
+                      variant="contained"
+                      className="px-6 py-2 bg-blue-500 shadow-none  rounded-lg "
+                    >
+                      <Typography
+                        variant="body1"
+                        className=" text-sm text-white capitalize"
+                      >
+                        Submit
+                      </Typography>
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
         </Box>
         <Box
           className="h-72 w-72   sticky top-0 mt-16 flex flex-col items-start justify-start
