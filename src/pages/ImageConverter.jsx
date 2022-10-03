@@ -51,17 +51,18 @@ const ImageConverter = () => {
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-start box-border"
       >
-        <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-16">
+        <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-28">
           {/* page title */}
           <Box className="  w-full">
             <PageTitle
               category="Tools & API's"
-              title="Image Converters"
-              subTitle="Easily convert images  from one format to another "
+              title="Converters"
+            
             />
           </Box>
           <Box>
-            <Box className="h-96 box-border pt-4 flex flex-col items-start justify-start">
+            <PageSubTitle title="Image Converter"  subtitle="Easily convert images  from one format to another, online. (FreeConvert.com API)"></PageSubTitle>
+            <Box className="h-96 box-border pt-8 flex flex-col items-start justify-start">
               <Box className="w-full rounded-xl  box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
                 {/* URLInput[].text*/}
                 {/* {URLInput.map((item, idx) => (
