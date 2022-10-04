@@ -59,18 +59,20 @@ const BasicListing = () => {
   }, []);
 
   return (
-    <Box className="h-full box-border flex items-start gap-3 rounded-lg   w-full ">
+    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]  w-full ">
       <Box
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-20  pt-24 pb-36 space-y-28">
+        <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-28">
           {/* page title */}
           <Box className="pb-16  w-full ">
             <PageTitle
               category="general"
               title="Basic listing"
-              subTitle="Create and copy a Basic listing template for digiDirect products. Copy the raw template or edit it in the customize tab."
+              subTitle={
+                <Typography variant="body1" className="text-gray-700 leading-6 text-base font-normal">Create and copy a Basic listing template for digiDirect products. Copy the raw template or edit it in the customize tab.</Typography>
+              }
             />
           </Box>
 
@@ -81,7 +83,9 @@ const BasicListing = () => {
               <PageSubTitle
                 id="gab"
                 title=" What's in the box"
-                subtitle={`Displays the accesories included in the product package. Copy and paste the template in 'What\'s in the box' tab in Magento. `}
+                subtitle={
+                  <Typography variant="body2" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the accesories included in the product package. Copy and paste the template in <span className="font-semibold ">'What's in the box'</span> tab in Magento.  </Typography>
+                  }
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl py-2 mt-4  ">
@@ -97,10 +101,12 @@ const BasicListing = () => {
             <Box  ref={specsView}>
               <PageSubTitle
                 title="Specification"
-                subtitle={`Displays the specification of the product. Copy and paste it in 'Specification' tab in Magento. `}
+                subtitle={
+                  <Typography variant="body2" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the specification of the product. Copy and paste it in <span className="font-semibold ">'Specification'</span> tab in Magento. </Typography>
+                  }
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl  mt-4  ">
+            <Box className=" h-fit w-full box-border rounded-3xl    ">
               <CodeSnippetComponent code={specsMarkup}></CodeSnippetComponent>
             </Box>
           </Box>
@@ -111,10 +117,10 @@ const BasicListing = () => {
             <Box  ref={descriptionView}>
               <PageSubTitle
                 title="Description"
-                subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
+                subtitle={ <Typography variant="body1" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the description of the product. Copy and paste it in <span className="font-semibold ">'Description'</span> and <span className="font-semibold">eBay Description</span> tab in Magento.</Typography>}
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl  mt-4  ">
+            <Box className=" h-fit w-full box-border rounded-3xl    ">
               <CodeSnippetComponent
                 code={descriptionSimple}
               ></CodeSnippetComponent>
@@ -126,10 +132,10 @@ const BasicListing = () => {
             <Box ref={descriptionVer2View}>
               <PageSubTitle
                 title="Description ver.2 "
-                subtitle={`Displays the description of the product. Copy and paste it in 'description' tab in Magento. `}
+                subtitle={<Typography variant="body1" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the description of the product. Copy and paste it in <span className="font-semibold ">'Description'</span> and <span className="font-semibold">eBay Description</span> tab in Magento.</Typography>}
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl  mt-4  ">
+            <Box className=" h-fit w-full box-border rounded-3xl    ">
               <CodeSnippetComponent
                 code={descriptionBest}
                 canEdit={true}
@@ -140,17 +146,17 @@ const BasicListing = () => {
 
         {/* page navigation */}
         <Box
-          className="h-72 mx-8 rounded-2xl w-72 box-border  p-6 sticky top-20  mt-28 flex flex-col items-start justify-start
+          className="h-72 mx-8 rounded-2xl w-80 box-border  p-6 sticky top-8  mt-20 flex flex-col items-start justify-start 
         "
         >
           <Typography
             variant="body1"
-            className="text-sm text-blue-500 capitalize font-medium"
+            className="text-sm text-gray-800 capitalize font-medium"
           >
             on this page
           </Typography>
 
-          <Box className="flex flex-col box-border pl-4 items-start justify-start h-full mt-6 w-full space-y-3 relative">
+          <Box className="flex flex-col box-border pl-2 items-start justify-start h-full mt-6 w-full space-y-3 relative">
             {[
               {
                 title: "what's in the box",
@@ -198,7 +204,8 @@ const BasicListing = () => {
                 ${item.reference.viewState ? "text-blue-500" : "text-neutral-600"}
                 capitalize transition-all duration-700 ease-in-out  flex items-center justify-center`}
               >
-                <BiChevronRight></BiChevronRight>
+                
+                <BiChevronRight className={`text-xl  ${item.reference.viewState ? "text-blue-500" : "text-neutral-300"}`}></BiChevronRight>
                 {item.title}
               </Link>
             ))}

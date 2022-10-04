@@ -29,7 +29,7 @@ const ListItemBtnExpandable = ({
         className={`flex justify-between   rounded-2xl py-4 px-4 transition-all duration-300 ease-int-out ${
           isOpen
             ? `${bgColor} ${textColor}`
-            : `bg-inherit text-neutral-700 hover:${textColor}`
+            : `bg-inherit text-neutral-600 hover:${textColor}`
         }  `}
       >
         <div className="flex items-center justify-center space-x-3">

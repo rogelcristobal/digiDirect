@@ -8,7 +8,7 @@ const CodeSnippetComponent = ({ code, canEdit }) => {
   const [tabValue, setTabValue] = useState(0);
   return (
    
-    <Box  className="relative h-fit w-full  px-2 rounded-lg box-border ">
+    <Box  className="relative h-fit w-full  p-0 rounded-lg box-border ">
     
       <Box className=" h-fit w-full  py-0  box-border">
         <Box className=" w-full flex flex-col items-center box-border ">

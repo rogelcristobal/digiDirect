@@ -1,5 +1,5 @@
 import React from "react";
-import {  Typography,Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 const PageTitle = ({ category, title, subTitle }) => {
   return (
     <Box>
@@ -11,17 +11,12 @@ const PageTitle = ({ category, title, subTitle }) => {
       </Typography>
       <Typography
         variant="h6"
-        className="font-medium text-[1.6rem]  capitalize"
+        className="font-[500] text-[1.8rem]  capitalize"
       >
         {title}
       </Typography>
 
-      <Typography
-        variant="body1"
-        className="text-neutral-700 leading-6 text-sm font-medium mt-2"
-      >
-        {subTitle}
-      </Typography>
+      <Box className=" mt-2">{subTitle}</Box>
     </Box>
   );
 };

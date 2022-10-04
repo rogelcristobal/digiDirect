@@ -18,7 +18,7 @@ const ListItemBtnComponent = ({
         className={({ isActive }) =>
           isActive
             ? `${activeStyle}`
-            : "bg-white text-neutral-700 no-underline "
+            : "bg-white text-neutral-600 no-underline "
         }
       >
         <ListItemButton
@@ -37,7 +37,7 @@ const ListItemBtnComponent = ({
           <Typography
             variant="body2"
             className={`font-medium   ${
-              parentBtn ? "text-[0.875]" : "text-xs"
+              parentBtn ? "text-[0.875]" : "text-sm"
             }`}
           >
             {title}

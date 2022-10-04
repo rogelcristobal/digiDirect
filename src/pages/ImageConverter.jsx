@@ -6,7 +6,7 @@ import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
 import useImportFromURL from "../requests/useImportFromURL";
 import useConvert from "../requests/useConvert";
-import { AiOutlinePlus, AiOutlineLink } from "react-icons/ai";
+import { AiOutlineFileImage, AiOutlineLink } from "react-icons/ai";
 import PageSubTitle from "../components/PageSubTitle";
 const ImageConverter = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
@@ -15,10 +15,10 @@ const ImageConverter = () => {
   const { setState: setScrollPos, setTransparency } =
     useContext(NavScrollContext);
   const scrollRef = useRef(null);
-
+  const importFile = useRef(null);
+  const [importedFiles, setImportedFiles] = useState();
   useEffect(() => {
     const element = scrollRef.current;
-
     const handleScroll = () => {
       let x = element.scrollTop;
       setScrollPos(x);
@@ -39,6 +39,12 @@ const ImageConverter = () => {
   const handleTextChange = (e, id) => {
     console.log(e, id);
   };
+  const handleChooseFile = () => {
+    importFile.current.click();
+  };
+  const inputFileOnChange = (e) => {
+    setImportedFiles(e.target.files);
+  };
 
   // const { mutate, state } = useImportFromURL();
   // const { mutate: startConvert, state: convertStatus } = useConvert();
@@ -46,24 +52,33 @@ const ImageConverter = () => {
   // console.log("import", state);
   // console.log("convertStatus", convertStatus);
   return (
-    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]   w-full ">
+    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]  w-full ">
       <Box
         ref={scrollRef}
-        className="h-full  overflow-auto w-full  flex  items-start justify-start box-border"
+        className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-28">
+        <Box className="w-full  h-auto box-border px-16  pt-12 pb-20 space-y-16">
           {/* page title */}
           <Box className="  w-full">
             <PageTitle
               category="Tools & API's"
-              title="Converters"
-            
+              title="Image Converter"
+              subTitle={
+                <Typography
+                  variant="body1"
+                  className="text-gray-700 leading-6 text-base font-normal"
+                >
+                  Easily convert images from one format to another, online.{" "}
+                  <span className=" text-blue-500 cursor-pointer ">
+                    freeconvert.com
+                  </span>
+                </Typography>
+              }
             />
           </Box>
           <Box>
-            <PageSubTitle title="Image Converter"  subtitle="Easily convert images  from one format to another, online. (FreeConvert.com API)"></PageSubTitle>
-            <Box className="h-96 box-border pt-8 flex flex-col items-start justify-start">
-              <Box className="w-full rounded-xl  box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
+            <Box className="h-96 box-border flex flex-col items-start justify-start">
+              <Box className="w-full rounded-xl   box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
                 {/* URLInput[].text*/}
                 {/* {URLInput.map((item, idx) => (
                 <Tooltip key={idx} title={"URL text field"}>
@@ -80,44 +95,53 @@ const ImageConverter = () => {
                 />
                 </Tooltip>
               ))} */}
-                <Box className="max-w-[40rem] w-full h-fit flex flex-col items-end justify-start">
-                  <Box className="h-60 bg-blue-50 cursor-pointer border-2 border-blue-300 border-dashed rounded-xl text-blue-500 w-full  flex flex-col items-center justify-center text-2xl gap-4">
-                    <AiOutlinePlus className="text-3xl"></AiOutlinePlus>
-                    <Typography variant="" className="text-sm capitalize">
-                      choose files
-                    </Typography>
+                {!importedFiles ? (
+                  <Box
+                    onClick={handleChooseFile}
+                    className="max-w-[40rem] py-4 px-4 w-full  h-52 border-dashed border-[2px] border-blue-200 flex flex-col items-end justify-end rounded-xl relative cursor-pointer"
+                  >
+                    <input
+                      type="file"
+                      ref={importFile}
+                      onChange={inputFileOnChange}
+                      className="invisible"
+                      multiple
+                    />
+                    <Box className="absolute -translate-x-1/2 top-1/2 left-1/2 text-blue-200 -translate-y-1/2 text-5xl">
+                      <AiOutlineFileImage />
+                    </Box>
                   </Box>
-                  <Box className="h-fit w-full flex items-center justify-end space-x-3 mt-8">
-                    {/* <IconButton
+                ) : null}
+                <Box className="h-fit w-full max-w-[40rem] mt-2 flex items-center justify-end space-x-3  box-border">
+                  {/* <IconButton
                   onClick={handleAddURL}
                   className="h-8 w-8  text-sm rounded-lg shadow-none text-blue-500 bg-blue-100"
                   >
                   <AiOutlinePlus></AiOutlinePlus>
                 </IconButton> */}
-                    <Button
-                      startIcon={<AiOutlineLink className="text-blue-500"/>}
-                      variant="contained"
-                      className="px-6 py-2 bg-blue-100 shadow-none  rounded-lg "
+                  <Button
+                    startIcon={<AiOutlineLink className="text-blue-500" />}
+                    variant="contained"
+                    className="px-6 py-2 bg-blue-100 shadow-none  rounded-lg "
+                  >
+                    <Typography
+                      variant="body1"
+                      className="font-medium text-sm text-blue-500 capitalize"
                     >
-                      <Typography
-                        variant="body1"
-                        className="font-medium text-sm text-blue-500 capitalize"
-                      >
-                        From URL
-                      </Typography>
-                    </Button>
-                    <Button
-                      variant="contained"
-                      className="px-6 py-2 bg-blue-500 shadow-none  rounded-lg "
+                      From URL
+                    </Typography>
+                  </Button>
+                  <Button
+                    variant="contained"
+                    className="px-6 py-2 bg-blue-500 shadow-none  rounded-lg "
+                  >
+                    <Typography
+                      variant="body1"
+                      className=" text-sm text-white capitalize"
                     >
-                      <Typography
-                        variant="body1"
-                        className=" text-sm text-white capitalize"
-                      >
-                        Submit
-                      </Typography>
-                    </Button>
-                  </Box>
+                      Submit
+                    </Typography>
+                  </Button>
                 </Box>
               </Box>
             </Box>
