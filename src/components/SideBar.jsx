@@ -62,7 +62,7 @@ const SideBar = () => {
               General
             </Typography>
             <ListItemBtnExpandable
-              textColor="text-blue-500 "
+              textColor="text-inherit"
               bgColor="bg-inherit "
               title="product listing"
               initialState={true}

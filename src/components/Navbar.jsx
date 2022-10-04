@@ -1,6 +1,8 @@
 import React from "react";
 import { HiOutlineMoon } from "react-icons/hi";
 import { AiOutlineUser } from "react-icons/ai";
+import {BsGithub} from 'react-icons/bs'
+
 import { Box } from "@mui/material";
 import { useContext } from "react";
 import NavScrollContext from "../context/NavScrollContext";
@@ -11,7 +13,7 @@ const Navbar = () => {
     
     <Box
       className={`h-[4.5rem] fixed  ${
-        state >= 100 ? !transparency? 'bg-transparent':'bg-white shadow-sm' : "bg-white "
+        state >= 100 ? !transparency? 'bg-transparent':'bg-white border-thin' : "bg-white "
       } trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0 pt-3  left-0 box-border flex items-center justify-end   
     `}
     >
@@ -29,6 +31,9 @@ const Navbar = () => {
           <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md rounded-xl">
             <HiOutlineMoon></HiOutlineMoon>
           </Box>
+          {/* <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 transition-all dration-300 ease-in-out   hover:border-thin text-lg rounded-xl">
+            <BsGithub></BsGithub>
+          </Box> */}
           <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md rounded-xl">
             <AiOutlineUser></AiOutlineUser>
           </Box>
