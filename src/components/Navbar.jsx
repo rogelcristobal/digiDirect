@@ -13,8 +13,8 @@ const Navbar = () => {
     
     <Box
       className={`h-[4.5rem] fixed  ${
-        state >= 100 ? !transparency? 'bg-transparent':'bg-white border-thin' : "bg-white "
-      } trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0 pt-3  left-0 box-border flex items-center justify-end   
+        state >= 100 ? !transparency? 'bg-transparent ':'bg-white border-thiner ' : "bg-white "
+      } trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0  pt-3 left-0 box-border flex items-center justify-end   
     `}
     >
       {/* [#635dff] */}
