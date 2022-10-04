@@ -111,7 +111,9 @@ const ImageConverter = () => {
                       <AiOutlineFileImage />
                     </Box>
                   </Box>
-                ) : null}
+                ) : (
+                  <Box className="max-w-[40rem] py-4 px-4 w-full  h-52  border-thiner flex flex-col items-end justify-end rounded-xl relative cursor-pointer"></Box>
+                )}
                 <Box className="h-fit w-full max-w-[40rem] mt-2 flex items-center justify-end space-x-3  box-border">
                   {/* <IconButton
                   onClick={handleAddURL}
@@ -128,7 +130,7 @@ const ImageConverter = () => {
                       variant="body1"
                       className="font-medium text-sm text-blue-500 capitalize"
                     >
-                      From URL
+                      From Web
                     </Typography>
                   </Button>
                   <Button

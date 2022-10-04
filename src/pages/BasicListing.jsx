@@ -25,9 +25,8 @@ const BasicListing = () => {
     useContext(NavScrollContext);
   const scrollRef = useRef(null); // for navbar purposes
   const inViewOptions = {
-    threshold: 1,
-    delay: 200,
-    rootMargin: "90px 0px",
+    threshold: 0.7,
+  
   };
   const inTheBoxTab = useRef(null);
   const specsTab = useRef(null);
@@ -78,8 +77,8 @@ const BasicListing = () => {
 
           {/* in the box */}
 
-          <Box ref={inTheBoxTab} className="w-full box-border space-y-8 ">
-            <Box ref={inTheBoxView}>
+          <Box ref={inTheBoxView} className="w-full box-border space-y-8 ">
+            <Box  ref={inTheBoxTab}>
               <PageSubTitle
                 id="gab"
                 title=" What's in the box"
@@ -97,8 +96,8 @@ const BasicListing = () => {
 
           {/* sepcs */}
 
-          <Box ref={specsTab} className="w-full box-border space-y-8 ">
-            <Box  ref={specsView}>
+          <Box  ref={specsView} className="w-full box-border space-y-8 ">
+            <Box  ref={specsTab}>
               <PageSubTitle
                 title="Specification"
                 subtitle={
@@ -113,8 +112,8 @@ const BasicListing = () => {
 
           {/* description */}
 
-          <Box  ref={descriptionTab} className="w-full box-border space-y-8 ">
-            <Box  ref={descriptionView}>
+          <Box   ref={descriptionView} className="w-full box-border space-y-8 ">
+            <Box ref={descriptionTab} >
               <PageSubTitle
                 title="Description"
                 subtitle={ <Typography variant="body1" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the description of the product. Copy and paste it in <span className="font-semibold ">'Description'</span> and <span className="font-semibold">eBay Description</span> tab in Magento.</Typography>}
@@ -128,8 +127,8 @@ const BasicListing = () => {
           </Box>
 
           {/* description v2 */}
-          <Box  ref={descriptionVer2Tab} className="w-full box-border space-y-8 ">
-            <Box ref={descriptionVer2View}>
+          <Box ref={descriptionVer2View}  className="w-full box-border space-y-8 ">
+            <Box ref={descriptionVer2Tab}>
               <PageSubTitle
                 title="Description ver.2 "
                 subtitle={<Typography variant="body1" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the description of the product. Copy and paste it in <span className="font-semibold ">'Description'</span> and <span className="font-semibold">eBay Description</span> tab in Magento.</Typography>}
@@ -202,7 +201,7 @@ const BasicListing = () => {
                 }
                 className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
                 ${item.reference.viewState ? "text-blue-500" : "text-neutral-600"}
-                capitalize transition-all duration-700 ease-in-out  flex items-center justify-center`}
+                capitalize   flex items-center justify-center`}
               >
                 
                 <BiChevronRight className={`text-xl  ${item.reference.viewState ? "text-blue-500" : "text-neutral-300"}`}></BiChevronRight>

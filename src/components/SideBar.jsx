@@ -32,7 +32,7 @@ const SideBar = () => {
       <Box className="w-full  box-border h-auto    ">
          <Paper
           variant="contained"
-          className="w-full  rounded-xl h-auto max-h-[80%]  py-4 px-4 overflow-y-scroll box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
+          className="w-full  rounded-xl h-auto max-h-full  py-4 px-4  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
