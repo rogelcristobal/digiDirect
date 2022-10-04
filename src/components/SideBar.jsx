@@ -16,7 +16,7 @@ import { AiFillDashboard } from "react-icons/ai";
 
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[22rem]  bg-inherit z-20 box-border relative pt-4 border-thin">
+    <Box className="h-screen w-[22rem]  bg-[#ffffff] z-20 box-border relative pt-4 border-thin">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"

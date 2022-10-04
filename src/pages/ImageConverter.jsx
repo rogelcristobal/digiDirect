@@ -46,12 +46,12 @@ const ImageConverter = () => {
   // console.log("import", state);
   // console.log("convertStatus", convertStatus);
   return (
-    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]   w-full ">
-      <Box
-        ref={scrollRef}
-        className="h-full  overflow-auto w-full  flex  items-start justify-start box-border"
-      >
-        <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-28">
+    <Box className="h-full box-border flex items-start gap-3 rounded-lg   w-full ">
+    <Box
+      ref={scrollRef}
+      className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
+    >
+       <Box className="w-full  h-auto box-border px-20  pt-24 pb-36 space-y-28">
           {/* page title */}
           <Box className="  w-full">
             <PageTitle
@@ -80,7 +80,7 @@ const ImageConverter = () => {
                 />
                 </Tooltip>
               ))} */}
-                <Box className="max-w-[40rem] w-full h-fit flex flex-col items-end justify-start">
+                <Box className="max-w-[35rem] w-full h-fit flex flex-col items-end justify-start">
                   <Box className="h-60 bg-blue-50 cursor-pointer border-2 border-blue-300 border-dashed rounded-xl text-blue-500 w-full  flex flex-col items-center justify-center text-2xl gap-4">
                     <AiOutlinePlus className="text-3xl"></AiOutlinePlus>
                     <Typography variant="" className="text-sm capitalize">
