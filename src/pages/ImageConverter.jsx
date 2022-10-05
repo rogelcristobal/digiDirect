@@ -45,7 +45,7 @@ const ImageConverter = () => {
   const inputFileOnChange = (e) => {
     setImportedFiles(e.target.files);
   };
-
+  console.log(typeof(importedFiles), importedFiles)
   // const { mutate, state } = useImportFromURL();
   // const { mutate: startConvert, state: convertStatus } = useConvert();
 
@@ -78,7 +78,7 @@ const ImageConverter = () => {
           </Box>
           <Box>
             <Box className="h-96 box-border flex flex-col items-start justify-start">
-              <Box className="w-full rounded-xl   box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
+              <Box className="w-full rounded-xl  box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
                 {/* URLInput[].text*/}
                 {/* {URLInput.map((item, idx) => (
                 <Tooltip key={idx} title={"URL text field"}>
@@ -112,8 +112,20 @@ const ImageConverter = () => {
                     </Box>
                   </Box>
                 ) : (
-                  <Box className="max-w-[40rem] py-4 px-4 w-full  h-52  border-thiner flex flex-col items-end justify-end rounded-xl relative cursor-pointer"></Box>
-                )}
+                  <Box className="h-fit   w-full border-thiner  flex flex-col items-center justify-start relative cursor-pointer">
+                    {
+                      importedFiles && Object.keys(importedFiles).map((item,idx)=>(
+                        <Box key={idx} className="h-16 w-full border-thin   flex  box-border items-center justify-between p-6 ">
+                          <Box className=" max-w-[20rem]  w-full ">
+                            <Typography variant="body1" className="hover:text-clip truncate font-medium text-sm text-gray-600">{importedFiles[item].name}</Typography>
+                          </Box>
+                          <Box></Box>
+                        </Box>
+                      ))
+                    }
+
+                  </Box>
+                 )} 
                 <Box className="h-fit w-full max-w-[40rem] mt-2 flex items-center justify-end space-x-3  box-border">
                   {/* <IconButton
                   onClick={handleAddURL}
@@ -141,7 +153,7 @@ const ImageConverter = () => {
                       variant="body1"
                       className=" text-sm text-white capitalize"
                     >
-                      Submit
+                      Convert
                     </Typography>
                   </Button>
                 </Box>

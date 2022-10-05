@@ -39,7 +39,7 @@ const CodeBlock = ({ code, canEdit }) => {
   }
 
   return (
-    <Box className="h-full w-full relative box-border text-md font-medium  ">
+    <Box className="h-full w-full  box-border  font-medium flex flex-col items-end justify-center ">
       <Snackbar
         open={open}
         autoHideDuration={3000}
@@ -62,8 +62,10 @@ const CodeBlock = ({ code, canEdit }) => {
           Copied to Clipboard!
         </Alert>
       </Snackbar>
+
+      {/* code block */}
       <SyntaxHighlighter
-        className="scrollbar-hide hover:scrollbar-default "
+        className="scrollbar-hide hover:scrollbar-default w-full  "
         wrapLongLines={true}
         wrapLines={true}
         language="css"
@@ -74,11 +76,12 @@ const CodeBlock = ({ code, canEdit }) => {
           paddingBottom: "1rem",
           paddingLeft: "2rem",
           paddingRight: "2rem",
-          borderRadius: "15px",
+          borderRadius: " 0.75rem",
           overflowX: "hidden",
           boxSizing: "border-box",
           minHeight: !code ? "12rem" : "fit",
           maxHeight: "22rem",
+          // backgroundColor:'inherit'
         }}
       >
         {styleVisibility
@@ -87,10 +90,12 @@ const CodeBlock = ({ code, canEdit }) => {
             : code.tags
           : code.tags}
       </SyntaxHighlighter>
-      <Box className="absolute bg-transparent  right-0 -bottom-[4rem] box-border py-2 px-2 w-fit min-w-[10rem] flex items-center justify-end space-x-3 rounded-md">
+
+      {/* button container */}
+      <Box className=" box-border  px-2 w-full min-w-[10rem] flex items-center justify-end space-x-3 rounded-md ">
         <Paper
           variant="contained"
-          className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-100   cursor-pointer gap-3 `}
+          className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-400 bg-[#f1f3f8]   cursor-pointer gap-3 `}
           onClick={handleCopy}
         >
           <FaClipboard />
@@ -98,7 +103,7 @@ const CodeBlock = ({ code, canEdit }) => {
         {canEdit && (
           <Paper
             variant="contained"
-            className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-100   cursor-pointer gap-3 `}
+            className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-400 bg-[#f1f3f8]  cursor-pointer gap-3 `}
             onClick={handleCopy}
           >
             <MdEdit />
@@ -110,8 +115,8 @@ const CodeBlock = ({ code, canEdit }) => {
             variant="contained"
             className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 ${
               !styleVisibility
-                ? "text-blue-500 bg-blue-100"
-                : "text-white bg-blue-500"
+                ? "text-blue-400 bg-[#f1f3f8]"
+                : "text-white bg-blue-400"
             }`}
             onClick={handleShowStyles}
           >

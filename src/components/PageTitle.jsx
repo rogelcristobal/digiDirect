@@ -11,7 +11,7 @@ const PageTitle = ({ category, title, subTitle }) => {
       </Typography>
       <Typography
         variant="h6"
-        className="font-[500] text-[1.8rem]  capitalize"
+        className="font-[500] text-[1.7rem]  capitalize"
       >
         {title}
       </Typography>

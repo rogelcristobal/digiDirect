@@ -12,7 +12,7 @@ const CodeSnippetComponent = ({ code, canEdit }) => {
     
       <Box className=" h-fit w-full  py-0  box-border">
         <Box className=" w-full flex flex-col items-center box-border ">
-          <Box className="max-w-[100%] w-full text-[.83rem] box-border     rounded-xl">
+          <Box className="max-w-[100%]  w-full text-[0.80rem] box-border    rounded-xl">
             <CodeBlock code={code} canEdit={canEdit}></CodeBlock>
           </Box>
         </Box>

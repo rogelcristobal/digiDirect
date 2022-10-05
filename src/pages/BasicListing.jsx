@@ -63,7 +63,7 @@ const BasicListing = () => {
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-28">
+        <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-20">
           {/* page title */}
           <Box className="pb-16  w-full ">
             <PageTitle
@@ -83,7 +83,7 @@ const BasicListing = () => {
                 id="gab"
                 title=" What's in the box"
                 subtitle={
-                  <Typography variant="body2" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the accesories included in the product package. Copy and paste the template in <span className="font-semibold ">'What's in the box'</span> tab in Magento.  </Typography>
+                  <Typography variant="body2" className="text-gray-700 leading-6 text-[0.90rem] font-normal">Displays the accesories included in the product package. Copy and paste the template in <span className="font-semibold ">'What's in the box'</span> tab in Magento.  </Typography>
                   }
               />
             </Box>
