@@ -1,14 +1,13 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { Box, Paper, Dialog, Snackbar, Alert } from "@mui/material";
+import { Box, Paper, Snackbar, Alert } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { DiCss3Full } from "react-icons/di";
 import Slide from "@mui/material/Slide";
-import { MdEdit } from "react-icons/md";
 import { FaClipboard } from "react-icons/fa";
 import { BiCodeAlt } from "react-icons/bi";
 import { useState } from "react";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-const CodeBlock = ({ code, canEdit }) => {
+import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
+const CodeBlock = ({ code }) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
   const [open, setOpen] = useState(false);
   const handleShowStyles = () => {
@@ -69,7 +68,7 @@ const CodeBlock = ({ code, canEdit }) => {
         wrapLongLines={true}
         wrapLines={true}
         language="css"
-        style={nightOwl}
+        style={googlecode}
         // showLineNumbers={true}
         customStyle={{
           paddingTop: "0.7rem",
@@ -100,15 +99,7 @@ const CodeBlock = ({ code, canEdit }) => {
         >
           <FaClipboard />
         </Paper>
-        {canEdit && (
-          <Paper
-            variant="contained"
-            className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-400 bg-[#f1f3f8]  cursor-pointer gap-3 `}
-            onClick={handleCopy}
-          >
-            <MdEdit />
-          </Paper>
-        )}
+       
 
         {code.styles && (
           <Paper

@@ -17,7 +17,7 @@ import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
 import { InView, useInView } from "react-intersection-observer";
 import { BiChevronRight } from "react-icons/bi";
-const BasicListing = () => {
+const Templates = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
 
@@ -26,20 +26,16 @@ const BasicListing = () => {
   const scrollRef = useRef(null); // for navbar purposes
   const inViewOptions = {
     threshold: 0.7,
-  
   };
   const inTheBoxTab = useRef(null);
   const specsTab = useRef(null);
   const descriptionTab = useRef(null);
   const descriptionVer2Tab = useRef(null);
 
- 
-
   const [inTheBoxView, inTheBoxState] = useInView(inViewOptions);
   const [specsView, specsState] = useInView(inViewOptions);
   const [descriptionView, descriptionState] = useInView(inViewOptions);
   const [descriptionVer2View, descriptionVer2State] = useInView(inViewOptions);
-
 
   useEffect(() => {
     const element = scrollRef.current;
@@ -65,12 +61,25 @@ const BasicListing = () => {
       >
         <Box className="w-full  h-auto box-border px-16  pt-12 pb-36 space-y-20">
           {/* page title */}
-          <Box className="pb-16  w-full ">
+          <Box className="pb-8  w-full ">
             <PageTitle
               category="general"
-              title="Basic listing"
+              title={
+                <Typography
+                  variant="h6"
+                  className="font-[500] text-[1.7rem] text-gray-700 capitalize"
+                >
+                   templates
+                </Typography>
+              }
               subTitle={
-                <Typography variant="body1" className="text-gray-700 leading-6 text-base font-normal">Create and copy a Basic listing template for digiDirect products. Copy the raw template or edit it in the customize tab.</Typography>
+                <Typography
+                  variant="body1"
+                  className="text-gray-700 leading-6 text-sm font-normal"
+                >
+                  Create a Basic listing template for digiDirect
+                  . Copy the raw template and paste in Magento
+                </Typography>
               }
             />
           </Box>
@@ -78,13 +87,21 @@ const BasicListing = () => {
           {/* in the box */}
 
           <Box ref={inTheBoxView} className="w-full box-border space-y-8 ">
-            <Box  ref={inTheBoxTab}>
+            <Box ref={inTheBoxTab}>
               <PageSubTitle
                 id="gab"
                 title=" What's in the box"
                 subtitle={
-                  <Typography variant="body2" className="text-gray-700 leading-6 text-[0.90rem] font-normal">Displays the accesories included in the product package. Copy and paste the template in <span className="font-semibold ">'What's in the box'</span> tab in Magento.  </Typography>
-                  }
+                  <Typography
+                    variant="body2"
+                    className="text-gray-700 leading-6 text-[0.90rem] font-normal"
+                  >
+                    Displays the accesories included in the product package.
+                    Copy and paste the template in{" "}
+                    <span className="font-medium ">'What's in the box'</span>{" "}
+                    tab in Magento.{" "}
+                  </Typography>
+                }
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl py-2 mt-4  ">
@@ -96,13 +113,20 @@ const BasicListing = () => {
 
           {/* sepcs */}
 
-          <Box  ref={specsView} className="w-full box-border space-y-8 ">
-            <Box  ref={specsTab}>
+          <Box ref={specsView} className="w-full box-border space-y-8 ">
+            <Box ref={specsTab}>
               <PageSubTitle
                 title="Specification"
                 subtitle={
-                  <Typography variant="body2" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the specification of the product. Copy and paste it in <span className="font-semibold ">'Specification'</span> tab in Magento. </Typography>
-                  }
+                  <Typography
+                    variant="body2"
+                    className="text-gray-700 leading-6 text-[0.90rem] font-normal"
+                  >
+                    Displays the specification of the product. Copy and paste it
+                    in <span className="font-medium ">'Specification'</span> tab
+                    in Magento.{" "}
+                  </Typography>
+                }
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl    ">
@@ -112,11 +136,21 @@ const BasicListing = () => {
 
           {/* description */}
 
-          <Box   ref={descriptionView} className="w-full box-border space-y-8 ">
-            <Box ref={descriptionTab} >
+          <Box ref={descriptionView} className="w-full box-border space-y-8 ">
+            <Box ref={descriptionTab}>
               <PageSubTitle
                 title="Description"
-                subtitle={ <Typography variant="body1" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the description of the product. Copy and paste it in <span className="font-semibold ">'Description'</span> and <span className="font-semibold">eBay Description</span> tab in Magento.</Typography>}
+                subtitle={
+                  <Typography
+                    variant="body1"
+                    className="text-gray-700 leading-6 text-[0.90rem] font-normal"
+                  >
+                    Displays the description of the product. Copy and paste it
+                    in <span className="font-medium ">'Description'</span> and{" "}
+                    <span className="font-medium">eBay Description</span> tab in
+                    Magento.
+                  </Typography>
+                }
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl    ">
@@ -127,17 +161,30 @@ const BasicListing = () => {
           </Box>
 
           {/* description v2 */}
-          <Box ref={descriptionVer2View}  className="w-full box-border space-y-8 ">
+          <Box
+            ref={descriptionVer2View}
+            className="w-full box-border space-y-8 "
+          >
             <Box ref={descriptionVer2Tab}>
               <PageSubTitle
-                title="Description ver.2 "
-                subtitle={<Typography variant="body1" className="text-gray-700 leading-6 text-[0.95rem] font-normal">Displays the description of the product. Copy and paste it in <span className="font-semibold ">'Description'</span> and <span className="font-semibold">eBay Description</span> tab in Magento.</Typography>}
+                title="Description v.2 "
+                subtitle={
+                  <Typography
+                    variant="body1"
+                    className="text-gray-700 leading-6 text-[0.90rem] font-normal"
+                  >
+                    Displays the description of the product. Copy and paste it
+                    in <span className="font-medium ">'Description'</span> and{" "}
+                    <span className="font-semibold">eBay Description</span> tab
+                    in Magento.
+                  </Typography>
+                }
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl    ">
               <CodeSnippetComponent
                 code={descriptionBest}
-                canEdit={true}
+              
               ></CodeSnippetComponent>
             </Box>
           </Box>
@@ -200,11 +247,20 @@ const BasicListing = () => {
                   })
                 }
                 className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
-                ${item.reference.viewState ? "text-blue-500" : "text-neutral-600"}
+                ${
+                  item.reference.viewState
+                    ? "text-blue-500"
+                    : "text-neutral-600"
+                }
                 capitalize   flex items-center justify-center`}
               >
-                
-                <BiChevronRight className={`text-xl  ${item.reference.viewState ? "text-blue-500" : "text-neutral-300"}`}></BiChevronRight>
+                <BiChevronRight
+                  className={`text-xl  ${
+                    item.reference.viewState
+                      ? "text-blue-500"
+                      : "text-neutral-300"
+                  }`}
+                ></BiChevronRight>
                 {item.title}
               </Link>
             ))}
@@ -217,4 +273,4 @@ const BasicListing = () => {
   );
 };
 // https://codingbeautydev.com/blog/material-ui-tabs/
-export default BasicListing;
+export default Templates;

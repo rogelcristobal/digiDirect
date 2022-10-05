@@ -72,8 +72,8 @@ const SideBar = () => {
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
-                { title: "basic listing", path: "/basic-listing" },
-                { title: "open box", path: "/open-box-listing" },
+                { title: "templates", path: "/templates" },
+               
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}

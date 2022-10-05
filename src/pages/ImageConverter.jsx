@@ -6,6 +6,7 @@ import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
 import useImportFromURL from "../requests/useImportFromURL";
 import useConvert from "../requests/useConvert";
+import {HiChevronDown} from 'react-icons/hi'
 import { AiOutlineFileImage, AiOutlineLink } from "react-icons/ai";
 import PageSubTitle from "../components/PageSubTitle";
 const ImageConverter = () => {
@@ -52,32 +53,40 @@ const ImageConverter = () => {
   // console.log("import", state);
   // console.log("convertStatus", convertStatus);
   return (
-    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]  w-full ">
+    <Box className="h-full box-border flex items-start gap-3 rounded-lg   w-full ">
       <Box
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-16  pt-12 pb-20 space-y-16">
+        <Box className="w-full  h-auto box-border px-16  pt-28  space-y-16">
           {/* page title */}
           <Box className="  w-full">
+           
             <PageTitle
               category="Tools & API's"
-              title="Image Converter"
-              subTitle={
+              title={
                 <Typography
-                  variant="body1"
-                  className="text-gray-700 leading-6 text-base font-normal"
+                  variant="body2"
+                  className="font-[500] text-2xl text-gray-700 capitalize"
                 >
-                  Easily convert images from one format to another, online.{" "}
-                  <span className=" text-blue-500 cursor-pointer ">
-                    freeconvert.com
-                  </span>
+                   Image Converter
                 </Typography>
               }
+              // subTitle={
+              //    <Typography
+              //     variant="body1"
+              //     className="text-gray-700 leading-6 text-base font-normal"
+              //   >
+              //     Easily convert images from one format to another, online.{" "}
+              //     <span className=" text-blue-500 cursor-pointer ">
+              //       freeconvert.com
+              //     </span>
+              //   </Typography>
+              // }
             />
           </Box>
-          <Box>
-            <Box className="h-96 box-border flex flex-col items-start justify-start">
+          <Box className="box-border">
+            <Box className="h-auto box-border flex  flex-col items-start justify-start">
               <Box className="w-full rounded-xl  box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
                 {/* URLInput[].text*/}
                 {/* {URLInput.map((item, idx) => (
@@ -112,14 +121,18 @@ const ImageConverter = () => {
                     </Box>
                   </Box>
                 ) : (
-                  <Box className="h-fit   w-full border-thiner  flex flex-col items-center justify-start relative cursor-pointer">
+                  <Box className="h-fit p-4 box-border   w-full  flex flex-col items-center justify-start relative cursor-pointer">
                     {
                       importedFiles && Object.keys(importedFiles).map((item,idx)=>(
-                        <Box key={idx} className="h-16 w-full border-thin   flex  box-border items-center justify-between p-6 ">
-                          <Box className=" max-w-[20rem]  w-full ">
+                        <Box key={idx} className="h-16 w-full border-thiner rounded-lg   flex  box-border items-center justify-between px-6 ">
+                          <Box className=" max-w-[20rem]   w-full box-border ">
                             <Typography variant="body1" className="hover:text-clip truncate font-medium text-sm text-gray-600">{importedFiles[item].name}</Typography>
                           </Box>
-                          <Box></Box>
+                          <Box className="h-full box-border flex items-center">
+                            <Button endIcon={<HiChevronDown/>} variant="contained" className="rounded-lg shadow-none text-gray-400 bg-[#f7f7f9] text-sm capitalize">
+                              select
+                            </Button>
+                          </Box>
                         </Box>
                       ))
                     }
@@ -140,7 +153,7 @@ const ImageConverter = () => {
                   >
                     <Typography
                       variant="body1"
-                      className="font-medium text-sm text-blue-500 capitalize"
+                      className="font-medium text-xs text-blue-500 capitalize"
                     >
                       From Web
                     </Typography>
@@ -151,7 +164,7 @@ const ImageConverter = () => {
                   >
                     <Typography
                       variant="body1"
-                      className=" text-sm text-white capitalize"
+                      className=" text-xs text-white capitalize"
                     >
                       Convert
                     </Typography>
@@ -162,7 +175,7 @@ const ImageConverter = () => {
           </Box>
         </Box>
         <Box
-          className="h-72 w-72   sticky top-0 mt-16 flex flex-col items-start justify-start
+          className="h-72 w-72  box-border sticky top-0 mt-16 flex flex-col items-start justify-start
           "
         ></Box>
       </Box>
