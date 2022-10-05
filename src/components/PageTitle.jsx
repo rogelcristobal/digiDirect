@@ -5,7 +5,7 @@ const PageTitle = ({ category, title, subTitle }) => {
     <Box>
       <Typography
         variant="h6"
-        className="font-medium text-sm text-blue-500  capitalize mb-2"
+        className="font-medium text-xs text-blue-500  capitalize mb-2"
       >
         {category}
       </Typography>

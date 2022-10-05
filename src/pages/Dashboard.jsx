@@ -47,7 +47,17 @@ const Dashboard = () => {
           {/* content */}
 
           <Box className="mb-8 ">
-            <PageTitle category="dashboard" title="Welcome, Rogel!"></PageTitle>
+            <PageTitle
+              category="dashboard"
+              title={
+                <Typography
+                  variant="body2"
+                  className="font-[500] text-2xl text-gray-700 capitalize"
+                >
+                 good afternoon, user!
+                </Typography>
+              }
+            />
           </Box>
 
           <Box className="grid grid-flow-row grid-cols-12 gap-6 ">

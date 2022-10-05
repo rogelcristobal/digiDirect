@@ -17,7 +17,7 @@ import {MdSpaceDashboard} from 'react-icons/md'
 
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[21rem]  bg-white z-20 box-border  relative  border-thiner">
+    <Box className="h-screen w-[22rem]  bg-white z-20 box-border  relative  border-thiner">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -25,7 +25,7 @@ const SideBar = () => {
         light
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
-      <Box className="h-28   w-full flex flex-col items-start justify-center  px-8   box-border ">
+      <Box className="h-28   w-full flex flex-col items-start  justify-center  px-8   box-border ">
        
         <DigiLogoInJs size="text-xl"  dark color="text-blue-500 text-md" />
        

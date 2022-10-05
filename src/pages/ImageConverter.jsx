@@ -6,9 +6,10 @@ import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
 import useImportFromURL from "../requests/useImportFromURL";
 import useConvert from "../requests/useConvert";
-import {HiChevronDown} from 'react-icons/hi'
+import { HiChevronDown } from "react-icons/hi";
 import { AiOutlineFileImage, AiOutlineLink } from "react-icons/ai";
 import PageSubTitle from "../components/PageSubTitle";
+import Blob from "../svg/Blob2.svg"
 const ImageConverter = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
@@ -46,7 +47,7 @@ const ImageConverter = () => {
   const inputFileOnChange = (e) => {
     setImportedFiles(e.target.files);
   };
-  console.log(typeof(importedFiles), importedFiles)
+  console.log(typeof importedFiles, importedFiles);
   // const { mutate, state } = useImportFromURL();
   // const { mutate: startConvert, state: convertStatus } = useConvert();
 
@@ -58,10 +59,9 @@ const ImageConverter = () => {
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-16  pt-28  space-y-16">
+        <Box className="w-full  h-auto box-border px-14  pt-28  space-y-8">
           {/* page title */}
-          <Box className="  w-full">
-           
+          <Box className="  w-full px-2">
             <PageTitle
               category="Tools & API's"
               title={
@@ -69,25 +69,17 @@ const ImageConverter = () => {
                   variant="body2"
                   className="font-[500] text-2xl text-gray-700 capitalize"
                 >
-                   Image Converter
+                  Converters
                 </Typography>
               }
-              // subTitle={
-              //    <Typography
-              //     variant="body1"
-              //     className="text-gray-700 leading-6 text-base font-normal"
-              //   >
-              //     Easily convert images from one format to another, online.{" "}
-              //     <span className=" text-blue-500 cursor-pointer ">
-              //       freeconvert.com
-              //     </span>
-              //   </Typography>
-              // }
             />
           </Box>
           <Box className="box-border">
-            <Box className="h-auto box-border flex  flex-col items-start justify-start">
-              <Box className="w-full rounded-xl  box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
+            <Box className="h-full w-full min-h-[40rem] box-border flex  flex-col items-start justify-start">
+              <Box className="w-full   box-border flex  items-start justify-start h-fit gap-3 py-4">
+                {/*  */}
+                
+
                 {/* URLInput[].text*/}
                 {/* {URLInput.map((item, idx) => (
                 <Tooltip key={idx} title={"URL text field"}>
@@ -104,7 +96,9 @@ const ImageConverter = () => {
                 />
                 </Tooltip>
               ))} */}
-                {!importedFiles ? (
+                {/* {!importedFiles ? (
+                  
+                   
                   <Box
                     onClick={handleChooseFile}
                     className="max-w-[40rem] py-4 px-4 w-full  h-52 border-dashed border-[2px] border-blue-200 flex flex-col items-end justify-end rounded-xl relative cursor-pointer"
@@ -140,12 +134,7 @@ const ImageConverter = () => {
                   </Box>
                  )} 
                 <Box className="h-fit w-full max-w-[40rem] mt-2 flex items-center justify-end space-x-3  box-border">
-                  {/* <IconButton
-                  onClick={handleAddURL}
-                  className="h-8 w-8  text-sm rounded-lg shadow-none text-blue-500 bg-blue-100"
-                  >
-                  <AiOutlinePlus></AiOutlinePlus>
-                </IconButton> */}
+                
                   <Button
                     startIcon={<AiOutlineLink className="text-blue-500" />}
                     variant="contained"
@@ -169,13 +158,13 @@ const ImageConverter = () => {
                       Convert
                     </Typography>
                   </Button>
-                </Box>
+                </Box> */}
               </Box>
             </Box>
           </Box>
         </Box>
         <Box
-          className="h-72 w-72  box-border sticky top-0 mt-16 flex flex-col items-start justify-start
+          className="h-72 w-72  box-border  sticky top-0 mt-16 flex flex-col items-start justify-start
           "
         ></Box>
       </Box>
@@ -185,4 +174,5 @@ const ImageConverter = () => {
   );
 };
 // https://codingbeautydev.com/blog/material-ui-tabs/
+// https://app.haikei.app/
 export default ImageConverter;
