@@ -16,7 +16,10 @@
         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; 
     }
     .border-thiner{
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+        -webkit-box-shadow: inset 0px 0px 0px 1px rgba(235, 235, 235, 1);
+            -moz-box-shadow: inset 0px 0px 0px 1px rgba(235, 235, 235, 1);
+            box-shadow: inset 0px 0px 0px 1px rgba(235, 235, 235, 1);
     }
     .border-thin{
         /*  */
@@ -37,6 +40,9 @@
     }
     .navBorder{
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+    .scrollMargin{
+        scroll-margin-top:'22rem'
     }
        
 }

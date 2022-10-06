@@ -17,7 +17,7 @@ import {MdSpaceDashboard} from 'react-icons/md'
 
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[22rem]  bg-white z-20 box-border  relative  border-thiner">
+    <Box className="h-screen w-[24rem]  bg-[#ffffff] z-20 box-border  relative  border-thiner">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -27,7 +27,7 @@ const SideBar = () => {
       {/* sidebar bg-[#111827] */}
       <Box className="h-28   w-full flex flex-col items-start  justify-center  px-8   box-border ">
        
-        <DigiLogoInJs size="text-xl"  dark color="text-blue-500 text-md" />
+        <DigiLogoInJs size="text-xl"  dark color="text-blue-400 text-[1.1rem]" />
        
       </Box>
       <Box className="w-full  box-border h-auto    ">
@@ -40,7 +40,7 @@ const SideBar = () => {
 
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
               >
               Dashboard
             </Typography>
@@ -58,7 +58,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
             >
               General
             </Typography>
@@ -77,7 +77,7 @@ const SideBar = () => {
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}
-                  activeStyle="bg-blue-50 text-blue-500  no-underline "
+                  activeStyle=" text-blue-500  no-underline "
                   hoverColor="hover:text-blue-500 "
                   title={item.title}
                   key={idx}
@@ -90,7 +90,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
             >
               Tools & API's
             </Typography>

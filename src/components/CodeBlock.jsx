@@ -6,7 +6,7 @@ import Slide from "@mui/material/Slide";
 import { FaClipboard } from "react-icons/fa";
 import { BiCodeAlt } from "react-icons/bi";
 import { useState } from "react";
-import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 const CodeBlock = ({ code }) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
   const [open, setOpen] = useState(false);
@@ -41,9 +41,12 @@ const CodeBlock = ({ code }) => {
     <Box className="h-full w-full  box-border  font-medium flex flex-col items-end justify-center ">
       <Snackbar
         open={open}
-        autoHideDuration={3000}
+        autoHideDuration={1300}
         onClose={handleClose}
-        direction="left"
+        anchorOrigin={{
+          vertical:'bottom',
+          horizontal:'right'
+        }}
         TransitionComponent={SlideTransition}
       >
         <Alert
@@ -68,11 +71,14 @@ const CodeBlock = ({ code }) => {
         wrapLongLines={true}
         wrapLines={true}
         language="css"
-        style={googlecode}
+        style={tomorrowNight}
         // showLineNumbers={true}
         customStyle={{
-          paddingTop: "0.7rem",
-          paddingBottom: "1rem",
+         
+          fontFamily:'Poppins',
+        
+          paddingTop: "0rem",
+          paddingBottom: "0rem",
           paddingLeft: "2rem",
           paddingRight: "2rem",
           borderRadius: " 0.75rem",
@@ -106,8 +112,8 @@ const CodeBlock = ({ code }) => {
             variant="contained"
             className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 ${
               !styleVisibility
-                ? "text-blue-400 bg-[#f1f3f8]"
-                : "text-white bg-blue-400"
+                ? "text-blue-400 bg-[#f1f3f8] "
+                : "text-white bg-blue-400 "
             }`}
             onClick={handleShowStyles}
           >
