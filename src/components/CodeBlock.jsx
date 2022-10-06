@@ -1,14 +1,13 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { Box, Paper, Dialog, Snackbar, Alert } from "@mui/material";
+import { Box, Paper, Snackbar, Alert } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { DiCss3Full } from "react-icons/di";
 import Slide from "@mui/material/Slide";
-import { MdEdit } from "react-icons/md";
 import { FaClipboard } from "react-icons/fa";
 import { BiCodeAlt } from "react-icons/bi";
 import { useState } from "react";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-const CodeBlock = ({ code, canEdit }) => {
+import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+const CodeBlock = ({ code }) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
   const [open, setOpen] = useState(false);
   const handleShowStyles = () => {
@@ -39,12 +38,15 @@ const CodeBlock = ({ code, canEdit }) => {
   }
 
   return (
-    <Box className="h-full w-full relative box-border text-md font-medium  ">
+    <Box className="h-full w-full  box-border  font-medium flex flex-col items-end justify-center ">
       <Snackbar
         open={open}
-        autoHideDuration={3000}
+        autoHideDuration={1300}
         onClose={handleClose}
-        direction="left"
+        anchorOrigin={{
+          vertical:'bottom',
+          horizontal:'right'
+        }}
         TransitionComponent={SlideTransition}
       >
         <Alert
@@ -62,23 +64,29 @@ const CodeBlock = ({ code, canEdit }) => {
           Copied to Clipboard!
         </Alert>
       </Snackbar>
+
+      {/* code block */}
       <SyntaxHighlighter
-        className="scrollbar-hide hover:scrollbar-default "
+        className="scrollbar-hide hover:scrollbar-default w-full  "
         wrapLongLines={true}
         wrapLines={true}
         language="css"
-        style={nightOwl}
+        style={tomorrowNight}
         // showLineNumbers={true}
         customStyle={{
-          paddingTop: "0.7rem",
-          paddingBottom: "1rem",
+         
+          fontFamily:'Poppins',
+        
+          paddingTop: "0rem",
+          paddingBottom: "0rem",
           paddingLeft: "2rem",
           paddingRight: "2rem",
-          borderRadius: "15px",
+          borderRadius: " 0.75rem",
           overflowX: "hidden",
           boxSizing: "border-box",
           minHeight: !code ? "12rem" : "fit",
           maxHeight: "22rem",
+          // backgroundColor:'inherit'
         }}
       >
         {styleVisibility
@@ -87,31 +95,25 @@ const CodeBlock = ({ code, canEdit }) => {
             : code.tags
           : code.tags}
       </SyntaxHighlighter>
-      <Box className="absolute bg-transparent  right-0 -bottom-[4rem] box-border py-2 px-2 w-fit min-w-[10rem] flex items-center justify-end space-x-3 rounded-md">
+
+      {/* button container */}
+      <Box className=" box-border  px-2 w-full min-w-[10rem] flex items-center justify-end space-x-3 rounded-md ">
         <Paper
           variant="contained"
-          className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-100   cursor-pointer gap-3 `}
+          className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-400 bg-[#f1f3f8]   cursor-pointer gap-3 `}
           onClick={handleCopy}
         >
           <FaClipboard />
         </Paper>
-        {canEdit && (
-          <Paper
-            variant="contained"
-            className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-500 bg-blue-100   cursor-pointer gap-3 `}
-            onClick={handleCopy}
-          >
-            <MdEdit />
-          </Paper>
-        )}
+       
 
         {code.styles && (
           <Paper
             variant="contained"
             className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 ${
               !styleVisibility
-                ? "text-blue-500 bg-blue-100"
-                : "text-white bg-blue-500"
+                ? "text-blue-400 bg-[#f1f3f8] "
+                : "text-white bg-blue-400 "
             }`}
             onClick={handleShowStyles}
           >

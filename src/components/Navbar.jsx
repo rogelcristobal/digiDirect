@@ -13,14 +13,14 @@ const Navbar = () => {
     
     <Box
       className={`h-[4.5rem] fixed  ${
-        state >= 100 ? !transparency? 'bg-transparent ':'bg-white border-thiner ' : "bg-white "
+        state >= 100 ? !transparency? 'bg-transparent ':'bg-[#ffffff] border-thiner ' : "bg-inherit "
       } trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0  pt-3 left-0 box-border flex items-center justify-end   
     `}
     >
       {/* [#635dff] */}
       <div
-        className={`w-[calc(100%-17.5rem)] box-border  h-full  flex items-center justify-end bg-white  px-8 transition-all ease-in-out duration-500  ${
-          state >= 100 ? !transparency? 'border-thin  rounded-xl ':'border-none': 'border-none'
+        className={`w-[calc(100%-17.5rem)] box-border  h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500  ${
+          state >= 100 ? !transparency? 'border-thiner  rounded-xl bg-[#ffffff]':'border-none  ': 'border-none '
         } `}
       >
         {/* <Box>

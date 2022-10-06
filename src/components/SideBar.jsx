@@ -13,10 +13,11 @@ import {
 } from "react-icons/ai";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import { AiFillDashboard } from "react-icons/ai";
+import {MdSpaceDashboard} from 'react-icons/md'
 
 const SideBar = () => {
   return (
-    <Box className="h-screen w-[22rem]  bg-[#ffffff] z-20 box-border relative pt-4 border-thiner">
+    <Box className="h-screen w-[24rem]  bg-[#ffffff] z-20 box-border  relative  border-thiner">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -24,22 +25,22 @@ const SideBar = () => {
         light
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
-      <Box className="h-20   w-full flex flex-col items-start justify-center px-9   box-border ">
+      <Box className="h-28   w-full flex flex-col items-start  justify-center  px-8   box-border ">
        
-        <DigiLogoInJs size="text-xl" dark  color="text-blue-500 text-md" />
+        <DigiLogoInJs size="text-xl"  dark color="text-blue-400 text-[1.1rem]" />
        
       </Box>
       <Box className="w-full  box-border h-auto    ">
          <Paper
           variant="contained"
-          className="w-full  rounded-xl h-auto max-h-[80%]  py-4 px-4 overflow-y-scroll box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
+          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-4  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
 
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
               >
               Dashboard
             </Typography>
@@ -47,9 +48,9 @@ const SideBar = () => {
               path="/"
               hoverColor="hover:text-blue-500 "
               title="dashboard"
-              icon={<AiFillDashboard className="text-sm"/>}
+              icon={<MdSpaceDashboard className="text-base"/>}
               parentBtn
-              activeStyle="bg-blue-50 text-blue-500  no-underline "
+              activeStyle=" text-blue-500  no-underline "
             />
           </List>
 
@@ -57,12 +58,12 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
             >
               General
             </Typography>
             <ListItemBtnExpandable
-              textColor="text-inherit"
+              textColor="text-gray-600"
               bgColor="bg-inherit "
               title="product listing"
               initialState={true}
@@ -71,12 +72,12 @@ const SideBar = () => {
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
-                { title: "basic listing", path: "/basic-listing" },
-                { title: "open box", path: "/open-box-listing" },
+                { title: "templates", path: "/templates" },
+               
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}
-                  activeStyle="bg-blue-50 text-blue-500  no-underline "
+                  activeStyle=" text-blue-500  no-underline "
                   hoverColor="hover:text-blue-500 "
                   title={item.title}
                   key={idx}
@@ -89,7 +90,7 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 mb-1"
+              className="text-neutral-900/40 text-xs font-semibold ml-2 "
             >
               Tools & API's
             </Typography>

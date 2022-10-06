@@ -6,8 +6,10 @@ import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
 import useImportFromURL from "../requests/useImportFromURL";
 import useConvert from "../requests/useConvert";
+import { HiChevronDown } from "react-icons/hi";
 import { AiOutlineFileImage, AiOutlineLink } from "react-icons/ai";
 import PageSubTitle from "../components/PageSubTitle";
+import Blob from "../svg/Blob2.svg"
 const ImageConverter = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
@@ -45,40 +47,39 @@ const ImageConverter = () => {
   const inputFileOnChange = (e) => {
     setImportedFiles(e.target.files);
   };
-
+  console.log(typeof importedFiles, importedFiles);
   // const { mutate, state } = useImportFromURL();
   // const { mutate: startConvert, state: convertStatus } = useConvert();
 
   // console.log("import", state);
   // console.log("convertStatus", convertStatus);
   return (
-    <Box className="h-full box-border flex items-start gap-3 rounded-lg pt-[4.5rem]  w-full ">
+    <Box className="h-full box-border flex items-start gap-3 rounded-lg   w-full ">
       <Box
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-16  pt-12 pb-20 space-y-16">
+        <Box className="w-full  h-auto box-border px-14  pt-28  space-y-8">
           {/* page title */}
-          <Box className="  w-full">
+          <Box className="  w-full px-2">
             <PageTitle
               category="Tools & API's"
-              title="Image Converter"
-              subTitle={
+              title={
                 <Typography
-                  variant="body1"
-                  className="text-gray-700 leading-6 text-base font-normal"
+                  variant="body2"
+                  className="font-[500] text-2xl text-gray-700 capitalize"
                 >
-                  Easily convert images from one format to another, online.{" "}
-                  <span className=" text-blue-500 cursor-pointer ">
-                    freeconvert.com
-                  </span>
+                  Converters
                 </Typography>
               }
             />
           </Box>
-          <Box>
-            <Box className="h-96 box-border flex flex-col items-start justify-start">
-              <Box className="w-full rounded-xl   box-border flex flex-col items-center justify-start h-fit gap-3 p-4">
+          <Box className="box-border">
+            <Box className="h-full w-full min-h-[40rem] box-border flex  flex-col items-start justify-start">
+              <Box className="w-full   box-border flex  items-start justify-start h-fit gap-3 py-4">
+                {/*  */}
+                
+
                 {/* URLInput[].text*/}
                 {/* {URLInput.map((item, idx) => (
                 <Tooltip key={idx} title={"URL text field"}>
@@ -95,7 +96,9 @@ const ImageConverter = () => {
                 />
                 </Tooltip>
               ))} */}
-                {!importedFiles ? (
+                {/* {!importedFiles ? (
+                  
+                   
                   <Box
                     onClick={handleChooseFile}
                     className="max-w-[40rem] py-4 px-4 w-full  h-52 border-dashed border-[2px] border-blue-200 flex flex-col items-end justify-end rounded-xl relative cursor-pointer"
@@ -111,14 +114,27 @@ const ImageConverter = () => {
                       <AiOutlineFileImage />
                     </Box>
                   </Box>
-                ) : null}
+                ) : (
+                  <Box className="h-fit p-4 box-border   w-full  flex flex-col items-center justify-start relative cursor-pointer">
+                    {
+                      importedFiles && Object.keys(importedFiles).map((item,idx)=>(
+                        <Box key={idx} className="h-16 w-full border-thiner rounded-lg   flex  box-border items-center justify-between px-6 ">
+                          <Box className=" max-w-[20rem]   w-full box-border ">
+                            <Typography variant="body1" className="hover:text-clip truncate font-medium text-sm text-gray-600">{importedFiles[item].name}</Typography>
+                          </Box>
+                          <Box className="h-full box-border flex items-center">
+                            <Button endIcon={<HiChevronDown/>} variant="contained" className="rounded-lg shadow-none text-gray-400 bg-[#f7f7f9] text-sm capitalize">
+                              select
+                            </Button>
+                          </Box>
+                        </Box>
+                      ))
+                    }
+
+                  </Box>
+                 )} 
                 <Box className="h-fit w-full max-w-[40rem] mt-2 flex items-center justify-end space-x-3  box-border">
-                  {/* <IconButton
-                  onClick={handleAddURL}
-                  className="h-8 w-8  text-sm rounded-lg shadow-none text-blue-500 bg-blue-100"
-                  >
-                  <AiOutlinePlus></AiOutlinePlus>
-                </IconButton> */}
+                
                   <Button
                     startIcon={<AiOutlineLink className="text-blue-500" />}
                     variant="contained"
@@ -126,9 +142,9 @@ const ImageConverter = () => {
                   >
                     <Typography
                       variant="body1"
-                      className="font-medium text-sm text-blue-500 capitalize"
+                      className="font-medium text-xs text-blue-500 capitalize"
                     >
-                      From URL
+                      From Web
                     </Typography>
                   </Button>
                   <Button
@@ -137,18 +153,18 @@ const ImageConverter = () => {
                   >
                     <Typography
                       variant="body1"
-                      className=" text-sm text-white capitalize"
+                      className=" text-xs text-white capitalize"
                     >
-                      Submit
+                      Convert
                     </Typography>
                   </Button>
-                </Box>
+                </Box> */}
               </Box>
             </Box>
           </Box>
         </Box>
         <Box
-          className="h-72 w-72   sticky top-0 mt-16 flex flex-col items-start justify-start
+          className="h-72 w-72  box-border  sticky top-0 mt-16 flex flex-col items-start justify-start
           "
         ></Box>
       </Box>
@@ -158,4 +174,5 @@ const ImageConverter = () => {
   );
 };
 // https://codingbeautydev.com/blog/material-ui-tabs/
+// https://app.haikei.app/
 export default ImageConverter;
