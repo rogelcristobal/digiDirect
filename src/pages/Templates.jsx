@@ -63,7 +63,7 @@ const Templates = () => {
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-14  pt-12 pb-36 space-y-16">
+        <Box className="w-full  h-auto box-border px-14  pt-10 pb-36 space-y-16">
           {/* page title */}
           <Box className="pb-8  w-full ">
             <PageTitle
