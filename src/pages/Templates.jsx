@@ -63,7 +63,7 @@ const Templates = () => {
         ref={scrollRef}
         className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-14  pt-12 pb-36 space-y-12">
+        <Box className="w-full  h-auto box-border px-14  pt-12 pb-36 space-y-16">
           {/* page title */}
           <Box className="pb-8  w-full ">
             <PageTitle
@@ -79,7 +79,7 @@ const Templates = () => {
               subTitle={
                 <Typography
                   variant="body1"
-                  className="text-gray-700 leading-6 text-sm font-normal "
+                  className="text-gray-700  text-sm font-normal leading-5 "
                 >
                   Create a Basic listing template for digiDirect . Copy the raw
                   template and paste in Magento
@@ -97,7 +97,7 @@ const Templates = () => {
                 title={
                   <Typography
                     variant="h6"
-                    className="font-[500] text-[1.3rem]  text-gray-700 capitalize "
+                    className="font-[500] text-[1.2rem]  text-gray-700 capitalize "
                   >
                     What's in the box
                   </Typography>
@@ -105,7 +105,7 @@ const Templates = () => {
                 subTitle={
                   <Typography
                     variant="body1"
-                    className="text-gray-700 leading-6 text-sm font-normal "
+                    className="text-gray-700  text-sm font-normal leading-5 "
                   >
                     Displays the accesories included in the product package.
                     Copy and paste the template in{" "}
@@ -131,7 +131,7 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.3rem]  text-gray-700 capitalize "
+                      className="font-medium text-[1.2rem]  text-gray-700 capitalize "
                     >
                       Specification Simple
                     </Typography>
@@ -139,7 +139,7 @@ const Templates = () => {
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700 leading-6 text-sm font-normal "
+                      className="text-gray-700  text-sm font-normal leading-5 "
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
@@ -160,7 +160,7 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.3rem]  text-gray-700 capitalize "
+                      className="font-medium text-[1.2rem]  text-gray-700 capitalize "
                     >
                       Specification Categorized
                     </Typography>
@@ -168,7 +168,7 @@ const Templates = () => {
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700 leading-6 text-sm font-normal "
+                      className="text-gray-700  text-sm font-normal leading-5 "
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
@@ -193,7 +193,7 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.3rem]  text-gray-700 capitalize "
+                      className="font-medium text-[1.2rem]  text-gray-700 capitalize "
                     >
                       Description Simple
                     </Typography>
@@ -201,7 +201,7 @@ const Templates = () => {
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700 leading-6 text-sm font-normal "
+                      className="text-gray-700  text-sm font-normal leading-5 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -225,7 +225,7 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-mmedium text-[1.3rem]  text-gray-700 capitalize "
+                      className="font-mmedium text-[1.2rem]  text-gray-700 capitalize "
                     >
                       Description Advanced
                     </Typography>
@@ -233,7 +233,7 @@ const Templates = () => {
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700 leading-6 text-sm font-normal "
+                      className="text-gray-700  text-sm font-normal leading-5 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -257,7 +257,7 @@ const Templates = () => {
                   subtitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700 leading-6 text-[0.90rem] font-normal"
+                      className="text-gray-700  text-[0.90rem] font-normal"
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -282,7 +282,7 @@ const Templates = () => {
                 subtitle={
                   <Typography
                     variant="body1"
-                    className="text-gray-700 leading-6 text-[0.90rem] font-normal"
+                    className="text-gray-700  text-[0.90rem] font-normal"
                   >
                     We need to keep an eye on this for every product to clean
                     out incorrect Meta Titles. Use Default Value in digiDirect
