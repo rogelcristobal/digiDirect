@@ -33,11 +33,7 @@ const template = () => {
     <tr>
       <th> Attribute2 </th>
       <td> Value2 </td>
-    </tr>
-    <tr>
-      <th> Attribute3 </th>
-      <td> Value3 </td>
-    </tr>   
+    </tr> 
   </tbody>
 </table>
 
@@ -98,8 +94,8 @@ const template = () => {
 
 <p></p>
 <ul class="mpn">
-  <li>MPN - Barcode1 </li>
-  <li>GTIN - Barcode2 </li>
+  <li> MPN - Barcode1 </li>
+  <li> GTIN - Barcode2 </li>
 </ul>
     
 `
@@ -168,20 +164,12 @@ const template = () => {
     <h2 class="h2Lit"><span class="h2Lit"> feature </h2>
     <p> details </p>
   </div>
-  <div>
-    <h2 class="h2Lit"><span class="h2Lit"> feature </h2>
-    <p> details </p>
-  </div>
-  <div>
-    <h2 class="h2Lit"><span class="h2Lit"> feature </h2>
-    <p> details </p>
-  </div>
 </div>
 <br/>
 
 <ul class="mpn">
-  <li>MPN - Barcode1 </li>
-  <li>GTIN - Barcode2 </li>
+  <li> MPN - Barcode1 </li>
+  <li>  GTIN - Barcode2 </li>
 </ul>
 
 `
@@ -231,8 +219,7 @@ const template = () => {
     `,
     tags:`
 <p class="mText"> 
-  The <strong class="h1Lit"> ProductName </strong>
-  kit description </p>
+  The <strong class="h1Lit"> ProductName </strong> kit description </p>
 <p class="mText"> description </p>
 <p class="mText"> description </p>
      
@@ -275,8 +262,8 @@ const template = () => {
 <br/>
 
 <ul class="mpn">
-<li>MPN - Barcode1</li>
-<li>GTIN - Barcode2</li>
+<li> MPN - Barcode1</li>
+<li> GTIN - Barcode2</li>
 </ul>
 
 `

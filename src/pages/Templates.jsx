@@ -32,13 +32,16 @@ const Templates = () => {
   const scrollRef = useRef(null); // for navbar purposes
   const inTheBoxTab = useRef(null);
   const descriptionTab = useRef(null);
-  
+
   const specsTab = useRef(null);
 
   const [inTheBoxView, inTheBoxState] = useInView({
     threshold: 0.9,
   });
-  const [specsView, specsState] = useInView({ threshold: 0.2 ,rootMargin: '0px 0px 0px'});
+  const [specsView, specsState] = useInView({
+    threshold: 0.2,
+    rootMargin: "0px 0px 0px",
+  });
   const [descriptionView, descriptionState] = useInView({ threshold: 0.2 });
 
   // useEffect(() => {
@@ -79,7 +82,7 @@ const Templates = () => {
               subTitle={
                 <Typography
                   variant="body1"
-                  className="text-gray-500  text-sm font-medium leading-5 "
+                  className="text-gray-600  text-sm font-sans font-medium leading-6 "
                 >
                   Create a Basic listing template for digiDirect . Copy the raw
                   template and paste in Magento
@@ -93,24 +96,25 @@ const Templates = () => {
           <Box ref={inTheBoxView} className="w-full box-border space-y-6 ">
             <Box className="">
               <PageTitle
-                // category="general"
+                category="What's in the box"
                 title={
                   <Typography
                     variant="h6"
-                    className="font-[500] text-[1.2rem]  text-gray-800  "
+                    className="font-medium text-[1.2rem]  text-gray-800  "
                   >
-                    What's in the box
+                   
+                    Included in the box
                   </Typography>
                 }
                 subTitle={
                   <Typography
                     variant="body1"
-                    className="text-gray-500  text-sm font-normal leading-5 "
+                    className="text-gray-800  text-sm font-normal leading-6  "
                   >
                     Displays the accesories included in the product package.
                     Copy and paste the template in{" "}
-                    <span className="font-medium ">What's in the box</span>{" "}
-                    tab in Magento.
+                    <span className="font-medium ">What's in the box</span> tab
+                    in Magento.
                   </Typography>
                 }
               />
@@ -120,12 +124,11 @@ const Templates = () => {
                 code={inTheBoxMarkup}
               ></CodeSnippetComponent>
             </Box>
-
           </Box>
-            <Divider variant="middle" light></Divider>
+          <Divider variant="middle" light></Divider>
 
           {/* sepcs */}
-          <Box ref={specsView} className="space-y-6 box-border ">
+          <Box ref={specsView} className="space-y-12 box-border ">
             <Box className="w-full box-border space-y-6 ">
               <Box>
                 <PageTitle
@@ -135,13 +138,13 @@ const Templates = () => {
                       variant="h6"
                       className="font-medium text-[1.2rem]  text-gray-800  "
                     >
-                      Specification simple
+                      Product specification simple
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-5 "
+                      className="text-gray-800  text-sm font-normal leading-6 "
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
@@ -164,13 +167,13 @@ const Templates = () => {
                       variant="h6"
                       className="font-medium text-[1.2rem]  text-gray-800  "
                     >
-                      Specification categorized
+                      Product specification categorized
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-5 "
+                      className="text-gray-800  text-sm font-normal leading-6 "
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
@@ -186,26 +189,26 @@ const Templates = () => {
             </Box>
           </Box>
 
-            <Divider variant="middle" light></Divider>
+          <Divider variant="middle" light></Divider>
 
           {/* description */}
-          <Box ref={descriptionView} className="space-y-6 box-border ">
+          <Box ref={descriptionView} className="space-y-12 box-border ">
             <Box className="w-full box-border space-y-6 ">
               <Box>
                 <PageTitle
-                  category="Descriptions"
+                  category="product Description"
                   title={
                     <Typography
                       variant="h6"
                       className="font-medium text-[1.2rem]  text-gray-800  "
                     >
-                      Description simple
+                      Description basic
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-5 "
+                      className="text-gray-800  text-sm font-normal leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -237,7 +240,7 @@ const Templates = () => {
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-5 "
+                      className="text-gray-800  text-sm font-normal leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -254,21 +257,26 @@ const Templates = () => {
               </Box>
             </Box>
 
-            
-
             <Box className="w-full box-border space-y-6 ">
               <Box>
-                <PageSubTitle
-                  title="Description kit "
-                  subtitle={
+                <PageTitle
+                  title={
+                    <Typography
+                      variant="h6"
+                      className="font-medium text-[1.2rem]  text-gray-800  "
+                    >
+                      Description kit
+                    </Typography>
+                  }
+                  subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-[0.90rem] font-normal"
+                      className="text-gray-800  text-sm font-normal leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
-                      <span className="font-semibold">eBay Description</span>{" "}
-                      tab in Magento.
+                      <span className="font-medium">eBay Description</span> tab
+                      in Magento.
                     </Typography>
                   }
                 />
@@ -282,15 +290,23 @@ const Templates = () => {
           </Box>
 
           <Divider variant="middle" light></Divider>
-          
+
           <Box className="w-full box-border space-y-6 ">
             <Box>
-              <PageSubTitle
-                title="Search Engine Optimization"
-                subtitle={
+              <PageTitle
+              category="SEO"
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-medium text-[1.2rem]  text-gray-800  "
+                  >
+                    Search engine optimization
+                  </Typography>
+                }
+                subTitle={
                   <Typography
                     variant="body1"
-                    className="text-gray-800  text-[0.90rem] font-normal"
+                    className="text-gray-800  text-sm font-normal leading-6 "
                   >
                     We need to keep an eye on this for every product to clean
                     out incorrect Meta Titles. Use Default Value in digiDirect
@@ -333,21 +349,24 @@ const Templates = () => {
                 title: "What's in the box",
                 reference: {
                   viewState: inTheBoxState,
-                 
                 },
               },
               {
-                title: "Specifications",
+                title: "Specification",
                 reference: {
                   viewState: specsState,
-                 
                 },
               },
-               {
-                title: "Descriptions",
+              {
+                title: "Description",
                 reference: {
                   viewState: descriptionState,
-                   
+                },
+              },
+              {
+                title: "SEO",
+                reference: {
+                  viewState: descriptionState,
                 },
               },
             ].map((item, idx) => (
@@ -362,7 +381,8 @@ const Templates = () => {
                   // alert(elementPosition)
 
                   scrollRef.current.scrollTo({
-                    top: item.reference.linkTo.current.getBoundingClientRect().top
+                    top: item.reference.linkTo.current.getBoundingClientRect()
+                      .top,
                     // behavior: "smooth",
                   });
 
@@ -374,9 +394,7 @@ const Templates = () => {
                 }}
                 className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
                 ${
-                  item.reference.viewState
-                    ? "text-sky-600"
-                    : "text-neutral-600"
+                  item.reference.viewState ? "text-sky-600" : "text-neutral-600"
                 }
                    flex items-center justify-center`}
               >
