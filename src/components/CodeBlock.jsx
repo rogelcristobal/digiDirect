@@ -77,8 +77,8 @@ const CodeBlock = ({ code }) => {
           style: { fontFamily: "Hack",letterSpacing:'-0.025em' },
         }}
         customStyle={{
-          paddingTop: "0rem",
-          paddingBottom: "0rem",
+          paddingTop: "1rem",
+          paddingBottom: "1rem",
           paddingLeft: "2rem",
           paddingRight: "1rem",
           borderRadius: " 0.75rem",
@@ -100,7 +100,7 @@ const CodeBlock = ({ code }) => {
       <Box className=" box-border  px-2 w-full min-w-[10rem] flex items-center justify-end space-x-3 rounded-md ">
         <Button
           variant="contained"
-          className={`py-3 px-6 capitalize text-xs  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center shadow-none font-normal  text-gray-100 bg-sky-500  cursor-pointer  `}
+          className={`py-2.5 px-5.5 capitalize text-xs  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center shadow-none font-normal  text-gray-100 bg-sky-500  cursor-pointer  `}
           onClick={handleCopy}
         >
           copy
@@ -109,7 +109,7 @@ const CodeBlock = ({ code }) => {
         {code.styles && (
           <Paper
             variant="contained"
-            className={`py-3 px-3   flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer ${
+            className={`py-2.5 px-2.5   flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer ${
               !styleVisibility
                 ? "text-sky-500 bg-[#f1f3f8] "
                 : "text-sky-500 bg-[#f1f3f8] "
