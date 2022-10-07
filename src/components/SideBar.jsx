@@ -12,13 +12,13 @@ import {
   AiFillExperiment
 } from "react-icons/ai";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
-import { AiFillDashboard } from "react-icons/ai";
-import {FaShapes} from 'react-icons/fa'
+
+import {IoShapes} from 'react-icons/io5'
 
 const SideBar = () => {
   // f7f8fa
   return (
-    <Box className="h-screen w-[24rem]  bg-[#ffffff] border-thiner z-20 box-border  relative  ">
+    <Box className="h-screen w-[23rem]  bg-[#ffffff] border-thiner z-20 box-border  relative  ">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -34,7 +34,7 @@ const SideBar = () => {
       <Box className="w-full  box-border h-auto    ">
          <Paper
           variant="contained"
-          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-4  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
+          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-3  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
@@ -49,7 +49,7 @@ const SideBar = () => {
               path="/"
               
               title="dashboard"
-              icon={<FaShapes className="text-base"/>}
+              icon={<IoShapes className="text-base"/>}
               parentBtn
               activeStyle=" text-sky-600  no-underline "
             />
@@ -73,7 +73,7 @@ const SideBar = () => {
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
-                { title: "quick create", path: "/templates" },
+                { title: "quick create", path: "/xyz" },
                 { title: "templates", path: "/templates" },
                
               ].map((item, idx) => (
@@ -113,34 +113,7 @@ const SideBar = () => {
               activeStyle="bg-blue-50 text-sky-600  no-underline "
             />
             
-            {/* <ListItemBtnExpandable
-              textColor="text-blue-500"
-              bgColor="bg-inherit "
-              title="templates"
-              initialState
-              icon={<AiOutlineLayout className="text-sm" />}
-              enableIcon={<HiChevronDown className="text-inherit " />}
-              disableIcon={<HiChevronRight className="text-inherit" />}
-            >
-              {[
-                {
-                  title: "normal listing template",
-                  path: "/normal-listing-template",
-                },
-                {
-                  title: "open box template",
-                  path: "/open-box-listing-template",
-                },
-              ].map((item, idx) => (
-                <ListItemBtnComponent
-                  path={item.path}
-                  activeStyle="bg-blue-50 text-sky-600  no-underline "
-                  
-                  title={item.title}
-                  key={idx}
-                />
-              ))}
-            </ListItemBtnExpandable> */}
+           
           </List>
         </Paper>
       </Box>
