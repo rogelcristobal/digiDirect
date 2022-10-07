@@ -1,5 +1,11 @@
 import React from "react";
-import { ListItemButton, Typography, Collapse, List ,Paper} from "@mui/material";
+import {
+  ListItemButton,
+  Typography,
+  Collapse,
+  List,
+  Paper,
+} from "@mui/material";
 import { useState } from "react";
 const ListItemBtnExpandable = ({
   children,
@@ -25,18 +31,21 @@ const ListItemBtnExpandable = ({
       > */}
 
       <ListItemButton
+        disableGutters
+        dense
         onClick={handleClick}
-        className={`flex justify-between   rounded-2xl py-4 px-4 transition-all duration-300 ease-int-out ${
+        className={`flex justify-between font-sans  py-3 px-4 transition-all duration-300 ease-int-out ${
           isOpen
             ? `${bgColor} ${textColor}`
-            : `bg-inherit text-neutral-600 hover:${textColor}`
+            : `bg-inherit text-gray-500 hover:${textColor}`
         }  `}
       >
         <div className="flex items-center justify-center space-x-3">
-        {icon && (
+          {/* bg-[#f7f7f9] */}
+          {icon && (
             <Paper
               variant="contained"
-              className={`p-1.5    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointergap-2 text-blue-400 bg-[#f7f7f9]`}
+              className={`  border-thiner p-2 flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 text-inherit bg-inherit`}
             >
               {icon}
             </Paper>

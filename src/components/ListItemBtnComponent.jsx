@@ -18,18 +18,18 @@ const ListItemBtnComponent = ({
         className={({ isActive }) =>
           isActive
             ? `${activeStyle}`
-            : "bg-inherit text-neutral-600 no-underline "
+            : "bg-inherit text-gray-500 no-underline "
         }
       >
         <ListItemButton
-          className={`   py-4 rounded-2xl  flex items-center justify-start bg-inherit transition-all duration-300 ease-int-out capitalize  ${
-            parentBtn ? "px-4 " : "px-10"
-          } space-x-4 `}
+          className={`  flex items-center font-sans justify-start bg-inherit transition-all duration-300 ease-int-out capitalize  ${
+            parentBtn ? "px-4 py-3 " : "px-6 py-3"
+          } space-x-3 `}
         >
           {icon && (
             <Paper
               variant="contained"
-              className={`p-1.5    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointergap-2 text-blue-400 bg-[#f7f7f9]`}
+              className={`border-thiner p-2   flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointergap-2 text-inherit bg-inherit`}
             >
               {icon}
             </Paper>
@@ -37,7 +37,7 @@ const ListItemBtnComponent = ({
           <Typography
             variant="body2"
             className={`font-medium   ${
-              parentBtn ? "text-[0.875]" : "text-xs"
+              parentBtn ? "text-[0.875]" : "text-sm"
             }`}
           >
             {title}

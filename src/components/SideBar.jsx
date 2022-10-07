@@ -7,17 +7,18 @@ import ListItemBtnExpandable from "./ListItemBtnExpandable";
 import DigiLogoInJs from "./DigiLogoInJs";
 // icon
 import {
-  AiFillTags,
+  AiTwotoneTags,
   AiFillFileImage,
   AiFillExperiment
 } from "react-icons/ai";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import { AiFillDashboard } from "react-icons/ai";
-import {MdSpaceDashboard} from 'react-icons/md'
+import {FaShapes} from 'react-icons/fa'
 
 const SideBar = () => {
+  // f7f8fa
   return (
-    <Box className="h-screen w-[24rem]  bg-[#ffffff] z-20 box-border  relative  border-thiner">
+    <Box className="h-screen w-[24rem]  bg-[#ffffff] border-thiner z-20 box-border  relative  ">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -25,9 +26,9 @@ const SideBar = () => {
         light
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
-      <Box className="h-28   w-full flex flex-col items-start  justify-center  px-8   box-border ">
+      <Box className="h-20   w-full flex flex-col items-start  justify-center  px-8   box-border ">
        
-        <DigiLogoInJs size="text-xl"  dark color="text-blue-400 text-[1.1rem]" />
+        {/* <DigiLogoInJs size="text-xl"  dark color="text-blue-400 text-[1.1rem]" /> */}
        
       </Box>
       <Box className="w-full  box-border h-auto    ">
@@ -40,17 +41,17 @@ const SideBar = () => {
 
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 "
+              className="text-gray-700 text-xs font-semibold ml-2 "
               >
               Dashboard
             </Typography>
             <ListItemBtnComponent
               path="/"
-              hoverColor="hover:text-blue-500 "
+              
               title="dashboard"
-              icon={<MdSpaceDashboard className="text-base"/>}
+              icon={<FaShapes className="text-base"/>}
               parentBtn
-              activeStyle=" text-blue-500  no-underline "
+              activeStyle=" text-sky-600  no-underline "
             />
           </List>
 
@@ -58,27 +59,28 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 "
+              className="text-gray-700 text-xs font-semibold ml-2 "
             >
               General
             </Typography>
             <ListItemBtnExpandable
-              textColor="text-gray-600"
+              textColor="text-sky-600"
               bgColor="bg-inherit "
               title="product listing"
               initialState={true}
-              icon={<AiFillTags className="text-sm " />}
+              icon={<AiTwotoneTags className="text-sm " />}
               enableIcon={<HiChevronDown className="text-inherit " />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
+                { title: "quick create", path: "/templates" },
                 { title: "templates", path: "/templates" },
                
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}
-                  activeStyle=" text-blue-500  no-underline "
-                  hoverColor="hover:text-blue-500 "
+                  activeStyle=" text-sky-600  no-underline "
+                  
                   title={item.title}
                   key={idx}
                 />
@@ -90,25 +92,25 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-neutral-900/40 text-xs font-semibold ml-2 "
+              className="text-gray-700 text-xs font-semibold ml-2 "
             >
               Tools & API's
             </Typography>
             <ListItemBtnComponent
               parentBtn
               path="/image-converter"
-              activeStyle="bg-blue-50 text-blue-500  no-underline "
-              hoverColor="hover:text-blue-500 "
+              activeStyle="bg-blue-50 text-sky-600  no-underline "
+              
               title="Converter"
               icon={<AiFillFileImage className="text-sm" />}
             />
              <ListItemBtnComponent
               path="/experimental"
-              hoverColor="hover:text-blue-500 "
+              
               title="experimental"
               icon={<AiFillExperiment className="text-sm"/>}
               parentBtn
-              activeStyle="bg-blue-50 text-blue-500  no-underline "
+              activeStyle="bg-blue-50 text-sky-600  no-underline "
             />
             
             {/* <ListItemBtnExpandable
@@ -132,8 +134,8 @@ const SideBar = () => {
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}
-                  activeStyle="bg-blue-50 text-blue-500  no-underline "
-                  hoverColor="hover:text-blue-500 "
+                  activeStyle="bg-blue-50 text-sky-600  no-underline "
+                  
                   title={item.title}
                   key={idx}
                 />

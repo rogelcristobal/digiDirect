@@ -2,10 +2,10 @@ import React from "react";
 import { Typography, Box } from "@mui/material";
 const PageTitle = ({ category, title, subTitle }) => {
   return (
-    <Box>
+    <Box className="font-sans normal-case">
       <Typography
         variant="h6"
-        className="font-medium text-sm text-blue-500  capitalize mb-3"
+        className="font-medium text-sm text-sky-600  capitalize	 mb-3"
       >
         {category}
       </Typography>
