@@ -278,6 +278,15 @@ const template = () => {
   const seoMetaDescription={
     tags:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
   }
+  const notes={
+    tags:`
+<p>
+  <em>
+    <strong>Note:</strong> 
+    Product is shown in use for illustration Only, additional equipment is not included.
+  </em>
+</p>`
+  }
   return {
     specsMarkup,
     inTheBoxMarkup,
@@ -286,7 +295,8 @@ const template = () => {
     descriptionKit,
     seoMetaTitle,
     seoMetaKeyword,
-    seoMetaDescription
+    seoMetaDescription,
+    notes
   };
 };
 
