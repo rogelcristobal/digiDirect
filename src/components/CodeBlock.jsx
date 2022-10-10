@@ -6,7 +6,7 @@ import Slide from "@mui/material/Slide";
 import { BiCodeAlt } from "react-icons/bi";
 import { useState } from "react";
 import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { AiOutlineCopy } from "react-icons/ai";
+import { MdContentCopy } from "react-icons/md";
 import { useRef, useEffect, useMemo } from "react";
 const CodeBlock = ({ code ,lang}) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
@@ -88,6 +88,7 @@ const CodeBlock = ({ code ,lang}) => {
           style: {
             fontFamily: "Hack",
             letterSpacing: "-0.025em",
+            lineHeight:'1.1rem',
             fontSize: "0.8rem",
           },
         }}
@@ -99,11 +100,11 @@ const CodeBlock = ({ code ,lang}) => {
           borderRadius: " 0.75rem",
           overflowX: "hidden",
           boxSizing: "border-box",
-          minHeight: "4rem",
+          minHeight: "4.5rem",
           maxHeight: "25rem",
           margin: "0",
-          display: blockSize === 64 && 'flex',
-          alignItems: blockSize === 64 && 'center'
+          display: blockSize === 72 && 'flex',
+          alignItems: blockSize === 72 && 'center'
 
           
           // backgroundColor:'inherit'
@@ -118,14 +119,14 @@ const CodeBlock = ({ code ,lang}) => {
 
       {/* button container */}
       <Box
-        className={`${blockSize === 64? 'top-1/2  -translate-y-1/2 ' :'top-2.5 '} right-3 box-border border-thin absolute  w-fit flex items-center justify-end space-x-3 rounded-lg transition-all ease-in-out duration-300 `}
+        className={`${blockSize === 72? 'top-1/2  -translate-y-1/2 ' :'top-2.5 '} right-3 box-border border-thin absolute  w-fit flex items-center justify-end space-x-3 rounded-lg transition-all ease-in-out duration-300 `}
       >
         <IconButton
           variant="contained"
-          className={` capitalize text-lg  p-1.5   flex  rounded-lg  shadow-none font-normal  text-gray-300 border border-gray-500/50 border-solid cursor-pointer  `}
+          className={` capitalize text-sm     flex  rounded-lg  shadow-none font-normal  text-gray-300 border border-gray-500/50 border-solid cursor-pointer  `}
           onClick={handleCopy}
         >
-          <AiOutlineCopy></AiOutlineCopy>
+          <MdContentCopy></MdContentCopy>
         </IconButton>
 
         {/* {code.styles && (
