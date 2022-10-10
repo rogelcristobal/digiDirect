@@ -9,7 +9,7 @@ import useConvert from "../requests/useConvert";
 import { HiChevronDown } from "react-icons/hi";
 import { AiOutlineFileImage, AiOutlineLink } from "react-icons/ai";
 import PageSubTitle from "../components/PageSubTitle";
-import Blob from "../svg/Blob2.svg"
+import Blob from "../svg/Blob2.svg";
 const ImageConverter = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
@@ -78,7 +78,6 @@ const ImageConverter = () => {
             <Box className="h-full w-full min-h-[40rem] box-border flex  flex-col items-start justify-start">
               <Box className="w-full   box-border flex  items-start justify-start h-fit gap-3 py-4">
                 {/*  */}
-                
 
                 {/* URLInput[].text*/}
                 {/* {URLInput.map((item, idx) => (

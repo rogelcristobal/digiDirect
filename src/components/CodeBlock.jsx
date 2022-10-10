@@ -1,15 +1,18 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { Box, Paper, Snackbar, Alert, Button } from "@mui/material";
+import { Box, Paper, Snackbar, Alert, Button, IconButton } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { DiCss3Full } from "react-icons/di";
 import Slide from "@mui/material/Slide";
 import { BiCodeAlt } from "react-icons/bi";
 import { useState } from "react";
 import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
-
-const CodeBlock = ({ code }) => {
+import { AiOutlineCopy } from "react-icons/ai";
+import { useRef, useEffect, useMemo } from "react";
+const CodeBlock = ({ code ,lang}) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
   const [open, setOpen] = useState(false);
+  const [blockSize, setBlockSize] = useState(0);
+  const codeBlockRef = useRef(null);
   const handleShowStyles = () => {
     setStyleVisibility((prev) => (prev = !prev));
     handleClose();
@@ -25,6 +28,7 @@ const CodeBlock = ({ code }) => {
     navigator.clipboard.writeText(mergeTagsAndStyles(code));
     setOpen(true);
   };
+  const [hoverCode, setHoveringCode] = useState(false);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -36,9 +40,16 @@ const CodeBlock = ({ code }) => {
   function SlideTransition(props) {
     return <Slide {...props} direction="up" />;
   }
-
+  useEffect(() => {
+    setBlockSize(codeBlockRef.current.clientHeight);
+  });
   return (
-    <Box className="h-full w-full  box-border   flex flex-col items-end justify-center ">
+    <Box
+      onMouseEnter={() => setHoveringCode(true)}
+      onMouseLeave={() => setHoveringCode(false)}
+      ref={codeBlockRef}
+      className="h-full w-full  box-border   relative flex flex-col items-end justify-center "
+    >
       <Snackbar
         open={open}
         autoHideDuration={1300}
@@ -67,25 +78,34 @@ const CodeBlock = ({ code }) => {
 
       {/* code block */}
       <SyntaxHighlighter
-        className="scrollbar-hide hover:scrollbar-default w-full"
+        className={` w-full scrollbar-hide hover:scrollbar-default`}
         wrapLongLines={true}
         wrapLines={true}
-        language="css"
+        language={lang}
         style={tomorrowNight}
         // showLineNumbers={true}
         codeTagProps={{
-          style: { fontFamily: "Hack",letterSpacing:'-0.025em' },
+          style: {
+            fontFamily: "Hack",
+            letterSpacing: "-0.025em",
+            fontSize: "0.8rem",
+          },
         }}
         customStyle={{
           paddingTop: "1rem",
           paddingBottom: "1rem",
           paddingLeft: "2rem",
-          paddingRight: "1rem",
+          paddingRight: "4rem",
           borderRadius: " 0.75rem",
           overflowX: "hidden",
           boxSizing: "border-box",
-          minHeight: !code ? "12rem" : "fit",
+          minHeight: "4rem",
           maxHeight: "25rem",
+          margin: "0",
+          display: blockSize === 64 && 'flex',
+          alignItems: blockSize === 64 && 'center'
+
+          
           // backgroundColor:'inherit'
         }}
       >
@@ -97,16 +117,18 @@ const CodeBlock = ({ code }) => {
       </SyntaxHighlighter>
 
       {/* button container */}
-      <Box className=" box-border  px-2 w-full min-w-[10rem] flex items-center justify-end space-x-3 rounded-md ">
-        <Button
+      <Box
+        className={`${blockSize === 64? 'top-1/2  -translate-y-1/2 ' :'top-2.5 '} right-3 box-border border-thin absolute  w-fit flex items-center justify-end space-x-3 rounded-lg transition-all ease-in-out duration-300 `}
+      >
+        <IconButton
           variant="contained"
-          className={`py-2.5 px-5.5 capitalize text-xs  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center shadow-none font-normal  text-gray-100 bg-sky-500  cursor-pointer  `}
+          className={` capitalize text-lg  p-1.5   flex  rounded-lg  shadow-none font-normal  text-gray-300 border border-gray-500/50 border-solid cursor-pointer  `}
           onClick={handleCopy}
         >
-          copy
-        </Button>
+          <AiOutlineCopy></AiOutlineCopy>
+        </IconButton>
 
-        {code.styles && (
+        {/* {code.styles && (
           <Paper
             variant="contained"
             className={`py-2.5 px-2.5   flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer ${
@@ -121,14 +143,16 @@ const CodeBlock = ({ code }) => {
             ) : (
               <BiCodeAlt className="font-normal text-base" />
             )}
-            {/* <Typography variant="body2" className=" text-xs font-medium  tracking-tight  ">
-            {!styleVisibility ? "View styles" : "Hide styles"}
-          </Typography> */}
+            
           </Paper>
-        )}
+        )} */}
       </Box>
     </Box>
   );
 };
+
+CodeBlock.defaultProps={
+  lang:'css'
+}
 
 export default CodeBlock;

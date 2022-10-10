@@ -25,6 +25,9 @@ const Templates = () => {
     descriptionSimple,
     descriptionBest,
     descriptionKit,
+    seoMetaTitle,
+    seoMetaKeyword,
+    seoMetaDescription
   } = template();
 
   const { setState: setScrollPos, setTransparency } =
@@ -43,6 +46,7 @@ const Templates = () => {
     rootMargin: "0px 0px 0px",
   });
   const [descriptionView, descriptionState] = useInView({ threshold: 0.2 });
+  const [seoView,seoState] = useInView({ threshold: 0.5 })
 
   // useEffect(() => {
   //   const element = scrollRef.current;
@@ -66,7 +70,7 @@ const Templates = () => {
         ref={scrollRef}
         className="h-full scroll-smooth overflow-auto w-full  flex pt-[4.2rem] items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-14  pt-12 pb-36 space-y-20">
+        <Box className="w-full  h-auto box-border px-16  pt-8 pb-36 space-y-20">
           {/* page title */}
           <Box className="pb-8  w-full ">
             <PageTitle
@@ -102,7 +106,6 @@ const Templates = () => {
                     variant="h6"
                     className="font-medium text-[1.2rem]  text-gray-800  "
                   >
-                   
                     Included in the box
                   </Typography>
                 }
@@ -128,7 +131,7 @@ const Templates = () => {
           <Divider variant="middle" light></Divider>
 
           {/* sepcs */}
-          <Box ref={specsView} className="space-y-12 box-border ">
+          <Box ref={specsView} className="space-y-16 box-border ">
             <Box className="w-full box-border space-y-6 ">
               <Box>
                 <PageTitle
@@ -184,7 +187,7 @@ const Templates = () => {
                 />
               </Box>
               <Box className=" h-fit w-full box-border rounded-3xl    ">
-                <CodeSnippetComponent code={specsMarkup}></CodeSnippetComponent>
+                <CodeSnippetComponent code={specsMarkup} ></CodeSnippetComponent>
               </Box>
             </Box>
           </Box>
@@ -192,7 +195,7 @@ const Templates = () => {
           <Divider variant="middle" light></Divider>
 
           {/* description */}
-          <Box ref={descriptionView} className="space-y-12 box-border ">
+          <Box ref={descriptionView} className="space-y-16 box-border ">
             <Box className="w-full box-border space-y-6 ">
               <Box>
                 <PageTitle
@@ -283,6 +286,7 @@ const Templates = () => {
               </Box>
               <Box className=" h-fit w-full box-border rounded-3xl    ">
                 <CodeSnippetComponent
+                  
                   code={descriptionKit}
                 ></CodeSnippetComponent>
               </Box>
@@ -291,10 +295,10 @@ const Templates = () => {
 
           <Divider variant="middle" light></Divider>
 
-          <Box className="w-full box-border space-y-6 ">
+          <Box ref={seoView} className="w-full box-border space-y-12 ">
             <Box>
               <PageTitle
-              category="SEO"
+                category="SEO"
                 title={
                   <Typography
                     variant="h6"
@@ -323,10 +327,62 @@ const Templates = () => {
                 }
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl    ">
-              <CodeSnippetComponent
-                code={descriptionKit}
-              ></CodeSnippetComponent>
+            {/* Meta Title */}
+            <Box>
+              <PageTitle
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-medium text-[1.2rem]  text-gray-800  mt-12"
+                  >
+                    Meta Title
+                  </Typography>
+                }
+              />
+              <Box className=" h-fit w-full box-border rounded-3xl    ">
+                <CodeSnippetComponent
+                  code={seoMetaTitle}
+                  lang="text"
+                ></CodeSnippetComponent>
+              </Box>
+            </Box>
+            {/* Meta Keywords */}
+            <Box>
+              <PageTitle
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-medium text-[1.2rem]  text-gray-800  "
+                  >
+                    Meta Keywords
+                  </Typography>
+                }
+              />
+              <Box className=" h-fit w-full box-border rounded-3xl    ">
+                <CodeSnippetComponent
+                  code={seoMetaKeyword}
+                 lang="text"
+                ></CodeSnippetComponent>
+              </Box>
+            </Box>
+            {/* Meta description */}
+            <Box>
+              <PageTitle
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-medium text-[1.2rem]  text-gray-800  "
+                  >
+                    Meta Description
+                  </Typography>
+                }
+              />
+              <Box className=" h-fit w-full box-border rounded-3xl    ">
+                <CodeSnippetComponent
+                  code={seoMetaDescription}
+                  lang="text"
+                ></CodeSnippetComponent>
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -366,7 +422,7 @@ const Templates = () => {
               {
                 title: "SEO",
                 reference: {
-                  viewState: descriptionState,
+                  viewState: seoState,
                 },
               },
             ].map((item, idx) => (
