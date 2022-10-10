@@ -78,7 +78,7 @@ const Templates = () => {
               title={
                 <Typography
                   variant="h6"
-                  className="font-semibold text-[1.7rem] text-gray-800  "
+                  className="font-semibold text-[1.9rem] text-gray-800  "
                 >
                   Templates
                 </Typography>
@@ -104,7 +104,7 @@ const Templates = () => {
                 title={
                   <Typography
                     variant="h6"
-                    className="font-medium text-[1.2rem]  text-gray-800  "
+                    className="font-semibold text-[1.3rem]  text-gray-800  "
                   >
                     Included in the box
                   </Typography>
@@ -112,7 +112,7 @@ const Templates = () => {
                 subTitle={
                   <Typography
                     variant="body1"
-                    className="text-gray-800  text-sm font-normal leading-6  "
+                    className="text-gray-600  text-sm font-medium leading-6  "
                   >
                     Displays the accesories included in the product package.
                     Copy and paste the template in{" "}
@@ -139,15 +139,15 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.2rem]  text-gray-800  "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
-                      Product specification simple
+                       Specification simple
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-6 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
@@ -168,15 +168,15 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.2rem]  text-gray-800  "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
-                      Product specification categorized
+                       Specification categorized
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-6 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
@@ -203,7 +203,7 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.2rem]  text-gray-800  "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
                       Description basic
                     </Typography>
@@ -211,7 +211,7 @@ const Templates = () => {
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-6 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -235,7 +235,7 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-mmedium text-[1.2rem]  text-gray-800  "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
                       Description advanced
                     </Typography>
@@ -243,7 +243,7 @@ const Templates = () => {
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-6 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -266,7 +266,7 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.2rem]  text-gray-800  "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
                       Description kit
                     </Typography>
@@ -274,7 +274,7 @@ const Templates = () => {
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-800  text-sm font-normal leading-6 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -302,7 +302,7 @@ const Templates = () => {
                 title={
                   <Typography
                     variant="h6"
-                    className="font-medium text-[1.2rem]  text-gray-800  "
+                    className="font-semibold text-[1.3rem]  text-gray-800  "
                   >
                     Search engine optimization
                   </Typography>
@@ -310,7 +310,7 @@ const Templates = () => {
                 subTitle={
                   <Typography
                     variant="body1"
-                    className="text-gray-800  text-sm font-normal leading-6 "
+                    className="text-gray-600  text-sm font-medium leading-6 "
                   >
                     We need to keep an eye on this for every product to clean
                     out incorrect Meta Titles. Use Default Value in digiDirect
@@ -333,7 +333,7 @@ const Templates = () => {
                 title={
                   <Typography
                     variant="h6"
-                    className="font-medium text-[1.2rem]  text-gray-800  mt-12"
+                    className="font-medium text-[1rem]  text-gray-800  mt-12"
                   >
                     Meta Title
                   </Typography>
@@ -352,7 +352,7 @@ const Templates = () => {
                 title={
                   <Typography
                     variant="h6"
-                    className="font-medium text-[1.2rem]  text-gray-800  "
+                    className="font-medium text-[1rem]  text-gray-800  "
                   >
                     Meta Keywords
                   </Typography>
@@ -371,7 +371,7 @@ const Templates = () => {
                 title={
                   <Typography
                     variant="h6"
-                    className="font-medium text-[1.2rem]  text-gray-800  "
+                    className="font-medium text-[1rem]  text-gray-800  "
                   >
                     Meta Description
                   </Typography>
@@ -408,13 +408,13 @@ const Templates = () => {
                 },
               },
               {
-                title: "Specification",
+                title: "Specifications",
                 reference: {
                   viewState: specsState,
                 },
               },
               {
-                title: "Description",
+                title: "Product Description",
                 reference: {
                   viewState: descriptionState,
                 },
