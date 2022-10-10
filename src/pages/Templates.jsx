@@ -25,6 +25,9 @@ const Templates = () => {
     descriptionSimple,
     descriptionBest,
     descriptionKit,
+    seoMetaTitle,
+    seoMetaKeyword,
+    seoMetaDescription
   } = template();
 
   const { setState: setScrollPos, setTransparency } =
@@ -32,38 +35,42 @@ const Templates = () => {
   const scrollRef = useRef(null); // for navbar purposes
   const inTheBoxTab = useRef(null);
   const descriptionTab = useRef(null);
-  
+
   const specsTab = useRef(null);
 
   const [inTheBoxView, inTheBoxState] = useInView({
     threshold: 0.9,
   });
-  const [specsView, specsState] = useInView({ threshold: 0.2 ,rootMargin: '0px 0px 0px'});
+  const [specsView, specsState] = useInView({
+    threshold: 0.2,
+    rootMargin: "0px 0px 0px",
+  });
   const [descriptionView, descriptionState] = useInView({ threshold: 0.2 });
+  const [seoView,seoState] = useInView({ threshold: 0.5 })
 
-  useEffect(() => {
-    const element = scrollRef.current;
+  // useEffect(() => {
+  //   const element = scrollRef.current;
 
-    const handleScroll = () => {
-      let x = element.scrollTop;
-      setScrollPos(x);
-      setTransparency(true);
-    };
-    element.addEventListener("scroll", handleScroll);
-    return () => {
-      element.removeEventListener("scroll", handleScroll);
-      setScrollPos(0);
-      setTransparency(false);
-    };
-  }, []);
+  //   const handleScroll = () => {
+  //     let x = element.scrollTop;
+  //     setScrollPos(x);
+  //     setTransparency(true);
+  //   };
+  //   element.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     element.removeEventListener("scroll", handleScroll);
+  //     setScrollPos(0);
+  //     setTransparency(false);
+  //   };
+  // }, []);
 
   return (
-    <Box className="h-full box-border  flex items-start gap-3 rounded-lg pt-[4.5rem] bg-[#ffffff]  w-full ">
+    <Box className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full ">
       <Box
         ref={scrollRef}
-        className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
+        className="h-full scroll-smooth overflow-auto w-full  flex pt-[4.2rem] items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-14  pt-10 pb-36 space-y-16">
+        <Box className="w-full  h-auto box-border px-16  pt-8 pb-36 space-y-20">
           {/* page title */}
           <Box className="pb-8  w-full ">
             <PageTitle
@@ -71,15 +78,15 @@ const Templates = () => {
               title={
                 <Typography
                   variant="h6"
-                  className="font-semibold text-[1.7rem] text-gray-700 capitalize "
+                  className="font-semibold text-[1.9rem] text-gray-800  "
                 >
-                  templates
+                  Templates
                 </Typography>
               }
               subTitle={
                 <Typography
                   variant="body1"
-                  className="text-gray-700  text-sm font-normal leading-5 "
+                  className="text-gray-600  text-sm font-sans font-medium leading-6 "
                 >
                   Create a Basic listing template for digiDirect . Copy the raw
                   template and paste in Magento
@@ -91,26 +98,26 @@ const Templates = () => {
           {/* in the box */}
 
           <Box ref={inTheBoxView} className="w-full box-border space-y-6 ">
-            <Box ref={inTheBoxTab} className="">
+            <Box className="">
               <PageTitle
-                // category="general"
+                category="What's in the box"
                 title={
                   <Typography
                     variant="h6"
-                    className="font-[500] text-[1.2rem]  text-gray-700 capitalize "
+                    className="font-semibold text-[1.3rem]  text-gray-800  "
                   >
-                    What's in the box
+                    Included in the box
                   </Typography>
                 }
                 subTitle={
                   <Typography
                     variant="body1"
-                    className="text-gray-700  text-sm font-normal leading-5 "
+                    className="text-gray-600  text-sm font-medium leading-6  "
                   >
                     Displays the accesories included in the product package.
                     Copy and paste the template in{" "}
-                    <span className="font-medium ">'What's in the box'</span>{" "}
-                    tab in Magento.
+                    <span className="font-medium ">What's in the box</span> tab
+                    in Magento.
                   </Typography>
                 }
               />
@@ -121,25 +128,26 @@ const Templates = () => {
               ></CodeSnippetComponent>
             </Box>
           </Box>
+          <Divider variant="middle" light></Divider>
 
           {/* sepcs */}
-          <Box ref={specsView} className="space-y-6 box-border ">
+          <Box ref={specsView} className="space-y-16 box-border ">
             <Box className="w-full box-border space-y-6 ">
-              <Box ref={specsTab}>
+              <Box>
                 <PageTitle
                   category="specifications"
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.2rem]  text-gray-700 capitalize "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
-                      Specification Simple
+                       Specification simple
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700  text-sm font-normal leading-5 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
@@ -160,15 +168,15 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.2rem]  text-gray-700 capitalize "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
-                      Specification Categorized
+                       Specification categorized
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700  text-sm font-normal leading-5 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
@@ -179,29 +187,31 @@ const Templates = () => {
                 />
               </Box>
               <Box className=" h-fit w-full box-border rounded-3xl    ">
-                <CodeSnippetComponent code={specsMarkup}></CodeSnippetComponent>
+                <CodeSnippetComponent code={specsMarkup} ></CodeSnippetComponent>
               </Box>
             </Box>
           </Box>
 
+          <Divider variant="middle" light></Divider>
+
           {/* description */}
-          <Box ref={descriptionView} className="space-y-6 box-border ">
+          <Box ref={descriptionView} className="space-y-16 box-border ">
             <Box className="w-full box-border space-y-6 ">
-              <Box ref={descriptionTab}>
+              <Box>
                 <PageTitle
-                  category="Descriptions"
+                  category="product Description"
                   title={
                     <Typography
                       variant="h6"
-                      className="font-medium text-[1.2rem]  text-gray-700 capitalize "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
-                      Description Simple
+                      Description basic
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700  text-sm font-normal leading-5 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -225,15 +235,15 @@ const Templates = () => {
                   title={
                     <Typography
                       variant="h6"
-                      className="font-mmedium text-[1.2rem]  text-gray-700 capitalize "
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
                     >
-                      Description Advanced
+                      Description advanced
                     </Typography>
                   }
                   subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700  text-sm font-normal leading-5 "
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
@@ -252,37 +262,55 @@ const Templates = () => {
 
             <Box className="w-full box-border space-y-6 ">
               <Box>
-                <PageSubTitle
-                  title="Description kit "
-                  subtitle={
+                <PageTitle
+                  title={
+                    <Typography
+                      variant="h6"
+                      className="font-semibold text-[1.3rem]  text-gray-800  "
+                    >
+                      Description kit
+                    </Typography>
+                  }
+                  subTitle={
                     <Typography
                       variant="body1"
-                      className="text-gray-700  text-[0.90rem] font-normal"
+                      className="text-gray-600  text-sm font-medium leading-6 "
                     >
                       Displays the description of the product. Copy and paste it
                       in <span className="font-medium ">'Description'</span> and{" "}
-                      <span className="font-semibold">eBay Description</span>{" "}
-                      tab in Magento.
+                      <span className="font-medium">eBay Description</span> tab
+                      in Magento.
                     </Typography>
                   }
                 />
               </Box>
               <Box className=" h-fit w-full box-border rounded-3xl    ">
                 <CodeSnippetComponent
+                  
                   code={descriptionKit}
                 ></CodeSnippetComponent>
               </Box>
             </Box>
           </Box>
 
-          <Box className="w-full box-border space-y-6 ">
+          <Divider variant="middle" light></Divider>
+
+          <Box ref={seoView} className="w-full box-border space-y-12 ">
             <Box>
-              <PageSubTitle
-                title="Search Engine Optimization"
-                subtitle={
+              <PageTitle
+                category="SEO"
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-semibold text-[1.3rem]  text-gray-800  "
+                  >
+                    Search engine optimization
+                  </Typography>
+                }
+                subTitle={
                   <Typography
                     variant="body1"
-                    className="text-gray-700  text-[0.90rem] font-normal"
+                    className="text-gray-600  text-sm font-medium leading-6 "
                   >
                     We need to keep an eye on this for every product to clean
                     out incorrect Meta Titles. Use Default Value in digiDirect
@@ -299,47 +327,102 @@ const Templates = () => {
                 }
               />
             </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl    ">
-              <CodeSnippetComponent
-                code={descriptionKit}
-              ></CodeSnippetComponent>
+            {/* Meta Title */}
+            <Box>
+              <PageTitle
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-medium text-[1rem]  text-gray-800  mt-12"
+                  >
+                    Meta Title
+                  </Typography>
+                }
+              />
+              <Box className=" h-fit w-full box-border rounded-3xl    ">
+                <CodeSnippetComponent
+                  code={seoMetaTitle}
+                  lang="text"
+                ></CodeSnippetComponent>
+              </Box>
+            </Box>
+            {/* Meta Keywords */}
+            <Box>
+              <PageTitle
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-medium text-[1rem]  text-gray-800  "
+                  >
+                    Meta Keywords
+                  </Typography>
+                }
+              />
+              <Box className=" h-fit w-full box-border rounded-3xl    ">
+                <CodeSnippetComponent
+                  code={seoMetaKeyword}
+                 lang="text"
+                ></CodeSnippetComponent>
+              </Box>
+            </Box>
+            {/* Meta description */}
+            <Box>
+              <PageTitle
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-medium text-[1rem]  text-gray-800  "
+                  >
+                    Meta Description
+                  </Typography>
+                }
+              />
+              <Box className=" h-fit w-full box-border rounded-3xl    ">
+                <CodeSnippetComponent
+                  code={seoMetaDescription}
+                  lang="text"
+                ></CodeSnippetComponent>
+              </Box>
             </Box>
           </Box>
         </Box>
 
         {/* page navigation */}
         <Box
-          className="h-72 mx-8 rounded-2xl w-80 box-border  p-6 sticky top-8  mt-20 flex flex-col items-start justify-start 
+          className="h-72 mx-6 rounded-2xl w-80 box-border py-4 px-4 sticky top-10   flex flex-col items-start justify-start 
         "
         >
           <Typography
             variant="body1"
-            className="text-sm text-gray-800 capitalize font-medium"
+            className="text-sm text-gray-800  font-medium"
           >
-            on this page
+            On this page
           </Typography>
 
           <Box className="flex flex-col box-border pl-4 items-start justify-start h-full mt-6 w-full space-y-3 relative">
             {[
               {
-                title: "what's in the box",
+                title: "What's in the box",
                 reference: {
                   viewState: inTheBoxState,
-                  linkTo: inTheBoxTab
                 },
               },
               {
                 title: "Specifications",
                 reference: {
                   viewState: specsState,
-                   linkTo: specsTab
                 },
               },
-               {
-                title: "Descriptions",
+              {
+                title: "Product Description",
                 reference: {
                   viewState: descriptionState,
-                   linkTo: inTheBoxTab
+                },
+              },
+              {
+                title: "SEO",
+                reference: {
+                  viewState: seoState,
                 },
               },
             ].map((item, idx) => (
@@ -354,7 +437,8 @@ const Templates = () => {
                   // alert(elementPosition)
 
                   scrollRef.current.scrollTo({
-                    top: item.reference.linkTo.current.getBoundingClientRect().top
+                    top: item.reference.linkTo.current.getBoundingClientRect()
+                      .top,
                     // behavior: "smooth",
                   });
 
@@ -366,16 +450,14 @@ const Templates = () => {
                 }}
                 className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
                 ${
-                  item.reference.viewState
-                    ? "text-blue-500"
-                    : "text-neutral-600"
+                  item.reference.viewState ? "text-sky-600" : "text-neutral-600"
                 }
-                capitalize   flex items-center justify-center`}
+                   flex items-center justify-center`}
               >
                 {/* <BiChevronRight
                   className={`text-xl  ${
                     item.reference.viewState
-                      ? "text-blue-500"
+                      ? "text-sky-600"
                       : "text-neutral-300"
                   }`}
                 ></BiChevronRight> */}

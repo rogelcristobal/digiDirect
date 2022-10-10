@@ -43,7 +43,6 @@ const App = () => {
     </QueryClientProvider>
   );
 };
-
 const Main = () => {
 
 
@@ -53,7 +52,7 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800  font-inter  box-border flex items-start justify-start bg-[#ffffff] relative">
+          <Box className="h-screen w-full text-gray-800  font-poppins  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
 
             <SideBar />

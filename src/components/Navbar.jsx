@@ -12,14 +12,14 @@ const Navbar = () => {
   return (
     
     <Box
-      className={`h-[4.5rem] fixed  ${
+      className={`h-[4.2rem] fixed  ${
         state >= 100 ? !transparency? 'bg-transparent ':'bg-[#ffffff] border-thiner ' : "bg-inherit "
-      } trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0  pt-3 left-0 box-border flex items-center justify-end   
+      } trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0  pt-2 left-0 box-border flex items-center justify-end   
     `}
     >
       {/* [#635dff] */}
       <div
-        className={`w-[calc(100%-17.5rem)] box-border  h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500  ${
+        className={`w-[calc(100%-18.5rem)] box-border  h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500  ${
           state >= 100 ? !transparency? 'border-thiner  rounded-xl bg-[#ffffff]':'border-none  ': 'border-none '
         } `}
       >
@@ -27,17 +27,17 @@ const Navbar = () => {
           <DigiLogoInJs dark color="text-blue-500 text-base"></DigiLogoInJs>
         </Box> */}
         {/* rightside box icons */}
-        <Box className="flex items-center justify-around space-x-4 box-border">
+        {/* <Box className="flex items-center justify-around space-x-4 box-border">
           <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md rounded-xl">
             <HiOutlineMoon></HiOutlineMoon>
           </Box>
-          {/* <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 transition-all dration-300 ease-in-out   hover:border-thin text-lg rounded-xl">
+          <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 transition-all dration-300 ease-in-out   hover:border-thin text-lg rounded-xl">
             <BsGithub></BsGithub>
-          </Box> */}
+          </Box>
           <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md rounded-xl">
             <AiOutlineUser></AiOutlineUser>
           </Box>
-        </Box>
+        </Box> */}
       </div>
     </Box>
   );

@@ -1,15 +1,18 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { Box, Paper, Snackbar, Alert } from "@mui/material";
+import { Box, Paper, Snackbar, Alert, Button, IconButton } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { DiCss3Full } from "react-icons/di";
 import Slide from "@mui/material/Slide";
-import { FaClipboard } from "react-icons/fa";
 import { BiCodeAlt } from "react-icons/bi";
 import { useState } from "react";
 import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
-const CodeBlock = ({ code }) => {
+import { AiOutlineCopy } from "react-icons/ai";
+import { useRef, useEffect, useMemo } from "react";
+const CodeBlock = ({ code ,lang}) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
   const [open, setOpen] = useState(false);
+  const [blockSize, setBlockSize] = useState(0);
+  const codeBlockRef = useRef(null);
   const handleShowStyles = () => {
     setStyleVisibility((prev) => (prev = !prev));
     handleClose();
@@ -25,6 +28,7 @@ const CodeBlock = ({ code }) => {
     navigator.clipboard.writeText(mergeTagsAndStyles(code));
     setOpen(true);
   };
+  const [hoverCode, setHoveringCode] = useState(false);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -36,16 +40,23 @@ const CodeBlock = ({ code }) => {
   function SlideTransition(props) {
     return <Slide {...props} direction="up" />;
   }
-
+  useEffect(() => {
+    setBlockSize(codeBlockRef.current.clientHeight);
+  });
   return (
-    <Box className="h-full w-full  box-border  font-medium flex flex-col items-end justify-center ">
+    <Box
+      onMouseEnter={() => setHoveringCode(true)}
+      onMouseLeave={() => setHoveringCode(false)}
+      ref={codeBlockRef}
+      className="h-full w-full  box-border   relative flex flex-col items-end justify-center "
+    >
       <Snackbar
         open={open}
         autoHideDuration={1300}
         onClose={handleClose}
         anchorOrigin={{
-          vertical:'bottom',
-          horizontal:'right'
+          vertical: "bottom",
+          horizontal: "right",
         }}
         TransitionComponent={SlideTransition}
       >
@@ -67,25 +78,34 @@ const CodeBlock = ({ code }) => {
 
       {/* code block */}
       <SyntaxHighlighter
-        className="scrollbar-hide hover:scrollbar-default w-full  "
+        className={` w-full scrollbar-hide hover:scrollbar-default`}
         wrapLongLines={true}
         wrapLines={true}
-        language="css"
+        language={lang}
         style={tomorrowNight}
         // showLineNumbers={true}
+        codeTagProps={{
+          style: {
+            fontFamily: "Hack",
+            letterSpacing: "-0.025em",
+            fontSize: "0.8rem",
+          },
+        }}
         customStyle={{
-         
-          fontFamily:'Poppins',
-        
-          paddingTop: "0rem",
-          paddingBottom: "0rem",
+          paddingTop: "1rem",
+          paddingBottom: "1rem",
           paddingLeft: "2rem",
-          paddingRight: "2rem",
+          paddingRight: "4rem",
           borderRadius: " 0.75rem",
           overflowX: "hidden",
           boxSizing: "border-box",
-          minHeight: !code ? "12rem" : "fit",
-          maxHeight: "22rem",
+          minHeight: "4rem",
+          maxHeight: "25rem",
+          margin: "0",
+          display: blockSize === 64 && 'flex',
+          alignItems: blockSize === 64 && 'center'
+
+          
           // backgroundColor:'inherit'
         }}
       >
@@ -97,39 +117,42 @@ const CodeBlock = ({ code }) => {
       </SyntaxHighlighter>
 
       {/* button container */}
-      <Box className=" box-border  px-2 w-full min-w-[10rem] flex items-center justify-end space-x-3 rounded-md ">
-        <Paper
+      <Box
+        className={`${blockSize === 64? 'top-1/2  -translate-y-1/2 ' :'top-2.5 '} right-3 box-border border-thin absolute  w-fit flex items-center justify-end space-x-3 rounded-lg transition-all ease-in-out duration-300 `}
+      >
+        <IconButton
           variant="contained"
-          className={`p-2 text-base  transition-all ease-in-out duration-300   flex items-center  rounded-lg justify-center  text-blue-400 bg-[#f1f3f8]   cursor-pointer gap-3 `}
+          className={` capitalize text-lg  p-1.5   flex  rounded-lg  shadow-none font-normal  text-gray-300 border border-gray-500/50 border-solid cursor-pointer  `}
           onClick={handleCopy}
         >
-          <FaClipboard />
-        </Paper>
-       
+          <AiOutlineCopy></AiOutlineCopy>
+        </IconButton>
 
-        {code.styles && (
+        {/* {code.styles && (
           <Paper
             variant="contained"
-            className={`p-2    flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 ${
+            className={`py-2.5 px-2.5   flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer ${
               !styleVisibility
-                ? "text-blue-400 bg-[#f1f3f8] "
-                : "text-white bg-blue-400 "
+                ? "text-sky-500 bg-[#f1f3f8] "
+                : "text-sky-500 bg-[#f1f3f8] "
             }`}
             onClick={handleShowStyles}
           >
             {!styleVisibility ? (
-              <DiCss3Full className="font-bold text-base" />
+              <DiCss3Full className="font-normal text-base" />
             ) : (
-              <BiCodeAlt className="font-bold text-base" />
+              <BiCodeAlt className="font-normal text-base" />
             )}
-            {/* <Typography variant="body2" className=" text-xs font-medium  tracking-tight  ">
-            {!styleVisibility ? "View styles" : "Hide styles"}
-          </Typography> */}
+            
           </Paper>
-        )}
+        )} */}
       </Box>
     </Box>
   );
 };
+
+CodeBlock.defaultProps={
+  lang:'css'
+}
 
 export default CodeBlock;

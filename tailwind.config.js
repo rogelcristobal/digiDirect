@@ -12,6 +12,8 @@ module.exports = {
       poppins: ["Poppins", "sans-serif"],
       roboto: ["Roboto", "sans-serif"],
       hind: ["Hind Siliguri", "sans-serif"],
+       hack: ["Hack", "monospace"],
+     
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],

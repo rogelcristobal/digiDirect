@@ -33,18 +33,14 @@ const template = () => {
     <tr>
       <th> Attribute2 </th>
       <td> Value2 </td>
-    </tr>
-    <tr>
-      <th> Attribute3 </th>
-      <td> Value3 </td>
-    </tr>   
+    </tr> 
   </tbody>
 </table>
 
 `,
   };
-  const descriptionSimple={
-    styles:`
+  const descriptionSimple = {
+    styles: `
 <style>
   h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
@@ -86,7 +82,7 @@ const template = () => {
   .aquaList li::first-line {font-weight: bolder;}
 </style>
     `,
-    tags:`
+    tags: `
 <p class="mText">
   The <strong class="h1Lit"> ProductName </strong> decription
 </p>     
@@ -98,14 +94,14 @@ const template = () => {
 
 <p></p>
 <ul class="mpn">
-  <li>MPN - Barcode1 </li>
-  <li>GTIN - Barcode2 </li>
+  <li> MPN - Barcode1 </li>
+  <li> GTIN - Barcode2 </li>
 </ul>
     
-`
-  }
-  const descriptionBest={
-    styles:`
+`,
+  };
+  const descriptionBest = {
+    styles: `
 <style>
   h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
@@ -147,7 +143,7 @@ const template = () => {
   .aquaList li::first-line {font-weight: bolder;}
 </style>
     `,
-    tags:`
+    tags: `
 <p class="mText">
   The <strong class="h1Lit"> ProductName </strong> description.
 </p>
@@ -168,26 +164,18 @@ const template = () => {
     <h2 class="h2Lit"><span class="h2Lit"> feature </h2>
     <p> details </p>
   </div>
-  <div>
-    <h2 class="h2Lit"><span class="h2Lit"> feature </h2>
-    <p> details </p>
-  </div>
-  <div>
-    <h2 class="h2Lit"><span class="h2Lit"> feature </h2>
-    <p> details </p>
-  </div>
 </div>
 <br/>
 
 <ul class="mpn">
-  <li>MPN - Barcode1 </li>
-  <li>GTIN - Barcode2 </li>
+  <li> MPN - Barcode1 </li>
+  <li>  GTIN - Barcode2 </li>
 </ul>
 
-`
-  }
-  const descriptionKit={
-    styles:`
+`,
+  };
+  const descriptionKit = {
+    styles: `
 <style>
   h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
@@ -229,10 +217,9 @@ const template = () => {
   .aquaList li::first-line {font-weight: bolder;}
 </style>    
     `,
-    tags:`
+    tags: `
 <p class="mText"> 
-  The <strong class="h1Lit"> ProductName </strong>
-  kit description </p>
+  The <strong class="h1Lit"> ProductName </strong> kit description </p>
 <p class="mText"> description </p>
 <p class="mText"> description </p>
      
@@ -275,13 +262,32 @@ const template = () => {
 <br/>
 
 <ul class="mpn">
-<li>MPN - Barcode1</li>
-<li>GTIN - Barcode2</li>
+<li> MPN - Barcode1</li>
+<li> GTIN - Barcode2</li>
 </ul>
 
-`
+`,
+  };
+
+  const seoMetaTitle = {
+    tags: `ProductName | Buy at digiDirect`,
+  };
+  const seoMetaKeyword = {
+    tags: `ProductName, ProductName Australia, Barcode1, Barcode2, buy, shop, digidirect, australia, price,`,
+  };
+  const seoMetaDescription={
+    tags:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
   }
-  return {specsMarkup,inTheBoxMarkup,descriptionSimple,descriptionBest,descriptionKit}
+  return {
+    specsMarkup,
+    inTheBoxMarkup,
+    descriptionSimple,
+    descriptionBest,
+    descriptionKit,
+    seoMetaTitle,
+    seoMetaKeyword,
+    seoMetaDescription
+  };
 };
 
 export default template;

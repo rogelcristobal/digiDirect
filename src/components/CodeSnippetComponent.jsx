@@ -4,7 +4,7 @@ import CodeBlock from "./CodeBlock";
 import { Box, Tabs, Tab, Tooltip } from "@mui/material";
 import { BiPencil } from "react-icons/bi";
 import { Zoom } from "@mui/material";
-const CodeSnippetComponent = ({ code, canEdit }) => {
+const CodeSnippetComponent = ({ code, canEdit,lang}) => {
   const [tabValue, setTabValue] = useState(0);
   return (
    
@@ -13,7 +13,7 @@ const CodeSnippetComponent = ({ code, canEdit }) => {
       <Box className=" h-fit w-full  py-0  box-border">
         <Box className=" w-full flex flex-col items-center box-border ">
           <Box className="max-w-[100%]  w-full text-[0.80rem] box-border    rounded-xl">
-            <CodeBlock code={code} canEdit={canEdit}></CodeBlock>
+            <CodeBlock code={code} lang={lang} canEdit={canEdit}></CodeBlock>
           </Box>
         </Box>
       </Box>
