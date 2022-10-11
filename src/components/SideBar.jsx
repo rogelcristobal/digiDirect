@@ -33,8 +33,9 @@ const SideBar = () => {
       </Box>
       <Box className="w-full  box-border h-auto    ">
          <Paper
+          square
           variant="contained"
-          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-3  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
+          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-5  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
@@ -49,7 +50,7 @@ const SideBar = () => {
               path="/"
               
               title="dashboard"
-              icon={<IoShapes className="text-base text-sky-500"/>}
+              icon={<IoShapes className="text-xs text-sky-500"/>}
               parentBtn
               activeStyle=" text-sky-600  no-underline "
             />
@@ -68,7 +69,7 @@ const SideBar = () => {
               bgColor="bg-inherit "
               title="product listing"
               initialState={true}
-              icon={<AiTwotoneTags className="text-sm text-sky-500" />}
+              icon={<AiTwotoneTags className="text-xs text-sky-500" />}
               enableIcon={<HiChevronDown className="text-inherit " />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
@@ -102,13 +103,13 @@ const SideBar = () => {
               activeStyle="bg-blue-50 text-sky-600  no-underline "
               
               title="Converter"
-              icon={<AiFillFileImage className="text-sm text-sky-500" />}
+              icon={<AiFillFileImage className="text-xs text-sky-500" />}
             />
              <ListItemBtnComponent
               path="/experimental"
               
               title="experimental"
-              icon={<AiFillExperiment className="text-sm text-sky-500"/>}
+              icon={<AiFillExperiment className="text-xs text-sky-500"/>}
               parentBtn
               activeStyle="bg-blue-50 text-sky-600  no-underline "
             />

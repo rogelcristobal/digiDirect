@@ -5,14 +5,15 @@ import { DiCss3Full } from "react-icons/di";
 import Slide from "@mui/material/Slide";
 import { BiCodeAlt } from "react-icons/bi";
 import { useState } from "react";
-import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { MdContentCopy } from "react-icons/md";
 import { useRef, useEffect, useMemo } from "react";
-const CodeBlock = ({ code ,lang}) => {
+import { hover } from "@testing-library/user-event/dist/hover";
+const CodeBlock = ({ code, lang }) => {
   const [styleVisibility, setStyleVisibility] = useState(false);
   const [open, setOpen] = useState(false);
   const [blockSize, setBlockSize] = useState(0);
-  const codeBlockRef = useRef(null);
+  const codeBlockContainer = useRef(null);
   const handleShowStyles = () => {
     setStyleVisibility((prev) => (prev = !prev));
     handleClose();
@@ -41,13 +42,14 @@ const CodeBlock = ({ code ,lang}) => {
     return <Slide {...props} direction="up" />;
   }
   useEffect(() => {
-    setBlockSize(codeBlockRef.current.clientHeight);
+    setBlockSize(codeBlockContainer.current.clientHeight);
   });
+
   return (
     <Box
       onMouseEnter={() => setHoveringCode(true)}
       onMouseLeave={() => setHoveringCode(false)}
-      ref={codeBlockRef}
+      ref={codeBlockContainer}
       className="h-full w-full  box-border   relative flex flex-col items-end justify-center "
     >
       <Snackbar
@@ -78,35 +80,37 @@ const CodeBlock = ({ code ,lang}) => {
 
       {/* code block */}
       <SyntaxHighlighter
-        className={` w-full scrollbar-hide hover:scrollbar-default`}
+        className={` w-full scrollbar-hide hover:scrollbar-default  font-medium`}
         wrapLongLines={true}
         wrapLines={true}
         language={lang}
-        style={tomorrowNight}
-        // showLineNumbers={true}
+        style={stackoverflowDark}
         codeTagProps={{
           style: {
-            fontFamily: "Hack",
+            fontFamily: "Source Code pro ",
             letterSpacing: "-0.025em",
-            lineHeight:'1.1rem',
-            fontSize: "0.8rem",
+            fontSize: "0.85rem",
+            lineHeight: "1.25rem",
+            
           },
         }}
         customStyle={{
-          paddingTop: "1rem",
-          paddingBottom: "1rem",
+          paddingTop: "0.5rem",
+          paddingBottom: "0.5rem",
           paddingLeft: "2rem",
           paddingRight: "4rem",
-          borderRadius: " 0.75rem",
+          // color: "rgb(212 212 212)",
+          // color:'black',
+          // borderRadius: " 0.75rem",
           overflowX: "hidden",
           boxSizing: "border-box",
-          minHeight: "4.5rem",
+          minHeight: "4rem",
           maxHeight: "25rem",
+          height: "fit",
           margin: "0",
-          display: blockSize === 72 && 'flex',
-          alignItems: blockSize === 72 && 'center'
+          display: blockSize === 64 && "flex",
+          alignItems: blockSize === 64 && "center",
 
-          
           // backgroundColor:'inherit'
         }}
       >
@@ -119,24 +123,16 @@ const CodeBlock = ({ code ,lang}) => {
 
       {/* button container */}
       <Box
-        className={`${blockSize === 72? 'top-1/2  -translate-y-1/2 ' :'top-2.5 '} right-3 box-border border-thin absolute  w-fit flex items-center justify-end space-x-3 rounded-lg transition-all ease-in-out duration-300 `}
+        className={`${
+          blockSize === 64 ? "top-1/2  -translate-y-1/2 " : "top-2.5 "
+        } right-3 box-border border-thin absolute ${
+          hoverCode ? "flex" : "hidden"
+        } w-fit  items-center justify-end space-x-3 rounded-lg transition-all ease-in-out duration-300 `}
       >
-        <IconButton
-          variant="contained"
-          className={` capitalize text-sm     flex  rounded-lg  shadow-none font-normal  text-gray-300 border border-gray-500/50 border-solid cursor-pointer  `}
-          onClick={handleCopy}
-        >
-          <MdContentCopy></MdContentCopy>
-        </IconButton>
-
-        {/* {code.styles && (
-          <Paper
+        {code.styles && (
+          <IconButton
             variant="contained"
-            className={`py-2.5 px-2.5   flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer ${
-              !styleVisibility
-                ? "text-sky-500 bg-[#f1f3f8] "
-                : "text-sky-500 bg-[#f1f3f8] "
-            }`}
+            className={` capitalize text-sm     flex  rounded-lg  shadow-none font-normal  text-gray-300 border border-gray-500/50 border-solid cursor-pointer text-gray-300`}
             onClick={handleShowStyles}
           >
             {!styleVisibility ? (
@@ -144,16 +140,22 @@ const CodeBlock = ({ code ,lang}) => {
             ) : (
               <BiCodeAlt className="font-normal text-base" />
             )}
-            
-          </Paper>
-        )} */}
+          </IconButton>
+        )}
+        <IconButton
+          variant="contained"
+          className={` capitalize text-sm     flex  rounded-lg  shadow-none font-normal  text-gray-300 border border-gray-500/50 border-solid cursor-pointer  `}
+          onClick={handleCopy}
+        >
+          <MdContentCopy></MdContentCopy>
+        </IconButton>
       </Box>
     </Box>
   );
 };
 
-CodeBlock.defaultProps={
-  lang:'css'
-}
+CodeBlock.defaultProps = {
+  lang: "css",
+};
 
 export default CodeBlock;

@@ -37,7 +37,7 @@ const ListItemBtnExpandable = ({
         className={`flex justify-between font-sans  py-3 px-3 transition-all duration-300 ease-int-out ${
           isOpen
             ? `${bgColor} ${textColor}`
-            : `bg-inherit text-gray-800 hover:${textColor}`
+            : `bg-inherit text-gray-600 hover:${textColor}`
         }  `}
       >
         <div className="flex items-center justify-center space-x-3">
@@ -45,7 +45,7 @@ const ListItemBtnExpandable = ({
           {icon && (
             <Paper
               variant="contained"
-              className={`   p-2 flex items-center  rounded-lg justify-center  border-thiner transition-all ease-in-out duration-300   cursor-pointer gap-2 text-inherit bg-inherit`}
+              className={`   p-1.5 flex items-center  rounded-lg justify-center  border-thiner transition-all ease-in-out duration-300   cursor-pointer gap-2 text-inherit bg-inherit`}
             >
               {icon}
             </Paper>

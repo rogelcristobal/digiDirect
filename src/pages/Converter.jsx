@@ -10,7 +10,7 @@ import { HiChevronDown } from "react-icons/hi";
 import { AiOutlineFileImage, AiOutlineLink } from "react-icons/ai";
 import PageSubTitle from "../components/PageSubTitle";
 import Blob from "../svg/Blob2.svg";
-const ImageConverter = () => {
+const Converter = () => {
   const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
     template();
 
@@ -47,7 +47,7 @@ const ImageConverter = () => {
   const inputFileOnChange = (e) => {
     setImportedFiles(e.target.files);
   };
-  console.log(typeof importedFiles, importedFiles);
+  // console.log(typeof importedFiles, importedFiles);
   // const { mutate, state } = useImportFromURL();
   // const { mutate: startConvert, state: convertStatus } = useConvert();
 
@@ -76,7 +76,7 @@ const ImageConverter = () => {
           </Box>
           <Box className="box-border">
             <Box className="h-full w-full min-h-[40rem] box-border flex  flex-col items-start justify-start">
-              <Box className="w-full   box-border flex  items-start justify-start h-fit gap-3 py-4">
+              <Box className="w-full  box-border flex  items-start justify-start h-fit gap-3 py-4 border-thin">
                 {/*  */}
 
                 {/* URLInput[].text*/}
@@ -158,6 +158,8 @@ const ImageConverter = () => {
                     </Typography>
                   </Button>
                 </Box> */}
+
+
               </Box>
             </Box>
           </Box>
@@ -174,4 +176,4 @@ const ImageConverter = () => {
 };
 // https://codingbeautydev.com/blog/material-ui-tabs/
 // https://app.haikei.app/
-export default ImageConverter;
+export default Converter;

@@ -89,7 +89,7 @@ const template = () => {
 
 <h2 class="h2Lit"> Key Features of the ProductName </h2>
 <ul>
-  <li> feature </li>
+  <li> Product Features </li>
 </ul>
 
 <p></p>
@@ -151,17 +151,17 @@ const template = () => {
 
 <h2 class="h2Lit"> Key Features of the ProductName</h2>
 <ul>
-  <li> feature </li>
+  <li> Product Features </li>
 </ul>
 <br />
 
 <div class="gText">
   <div>
-    <h2 class="h2Lit"><span class="h2Lit"> feature </h2>
+    <h2 class="h2Lit"><span class="h2Lit"> Product Features </h2>
     <p> details </p>
   </div>
   <div>
-    <h2 class="h2Lit"><span class="h2Lit"> feature </h2>
+    <h2 class="h2Lit"><span class="h2Lit"> Product Features </h2>
     <p> details </p>
   </div>
 </div>
@@ -226,11 +226,11 @@ const template = () => {
 <br />
 <h2 class="h2Lit"> Key Features of the ProductName </h2>
 <ul>
-  <li> feature </li>
-  <li> feature </li>
-  <li> feature </li>
-  <li> feature </li>
-  <li> feature </li>
+  <li> Product Features </li>
+  <li> Product Features </li>
+  <li> Product Features </li>
+  <li> Product Features </li>
+  <li> Product Features </li>
 </ul>
 <br />
 <div class="l1div"></div>
@@ -278,14 +278,15 @@ const template = () => {
   const seoMetaDescription={
     tags:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
   }
-  const notes={
+  const shortDescription={
     tags:`
-<p>
-  <em>
-    <strong>Note:</strong> 
-    Product is shown in use for illustration Only, additional equipment is not included.
-  </em>
-</p>`
+<ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+</ul>
+
+`
   }
   return {
     specsMarkup,
@@ -296,7 +297,7 @@ const template = () => {
     seoMetaTitle,
     seoMetaKeyword,
     seoMetaDescription,
-    notes
+    shortDescription
   };
 };
 

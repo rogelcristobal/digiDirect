@@ -28,7 +28,7 @@ const Templates = () => {
     seoMetaTitle,
     seoMetaKeyword,
     seoMetaDescription,
-    notes,
+    shortDescription,
   } = template();
 
   const { setState: setScrollPos, setTransparency } =
@@ -39,20 +39,22 @@ const Templates = () => {
 
   const seoTab = useRef(null);
 
-  const notesTab = useRef(null);
+  const shortDescriptionTab = useRef(null);
   const specsTab = useRef(null);
 
   const [inTheBoxView, inTheBoxState] = useInView({
     threshold: 0.9,
   });
   const [specsView, specsState] = useInView({
-    threshold: 0.2,
+    threshold: 0.3,
     rootMargin: "0px 0px 0px",
   });
   const [descriptionView, descriptionState] = useInView({ threshold: 0.2 });
   const [seoView, seoState] = useInView({ threshold: 0.5 });
 
-  const [noteView, noteState] = useInView({ threshold: 0.9 });
+  const [shortDescriptionView, shortDescriptionState] = useInView({
+    threshold: 0.9,
+  });
 
   // useEffect(() => {
   //   const element = scrollRef.current;
@@ -142,8 +144,8 @@ const Templates = () => {
               ></CodeSnippetComponent>
             </Box>
           </Box>
+          
           <Divider variant="middle" light></Divider>
-
           {/* specs */}
           <Box ref={specsView} className="space-y-20 box-border ">
             <Box ref={specsTab} className="w-full box-border space-y-8 ">
@@ -207,7 +209,6 @@ const Templates = () => {
           </Box>
 
           <Divider variant="middle" light></Divider>
-
           {/* description */}
           <Box ref={descriptionView} className="space-y-20 box-border ">
             <Box ref={descriptionTab} className="w-full box-border space-y-8 ">
@@ -310,6 +311,34 @@ const Templates = () => {
             </Box>
           </Box>
 
+         
+
+          <Divider variant="middle" light></Divider>
+          {/* short description */}
+          <Box
+            ref={shortDescriptionView}
+            className="w-full box-border space-y-8 "
+          >
+            <Box ref={shortDescriptionTab} className="">
+              <PageTitle
+                category="short description"
+                title={
+                  <Typography
+                    variant="h6"
+                    className="font-medium text-[1.3rem]  text-gray-800  "
+                  >
+                    Short Description
+                  </Typography>
+                }
+              />
+            </Box>
+            <Box className=" h-fit w-full box-border rounded-3xl py-2 mt-4  ">
+              <CodeSnippetComponent
+                code={shortDescription}
+              ></CodeSnippetComponent>
+            </Box>
+          </Box>
+
           <Divider variant="middle" light></Divider>
           {/* seo */}
           <Box ref={seoView} className="w-full box-border space-y-12 ">
@@ -402,27 +431,6 @@ const Templates = () => {
               </Box>
             </Box>
           </Box>
-
-          {/* note */}
-          <Divider variant="middle" light></Divider>
-          <Box ref={noteView} className="w-full box-border space-y-8 ">
-            <Box ref={notesTab} className="">
-              <PageTitle
-                category="product messages"
-                title={
-                  <Typography
-                    variant="h6"
-                    className="font-medium text-[1.3rem]  text-gray-800  "
-                  >
-                    Notes template
-                  </Typography>
-                }
-              />
-            </Box>
-            <Box className=" h-fit w-full box-border rounded-3xl py-2 mt-4  ">
-              <CodeSnippetComponent code={notes}></CodeSnippetComponent>
-            </Box>
-          </Box>
         </Box>
 
         {/* page navigation */}
@@ -437,7 +445,7 @@ const Templates = () => {
             On this page
           </Typography>
 
-          <Box className="flex flex-col box-border pl-4 items-start justify-start h-full mt-6 w-full space-y-3 relative">
+          <Box className="flex flex-col box-border pl-2 items-start justify-start h-full mt-6 w-full space-y-3 relative">
             {[
               {
                 title: "What's in the box",
@@ -461,19 +469,20 @@ const Templates = () => {
                 },
               },
               {
+                title: "Short Description",
+                reference: {
+                  viewState: shortDescriptionState,
+                  linkTo: shortDescriptionTab,
+                },
+              },
+              {
                 title: "SEO",
                 reference: {
                   viewState: seoState,
                   linkTo: seoTab,
                 },
               },
-              {
-                title: "Product messages",
-                reference: {
-                  viewState: noteState,
-                  linkTo: notesTab,
-                },
-              },
+              
             ].map((item, idx) => (
               <Link
                 key={idx}
@@ -483,17 +492,17 @@ const Templates = () => {
                 }}
                 className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
                 ${
-                  item.reference.viewState ? "text-sky-600" : "text-neutral-600"
+                  item.reference.viewState ? "text-sky-600" : "text-gray-600"
                 }
                    flex items-center justify-center`}
               >
-                {/* <BiChevronRight
+                <BiChevronRight
                   className={`text-xl  ${
                     item.reference.viewState
-                      ? "text-sky-600"
-                      : "text-neutral-300"
+                      ? "text-sky-600 visible"
+                      : "invisible"
                   }`}
-                ></BiChevronRight> */}
+                ></BiChevronRight>
                 {item.title}
               </Link>
             ))}

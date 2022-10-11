@@ -11,8 +11,8 @@ module.exports = {
      
       poppins: ["Poppins", "sans-serif"],
       roboto: ["Roboto", "sans-serif"],
-      hind: ["Hind Siliguri", "sans-serif"],
-       hack: ["Hack", "monospace"],
+      source: ["Source Code Pro", "monospace"],
+      
      
     },
   },
