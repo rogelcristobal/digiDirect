@@ -19,8 +19,8 @@ const ListItemBtnComponent = ({
         }
       >
         <ListItemButton
-          className={`m-0  flex items-center font-sans justify-start bg-inherit transition-all duration-300 ease-int-out capitalize relative ${
-            parentBtn ? "px-3 py-3 " : "pl-12 py-3"
+          className={`m-0 flex items-center font-sans justify-start bg-inherit transition-all duration-300 ease-int-out capitalize relative ${
+            parentBtn ? "px-3 py-3 " : "pl-6 py-3"
           } space-x-3 `}
         >
           {icon && (

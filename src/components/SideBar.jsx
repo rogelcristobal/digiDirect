@@ -60,13 +60,13 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-gray-700 text-xs font-semibold ml-2 "
+              className="text-gray-700 text-xs font-semibold ml-2 mb-2"
             >
               General
             </Typography>
             <ListItemBtnExpandable
               textColor="text-sky-600"
-              bgColor="bg-inherit "
+              bgColor="bg-inherit  "
               title="product listing"
               initialState={true}
               icon={<AiTwotoneTags className="text-xs text-sky-500" />}
