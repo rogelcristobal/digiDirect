@@ -8,20 +8,19 @@ import { useContext } from "react";
 import NavScrollContext from "../context/NavScrollContext";
 import DigiLogoInJs from "./DigiLogoInJs";
 const Navbar = () => {
-  const { state, transparency } = useContext(NavScrollContext);
+  const { scrollPosition  } = useContext(NavScrollContext);
+ 
   return (
     
     <Box
       className={`h-[4.2rem] fixed  ${
-        state >= 100 ? !transparency? 'bg-transparent ':'bg-[#ffffff] border-thiner ' : "bg-inherit "
+        scrollPosition >= 100 ? 'bg-[#ffffff] border-thiner ' : "bg-inherit "
       } trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0  pt-2 left-0 box-border flex items-center justify-end   
     `}
     >
       {/* [#635dff] */}
       <div
-        className={`w-[calc(100%-18.5rem)] box-border  h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500  ${
-          state >= 100 ? !transparency? 'border-thiner  rounded-xl bg-[#ffffff]':'border-none  ': 'border-none '
-        } `}
+        className={`w-[calc(100%-18.5rem)] box-border  h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500 `}
       >
         {/* <Box>
           <DigiLogoInJs dark color="text-blue-500 text-base"></DigiLogoInJs>

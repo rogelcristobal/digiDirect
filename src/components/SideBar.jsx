@@ -26,15 +26,16 @@ const SideBar = () => {
         light
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
-      <Box className="h-20   w-full flex flex-col items-start  justify-center  px-8   box-border ">
+      <Box className="h-28   w-full flex flex-col items-start  justify-center  px-8   box-border ">
        
-        {/* <DigiLogoInJs size="text-xl"  dark color="text-blue-400 text-[1.1rem]" /> */}
+        {/* <DigiLogoInJs size="text-xl"  dark color="text-sky-400 text-[1.1rem]" /> */}
        
       </Box>
       <Box className="w-full  box-border h-auto    ">
          <Paper
+          square
           variant="contained"
-          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-3  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
+          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-5  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
@@ -49,7 +50,7 @@ const SideBar = () => {
               path="/"
               
               title="dashboard"
-              icon={<IoShapes className="text-base text-sky-500"/>}
+              icon={<IoShapes className="text-xs text-sky-500"/>}
               parentBtn
               activeStyle=" text-sky-600  no-underline "
             />
@@ -59,16 +60,16 @@ const SideBar = () => {
           <List>
             <Typography
               variant="body1"
-              className="text-gray-700 text-xs font-semibold ml-2 "
+              className="text-gray-700 text-xs font-semibold ml-2 mb-2"
             >
               General
             </Typography>
             <ListItemBtnExpandable
               textColor="text-sky-600"
-              bgColor="bg-inherit "
+              bgColor="bg-inherit  "
               title="product listing"
               initialState={true}
-              icon={<AiTwotoneTags className="text-sm text-sky-500" />}
+              icon={<AiTwotoneTags className="text-xs text-sky-500" />}
               enableIcon={<HiChevronDown className="text-inherit " />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
@@ -86,6 +87,14 @@ const SideBar = () => {
                 />
               ))}
             </ListItemBtnExpandable>
+            <ListItemBtnComponent
+              path="/experimental"
+              
+              title="experimental"
+              icon={<AiFillExperiment className="text-xs text-sky-500"/>}
+              parentBtn
+              activeStyle="bg-sky-50 text-sky-600  no-underline "
+            />
           </List>
 
           {/* tools */}
@@ -98,20 +107,13 @@ const SideBar = () => {
             </Typography>
             <ListItemBtnComponent
               parentBtn
-              path="/image-converter"
-              activeStyle="bg-blue-50 text-sky-600  no-underline "
+              path="/converter"
+              activeStyle="bg-sky-50 text-sky-600  no-underline "
               
               title="Converter"
-              icon={<AiFillFileImage className="text-sm text-sky-500" />}
+              icon={<AiFillFileImage className="text-xs text-sky-500" />}
             />
-             <ListItemBtnComponent
-              path="/experimental"
-              
-              title="experimental"
-              icon={<AiFillExperiment className="text-sm text-sky-500"/>}
-              parentBtn
-              activeStyle="bg-blue-50 text-sky-600  no-underline "
-            />
+
             
            
           </List>

@@ -15,18 +15,18 @@ const ListItemBtnComponent = ({
       <NavLink
         to={`${path}`}
         className={({ isActive }) =>
-          isActive ? `${activeStyle}` : "bg-inherit text-gray-800 no-underline "
+          isActive ? `${activeStyle}` : "bg-inherit text-gray-500 no-underline "
         }
       >
         <ListItemButton
-          className={`m-0  flex items-center font-sans justify-start bg-inherit transition-all duration-300 ease-int-out capitalize relative ${
-            parentBtn ? "px-3 py-3 " : "pl-14 py-3"
+          className={`m-0 flex items-center font-sans justify-start bg-inherit transition-all duration-300 ease-int-out capitalize relative ${
+            parentBtn ? "px-3 py-3 " : "pl-6 py-3"
           } space-x-3 `}
         >
           {icon && (
             <Paper
               variant="contained"
-              className={`p-2   flex items-center  rounded-lg justify-center  border-thiner transition-all ease-in-out duration-300   cursor-pointergap-2 text-inherit bg-inherit`}
+              className={`p-1.5   flex items-center  rounded-lg justify-center  border-thiner transition-all ease-in-out duration-300   cursor-pointer gap-2 text-inherit bg-inherit`}
             >
               {icon}
             </Paper>

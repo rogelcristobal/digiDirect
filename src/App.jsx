@@ -17,7 +17,7 @@ import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
 import Templates from "./pages/Templates";
 import OpenBox from "./pages/OpenBox";
-import ImageConverter from "./pages/ImageConverter";
+import Converter from "./pages/Converter";
 import { useEffect, useState } from "react";
 // query
 const queryClient = new QueryClient();
@@ -64,7 +64,7 @@ const Main = () => {
                 <Route index element={<Dashboard />} />
                 <Route path="/templates" element={<Templates />} />
                 <Route path="/open-box-listing" element={<OpenBox />} />
-                <Route path="/image-converter" element={<ImageConverter />} />
+                <Route path="/converter" element={<Converter />} />
               </Routes>
             </Box>
           </Box>

@@ -4,7 +4,7 @@ import NavScrollContext from "../context/NavScrollContext";
 import { useEffect, useState, useRef, useContext } from "react";
 
 const Dashboard = () => {
-  const {  setState: setScrollPos } =useContext(NavScrollContext);
+  const { handleScroll } =useContext(NavScrollContext);
     
   // useEffect(() => {
   //   const observer = new IntersectionObserver((entries) => {
@@ -21,20 +21,9 @@ const Dashboard = () => {
   
   const scrollRef = useRef(null);
 // for scrolling not using hooks
-  useEffect(() => {
-    const element = scrollRef.current;
-    
-    const handleScroll = () => {
-      let x = element.scrollTop;
-      setScrollPos(x);
-    };
-    element.addEventListener("scroll", handleScroll);
-    return () => {
-      element.removeEventListener("scroll", handleScroll);
-      setScrollPos(0)
-    };
+ useEffect(() => {
+    handleScroll(scrollRef)
   }, []);
-
 
 
   return (
