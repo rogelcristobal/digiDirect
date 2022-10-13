@@ -26,9 +26,9 @@ const SideBar = () => {
         light
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
-      <Box className="h-20   w-full flex flex-col items-start  justify-center  px-8   box-border ">
+      <Box className="h-28   w-full flex flex-col items-start  justify-center  px-8   box-border ">
        
-        {/* <DigiLogoInJs size="text-xl"  dark color="text-blue-400 text-[1.1rem]" /> */}
+        {/* <DigiLogoInJs size="text-xl"  dark color="text-sky-400 text-[1.1rem]" /> */}
        
       </Box>
       <Box className="w-full  box-border h-auto    ">
@@ -87,6 +87,14 @@ const SideBar = () => {
                 />
               ))}
             </ListItemBtnExpandable>
+            <ListItemBtnComponent
+              path="/experimental"
+              
+              title="experimental"
+              icon={<AiFillExperiment className="text-xs text-sky-500"/>}
+              parentBtn
+              activeStyle="bg-sky-50 text-sky-600  no-underline "
+            />
           </List>
 
           {/* tools */}
@@ -99,20 +107,13 @@ const SideBar = () => {
             </Typography>
             <ListItemBtnComponent
               parentBtn
-              path="/image-converter"
-              activeStyle="bg-blue-50 text-sky-600  no-underline "
+              path="/converter"
+              activeStyle="bg-sky-50 text-sky-600  no-underline "
               
               title="Converter"
               icon={<AiFillFileImage className="text-xs text-sky-500" />}
             />
-             <ListItemBtnComponent
-              path="/experimental"
-              
-              title="experimental"
-              icon={<AiFillExperiment className="text-xs text-sky-500"/>}
-              parentBtn
-              activeStyle="bg-blue-50 text-sky-600  no-underline "
-            />
+
             
            
           </List>

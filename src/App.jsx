@@ -64,7 +64,7 @@ const Main = () => {
                 <Route index element={<Dashboard />} />
                 <Route path="/templates" element={<Templates />} />
                 <Route path="/open-box-listing" element={<OpenBox />} />
-                <Route path="/image-converter" element={<Converter />} />
+                <Route path="/converter" element={<Converter />} />
               </Routes>
             </Box>
           </Box>

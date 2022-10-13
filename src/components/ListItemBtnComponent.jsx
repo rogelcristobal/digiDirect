@@ -15,7 +15,7 @@ const ListItemBtnComponent = ({
       <NavLink
         to={`${path}`}
         className={({ isActive }) =>
-          isActive ? `${activeStyle}` : "bg-inherit text-gray-600 no-underline "
+          isActive ? `${activeStyle}` : "bg-inherit text-gray-500 no-underline "
         }
       >
         <ListItemButton
@@ -26,7 +26,7 @@ const ListItemBtnComponent = ({
           {icon && (
             <Paper
               variant="contained"
-              className={`p-1.5   flex items-center  rounded-lg justify-center  border-thiner transition-all ease-in-out duration-300   cursor-pointergap-2 text-inherit bg-inherit`}
+              className={`p-1.5   flex items-center  rounded-lg justify-center  border-thiner transition-all ease-in-out duration-300   cursor-pointer gap-2 text-inherit bg-inherit`}
             >
               {icon}
             </Paper>

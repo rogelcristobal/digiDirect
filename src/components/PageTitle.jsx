@@ -12,7 +12,7 @@ const PageTitle = ({ category, title, subTitle }) => {
       
         {title}
      
-      <Box className=" mt-2 ">{subTitle}</Box>
+      <Box className=" mt-3 ">{subTitle}</Box>
     </Box>
   );
 };

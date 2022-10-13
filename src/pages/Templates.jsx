@@ -9,9 +9,7 @@ import {
   StepLabel,
   StepIcon,
 } from "@mui/material";
-import { AiOutlineCheckCircle } from "react-icons/ai";
-import PageTitle from "../components/PageTitle";
-import PageSubTitle from "../components/PageSubTitle";
+import PageTitle from "../components/PageTitle"
 import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
@@ -31,14 +29,12 @@ const Templates = () => {
     shortDescription,
   } = template();
 
-  const { setState: setScrollPos, setTransparency } =
+  const { handleScroll } =
     useContext(NavScrollContext);
   const scrollRef = useRef(null); // for navbar purposes
   const inTheBoxTab = useRef(null);
   const descriptionTab = useRef(null);
-
   const seoTab = useRef(null);
-
   const shortDescriptionTab = useRef(null);
   const specsTab = useRef(null);
 
@@ -51,25 +47,12 @@ const Templates = () => {
   });
   const [descriptionView, descriptionState] = useInView({ threshold: 0.2 });
   const [seoView, seoState] = useInView({ threshold: 0.5 });
-
   const [shortDescriptionView, shortDescriptionState] = useInView({
     threshold: 0.9,
   });
 
   // useEffect(() => {
-  //   const element = scrollRef.current;
-
-  //   const handleScroll = () => {
-  //     let x = element.scrollTop;
-  //     setScrollPos(x);
-  //     setTransparency(true);
-  //   };
-  //   element.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     element.removeEventListener("scroll", handleScroll);
-  //     setScrollPos(0);
-  //     setTransparency(false);
-  //   };
+  //   handleScroll(scrollRef)
   // }, []);
 
   const scrollView = (el) => {
@@ -86,14 +69,16 @@ const Templates = () => {
         ref={scrollRef}
         className="h-full scroll-smooth overflow-auto w-full  flex pt-[4.2rem] items-start justify-center box-border"
       >
-        <Box className="w-full  h-auto box-border px-16  pt-8 pb-36 space-y-20">
+        <Box className="w-full  h-auto box-border px-12  pt-12 pb-36 space-y-20">
+
+
           {/* page title */}
           <Box className="pb-8  w-full ">
             <PageTitle
               category="general"
               title={
                 <Typography
-                  variant="h6"
+                  variant="subtitle1"
                   className="font-semibold text-[1.9rem] text-gray-800  "
                 >
                   Templates
@@ -101,8 +86,8 @@ const Templates = () => {
               }
               subTitle={
                 <Typography
-                  variant="body1"
-                  className="text-gray-600  text-sm font-sans font-medium leading-5"
+                  variant="subtitle1"
+                  className="text-gray-700  "
                 >
                   Create a Basic listing template for digiDirect . Copy the raw
                   template and paste in Magento
@@ -113,13 +98,13 @@ const Templates = () => {
 
           {/* in the box */}
 
-          <Box ref={inTheBoxView} className="w-full box-border space-y-8 ">
+          <Box ref={inTheBoxView} className="w-full box-border space-y-6">
             <Box className="" ref={inTheBoxTab}>
               <PageTitle
                 category="What's in the box"
                 title={
                   <Typography
-                    variant="h6"
+                    variant="subtitle1"
                     className="font-medium text-[1.3rem]  text-gray-800  "
                   >
                     Included in the box
@@ -127,13 +112,11 @@ const Templates = () => {
                 }
                 subTitle={
                   <Typography
-                    variant="body1"
-                    className="text-gray-600  text-sm font-medium leading-5 "
+                    variant="subtitle1"
+                    className="text-gray-700   text-[0.9rem]"
                   >
                     Displays the accesories included in the product package.
-                    Copy and paste the template in{" "}
-                    <span className="font-semibold ">What's in the box</span>{" "}
-                    tab in Magento.
+                   
                   </Typography>
                 }
               />
@@ -148,13 +131,13 @@ const Templates = () => {
           <Divider variant="middle" light></Divider>
           {/* specs */}
           <Box ref={specsView} className="space-y-20 box-border ">
-            <Box ref={specsTab} className="w-full box-border space-y-8 ">
+            <Box ref={specsTab} className="w-full box-border space-y-6">
               <Box>
                 <PageTitle
                   category="specifications"
                   title={
                     <Typography
-                      variant="h6"
+                      variant="subtitle1"
                       className="font-medium text-[1.3rem]  text-gray-800  "
                     >
                       Specification simple
@@ -162,12 +145,12 @@ const Templates = () => {
                   }
                   subTitle={
                     <Typography
-                      variant="body1"
-                      className="text-gray-600  text-sm font-medium leading-5"
+                      variant="subtitle1"
+                      className="text-gray-700 text-[0.9rem]"
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
-                      <span className="font-semibold ">'Specification'</span>{" "}
+                      'Specification'{" "}
                       tab in Magento.{" "}
                     </Typography>
                   }
@@ -178,12 +161,12 @@ const Templates = () => {
               </Box>
             </Box>
 
-            <Box className="w-full box-border space-y-8 ">
+            <Box className="w-full box-border space-y-6">
               <Box>
                 <PageTitle
                   title={
                     <Typography
-                      variant="h6"
+                      variant="subtitle1"
                       className="font-medium text-[1.3rem]  text-gray-800  "
                     >
                       Specification categorized
@@ -191,12 +174,12 @@ const Templates = () => {
                   }
                   subTitle={
                     <Typography
-                      variant="body1"
-                      className="text-gray-600  text-sm font-medium leading-5"
+                      variant="subtitlsubtitle1"
+                      className="text-gray-700 text-[0.9rem]"
                     >
                       Displays the specification of the product. Copy and paste
                       it in{" "}
-                      <span className="font-semibold ">'Specification'</span>{" "}
+                      'Specification'{" "}
                       tab in Magento.{" "}
                     </Typography>
                   }
@@ -211,13 +194,13 @@ const Templates = () => {
           <Divider variant="middle" light></Divider>
           {/* description */}
           <Box ref={descriptionView} className="space-y-20 box-border ">
-            <Box ref={descriptionTab} className="w-full box-border space-y-8 ">
+            <Box ref={descriptionTab} className="w-full box-border space-y-6">
               <Box>
                 <PageTitle
                   category="product Description"
                   title={
                     <Typography
-                      variant="h6"
+                      variant="subtitle1"
                       className="font-medium text-[1.3rem]  text-gray-800  "
                     >
                       Description basic
@@ -225,12 +208,12 @@ const Templates = () => {
                   }
                   subTitle={
                     <Typography
-                      variant="body1"
-                      className="text-gray-600  text-sm font-medium leading-5"
+                      variant="subtitlsubtitle1"
+                      className="text-gray-700 text-[0.9rem]"
                     >
                       Displays the description of the product. Copy and paste it
-                      in <span className="font-semibold ">'Description'</span>{" "}
-                      and <span className="font-medium">eBay Description</span>{" "}
+                      in 'Description'{" "}
+                      and eBay Description{" "}
                       tab in Magento.
                     </Typography>
                   }
@@ -244,12 +227,12 @@ const Templates = () => {
             </Box>
 
             {/* description v2 */}
-            <Box className="w-full box-border space-y-8 ">
+            <Box className="w-full box-border space-y-6">
               <Box>
                 <PageTitle
                   title={
                     <Typography
-                      variant="h6"
+                      variant="subtitle1"
                       className="font-medium text-[1.3rem]  text-gray-800  "
                     >
                       Description advanced
@@ -257,14 +240,14 @@ const Templates = () => {
                   }
                   subTitle={
                     <Typography
-                      variant="body1"
-                      className="text-gray-600  text-sm font-medium leading-5"
+                      variant="subtitlsubtitle1"
+                      className="text-gray-700 text-[0.9rem]"
                     >
                       Displays the description of the product. applies when a
                       product's description has a additional features. Copy and
                       paste it in{" "}
-                      <span className="font-semibold ">'Description'</span> and{" "}
-                      <span className="font-medium">eBay Description</span> tab
+                      'Description' and{" "}
+                     eBay Description tab
                       in Magento.
                     </Typography>
                   }
@@ -277,12 +260,12 @@ const Templates = () => {
               </Box>
             </Box>
 
-            <Box className="w-full box-border space-y-8 ">
+            <Box className="w-full box-border space-y-6">
               <Box>
                 <PageTitle
                   title={
                     <Typography
-                      variant="h6"
+                      variant="subtitle1"
                       className="font-medium text-[1.3rem]  text-gray-800  "
                     >
                       Description kit
@@ -290,14 +273,14 @@ const Templates = () => {
                   }
                   subTitle={
                     <Typography
-                      variant="body1"
-                      className="text-gray-600  text-sm font-medium leading-5"
+                      variant="subtitlsubtitle1"
+                      className="text-gray-700 text-[0.9rem]"
                     >
                       Displays the description of the product. Description kit
                       applies when a listing is a kit, consist of 3 product
                       bundled together, Copy and paste it in{" "}
-                      <span className="font-semibold ">'Description'</span> and{" "}
-                      <span className="font-medium">eBay Description</span> tab
+                      'Description' and{" "}
+                     eBay Description tab
                       in Magento.
                     </Typography>
                   }
@@ -311,20 +294,18 @@ const Templates = () => {
             </Box>
           </Box>
 
-         
-
           <Divider variant="middle" light></Divider>
           {/* short description */}
           <Box
             ref={shortDescriptionView}
-            className="w-full box-border space-y-8 "
+            className="w-full box-border space-y-6"
           >
             <Box ref={shortDescriptionTab} className="">
               <PageTitle
                 category="short description"
                 title={
                   <Typography
-                    variant="h6"
+                    variant="subtitle1"
                     className="font-medium text-[1.3rem]  text-gray-800  "
                   >
                     Short Description
@@ -341,13 +322,13 @@ const Templates = () => {
 
           <Divider variant="middle" light></Divider>
           {/* seo */}
-          <Box ref={seoView} className="w-full box-border space-y-12 ">
+          <Box ref={seoView} className="w-full box-border space-y-6">
             <Box ref={seoTab}>
               <PageTitle
                 category="SEO"
                 title={
                   <Typography
-                    variant="h6"
+                    variant="subtitle1"
                     className="font-medium text-[1.3rem]  text-gray-800  "
                   >
                     Search engine optimization
@@ -355,20 +336,20 @@ const Templates = () => {
                 }
                 subTitle={
                   <Typography
-                    variant="body1"
-                    className="text-gray-600  text-sm font-medium leading-5"
+                    variant="subtitlsubtitle1"
+                    className="text-gray-700 text-[0.9rem]"
                   >
                     We need to keep an eye on this for every product to clean
                     out incorrect Meta Titles. Use Default Value in digiDirect
                     AU also needs to be ticked for these fields.
-                    <span className="font-semibold">
+                    
                       {" "}
                       Search Engine Optimization{" "}
-                    </span>
+                    
                     is crucial because it makes our products/website more
                     visible search engine results page.
                     <br />
-                    Paste this in Search Engine Optimization's tab in Magento.
+                    
                   </Typography>
                 }
               />
@@ -378,7 +359,7 @@ const Templates = () => {
               <PageTitle
                 title={
                   <Typography
-                    variant="h6"
+                    variant="subtitle1"
                     className="font-medium text-[1rem]  text-gray-800  mt-12"
                   >
                     Meta Title
@@ -397,7 +378,7 @@ const Templates = () => {
               <PageTitle
                 title={
                   <Typography
-                    variant="h6"
+                    variant="subtitle1"
                     className="font-medium text-[1rem]  text-gray-800  "
                   >
                     Meta Keywords
@@ -416,7 +397,7 @@ const Templates = () => {
               <PageTitle
                 title={
                   <Typography
-                    variant="h6"
+                    variant="subtitle1"
                     className="font-medium text-[1rem]  text-gray-800  "
                   >
                     Meta Description
@@ -439,7 +420,7 @@ const Templates = () => {
         "
         >
           <Typography
-            variant="body1"
+            variant="subtitle1"
             className="text-sm text-gray-800  font-medium"
           >
             On this page
@@ -492,7 +473,7 @@ const Templates = () => {
                 }}
                 className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
                 ${
-                  item.reference.viewState ? "text-sky-600" : "text-gray-600"
+                  item.reference.viewState ? "text-sky-600" : "text-gray-500"
                 }
                    flex items-center justify-center`}
               >

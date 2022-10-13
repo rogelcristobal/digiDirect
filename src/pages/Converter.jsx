@@ -4,34 +4,15 @@ import PageTitle from "../components/PageTitle";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
-import useImportFromURL from "../requests/useImportFromURL";
-import useConvert from "../requests/useConvert";
-import { HiChevronDown } from "react-icons/hi";
-import { AiOutlineFileImage, AiOutlineLink } from "react-icons/ai";
-import PageSubTitle from "../components/PageSubTitle";
-import Blob from "../svg/Blob2.svg";
 const Converter = () => {
-  const { inTheBoxMarkup, specsMarkup, descriptionSimple, descriptionBest } =
-    template();
 
-  const { setState: setScrollPos, setTransparency } =
-    useContext(NavScrollContext);
+
+  const { handleScroll } = useContext(NavScrollContext);
   const scrollRef = useRef(null);
   const importFile = useRef(null);
   const [importedFiles, setImportedFiles] = useState();
   useEffect(() => {
-    const element = scrollRef.current;
-    const handleScroll = () => {
-      let x = element.scrollTop;
-      setScrollPos(x);
-      setTransparency(true);
-    };
-    element.addEventListener("scroll", handleScroll);
-    return () => {
-      element.removeEventListener("scroll", handleScroll);
-      setScrollPos(0);
-      setTransparency(false);
-    };
+    handleScroll(scrollRef);
   }, []);
   const [URLInput, setURLInput] = useState([{ input: "" }]);
 
@@ -53,6 +34,10 @@ const Converter = () => {
 
   // console.log("import", state);
   // console.log("convertStatus", convertStatus);
+  const [converterValue, setConverterValue] = useState(0);
+  const handleInputChange = (e) => {
+    setConverterValue((prev) => (prev = e.target.value));
+  };
   return (
     <Box className="h-full box-border flex items-start gap-3 rounded-lg   w-full ">
       <Box
@@ -76,7 +61,14 @@ const Converter = () => {
           </Box>
           <Box className="box-border">
             <Box className="h-full w-full min-h-[40rem] box-border flex  flex-col items-start justify-start">
-              <Box className="w-full  box-border flex  items-start justify-start h-fit gap-3 py-4 border-thin">
+              <Box className="w-full  box-border flex  items-start justify-start h-fit gap-3 py-4 ">
+                <Box className="h-52 w-full box-border ">
+                  {/* unit input container */}
+                  <Box className="h-full w-full flex flex-col items-center justify-center box-border border-thin">
+                    {/* <input type="number" className="h-fit text-4xl bg-inherit text-gray-700 text-poppins outline-none border-none w-52 p-8 px-0 text-center" value={converterValue} onChange={handleInputChange}/> */}
+                  </Box>
+                </Box>
+
                 {/*  */}
 
                 {/* URLInput[].text*/}
@@ -158,8 +150,6 @@ const Converter = () => {
                     </Typography>
                   </Button>
                 </Box> */}
-
-
               </Box>
             </Box>
           </Box>
