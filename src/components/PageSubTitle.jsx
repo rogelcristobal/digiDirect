@@ -1,21 +1,17 @@
 import React from "react";
+import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 const PageSubTitle = ({ title, subtitle }) => {
   return (
-    <>
+    <Box>
       <Typography
         variant="h6"
-        className=" leading-5 text-xl font-medium  "
+        className=" leading-5 text-[1.4rem] font-[500] text-gray-700 "
       >
         {title}
       </Typography>
-      <Typography
-        variant="subtitle1"
-        className=" leading-5   text-sm font-base mt-3 text-neutral-600"
-      >
-        {subtitle}
-      </Typography>
-    </>
+      <Box className=" mt-6">{subtitle}</Box>
+    </Box>
   );
 };
 

@@ -4,7 +4,7 @@ import NavScrollContext from "../context/NavScrollContext";
 import { useEffect, useState, useRef, useContext } from "react";
 
 const Dashboard = () => {
-  const {  setState: setScrollPos } =useContext(NavScrollContext);
+  const { handleScroll } =useContext(NavScrollContext);
     
   // useEffect(() => {
   //   const observer = new IntersectionObserver((entries) => {
@@ -21,18 +21,6 @@ const Dashboard = () => {
   
   const scrollRef = useRef(null);
 // for scrolling not using hooks
-  useEffect(() => {
-    const element = scrollRef.current;
-    const handleScroll = () => {
-      let x = element.scrollTop;
-      setScrollPos(x);
-    };
-    element.addEventListener("scroll", handleScroll);
-    return () => {
-      element.removeEventListener("scroll", handleScroll);
-      setScrollPos(0)
-    };
-  }, []);
 
 
 
@@ -46,26 +34,36 @@ const Dashboard = () => {
           {/* content */}
 
           <Box className="mb-8 ">
-            <PageTitle category="dashboard" title="Welcome, Rogel!"></PageTitle>
+            <PageTitle
+              category="dashboard"
+              title={
+                <Typography
+                  variant="body2"
+                  className="font-[500] text-2xl text-gray-700 capitalize"
+                >
+                 good afternoon, user!
+                </Typography>
+              }
+            />
           </Box>
 
           <Box className="grid grid-flow-row grid-cols-12 gap-6 ">
             <Box className="col-span-8">
               <Paper
                 variant="contained"
-                className="h-56 w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-56 w-full  rounded-2xl  bg-[#ffffff]  box-border border-thiner "
               ></Paper>
             </Box>
             <Box className="col-span-4 row-span-2">
               <Paper
                 variant="contained"
-                className="h-full w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-full w-full  rounded-2xl  bg-[#ffffff]  box-border border-thiner "
               ></Paper>
             </Box>
             <Box className="col-span-4">
               <Paper
                 variant="contained"
-                className="h-20 w-full  rounded-2xl  bg-[#ffffff]  text-white box-border px-8 flex items-center justify-end border-strong"
+                className="h-20 w-full  rounded-2xl  bg-[#ffffff]  text-white box-border px-8 flex items-center justify-end border-thiner"
               >
                 <Typography variant="h6" className=" font-base  text-sm">
                   WebP to JPG
@@ -75,21 +73,21 @@ const Dashboard = () => {
             <Box className="col-span-4">
               <Paper
                 variant="contained"
-                className="h-20 w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-20 w-full  rounded-2xl  bg-[#ffffff]  box-border border-thiner "
               ></Paper>
             </Box>
 
             <Box className="col-span-4">
               <Paper
                 variant="contained"
-                className="h-60 w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-60 w-full  rounded-2xl  bg-[#ffffff]  box-border border-thiner "
               ></Paper>
             </Box>
 
             <Box className="col-span-8 ">
               <Paper
                 variant="contained"
-                className="h-[38rem] w-full  rounded-2xl  bg-[#ffffff]  box-border border-strong "
+                className="h-[38rem] w-full  rounded-2xl  bg-[#ffffff]  box-border border-thiner "
               ></Paper>
             </Box>
           </Box>

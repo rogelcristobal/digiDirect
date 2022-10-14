@@ -2,33 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-    /* *{
-        @apply bg-blue-500/10
-    } */
-    ::-webkit-scrollbar {
-		@apply w-2 ;
-	}
-    ::-webkit-scrollbar-thumb {
-        @apply hover:bg-gray-500/25 bg-gray-400/25 rounded-full
-    }
-    .shad{
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; 
-    }
-    .border-thin{
-        /*  */
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    }
-    .border-medium{
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    }
-    .border-strong{
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
-    }
-    .navBorder{
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-}
+@layer components {
+   *{
+        @apply box-border
+    } 
+  ::-webkit-scrollbar {
+    @apply w-2 bg-neutral-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply hover:bg-gray-500/30 bg-gray-400/30;
+  }
+  .shad {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  }
+  .border-thiner {
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(235, 235, 235, 1);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(235, 235, 235, 1);
+    box-shadow: inset 0px 0px 0px 1px rgba(235, 235, 235, 1);
+  }
+  .border-thin {
+    /*  */
 
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+  .border-md {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  }
+  .border-lg {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+  .border-xl {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  }
+  .border-hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+  .navBorder {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .scrollMargin {
+    scroll-margin-top: "22rem";
+  }
+  /* style to remove btn in number field */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
 
 /* https://getcssscan.com/css-box-shadow-examples */

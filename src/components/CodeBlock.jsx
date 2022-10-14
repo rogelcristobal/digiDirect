@@ -1,97 +1,64 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { stackoverflowLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import {
-  Box,
-  Paper,
-  Typography,
-  Snackbar,
-  Alert,
-  Divider 
-} from "@mui/material";
-import Tooltip,{ tooltipClasses } from '@mui/material/Tooltip' 
-import Slide from "@mui/material/Slide";
+import { Box } from "@mui/material";
+import { useState, useMemo } from "react";
+import { nord } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-import {
-  AiOutlineCopy,
-  AiOutlineEyeInvisible,
-  AiOutlineEye,
-} from "react-icons/ai";
-import {BsCode,BsCodeSlash} from 'react-icons/bs'
-import { useState, useRef } from "react";
-const CodeBlock = ({ code }) => {
-  const [styleVisibility, setStyleVisibility] = useState(false);
-  const [open, setOpen] = useState(false);
+import { useRef, useEffect } from "react";
+import React from "react";
+export function Code({ code, lang, styleVisibility }) {
+  const codeBlockContainer = useRef(null);
 
-  const handleShowStyles = () => {
-    setStyleVisibility((prev) => (prev = !prev));
-    handleClose();
-  };
-  const mergeTagsAndStyles = ({ tags, styles }) => {
-    if (!styles) {
-      return tags;
-    } else {
-      return styles + tags;
-    }
-  };
-  const handleCopy = () => {
-    navigator.clipboard.writeText(mergeTagsAndStyles(code));
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpen(false);
-  };
   // mui transition prop
-  function SlideTransition(props) {
-    return <Slide {...props} direction="up" />;
-  }
+  const [blockSize, setBlockSize] = useState(null);
+  const checkBlockHeight = () => {
+    setBlockSize(codeBlockContainer.current.clientHeight);
+  };
+  const blockMemo = useMemo(() => checkBlockHeight, [code]);
+  useEffect(() => {
+    blockMemo();
+  }, [code]);
 
   return (
-    <Box className="h-full w-full relative box-border font-medium ">
-      <Snackbar
-        open={open}
-        autoHideDuration={3000}
-        onClose={handleClose}
-        direction="left"
-        TransitionComponent={SlideTransition}
-      >
-        <Alert
-          onClose={handleClose}
-          severity="success"
-          sx={{
-            width: "100%",
-            "& .MuiAlert-icon": {
-              color: "white",
-              fontSize: "0.875rem",
-            },
-          }}
-          className="bg-blue-500 text-white text-xs flex items-center "
-        >
-          Copied to Clipboard!
-        </Alert>
-      </Snackbar>
+    <Box
+      ref={codeBlockContainer}
+      className="h-full w-full   box-border   relative "
+    >
+      {/* code block */}
       <SyntaxHighlighter
+        // showLineNumbers={true}
+        className={`  scrollbar-hide hover:scrollbar-default box-border font-[500]`}
         wrapLongLines={true}
         wrapLines={true}
-        language="css"
-        style={stackoverflowLight}
-        // showLineNumbers={true}
+        language={lang}
+        style={nord}
+        codeTagProps={{
+          style: {
+            fontFamily: "Source Code pro ",
+            // letterSpacing: "0em",
+            fontSize: "0.85rem",
+            lineHeight: "1.15rem",
+          },
+        }}
         customStyle={{
-          paddingTop: "0.7rem",
-          paddingBottom: "1rem",
-          paddingLeft: "2rem",
-          paddingRight: "2rem",
-          borderRadius: "15px",
-          overflowX: "hidden",
-          boxSizing: "border-box",
-          minHeight: !code ? "12rem" : "fit",
+          paddingY: "0.5rem",
+          paddingLeft: "1.5rem",
+          borderRadius: " 0.75rem",
+          padding: "1rem",
+          // overflowX: "hidden",
+          minHeight: "5rem",
           maxHeight: "25rem",
-          backgroundColor:'rgb(245, 245, 245)'
-         
-          
+          height: "fit",
+          margin: "0",
+          display: blockSize === 80 && "flex",
+          alignItems: blockSize === 80 && "center",
+        }}
+        // lineNumberContainerStyle ={{}}
+        lineNumberStyle={{
+          fontSize: "0.7rem",
+          // marginRight:'1rem',
+          // marginLeft:'0.3rem',
+
+          color: "rgb(107, 114, 128)",
         }}
       >
         {styleVisibility
@@ -100,32 +67,13 @@ const CodeBlock = ({ code }) => {
             : code.tags
           : code.tags}
       </SyntaxHighlighter>
-      <Box className="absolute bg-transparent -bottom-12 box-border   right-4 flex items-center justify-around space-x-2 ">
-        {code.styles && (
-          <Paper
-            variant="contained"
-            className={`py-2 px-3.5 rounded-md border-medium flex items-center justify-center text-neutral-600  cursor-pointer gap-2 `}
-            onClick={handleShowStyles}
-          >
-            {!styleVisibility ? <BsCode  className="font-bold text-md"/> : <BsCodeSlash />}
-            <Typography variant="body2" className=" text-xs font-medium tracking-tight  ">
-              {!styleVisibility ? "View styles" : "Hide styles"}
-            </Typography>
-          </Paper>
-        )}
-      
-          <Paper
-            variant="contained"
-            className={`p-2 text-md  rounded-md border-medium flex items-center justify-center text-neutral-700 border-2  cursor-pointer gap-3 `}
-            onClick={handleCopy}
-          >
-            <AiOutlineCopy/>
-           
-          </Paper>
-        
-      </Box>
+      {/* <p className="absolute -top-2 text-blue-400">{blockSize}</p> */}
     </Box>
   );
+}
+
+Code.defaultProps = {
+  lang: "css",
 };
 
-export default CodeBlock;
+export const CodeBlock = React.memo(Code);
