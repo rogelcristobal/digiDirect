@@ -35,10 +35,6 @@ const Templates = () => {
   const seoTab = useRef(null);
   const shortDescriptionTab = useRef(null);
   const specsTab = useRef(null);
-  const pageRef = useRef([]);
-  const storeRef = (e) => {
-    console.log(e);
-  };
 
   const [inTheBoxView, inTheBoxState] = useInView({
     threshold: 0.9,
@@ -52,12 +48,13 @@ const Templates = () => {
   const [shortDescriptionView, shortDescriptionState] = useInView({
     threshold: 0.9,
   });
-  const scrollView = (el) => {
-    el.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "end",
-    });
+
+  const pageRef = useRef([]);
+  pageRef.current = [];
+  const storeRef = (element) => {
+    if (element && !pageRef.current.includes(element)) {
+      pageRef.current.push(element);
+    }
   };
 
   return (
@@ -134,8 +131,8 @@ const Templates = () => {
           {
             category: "SEO",
             title: "  Search engine optimization",
-            content: 
-            "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page."
+            content:
+              "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
           },
           {
             title: " Meta Title",
@@ -152,8 +149,8 @@ const Templates = () => {
             content: " Displays the description of the product.",
             snippet: seoMetaDescription,
           },
-        ].map((item, id) => (
-          <InView key={id}>
+        ].map((item, idx) => (
+          <Box key={idx} ref={storeRef} className="bg-red-400">
             <Box className="w-full box-border space-y-6 ">
               <PageTitle
                 category={item?.category}
@@ -170,7 +167,7 @@ const Templates = () => {
                     variant="subtitle1"
                     className="text-gray-700   text-[0.9rem]"
                   >
-                   {item.content}
+                    {item.content}
                   </Typography>
                 }
               />
@@ -182,7 +179,7 @@ const Templates = () => {
                 </Box>
               )}
             </Box>
-          </InView>
+          </Box>
         ))}
       </Box>
 
@@ -237,13 +234,59 @@ const Templates = () => {
                 linkTo: seoTab,
               },
             },
-          ].map((item, idx) => (
+            {
+              title: "SEO",
+              reference: {
+                viewState: seoState,
+                linkTo: seoTab,
+              },
+            },
+            {
+              title: "SEO",
+              reference: {
+                viewState: seoState,
+                linkTo: seoTab,
+              },
+            },
+            {
+              title: "SEO",
+              reference: {
+                viewState: seoState,
+                linkTo: seoTab,
+              },
+            },
+            {
+              title: "SEO",
+              reference: {
+                viewState: seoState,
+                linkTo: seoTab,
+              },
+            },
+            {
+              title: "SEO",
+              reference: {
+                viewState: seoState,
+                linkTo: seoTab,
+              },
+            },
+            {
+              title: "SEO",
+              reference: {
+                viewState: seoState,
+                linkTo: seoTab,
+              },
+            },
+          ].map((item, id) => (
             <Link
-              key={idx}
+              key={id}
               underline="none"
-              onClick={() => {
-                scrollView(item.reference.linkTo);
-              }}
+              onClick={() =>
+                pageRef.current[id].scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                  // inline: "end",
+                })
+              }
               className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
                 ${item.reference.viewState ? "text-sky-600" : "text-gray-500"}
                    flex items-center justify-center`}
