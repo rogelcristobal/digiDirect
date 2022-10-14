@@ -18,7 +18,7 @@ import {IoShapes} from 'react-icons/io5'
 const SideBar = () => {
   // f7f8fa
   return (
-    <Box className="h-screen w-[23rem]  bg-[#ffffff] border-thiner z-20 box-border  relative  ">
+    <Box className="h-screen w-[23rem]  bg-inherit border-thiner z-20 box-border  relative  ">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -26,7 +26,7 @@ const SideBar = () => {
         light
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
-      <Box className="h-28   w-full flex flex-col items-start  justify-center  px-8   box-border ">
+      <Box className="h-16   w-full flex flex-col items-start  justify-center  px-8   box-border ">
        
         {/* <DigiLogoInJs size="text-xl"  dark color="text-sky-400 text-[1.1rem]" /> */}
        
@@ -52,7 +52,7 @@ const SideBar = () => {
               title="dashboard"
               icon={<IoShapes className="text-xs text-sky-500"/>}
               parentBtn
-              activeStyle=" text-sky-600  no-underline "
+              activeStyle=" text-sky-500  no-underline "
             />
           </List>
 
@@ -65,7 +65,7 @@ const SideBar = () => {
               General
             </Typography>
             <ListItemBtnExpandable
-              textColor="text-sky-600"
+              textColor="text-sky-500"
               bgColor="bg-inherit  "
               title="product listing"
               initialState={true}
@@ -80,7 +80,7 @@ const SideBar = () => {
               ].map((item, idx) => (
                 <ListItemBtnComponent
                   path={item.path}
-                  activeStyle=" text-sky-600  no-underline "
+                  activeStyle=" text-sky-500  no-underline "
                   
                   title={item.title}
                   key={idx}
@@ -93,7 +93,7 @@ const SideBar = () => {
               title="experimental"
               icon={<AiFillExperiment className="text-xs text-sky-500"/>}
               parentBtn
-              activeStyle="bg-sky-50 text-sky-600  no-underline "
+              activeStyle="text-sky-500  no-underline "
             />
           </List>
 
@@ -108,7 +108,7 @@ const SideBar = () => {
             <ListItemBtnComponent
               parentBtn
               path="/converter"
-              activeStyle="bg-sky-50 text-sky-600  no-underline "
+              activeStyle=" text-sky-500  no-underline "
               
               title="Converter"
               icon={<AiFillFileImage className="text-xs text-sky-500" />}

@@ -11,9 +11,7 @@ const Converter = () => {
   const scrollRef = useRef(null);
   const importFile = useRef(null);
   const [importedFiles, setImportedFiles] = useState();
-  useEffect(() => {
-    handleScroll(scrollRef);
-  }, []);
+ 
   const [URLInput, setURLInput] = useState([{ input: "" }]);
 
   const handleAddURL = () => {
