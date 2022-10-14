@@ -18,7 +18,8 @@ import Dashboard from "./pages/Dashboard";
 import Templates from "./pages/Templates";
 import OpenBox from "./pages/OpenBox";
 import Converter from "./pages/Converter";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useContext } from "react";
+import NavScrollContext from "./context/NavScrollContext";
 // query
 const queryClient = new QueryClient();
 
@@ -44,8 +45,11 @@ const App = () => {
   );
 };
 const Main = () => {
-
-
+  const { handleScroll } = useContext(NavScrollContext);
+  const scrollRef = useRef(null);
+  useEffect(() => {
+    handleScroll(scrollRef);
+  }, []);
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
@@ -60,12 +64,20 @@ const Main = () => {
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Navbar />
-              <Routes>
-                <Route index element={<Dashboard />} />
-                <Route path="/templates" element={<Templates />} />
-                <Route path="/open-box-listing" element={<OpenBox />} />
-                <Route path="/converter" element={<Converter />} />
-              </Routes>
+              <Box className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full ">
+                {/* element that scrolling */}
+                <Box
+                  ref={scrollRef}
+                  className="h-full scroll-smooth overflow-auto w-full  flex pt-[4.2rem] items-start justify-center box-border"
+                >
+                  <Routes>
+                    <Route index element={<Dashboard />} />
+                    <Route path="/templates" element={<Templates />} />
+                    <Route path="/open-box-listing" element={<OpenBox />} />
+                    <Route path="/converter" element={<Converter />} />
+                  </Routes>
+                </Box>
+              </Box>
             </Box>
           </Box>
         }

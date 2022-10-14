@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer components {
-  /* *{
-        @apply bg-blue-500/10
-    } */
+   *{
+        @apply box-border
+    } 
   ::-webkit-scrollbar {
     @apply w-2 bg-neutral-100;
   }

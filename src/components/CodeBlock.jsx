@@ -1,6 +1,6 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Box } from "@mui/material";
-import { useState,useMemo } from "react";
+import { useState, useMemo } from "react";
 import { nord } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useRef, useEffect } from "react";
@@ -9,24 +9,24 @@ export function Code({ code, lang, styleVisibility }) {
   const codeBlockContainer = useRef(null);
 
   // mui transition prop
-  const [blockSize,setBlockSize]=useState(null)
-  const checkBlockHeight=()=>{
-     setBlockSize(codeBlockContainer.current.clientHeight);
-  }
-  const blockMemo= useMemo(()=>checkBlockHeight,[code])
+  const [blockSize, setBlockSize] = useState(null);
+  const checkBlockHeight = () => {
+    setBlockSize(codeBlockContainer.current.clientHeight);
+  };
+  const blockMemo = useMemo(() => checkBlockHeight, [code]);
   useEffect(() => {
-
-   blockMemo()
-  },[code]);
+    blockMemo();
+  }, [code]);
 
   return (
     <Box
       ref={codeBlockContainer}
-      className="h-full w-full  box-border   relative flex flex-col items-end justify-center "
+      className="h-full w-full   box-border   relative "
     >
       {/* code block */}
       <SyntaxHighlighter
-        className={` w-full scrollbar-hide hover:scrollbar-default  font-[500]`}
+        // showLineNumbers={true}
+        className={`  scrollbar-hide hover:scrollbar-default box-border font-[500]`}
         wrapLongLines={true}
         wrapLines={true}
         language={lang}
@@ -35,28 +35,30 @@ export function Code({ code, lang, styleVisibility }) {
           style: {
             fontFamily: "Source Code pro ",
             // letterSpacing: "0em",
-            fontSize: "0.90rem",
-            lineHeight: "1.25rem",
+            fontSize: "0.85rem",
+            lineHeight: "1.15rem",
           },
         }}
         customStyle={{
-          paddingTop: "0.7rem",
-          paddingBottom: "0.7rem",
+          paddingY: "0.5rem",
           paddingLeft: "1.5rem",
-          paddingRight: "4rem",
-          // color: "rgb(212 212 212)",
-          // color:'black',
           borderRadius: " 0.75rem",
-          overflowX: "hidden",
-          boxSizing: "border-box",
+          padding: "1rem",
+          // overflowX: "hidden",
           minHeight: "5rem",
           maxHeight: "25rem",
           height: "fit",
           margin: "0",
           display: blockSize === 80 && "flex",
           alignItems: blockSize === 80 && "center",
+        }}
+        // lineNumberContainerStyle ={{}}
+        lineNumberStyle={{
+          fontSize: "0.7rem",
+          // marginRight:'1rem',
+          // marginLeft:'0.3rem',
 
-          // backgroundColor:'inherit'
+          color: "rgb(107, 114, 128)",
         }}
       >
         {styleVisibility

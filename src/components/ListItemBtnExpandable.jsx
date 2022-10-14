@@ -28,6 +28,7 @@ const ListItemBtnExpandable = ({
       <ListItemButton
         disableGutters
         dense
+        disableRipple
         onClick={handleClick}
         className={`flex  justify-between   items-center   py-3 px-3 transition-all duration-300 ease-in-out ${
           isOpen
@@ -39,7 +40,7 @@ const ListItemBtnExpandable = ({
           {icon && (
             <Paper
               variant="contained"
-              className={`   p-1.5 flex items-center  rounded-lg justify-center  border-thiner transition-all ease-in-out duration-300   cursor-pointer gap-2 text-inherit bg-inherit`}
+              className={`   p-1.5 flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2  `}
             >
               {icon}
             </Paper>

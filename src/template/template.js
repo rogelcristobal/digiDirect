@@ -1,17 +1,14 @@
 const template = () => {
   const inTheBoxMarkup = {
-    tags: `
-<ul>
+    tags: `<ul>
   <li> item1 </li>
   <li> item2 </li>
   <li> item3 </li>
-</ul> 
-    `,
+</ul> `,
   };
 
   const specsMarkup = {
-    styles: `
-<style>
+    styles: `<style>
   table.specTable {margin: 0 auto;}
   table.specTable tr {vertical-align: top;}
   table.specTable th, table.specTable td {width: 50%; padding-top: 1rem;}
@@ -20,11 +17,8 @@ const template = () => {
   .item.spec h2 {font-weight: 500; text-align: center; border-bottom: solid 0.05rem black; padding-bottom: 0.5rem; color: #ff6600;}
   .item.spec h3 {font-size: 2.5rem; margin: 2rem auto 0; width: fit-content; padding: 0   5rem 0.3rem 5rem; border-bottom: solid 0.05rem;}
   .item.spec h4 {font-size: 1.6rem;font-weight: 500; text-align: center; text-transform: uppercase; margin-bottom: -0.5rem; text-decoration-line: underline;}
-</style>  
-       
-       `,
-    tags: `
-<table class="specTable">
+</style>`,
+    tags: `<table class="specTable">
   <tbody>
     <tr>
       <th> Attribute1 </th>
@@ -35,13 +29,10 @@ const template = () => {
       <td> Value2 </td>
     </tr> 
   </tbody>
-</table>
-
-`,
+</table>`,
   };
   const descriptionSimple = {
-    styles: `
-<style>
+    styles: `<style>
   h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
   h2.lh1 {line-height: 1;}
@@ -80,10 +71,8 @@ const template = () => {
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
   .aquaList li::first-line {font-weight: bolder;}
-</style>
-    `,
-    tags: `
-<p class="mText">
+</style>`,
+    tags: `<p class="mText">
   The <strong class="h1Lit"> ProductName </strong> decription
 </p>     
 
@@ -96,13 +85,10 @@ const template = () => {
 <ul class="mpn">
   <li> MPN - Barcode1 </li>
   <li> GTIN - Barcode2 </li>
-</ul>
-    
-`,
+</ul>`,
   };
   const descriptionBest = {
-    styles: `
-<style>
+    styles: `<style>
   h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
   h2.lh1 {line-height: 1;}
@@ -141,10 +127,8 @@ const template = () => {
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
   .aquaList li::first-line {font-weight: bolder;}
-</style>
-    `,
-    tags: `
-<p class="mText">
+</style>`,
+    tags: `<p class="mText">
   The <strong class="h1Lit"> ProductName </strong> description.
 </p>
 <br />
@@ -170,13 +154,10 @@ const template = () => {
 <ul class="mpn">
   <li> MPN - Barcode1 </li>
   <li>  GTIN - Barcode2 </li>
-</ul>
-
-`,
+</ul>`,
   };
   const descriptionKit = {
-    styles: `
-<style>
+    styles: `<style>
   h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
   h2.lh1 {line-height: 1;}
@@ -215,10 +196,8 @@ const template = () => {
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
   .aquaList li::first-line {font-weight: bolder;}
-</style>    
-    `,
-    tags: `
-<p class="mText"> 
+</style>`,
+    tags: `<p class="mText"> 
   The <strong class="h1Lit"> ProductName </strong> kit description </p>
 <p class="mText"> description </p>
 <p class="mText"> description </p>
@@ -264,9 +243,7 @@ const template = () => {
 <ul class="mpn">
 <li> MPN - Barcode1</li>
 <li> GTIN - Barcode2</li>
-</ul>
-
-`,
+</ul>`,
   };
 
   const seoMetaTitle = {
@@ -279,14 +256,11 @@ const template = () => {
     tags:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
   }
   const shortDescription={
-    tags:`
-<ul>
+    tags:`<ul>
   <li> Product Features </ul>
   <li> Product Features </ul>
   <li> Product Features </ul>
-</ul>
-
-`
+</ul>`
   }
   return {
     specsMarkup,

@@ -21,9 +21,7 @@ const Dashboard = () => {
   
   const scrollRef = useRef(null);
 // for scrolling not using hooks
- useEffect(() => {
-    handleScroll(scrollRef)
-  }, []);
+
 
 
   return (
