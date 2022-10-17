@@ -4,8 +4,7 @@ import { NavLink } from "react-router-dom";
 const ListItemBtnComponent = ({
   icon,
   title,
-  handleClick,
-  hoverColor,
+  iconStyle,
   parentBtn,
   activeStyle,
   path,
@@ -15,19 +14,19 @@ const ListItemBtnComponent = ({
       <NavLink
         to={`${path}`}
         className={({ isActive }) =>
-          isActive ? `${activeStyle}` : "bg-inherit text-gray-500 no-underline "
+          isActive ? `${activeStyle}` : " bg-inherit text-gray-500 no-underline "
         }
       >
         <ListItemButton
           disableRipple
-          className={`m-0 flex items-center font-sans justify-start bg-inherit transition-all duration-300 ease-int-out capitalize relative ${
-            parentBtn ? "px-3 py-3 " : "pl-6 py-3"
+          className={`m-0 flex items-center font-sans justify-start bg-inherit  capitalize relative ${
+            parentBtn ? "px-3 py-3 " : "pl-3 py-3"
           } space-x-3 `}
         >
           {icon && (
             <Paper
               variant="contained"
-              className={`p-1.5   flex items-center  rounded-lg justify-center  transition-all ease-in-out duration-300   cursor-pointer gap-2 `}
+              className={`p-1.5   flex items-center border-thin rounded-lg justify-center  transition-all ease-in-out duration-300 text-sky-500 text-sm  cursor-pointer gap-2 `}
             >
               {icon}
             </Paper>

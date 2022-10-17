@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Box } from "@mui/material";
 const PageTitle = ({ category, title, subTitle }) => {
   return (
+  
     <Box className="font-sans normal-case">
       <Typography
         variant="h6"

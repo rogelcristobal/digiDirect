@@ -35,7 +35,7 @@ const SideBar = () => {
          <Paper
           square
           variant="contained"
-          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-5  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
+          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 px-4  box-border scrollbar-hide hover:scrollbar-default mt-4 space-y-0"
         >
           {/* dashboard */}
           <List>
@@ -50,9 +50,10 @@ const SideBar = () => {
               path="/"
               
               title="dashboard"
-              icon={<IoShapes className="text-xs text-sky-500"/>}
+              icon={<IoShapes/>}
+              
               parentBtn
-              activeStyle=" text-sky-500  no-underline "
+              activeStyle=" text-sky-500  no-underline  "
             />
           </List>
 
@@ -69,8 +70,8 @@ const SideBar = () => {
               bgColor="bg-inherit  "
               title="product listing"
               initialState={true}
-              icon={<AiTwotoneTags className="text-xs text-sky-500" />}
-              enableIcon={<HiChevronDown className="text-inherit " />}
+              icon={<AiTwotoneTags className="text-xs " />}
+              enableIcon={<HiChevronDown className="text-sky-500" />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[

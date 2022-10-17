@@ -68,7 +68,7 @@ const Main = () => {
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}
-                  className="h-full scroll-smooth overflow-auto w-full  flex pt-[4.2rem] items-start justify-center box-border"
+                  className="h-full scroll-smooth overflow-auto w-full  flex pt-[4.2rem] items-start justify-center box-border "
                 >
                   <Routes>
                     <Route index element={<Dashboard />} />
