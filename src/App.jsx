@@ -64,7 +64,7 @@ const Main = () => {
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Navbar />
-              <Box className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full ">
+              <Box component="main" className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full ">
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}

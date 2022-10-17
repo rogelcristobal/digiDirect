@@ -1,7 +1,7 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Box } from "@mui/material";
 import { useState, useMemo } from "react";
-import { nord } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useRef, useEffect } from "react";
 import React from "react";
@@ -30,7 +30,7 @@ export function Code({ code, lang, styleVisibility }) {
         wrapLongLines={true}
         wrapLines={true}
         language={lang}
-        style={nord}
+        style={nightOwl}
         codeTagProps={{
           style: {
             fontFamily: "Source Code pro ",
@@ -42,7 +42,7 @@ export function Code({ code, lang, styleVisibility }) {
         customStyle={{
           paddingY: "0.5rem",
           paddingLeft: "1.5rem",
-          borderRadius: " 0.75rem",
+          borderRadius: " 0.65rem",
           padding: "1rem",
           // overflowX: "hidden",
           minHeight: "5rem",
