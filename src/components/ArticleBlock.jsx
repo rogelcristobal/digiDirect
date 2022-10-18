@@ -27,7 +27,27 @@ const Block = ({ article, refStore, children, pageRef, id }) => {
         ref={refStore}
         className="w-full box-border space-y-2 "
       >
-       
+        <Sandpack
+          files={{
+            "/index.html":{
+              code:code,
+              
+            }
+          }}
+          options={{
+            showTabs: true,
+            codeEditor: {
+              additionalLanguages: [
+                {
+                  name: "html",
+                  extensions: ["html"],
+                  language: css(),
+                },
+              ],
+            },
+          }}
+         
+        />
         
         <PageTitle
           category={article?.category}
