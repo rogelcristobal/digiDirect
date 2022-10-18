@@ -1,18 +1,7 @@
-import { useState, useRef, useContext, useEffect } from "react";
-import {
-  Box,
-  Typography,
-  Link,
-  Divider,
-  Stepper,
-  Step,
-  StepLabel,
-  StepIcon,
-} from "@mui/material";
+import { useRef } from "react";
+import { Box, Typography, Link, MenuItem } from "@mui/material";
 import PageTitle from "../components/PageTitle";
-import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
-import NavScrollContext from "../context/NavScrollContext";
 import { useInView, InView } from "react-intersection-observer";
 import { BiChevronRight } from "react-icons/bi";
 import ArticleBlock from "../components/ArticleBlock";
@@ -28,10 +17,6 @@ const Templates = () => {
     seoMetaDescription,
     shortDescription,
   } = template();
-
-
-
-
 
   const pageRef = useRef([]);
   pageRef.current = [];
@@ -50,7 +35,8 @@ const Templates = () => {
     {
       category: "specifications",
       title: "Specification simple",
-      content: "The purpose of a specification is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
+      content:
+        "The purpose of a specification is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
       child: [
         {
           title: "Specification basic",
@@ -68,7 +54,8 @@ const Templates = () => {
     {
       category: "product Description",
       title: " Descriptions",
-      content: " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
+      content:
+        " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
 
       child: [
         {
@@ -97,11 +84,11 @@ const Templates = () => {
         "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
       child: [
         {
-          title: " Meta Title",        
+          title: " Meta Title",
           snippet: seoMetaTitle,
         },
         {
-          title: "Meta Keywords",      
+          title: "Meta Keywords",
           snippet: seoMetaKeyword,
         },
         {
@@ -111,7 +98,6 @@ const Templates = () => {
       ],
     },
   ];
-
 
   return (
     <>
@@ -138,7 +124,28 @@ const Templates = () => {
         </Box>
 
         {/* articles */}
-        <ArticleBlock refStore={storeRef} articleList={articles}></ArticleBlock>
+
+        {articles.map((item, id) => {
+          return (
+            <ArticleBlock
+              refStore={storeRef}
+              article={item}
+              key={id}
+              pageRef={pageRef}
+              id={id}
+            >
+              {item.child?.map((childNode, idx) => (
+                <ArticleBlock
+                  refStore={storeRef}
+                  article={childNode}
+                  pageRef={pageRef}
+                  id={idx}
+                  key={idx}
+                />
+              ))}
+            </ArticleBlock>
+          );
+        })}
       </Box>
 
       {/* page navigation */}
@@ -156,56 +163,41 @@ const Templates = () => {
         <Box className="flex flex-col box-border pl-2 items-start justify-start h-full mt-6 w-full space-y-3 relative">
           {[
             {
-              title: "What's in the box",
-              reference: {
-               
-              },
+              title: "1",
+              reference: {},
             },
             {
-              title: "Specifications",
-              reference: {
-               
-              },
+              title: "2",
+              reference: {},
             },
             {
-              title: "Descriptions",
-              reference: {
-                
-              },
+              title: "3",
+              reference: {},
             },
             {
               title: "4",
-              reference: {
-                
-              },
+              reference: {},
             },
             {
               title: "5",
-              reference: {
-              
-              },
+              reference: {},
             },
-             {
+            {
               title: "6",
-              reference: {
-              
-              },
+              reference: {},
             },
-            
           ].map((item, id) => (
             <Link
               key={id}
               underline="none"
-              onClick={() =>{
-                
+              onClick={() => {
                 pageRef.current[id].scrollIntoView({
                   behavior: "smooth",
                   block: "start",
-                })
-                
+                });
               }}
               className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
-                ${ item.reference.viewState? "text-sky-600" : "text-gray-500"}
+                ${item.reference.viewState ? "text-sky-600" : "text-gray-500"}
                    flex items-center justify-center`}
             >
               <BiChevronRight

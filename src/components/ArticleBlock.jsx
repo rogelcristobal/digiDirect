@@ -3,60 +3,46 @@ import { Box, Typography } from "@mui/material";
 import PageTitle from "./PageTitle";
 import CodeSnippetComponent from "./CodeSnippetComponent";
 import PropTypes from "prop-types";
+import { html } from "@codemirror/lang-html";
 
-const ArticleBlock = ({ articleList, refStore }) => {
+const ArticleBlock = ({ article, refStore,children ,pageRef ,id}) => {
   return (
     <>
-      {articleList?.map((item, idx) => {
-        // console.log(item);
-        return (
-        
-            <Box
-             key={idx}
-              component="article"
-              ref={refStore}
-              className="w-full box-border space-y-2 "
+      <Box
+        component="article"
+        ref={refStore}
+        className="w-full box-border space-y-2 "
+      >
+        <PageTitle
+          category={article?.category}
+          title={
+            <Typography
+              variant="subtitle1"
+              className="font-semibold text-[1.3rem]  text-gray-800  "
             >
-              <PageTitle
-                category={item?.category}
-                title={
-                  <Typography
-                    variant="subtitle1"
-                    className="font-semibold text-[1.3rem]  text-gray-800  "
-                  >
-                    {item.title}
-                  
-                  </Typography>
-                }
-                subTitle={
-                  <Typography
-                    variant="subtitle1"
-                    className={`text-gray-700   text-[0.9rem] ${
-                      !item?.snippet && "mb-12"
-                    }`}
-                  >
-                    {item.content}
-                  </Typography>
-                }
-              />
-              {item.child?.map((childObj, id) => (
-                <ArticleBlock
-                  key={id}
-                  articleList={[childObj]}
-                  refStore={refStore}
-                />
-              ))}
-              {item?.snippet && (
-                <Box className=" h-fit w-full box-border rounded-xl  ">
-                  <CodeSnippetComponent
-                    code={item?.snippet}
-                  ></CodeSnippetComponent>
-                </Box>
-              )}
-            </Box>
-        
-        );
-      })}
+              {article.title}
+              {/* {pageRef.current[id].} */}
+            </Typography>
+          }
+          subTitle={
+            <Typography
+              variant="subtitle1"
+              className={`text-gray-700   text-[0.9rem] ${
+                !article?.snippet && "mb-12"
+              }`}
+            >
+              {article.content}
+            </Typography>
+          }
+        />
+       
+        {article?.snippet && (
+          <Box className=" h-fit w-full box-border rounded-xl  ">
+            <CodeSnippetComponent code={article?.snippet}></CodeSnippetComponent>
+          </Box>
+        )}
+      </Box>
+      {children}
     </>
   );
 };

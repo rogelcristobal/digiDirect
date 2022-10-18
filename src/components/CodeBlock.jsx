@@ -1,7 +1,7 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Box } from "@mui/material";
 import { useState, useMemo } from "react";
-import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { stackoverflowLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useRef, useEffect } from "react";
 import React from "react";
@@ -30,7 +30,7 @@ export function Code({ code, lang, styleVisibility }) {
         wrapLongLines={true}
         wrapLines={true}
         language={lang}
-        style={tomorrowNight}
+        style={stackoverflowLight}
         codeTagProps={{
           style: {
             fontFamily: "Source Code pro ",
