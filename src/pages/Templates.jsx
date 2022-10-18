@@ -101,7 +101,7 @@ const Templates = () => {
 
   return (
     <>
-     
+
       <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-6">
         {/* page title */}
         <Box className="pb-8  w-full ">
@@ -125,8 +125,10 @@ const Templates = () => {
         </Box>
 
         {/* articles */}
+        {/* <ArticleBlock refStore={storeRef} articleList={articles}></ArticleBlock> */}
 
         {articles.map((item, id) => {
+          
           return (
             <ArticleBlock
               refStore={storeRef}
