@@ -4,8 +4,22 @@ import PageTitle from "./PageTitle";
 import CodeSnippetComponent from "./CodeSnippetComponent";
 import PropTypes from "prop-types";
 import { html } from "@codemirror/lang-html";
+import { css } from "@codemirror/lang-css";
+import {
+  SandpackProvider,
+  SandpackCodeEditor,
+  SandpackPreview,
+  Sandpack
+} from "@codesandbox/sandpack-react";
 
-const ArticleBlock = ({ article, refStore,children ,pageRef ,id}) => {
+const Block = ({ article, refStore, children, pageRef, id }) => {
+  const code = `
+<ul>
+<li>The code for your html </li>
+<li>The code for your html </li>
+<li>The code for your html</li>
+</ul>
+  `;
   return (
     <>
       <Box
@@ -13,6 +27,8 @@ const ArticleBlock = ({ article, refStore,children ,pageRef ,id}) => {
         ref={refStore}
         className="w-full box-border space-y-2 "
       >
+       
+        
         <PageTitle
           category={article?.category}
           title={
@@ -35,15 +51,25 @@ const ArticleBlock = ({ article, refStore,children ,pageRef ,id}) => {
             </Typography>
           }
         />
-       
+
         {article?.snippet && (
           <Box className=" h-fit w-full box-border rounded-xl  ">
-            <CodeSnippetComponent code={article?.snippet}></CodeSnippetComponent>
+            <CodeSnippetComponent
+              code={article?.snippet}
+            ></CodeSnippetComponent>
           </Box>
         )}
       </Box>
       {children}
     </>
+  );
+};
+
+const ArticleBlock = (props) => {
+  return (
+    <SandpackProvider>
+      <Block {...props} />
+    </SandpackProvider>
   );
 };
 
