@@ -1,8 +1,7 @@
 import { useRef } from "react";
-import { Box, Typography, Link, MenuItem } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import template from "../template/template";
-import { useInView, InView } from "react-intersection-observer";
 import { BiChevronRight } from "react-icons/bi";
 import ArticleBlock from "../components/ArticleBlock";
 const Templates = () => {
@@ -32,71 +31,71 @@ const Templates = () => {
       content: "Displays the accesories included in the product package.",
       snippet: inTheBoxMarkup,
     },
-    {
-      category: "specifications",
-      title: "Specification simple",
-      content:
-        "The purpose of a specification is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
-      child: [
-        {
-          title: "Specification basic",
-          content: " Displays the specification of the product.",
-          snippet: specsMarkup,
-        },
-        {
-          title: "Specification categorized",
-          content: " Displays the specification of the product.",
-          snippet: specsMarkup,
-        },
-      ],
-    },
+    // {
+    //   category: "specifications",
+    //   title: "Specification simple",
+    //   content:
+    //     "The purpose of a specification is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
+    //   child: [
+    //     {
+    //       title: "Specification basic",
+    //       content: " Displays the specification of the product.",
+    //       snippet: specsMarkup,
+    //     },
+    //     {
+    //       title: "Specification categorized",
+    //       content: " Displays the specification of the product.",
+    //       snippet: specsMarkup,
+    //     },
+    //   ],
+    // },
 
-    {
-      category: "product Description",
-      title: " Descriptions",
-      content:
-        " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
+    // {
+    //   category: "product Description",
+    //   title: " Descriptions",
+    //   content:
+    //     " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
 
-      child: [
-        {
-          title: " Description advanced",
-          content: " Displays the description of the product.",
-          snippet: descriptionBest,
-        },
-        {
-          title: " Description kit",
-          content: " Displays the description of the product.",
-          snippet: descriptionKit,
-        },
-      ],
-    },
+    //   child: [
+    //     {
+    //       title: " Description advanced",
+    //       content: " Displays the description of the product.",
+    //       snippet: descriptionBest,
+    //     },
+    //     {
+    //       title: " Description kit",
+    //       content: " Displays the description of the product.",
+    //       snippet: descriptionKit,
+    //     },
+    //   ],
+    // },
 
-    {
-      category: "short description",
-      title: " Short Description",
-      content: " Displays a short description of the product.",
-      snippet: shortDescription,
-    },
-    {
-      category: "SEO",
-      title: "  Search engine optimization",
-      content:
-        "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
-      child: [
-        {
-          title: " Meta Title",
-          snippet: seoMetaTitle,
-        },
-        {
-          title: "Meta Keywords",
-          snippet: seoMetaKeyword,
-        },
-        {
-          title: "Meta Description",
-          snippet: seoMetaDescription,
-        },
-      ],
-    },
+    // {
+    //   category: "short description",
+    //   title: " Short Description",
+    //   content: " Displays a short description of the product.",
+    //   snippet: shortDescription,
+    // },
+    // {
+    //   category: "SEO",
+    //   title: "  Search engine optimization",
+    //   content:
+    //     "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
+    //   child: [
+    //     {
+    //       title: " Meta Title",
+    //       snippet: seoMetaTitle,
+    //     },
+    //     {
+    //       title: "Meta Keywords",
+    //       snippet: seoMetaKeyword,
+    //     },
+    //     {
+    //       title: "Meta Description",
+    //       snippet: seoMetaDescription,
+    //     },
+    //   ],
+    // },
   ];
 
   return (
@@ -124,26 +123,22 @@ const Templates = () => {
           />
         </Box>
 
-        {/* articles */}
-        {/* <ArticleBlock refStore={storeRef} articleList={articles}></ArticleBlock> */}
-
-        {articles.map((item, id) => {
+     
+        {articles.map((item) => {
           
           return (
             <ArticleBlock
               refStore={storeRef}
               article={item}
-              key={id}
+              key={item.id}
               pageRef={pageRef}
-              id={id}
             >
-              {item.child?.map((childNode, idx) => (
+              {item.child?.map((childNode) => (
                 <ArticleBlock
                   refStore={storeRef}
                   article={childNode}
                   pageRef={pageRef}
-                  id={idx}
-                  key={idx}
+                  key={childNode.id}
                 />
               ))}
             </ArticleBlock>

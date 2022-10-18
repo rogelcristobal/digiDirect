@@ -9,7 +9,8 @@ import {
   SandpackProvider,
   SandpackCodeEditor,
   SandpackPreview,
-  Sandpack
+  Sandpack,
+  SandpackLayout,
 } from "@codesandbox/sandpack-react";
 
 const Block = ({ article, refStore, children, pageRef, id }) => {
@@ -29,26 +30,30 @@ const Block = ({ article, refStore, children, pageRef, id }) => {
       >
         <Sandpack
           files={{
-            "/index.html":{
-              code:code,
-              
-            }
+            "/index.html": {
+              code: code,
+              active: true,
+              // readOnly: true,
+            },
+            "/index.css":code
+          }}
+          customSetup={{
+            entry: "/index.html",
           }}
           options={{
-            showTabs: true,
+            showReadOnly:"true",
             codeEditor: {
               additionalLanguages: [
                 {
                   name: "html",
                   extensions: ["html"],
-                  language: css(),
+                  language: html(),
                 },
               ],
             },
           }}
-         
         />
-        
+
         <PageTitle
           category={article?.category}
           title={
@@ -87,7 +92,7 @@ const Block = ({ article, refStore, children, pageRef, id }) => {
 
 const ArticleBlock = (props) => {
   return (
-    <SandpackProvider>
+    <SandpackProvider template="react">
       <Block {...props} />
     </SandpackProvider>
   );
