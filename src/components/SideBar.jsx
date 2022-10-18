@@ -50,7 +50,7 @@ const SideBar = () => {
               path="/"
               
               title="dashboard"
-              icon={<IoShapes/>}
+              icon={<IoShapes className="text-sm " />}
               
               parentBtn
               activeStyle=" text-sky-500  no-underline  "
@@ -70,8 +70,8 @@ const SideBar = () => {
               bgColor="bg-inherit  "
               title="product listing"
               initialState={true}
-              icon={<AiTwotoneTags className="text-xs " />}
-              enableIcon={<HiChevronDown className="text-sky-500" />}
+              icon={<AiTwotoneTags className="text-sm " />}
+              enableIcon={<HiChevronDown className="text-sky-500 " />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
@@ -92,7 +92,7 @@ const SideBar = () => {
               path="/experimental"
               
               title="experimental"
-              icon={<AiFillExperiment className="text-xs text-sky-500"/>}
+              icon={<AiFillExperiment className="text-sm text-sky-500"/>}
               parentBtn
               activeStyle="text-sky-500  no-underline "
             />
@@ -112,7 +112,7 @@ const SideBar = () => {
               activeStyle=" text-sky-500  no-underline "
               
               title="Converter"
-              icon={<AiFillFileImage className="text-xs text-sky-500" />}
+              icon={<AiFillFileImage className="text-sm text-sky-500" />}
             />
 
             

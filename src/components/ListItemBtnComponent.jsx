@@ -26,7 +26,7 @@ const ListItemBtnComponent = ({
           {icon && (
             <Paper
               variant="contained"
-              className={`p-1.5   flex items-center border-thin rounded-lg justify-center  transition-all ease-in-out duration-300 text-sky-500 text-sm  cursor-pointer gap-2 `}
+              className={` text-sky-500 border-thiner p-1.5 flex items-center  rounded-md justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 `}
             >
               {icon}
             </Paper>

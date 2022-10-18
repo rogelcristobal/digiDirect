@@ -33,19 +33,20 @@ const ListItemBtnExpandable = ({
         className={`flex  justify-between   items-center   py-3 px-3 transition-all duration-300 ease-in-out ${
           isOpen
             ? `${bgColor} ${textColor}`
-            : `bg-inherit text-gray-500 hover:${textColor}`
+            : `bg-inherit text-gray-500 `
         }  `}
       >
         <Box className="flex h-full w-full space-x-3 ">
+          {/* icon */}
           {icon && (
             <Paper
               variant="contained"
-              className={` ${isOpen?'bg-blue-400 text-white':'text-sky-500 border-thiner'} p-1.5 flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2  `}
+              className={` text-sky-500 border-thiner p-1.5 flex items-center  rounded-md justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2  `}
             >
               {icon}
             </Paper>
           )}
-
+          {/* title */}
           <Typography
             variant="body2"
             className=" text-[0.875] font-medium capitalize"
@@ -53,11 +54,12 @@ const ListItemBtnExpandable = ({
             {title}
           </Typography>
         </Box>
-        <ListItemIcon>
+        {/* chevron */}
+        <Box>
           {isOpen ?
             enableIcon : disableIcon
           }
-        </ListItemIcon>
+        </Box>
       </ListItemButton>
 
       {/* children */}

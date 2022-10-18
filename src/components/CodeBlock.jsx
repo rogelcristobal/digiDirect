@@ -1,7 +1,7 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Box } from "@mui/material";
 import { useState, useMemo } from "react";
-import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useRef, useEffect } from "react";
 import React from "react";
@@ -21,21 +21,21 @@ export function Code({ code, lang, styleVisibility }) {
   return (
     <Box
       ref={codeBlockContainer}
-      className="h-full w-full   box-border   relative "
+      className="h-full  w-full  box-border  relative "
     >
       {/* code block */}
       <SyntaxHighlighter
         // showLineNumbers={true}
-        className={`  scrollbar-hide hover:scrollbar-default box-border font-[500]`}
+        className={` max-w-full scrollbar-hide hover:scrollbar-default box-border font-[500] border-thiner`}
         wrapLongLines={true}
         wrapLines={true}
         language={lang}
-        style={tomorrowNight}
+        style={googlecode}
         codeTagProps={{
           style: {
             fontFamily: "Source Code pro ",
             // letterSpacing: "0em",
-            fontSize: "0.85rem",
+            fontSize: "0.80rem",
             lineHeight: "1.15rem",
           },
         }}
@@ -43,11 +43,11 @@ export function Code({ code, lang, styleVisibility }) {
           paddingTop: "1.5rem",
           paddingBottom: "1.5rem",
           paddingLeft: "2rem",
-          borderRadius: " 0.65rem",
+          // borderRadius: " 0.65rem",
           padding: "1rem",
           // overflowX: "hidden",
           minHeight: "5rem",
-          maxHeight: "25rem",
+          maxHeight: "20rem",
           height: "fit",
           margin: "0",
           display: blockSize === 80 && "flex",

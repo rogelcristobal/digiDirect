@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CodeBlock } from "./CodeBlock";
-import { FaCopy } from "react-icons/fa";
+import { ImCopy } from "react-icons/im";
 import { DiCss3Full } from "react-icons/di";
 import { BiCodeAlt } from "react-icons/bi";
 import { Box, Snackbar, Alert, IconButton } from "@mui/material";
@@ -68,7 +68,7 @@ const CodeSnippetComponent = ({ code, canEdit, lang }) => {
       </Snackbar>
       <Box className=" h-full w-full  py-0  box-border ">
         <Box className=" w-full flex flex-col items-center box-border ">
-          <Box className="  p-3 w-full max-w-[50rem]  text-[0.80rem] box-border flex flex-col items-end space-y-3  rounded-xl">
+          <Box className="  p-3 w-full max-w-[50rem]  text-[0.80rem] box-border flex flex-col items-center space-y-3 justify-center rounded-xl">
             <CodeBlock
               code={code}
               lang={lang}
@@ -78,24 +78,24 @@ const CodeSnippetComponent = ({ code, canEdit, lang }) => {
             ></CodeBlock>
             {/* button container */}
             <Box
-              className={`  right-3 box-border   ${
+              className={`  right-3 box-border b w-full  ${
                 hoverCode ? "flex" : "hidden"
-              } w-fit  items-center justify-end space-x-3 rounded-lg transition-all ease-in-out duration-300 `}
+              } w-full  items-center justify-end space-x-3  `}
             >
               {/* copy btn */}
               <IconButton
                 variant="contained"
-                className={` capitalize text-sm  border-none   flex  rounded-lg  shadow-none font-normal  text-gray-400 hover:text-sky-500  bg-gray-100 h-8 w-8  cursor-pointer  `}
+                className={` capitalize text-sm  border-none   flex   shadow-none font-normal  text-white  bg-sky-500 h-7.5 w-7.5 rounded-md  cursor-pointer  `}
                 onClick={handleCopy}
               >
-                <FaCopy></FaCopy>
+                <ImCopy></ImCopy>
               </IconButton>
 
               {/* styles btn */}
               {code.styles && (
                 <IconButton
                   variant="contained"
-                  className={` capitalize text-sm    flex  rounded-lg  shadow-none font-normal  text-gray-400 border bg-gray-100 h-8 w-8 cursor-pointer`}
+                  className={` capitalize text-sm    flex  rounded-md  shadow-none font-normal  text-gray-400 border bg-gray-100 h-7.5 w-7.5 cursor-pointer`}
                   onClick={handleShowStyles}
                 >
                   {!styleVisibility ? (
