@@ -6,14 +6,14 @@ const PageTitle = ({ category, title, subTitle }) => {
     <Box className="font-sans normal-case">
       <Typography
         variant="h6"
-        className="font-medium text-sm text-sky-600  capitalize	 mb-2"
+        className="font-medium text-sm text-green-400  capitalize	 mb-2"
       >
         {category}
       </Typography>
       
         {title}
      
-      <Box className=" mt-2 ">{subTitle}</Box>
+      <Box className=" mt-4 ">{subTitle}</Box>
     </Box>
   );
 };

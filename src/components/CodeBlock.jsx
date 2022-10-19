@@ -1,7 +1,7 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Box } from "@mui/material";
 import { useState, useMemo } from "react";
-import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useRef, useEffect } from "react";
 import React from "react";
@@ -30,11 +30,11 @@ export function Code({ code, lang, styleVisibility }) {
         wrapLongLines={true}
         wrapLines={true}
         language={lang}
-        style={googlecode}
+        style={stackoverflowDark}
         codeTagProps={{
           style: {
             fontFamily: "Sans-serif ",
-            // letterSpacing: "0em",
+            letterSpacing: "0.10em",
             fontSize: "0.85rem",
             lineHeight: "1rem",
           },

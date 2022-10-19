@@ -16,7 +16,7 @@ const Navbar = () => {
       component="nav"
       className={` fixed  ${
         scrollPosition >= 100 ? 'h-[4.2rem] pt-2' : "h-0 "
-      } bg-[#ffffff] border-thiner trnsition-all duration-300 ease-in-out px-6 z-30 w-full top-0   left-0 box-border flex items-center justify-end   
+      } bg-[#090909]  trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0   left-0 box-border flex items-center justify-end  border-thin-dark 
     `}
     >
       {/* [#635dff] */}

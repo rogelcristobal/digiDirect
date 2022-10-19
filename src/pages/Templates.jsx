@@ -9,6 +9,7 @@ const Templates = () => {
     inTheBoxMarkup,
     specsMarkup,
     descriptionSimple,
+    specsMarkupCategorized,
     descriptionBest,
     descriptionKit,
     seoMetaTitle,
@@ -31,77 +32,74 @@ const Templates = () => {
       content: "Displays the accesories included in the product package.",
       snippet: inTheBoxMarkup,
     },
-    // {
-    //   category: "specifications",
-    //   title: "Specification simple",
-    //   content:
-    //     "The purpose of a specification is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
-    //   child: [
-    //     {
-    //       title: "Specification basic",
-    //       content: " Displays the specification of the product.",
-    //       snippet: specsMarkup,
-    //     },
-    //     {
-    //       title: "Specification categorized",
-    //       content: " Displays the specification of the product.",
-    //       snippet: specsMarkup,
-    //     },
-    //   ],
-    // },
+    {
+      category: "specifications",
+      title: "Basic Specification",
+      content:
+        "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
+      snippet:specsMarkup,
+      child: [
+       
+        {
+          title: "Categorized specification",
+          content: " Displays the specification of the product.",
+          snippet: specsMarkupCategorized,
+        },
+      ],
+    },
 
-    // {
-    //   category: "product Description",
-    //   title: " Descriptions",
-    //   content:
-    //     " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
+    {
+      category: "product Description",
+      title: "Basic description ",
+      content:
+        " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
+      snippet: descriptionSimple,
 
-    //   child: [
-    //     {
-    //       title: " Description advanced",
-    //       content: " Displays the description of the product.",
-    //       snippet: descriptionBest,
-    //     },
-    //     {
-    //       title: " Description kit",
-    //       content: " Displays the description of the product.",
-    //       snippet: descriptionKit,
-    //     },
-    //   ],
-    // },
+      child: [
+        {
+          title: "Advanced description ",
+          content: " Displays the description of the product.",
+          snippet: descriptionBest,
+        },
+        {
+          title: "Bundled description ",
+          content: " Displays the description of the product.",
+          snippet: descriptionKit,
+        },
+      ],
+    },
 
-    // {
-    //   category: "short description",
-    //   title: " Short Description",
-    //   content: " Displays a short description of the product.",
-    //   snippet: shortDescription,
-    // },
-    // {
-    //   category: "SEO",
-    //   title: "  Search engine optimization",
-    //   content:
-    //     "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
-    //   child: [
-    //     {
-    //       title: " Meta Title",
-    //       snippet: seoMetaTitle,
-    //     },
-    //     {
-    //       title: "Meta Keywords",
-    //       snippet: seoMetaKeyword,
-    //     },
-    //     {
-    //       title: "Meta Description",
-    //       snippet: seoMetaDescription,
-    //     },
-    //   ],
-    // },
+    {
+      category: "short description",
+      title: " Short Description",
+      content: " Displays a short description of the product.",
+      snippet: shortDescription,
+    },
+    {
+      category: "SEO",
+      title: "  Search engine optimization",
+      content:
+        "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
+      child: [
+        {
+          title: " Meta Title",
+          snippet: seoMetaTitle,
+        },
+        {
+          title: "Meta Keywords",
+          snippet: seoMetaKeyword,
+        },
+        {
+          title: "Meta Description",
+          snippet: seoMetaDescription,
+        },
+      ],
+    },
   ];
 
   return (
     <>
-
-      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-6">
+      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12"> {/* space-y-12 between title and child */}
         {/* page title */}
         <Box className="pb-8  w-full ">
           <PageTitle
@@ -109,41 +107,42 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className="font-semibold text-[1.9rem] text-gray-800  "
+                className="font-semibold text-[2.5rem] text-white  "
               >
                 Templates
               </Typography>
             }
             subTitle={
-              <Typography variant="subtitle1" className="text-gray-700  ">
+              <Typography variant="subtitle1" className="text-white  ">
                 Create a Basic listing template for digiDirect . Copy the raw
                 template and paste in Magento.
               </Typography>
             }
           />
         </Box>
-
-     
-        {articles.map((item) => {
-          
-          return (
-            <ArticleBlock
-              refStore={storeRef}
-              article={item}
-              key={item.id}
-              pageRef={pageRef}
-            >
-              {item.child?.map((childNode) => (
-                <ArticleBlock
-                  refStore={storeRef}
-                  article={childNode}
-                  pageRef={pageRef}
-                  key={childNode.id}
-                />
-              ))}
-            </ArticleBlock>
-          );
-        })}
+        <Box className="space-y-12  box-border"> {/* space-y-12 between siblings */}
+          {articles.map((item) => {
+            return (
+              <ArticleBlock
+                refStore={storeRef}
+                article={item}
+                key={item.id}
+                pageRef={pageRef}
+              >
+                  {item.child?.map((childNode) => (
+                <Box  key={childNode.id} className="box-border my-12 "> {/* my-12 between each child nodes */}
+                  <ArticleBlock
+                    refStore={storeRef}
+                    article={childNode}
+                    pageRef={pageRef}
+                   
+                  />
+                </Box>
+                ))}
+              </ArticleBlock>
+            );
+          })}
+        </Box>
       </Box>
 
       {/* page navigation */}
@@ -153,7 +152,7 @@ const Templates = () => {
       >
         <Typography
           variant="subtitle1"
-          className="text-sm text-gray-800  font-medium"
+          className="text-sm text-neutral-50  font-medium"
         >
           On this page
         </Typography>

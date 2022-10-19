@@ -31,6 +31,44 @@ const template = () => {
   </tbody>
 </table>`,
   };
+  const specsMarkupCategorized={
+    styles:`<style>
+  table.specTable {margin: 0 auto;}
+  table.specTable tr {vertical-align: top;}
+  table.specTable th, table.specTable td {width: 50%; padding-top: 1rem;}
+  table.specTable th {text-align: right; padding-right: 1rem;}
+  table.specTable td {padding-left:1rem;}
+  .item.spec h2 {font-weight: 500; text-align: center; border-bottom: solid 0.05rem black; padding-bottom: 0.5rem; color: #ff6600;}
+  .item.spec h3 {font-size: 2.5rem; margin: 2rem auto 0; width: fit-content; padding: 0   5rem 0.3rem 5rem; border-bottom: solid 0.05rem;}
+  .item.spec h4 {font-size: 1.6rem;font-weight: 500; text-align: center; text-transform: uppercase; margin-bottom: -0.5rem; text-decoration-line: underline;}
+</style>`,
+    tags:`<h3> Category1 </h3>
+<table class="specTable">
+  <tbody>
+    <tr>
+      <th> Attribute1 </th>
+      <td> Value1 </td>
+    </tr>
+    <tr>
+      <th> Attribute2 </th>
+      <td> Value2 </td>
+    </tr> 
+  </tbody>
+</table>
+<h3> Category2 </h3>
+<table class="specTable">
+  <tbody>
+    <tr>
+      <th> Attribute1 </th>
+      <td> Value1 </td>
+    </tr>
+    <tr>
+      <th> Attribute2 </th>
+      <td> Value2 </td>
+    </tr> 
+  </tbody>
+</table>`
+  }
   const descriptionSimple = {
     styles: `<style>
   h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
@@ -257,13 +295,14 @@ const template = () => {
   }
   const shortDescription={
     tags:`<ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
+  <li> Product Features </li>
+  <li> Product Features </li>
+  <li> Product Features </li>
 </ul>`
   }
   return {
     specsMarkup,
+    specsMarkupCategorized,
     inTheBoxMarkup,
     descriptionSimple,
     descriptionBest,

@@ -30,21 +30,17 @@ const ListItemBtnExpandable = ({
         dense
         disableRipple
         onClick={handleClick}
-        className={`flex  justify-between   items-center   py-3 px-3 transition-all duration-300 ease-in-out ${
-          isOpen
-            ? `${bgColor} ${textColor}`
-            : `bg-inherit text-gray-500 hover:${textColor}`
-        }  `}
+        className={`flex ${textColor} justify-between   items-center   py-3 px-3 transition-all duration-300 ease-in-out `}
       >
         <Box className="flex h-full w-full space-x-3 ">
-          {icon && (
+          {/* {icon && (
             <Paper
               variant="contained"
               className={` ${isOpen?'bg-blue-400 text-white':'text-sky-500 border-thiner'} p-1.5 flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2  `}
             >
               {icon}
             </Paper>
-          )}
+          )} */}
 
           <Typography
             variant="body2"
@@ -53,7 +49,7 @@ const ListItemBtnExpandable = ({
             {title}
           </Typography>
         </Box>
-        <ListItemIcon>
+        <ListItemIcon className="text-inherit">
           {isOpen ?
             enableIcon : disableIcon
           }
@@ -62,7 +58,7 @@ const ListItemBtnExpandable = ({
 
       {/* children */}
       <Collapse in={isOpen} timeout="auto" unmountOnExit className="">
-        <List component="div" className="pl-8 ">
+        <List component="div" className="pl-2 ">
           {children}
         </List>
       </Collapse>
