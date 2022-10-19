@@ -66,9 +66,9 @@ const CodeSnippetComponent = ({ code, canEdit, lang }) => {
           Copied to Clipboard!
         </Alert>
       </Snackbar>
-      <Box className=" h-full w-full  py-0  box-border ">
+      <Box className=" h-full w-full  py-0  box-border  ">
         <Box className=" w-full flex flex-col items-center box-border ">
-          <Box className="  p-3 w-full max-w-[50rem]  text-[0.80rem] box-border flex flex-col items-end space-y-3  rounded-xl">
+          <Box className="  p-3 w-full max-w-[50rem]  text-[0.80rem] box-border flex flex-col items-end space-y-3  rounded-xl ">
             <CodeBlock
               code={code}
               lang={lang}

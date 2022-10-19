@@ -1,19 +1,7 @@
-import { useState, useRef, useContext, useEffect } from "react";
-import {
-  Box,
-  Typography,
-  Link,
-  Divider,
-  Stepper,
-  Step,
-  StepLabel,
-  StepIcon,
-} from "@mui/material";
+import { useRef } from "react";
+import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/PageTitle";
-import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
-import NavScrollContext from "../context/NavScrollContext";
-import { useInView, InView } from "react-intersection-observer";
 import { BiChevronRight } from "react-icons/bi";
 import ArticleBlock from "../components/ArticleBlock";
 const Templates = () => {
@@ -21,6 +9,7 @@ const Templates = () => {
     inTheBoxMarkup,
     specsMarkup,
     descriptionSimple,
+    specsMarkupCategorized,
     descriptionBest,
     descriptionKit,
     seoMetaTitle,
@@ -28,26 +17,6 @@ const Templates = () => {
     seoMetaDescription,
     shortDescription,
   } = template();
-
-  // for navbar purposes
-  const inTheBoxTab = useRef(null);
-  const descriptionTab = useRef(null);
-  const seoTab = useRef(null);
-  const shortDescriptionTab = useRef(null);
-  const specsTab = useRef(null);
-
-  const [inTheBoxView, inTheBoxState] = useInView({
-    threshold: 0.9,
-  });
-  const [specsView, specsState] = useInView({
-    threshold: 0.3,
-    rootMargin: "0px 0px 0px",
-  });
-  const [descriptionView, descriptionState] = useInView({ threshold: 0.2 });
-  const [seoView, seoState] = useInView({ threshold: 0.5 });
-  const [shortDescriptionView, shortDescriptionState] = useInView({
-    threshold: 0.9,
-  });
 
   const pageRef = useRef([]);
   pageRef.current = [];
@@ -65,35 +34,35 @@ const Templates = () => {
     },
     {
       category: "specifications",
-      title: "Specification simple",
-      content: "The purpose of a specification is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
+      title: "Basic Specification",
+      content:
+        "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
+      snippet:specsMarkup,
       child: [
+       
         {
-          title: "Specification basic",
+          title: "Categorized specification",
           content: " Displays the specification of the product.",
-          snippet: specsMarkup,
-        },
-        {
-          title: "Specification categorized",
-          content: " Displays the specification of the product.",
-          snippet: specsMarkup,
+          snippet: specsMarkupCategorized,
         },
       ],
     },
 
     {
       category: "product Description",
-      title: " Descriptions",
-      content: " Displays the description of the product.",
+      title: "Basic description ",
+      content:
+        " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
+      snippet: descriptionSimple,
 
       child: [
         {
-          title: " Description advanced",
+          title: "Advanced description ",
           content: " Displays the description of the product.",
           snippet: descriptionBest,
         },
         {
-          title: " Description kit",
+          title: "Bundled description ",
           content: " Displays the description of the product.",
           snippet: descriptionKit,
         },
@@ -113,11 +82,11 @@ const Templates = () => {
         "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
       child: [
         {
-          title: " Meta Title",        
+          title: " Meta Title",
           snippet: seoMetaTitle,
         },
         {
-          title: "Meta Keywords",      
+          title: "Meta Keywords",
           snippet: seoMetaKeyword,
         },
         {
@@ -130,7 +99,7 @@ const Templates = () => {
 
   return (
     <>
-      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-6">
+      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12"> {/* space-y-12 between title and child */}
         {/* page title */}
         <Box className="pb-8  w-full ">
           <PageTitle
@@ -138,135 +107,43 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className="font-semibold text-[1.9rem] text-gray-800  "
+                className="font-semibold text-[2.5rem] text-white  "
               >
                 Templates
               </Typography>
             }
             subTitle={
-              <Typography variant="subtitle1" className="text-gray-700  ">
+              <Typography variant="subtitle1" className="text-white  ">
                 Create a Basic listing template for digiDirect . Copy the raw
                 template and paste in Magento.
               </Typography>
             }
           />
         </Box>
-
-        {/* {[
-          {
-            category: "What's in the box",
-            title: "Included in the box",
-            content: "Displays the accesories included in the product package.",
-            snippet: inTheBoxMarkup,
-          },
-          {
-            category: "specifications",
-            title: "Specification simple",
-            content: " Displays the specification of the product.",
-            child: [
-              {
-                title: "Specification basic",
-                content: " Displays the specification of the product.",
-                snippet: specsMarkup,
-              },
-              {
-                title: "Specification categorized",
-                content: " Displays the specification of the product.",
-                snippet: specsMarkup,
-              },
-            ],
-          },
-
-          {
-            category: "product Description",
-            title: " Descriptions",
-            content: " Displays the description of the product.",
-
-            child: [
-              {
-                title: " Description advanced",
-                content: " Displays the description of the product.",
-                snippet: descriptionBest,
-              },
-              {
-                title: " Description kit",
-                content: " Displays the description of the product.",
-                snippet: descriptionKit,
-              },
-            ],
-          },
-
-          {
-            category: "short description",
-            title: " Short Description",
-            content: " Displays a short description of the product.",
-            snippet: shortDescription,
-          },
-          {
-            category: "SEO",
-            title: "  Search engine optimization",
-            content:
-              "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
-            child: [
-              {
-                title: " Meta Title",
-                content: " Displays the description of the product.",
-                snippet: seoMetaTitle,
-              },
-              {
-                title: "Meta Keywords",
-                content: " Displays the description of the product.",
-                snippet: seoMetaKeyword,
-              },
-              {
-                title: "Meta Description",
-                content: " Displays the description of the product.",
-                snippet: seoMetaDescription,
-              },
-            ],
-          },
-        ].map((item, idx) => (
-          <Box key={idx} ref={storeRef} className="">
-            <Box component="article" className="w-full box-border space-y-4 ">
-              <PageTitle
-                category={item?.category}
-                title={
-                  <Typography
-                    variant="subtitle1"
-                    className="font-medium text-[1.3rem]  text-gray-800  "
-                  >
-                    {item.title}
-                  </Typography>
-                }
-                subTitle={
-                  <Typography
-                    variant="subtitle1"
-                    className="text-gray-700   text-[0.9rem]"
-                  >
-                    {item.content}
-                  </Typography>
-                }
-              />
-              {item.child?.map((childObj, id) => (
-                <Box key={id}>
-                  <p>{childObj.title}</p>
-               
+        <Box className="space-y-12  box-border"> {/* space-y-12 between siblings */}
+          {articles.map((item) => {
+            return (
+              <ArticleBlock
+                refStore={storeRef}
+                article={item}
+                key={item.id}
+                pageRef={pageRef}
+              >
+                  {item.child?.map((childNode) => (
+                <Box  key={childNode.id} className="box-border my-12 "> {/* my-12 between each child nodes */}
+                  <ArticleBlock
+                    refStore={storeRef}
+                    article={childNode}
+                    pageRef={pageRef}
+                   
+                  />
                 </Box>
-              ))}
-              {item.snippet && (
-                <Box className=" h-fit w-full box-border rounded-xl  mt-4">
-                  <CodeSnippetComponent
-                    code={item?.snippet}
-                  ></CodeSnippetComponent>
-                </Box>
-              )}
-            </Box>
-          </Box>
-        ))} */}
-        <ArticleBlock refStore={storeRef} articleList={articles}></ArticleBlock>
+                ))}
+              </ArticleBlock>
+            );
+          })}
+        </Box>
       </Box>
-
-      {/* Meta Title */}
 
       {/* page navigation */}
       <Box
@@ -275,7 +152,7 @@ const Templates = () => {
       >
         <Typography
           variant="subtitle1"
-          className="text-sm text-gray-800  font-medium"
+          className="text-sm text-neutral-50  font-medium"
         >
           On this page
         </Typography>
@@ -283,93 +160,39 @@ const Templates = () => {
         <Box className="flex flex-col box-border pl-2 items-start justify-start h-full mt-6 w-full space-y-3 relative">
           {[
             {
-              title: "What's in the box",
-              reference: {
-                viewState: inTheBoxState,
-                linkTo: inTheBoxTab,
-              },
+              title: "1",
+              reference: {},
             },
             {
-              title: "Specifications",
-              reference: {
-                viewState: specsState,
-                linkTo: specsTab,
-              },
+              title: "2",
+              reference: {},
             },
             {
-              title: "Product Description",
-              reference: {
-                viewState: descriptionState,
-                linkTo: descriptionTab,
-              },
+              title: "3",
+              reference: {},
             },
             {
-              title: "Short Description",
-              reference: {
-                viewState: shortDescriptionState,
-                linkTo: shortDescriptionTab,
-              },
+              title: "4",
+              reference: {},
             },
             {
-              title: "SEO",
-              reference: {
-                viewState: seoState,
-                linkTo: seoTab,
-              },
+              title: "5",
+              reference: {},
             },
             {
-              title: "SEO",
-              reference: {
-                viewState: seoState,
-                linkTo: seoTab,
-              },
-            },
-            {
-              title: "SEO",
-              reference: {
-                viewState: seoState,
-                linkTo: seoTab,
-              },
-            },
-            {
-              title: "SEO",
-              reference: {
-                viewState: seoState,
-                linkTo: seoTab,
-              },
-            },
-            {
-              title: "SEO",
-              reference: {
-                viewState: seoState,
-                linkTo: seoTab,
-              },
-            },
-            {
-              title: "SEO",
-              reference: {
-                viewState: seoState,
-                linkTo: seoTab,
-              },
-            },
-            {
-              title: "SEO",
-              reference: {
-                viewState: seoState,
-                linkTo: seoTab,
-              },
+              title: "6",
+              reference: {},
             },
           ].map((item, id) => (
             <Link
               key={id}
               underline="none"
-              onClick={() =>
+              onClick={() => {
                 pageRef.current[id].scrollIntoView({
                   behavior: "smooth",
                   block: "start",
-                  // inline: "end",
-                })
-              }
+                });
+              }}
               className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
                 ${item.reference.viewState ? "text-sky-600" : "text-gray-500"}
                    flex items-center justify-center`}
