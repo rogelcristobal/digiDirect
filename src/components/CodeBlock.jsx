@@ -1,7 +1,7 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Box } from "@mui/material";
 import { useState, useMemo } from "react";
-import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useRef, useEffect } from "react";
 import React from "react";
@@ -26,17 +26,17 @@ export function Code({ code, lang, styleVisibility }) {
       {/* code block */}
       <SyntaxHighlighter
         // showLineNumbers={true}
-        className={` max-w-full scrollbar-hide hover:scrollbar-default box-border font-[500] border-thiner`}
+        className={`  scrollbar-hide hover:scrollbar-default box-border rounded-none font-[500] border-thin`}
         wrapLongLines={true}
         wrapLines={true}
         language={lang}
-        style={googlecode}
+        style={stackoverflowDark}
         codeTagProps={{
           style: {
-            fontFamily: "Source Code pro ",
-            // letterSpacing: "0em",
-            fontSize: "0.80rem",
-            lineHeight: "1.15rem",
+            fontFamily: "Sans-serif ",
+            letterSpacing: "0.10em",
+            fontSize: "0.85rem",
+            lineHeight: "1rem",
           },
         }}
         customStyle={{

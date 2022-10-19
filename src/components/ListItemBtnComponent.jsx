@@ -6,7 +6,7 @@ const ListItemBtnComponent = ({
   title,
   iconStyle,
   parentBtn,
-  activeStyle,
+ 
   path,
 }) => {
   return (
@@ -14,7 +14,12 @@ const ListItemBtnComponent = ({
       <NavLink
         to={`${path}`}
         className={({ isActive }) =>
-          isActive ? `${activeStyle}` : " bg-inherit text-gray-500 no-underline "
+        isActive ? 
+        // active
+        (parentBtn?'text-neutral-50 no-underline':' text-green-400 no-underline') : 
+        // inactive
+        (parentBtn?'text-neutral-50 no-underline':'text-stone-400  no-underline')
+          // isActive ? `text-green-400  no-underline` : " bg-inherit text-neutral-50 no-underline "
         }
       >
         <ListItemButton
@@ -23,18 +28,18 @@ const ListItemBtnComponent = ({
             parentBtn ? "px-3 py-3 " : "pl-3 py-3"
           } space-x-3 `}
         >
-          {icon && (
+          {/* {icon && (
             <Paper
               variant="contained"
-              className={` text-sky-500 border-thiner p-1.5 flex items-center  rounded-md justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2 `}
+              className={`p-1.5   flex items-center border-thin rounded-lg justify-center  transition-all ease-in-out duration-300 text-sky-500 text-sm  cursor-pointer gap-2 `}
             >
               {icon}
             </Paper>
-          )}
+          )} */}
           <Typography
             variant="body2"
             className={`font-medium   ${
-              parentBtn ? "text-[0.875]" : "text-[0.80rem]"
+              parentBtn ? "text-[0.875]" : "text-[0.80rem] "
             }`}
           >
             {title}
