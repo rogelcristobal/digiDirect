@@ -36,7 +36,7 @@ const ListItemBtnExpandable = ({
           {/* {icon && (
             <Paper
               variant="contained"
-              className={` ${isOpen?'bg-blue-400 text-white':'text-sky-500 border-thiner'} p-1.5 flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2  `}
+              className={` text-sky-500 border-thiner p-1.5 flex items-center  rounded-md justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2  `}
             >
               {icon}
             </Paper>

@@ -21,7 +21,7 @@ export function Code({ code, lang, styleVisibility }) {
   return (
     <Box
       ref={codeBlockContainer}
-      className="h-full w-full   box-border   relative "
+      className="h-full  w-full  box-border  relative "
     >
       {/* code block */}
       <SyntaxHighlighter
