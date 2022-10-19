@@ -6,6 +6,7 @@ import {
   SandpackProvider,
   SandpackCodeEditor,
   SandpackLayout,
+  SandpackCodeViewer
 } from "@codesandbox/sandpack-react";
 // import { sandpackDark } from "@codesandbox/sandpack-themes";
 
@@ -40,7 +41,7 @@ const Block = ({ article, refStore, children, pageRef, id }) => {
 
         {article?.snippet && (
           <SandpackLayout>
-            <SandpackCodeEditor
+            <SandpackCodeViewer
              
               showTabs
               // showLineNumbers
@@ -48,6 +49,7 @@ const Block = ({ article, refStore, children, pageRef, id }) => {
               wrapContent
               readOnly
             />
+           
           </SandpackLayout>
         )}
 
