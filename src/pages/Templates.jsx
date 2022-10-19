@@ -18,11 +18,11 @@ const Templates = () => {
     shortDescription,
   } = template();
 
-  const pageRef = useRef([]);
-  pageRef.current = [];
+  const pageCategoryRef = useRef([]);
+  pageCategoryRef.current = [];
   const storeRef = (element) => {
-    if (element && !pageRef.current.includes(element)) {
-      pageRef.current.push(element);
+    if (element && !pageCategoryRef.current.includes(element)) {
+      pageCategoryRef.current.push(element);
     }
   };
   const articles = [
@@ -107,7 +107,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className="font-semibold text-[2.5rem] text-white  "
+                className="font-medium text-[2.5rem] text-white  "
               >
                 Templates
               </Typography>
@@ -127,14 +127,14 @@ const Templates = () => {
                 refStore={storeRef}
                 article={item}
                 key={item.id}
-                pageRef={pageRef}
+                pageRef={pageCategoryRef}
               >
                   {item.child?.map((childNode) => (
                 <Box  key={childNode.id} className="box-border my-12 "> {/* my-12 between each child nodes */}
                   <ArticleBlock
-                    refStore={storeRef}
+                    // refStore={storeRef}
                     article={childNode}
-                    pageRef={pageRef}
+                    pageRef={pageCategoryRef}
                    
                   />
                 </Box>
@@ -160,50 +160,47 @@ const Templates = () => {
         <Box className="flex flex-col box-border pl-2 items-start justify-start h-full mt-6 w-full space-y-3 relative">
           {[
             {
-              title: "1",
+              title: "What's in the box",
               reference: {},
             },
             {
-              title: "2",
+              title: "Specifications",
               reference: {},
             },
             {
-              title: "3",
+              title: "Descrptions",
               reference: {},
             },
             {
-              title: "4",
+              title: "Short description",
               reference: {},
             },
             {
-              title: "5",
+              title: "Search Engine Optimization",
               reference: {},
             },
-            {
-              title: "6",
-              reference: {},
-            },
+           
           ].map((item, id) => (
             <Link
               key={id}
               underline="none"
               onClick={() => {
-                pageRef.current[id].scrollIntoView({
+                pageCategoryRef.current[id].scrollIntoView({
                   behavior: "smooth",
                   block: "start",
                 });
               }}
               className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
-                ${item.reference.viewState ? "text-sky-600" : "text-gray-500"}
-                   flex items-center justify-center`}
+               text-neutral-500 hover:text-neutral-50 transition-all duration-500 ease-in-out
+                   flex items-center justify-center `}
             >
-              <BiChevronRight
+              {/* <BiChevronRight
                 className={`text-xl  ${
                   item.reference.viewState
                     ? "text-sky-600 visible"
                     : "invisible"
                 }`}
-              ></BiChevronRight>
+              ></BiChevronRight> */}
               {item.title}
             </Link>
           ))}

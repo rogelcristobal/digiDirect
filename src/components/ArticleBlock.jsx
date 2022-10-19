@@ -1,15 +1,10 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import PageTitle from "./PageTitle";
-import CodeSnippetComponent from "./CodeSnippetComponent";
 import PropTypes from "prop-types";
-import { html } from "@codemirror/lang-html";
-import { css } from "@codemirror/lang-css";
 import {
   SandpackProvider,
   SandpackCodeEditor,
-  SandpackPreview,
-  Sandpack,
   SandpackLayout,
 } from "@codesandbox/sandpack-react";
 // import { sandpackDark } from "@codesandbox/sandpack-themes";
@@ -27,7 +22,7 @@ const Block = ({ article, refStore, children, pageRef, id }) => {
           title={
             <Typography
               variant="subtitle1"
-              className="font-semibold text-[1.4rem]  text-white  "
+              className="font-medium text-[1.7rem]  text-white  "
             >
               {article.title}
               {/* {pageRef.current[id].} */}
@@ -46,6 +41,7 @@ const Block = ({ article, refStore, children, pageRef, id }) => {
         {article?.snippet && (
           <SandpackLayout>
             <SandpackCodeEditor
+             
               showTabs
               // showLineNumbers
               showInlineErrors
@@ -96,6 +92,7 @@ const Block = ({ article, refStore, children, pageRef, id }) => {
           </Box>
         )} */}
       </Box>
+      {/* for nesteded nodes */}
       {children}
     </Box>
   );
@@ -115,6 +112,7 @@ const ArticleBlock = (props) => {
       error: "#E1CFF8",
       errorSurface: "#b08df8",
     },
+    
     syntax: {
       plain: "#f0fdaf",
       comment: {
@@ -147,10 +145,12 @@ const ArticleBlock = (props) => {
           active: true,
           // readOnly: true,
         },
+      
+        
 
-        "/index.css": {
+        "/styles.css": {
           code: props?.article?.snippet?.styles,
-          // hidden: true,
+          hidden: props?.article?.snippet?.styles ? false: true,
         },
       }}
     >
