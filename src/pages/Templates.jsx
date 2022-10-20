@@ -16,7 +16,7 @@ const Templates = () => {
     seoMetaKeyword,
     seoMetaDescription,
     shortDescription,
-    shortDescriptionKit
+    shortDescriptionKit,
   } = template();
 
   const pageCategoryRef = useRef([]);
@@ -28,29 +28,28 @@ const Templates = () => {
   };
   const articles = [
     {
-      category: "What's in the box",
+     
       title: "Included in the box",
       content: "Displays the accesories included in the product package.",
       snippet: inTheBoxMarkup,
     },
     {
-      category: "specifications",
-      title: "Basic Specification",
+     
+      title: "Specifications",
       content:
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
-      snippet:specsMarkup,
+      snippet: specsMarkup,
       child: [
-       
         {
           title: "Categorized specification",
-          content: " Displays the specification of the product.",
+          content: "Displays the specification of the product via. table.",
           snippet: specsMarkupCategorized,
         },
       ],
     },
 
     {
-      category: "product Description",
+      
       title: "Basic description ",
       content:
         " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
@@ -75,13 +74,14 @@ const Templates = () => {
       title: " Short Description",
       content: " Displays a short description of the product.",
       snippet: shortDescription,
-      child:[
+      child: [
         {
-          title:"Bundled Short Description",
-          content:'Applies when a listing/product is a bundled,displays a short description of the product.',
-          snippet:shortDescriptionKit
-        }
-      ]
+          title: "Bundled Short Description",
+          content:
+            "Applies when a listing/product is a bundled,displays a short description of the product.",
+          snippet: shortDescriptionKit,
+        },
+      ],
     },
     {
       category: "SEO",
@@ -104,10 +104,12 @@ const Templates = () => {
       ],
     },
   ];
-
+  // console.log(pageCategoryRef.current)
   return (
     <>
-      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12"> {/* space-y-12 between title and child */}
+      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12">
+        {" "}
+        {/* space-y-12 between title and child */}
         {/* page title */}
         <Box className="pb-8  w-full ">
           <PageTitle
@@ -115,7 +117,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className="font-medium text-[2.3rem] text-white  "
+                className="font-medium text-[2.2rem] text-white  "
               >
                 Templates
               </Typography>
@@ -128,28 +130,28 @@ const Templates = () => {
             }
           />
         </Box>
-        <Box className="space-y-32  box-border"> {/* space-y-12 between siblings */}
-          {articles.map((item) => {
-            return (
-              <ArticleBlock
-                refStore={storeRef}
-                article={item}
-                key={item.id}
-                pageRef={pageCategoryRef}
-              >
+        <Box className="space-y-32  box-border">
+          {/* space-y-12 between siblings */}
+          {articles.map((item) => 
+            (
+              <Box className="box-border" ref={storeRef} key={item.id}>
+                <ArticleBlock
+                  article={item}
+                  titleFontSize="text-[1.7rem]"
+                >
                   {item.child?.map((childNode) => (
-                <Box  key={childNode.id} className="box-border my-12 "> {/* my-12 between each child nodes */}
-                  <ArticleBlock
-                    // refStore={storeRef}
-                    article={childNode}
-                    pageRef={pageCategoryRef}
-                   
-                  />
-                </Box>
-                ))}
-              </ArticleBlock>
-            );
-          })}
+                    <Box key={childNode.id} className="box-border my-16 ">
+                      {/* my-12 between each child nodes */}
+                      <ArticleBlock
+                        article={childNode}
+                        titleFontSize="text-[1.3rem]"
+                      />
+                    </Box>
+                  ))}
+                </ArticleBlock>
+              </Box>
+            )
+          )}
         </Box>
       </Box>
 
@@ -187,7 +189,6 @@ const Templates = () => {
               title: "Search Engine Optimization",
               reference: {},
             },
-           
           ].map((item, id) => (
             <Link
               key={id}

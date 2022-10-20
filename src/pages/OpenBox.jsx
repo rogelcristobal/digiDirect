@@ -2,7 +2,6 @@ import { useState, useRef, useContext } from "react";
 import { Box } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import PageSubTitle from "../components/PageSubTitle";
-import CodeSnippetComponent from "../components/CodeSnippetComponent";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
@@ -49,9 +48,7 @@ const OpenBox = () => {
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl py-2 mt-0 px-8  ">
-              <CodeSnippetComponent
-                code={inTheBoxMarkup}
-              ></CodeSnippetComponent>
+             
             </Box>
           </Box>
 
@@ -64,7 +61,7 @@ const OpenBox = () => {
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
-              <CodeSnippetComponent code={specsMarkup}></CodeSnippetComponent>
+             
             </Box>
           </Box>
 
@@ -77,10 +74,7 @@ const OpenBox = () => {
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
-              <CodeSnippetComponent
-                code={descriptionSimple}
-           
-              ></CodeSnippetComponent>
+              
             </Box>
           </Box>
           {/* description v2 */}
@@ -92,10 +86,7 @@ const OpenBox = () => {
               />
             </Box>
             <Box className=" h-fit w-full box-border rounded-3xl  mt-0 px-8  ">
-              <CodeSnippetComponent
-                code={descriptionBest}
-                canEdit={true}
-              ></CodeSnippetComponent>
+             
             </Box>
           </Box>
         </Box>
