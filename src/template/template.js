@@ -284,6 +284,43 @@ const template = () => {
 </ul>`,
   };
 
+  const shortDescription={
+    tags:`<ul>
+  <li> Product Features </li>
+  <li> Product Features </li>
+  <li> Product Features </li>
+</ul>`
+  }
+  const shortDescriptionKit={
+    tags:`<ul>
+  <li>
+    <strong> ComponentProductTitle </strong>
+  </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+</ul>
+<ul>
+  <li>
+    <strong> ComponentProductTitle </strong>
+  </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+</ul>
+<ul>
+  <li>
+    <strong> ComponentProductTitle </strong>
+  </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+  <li> Product Features </ul>
+</ul>
+    `
+  }
   const seoMetaTitle = {
     tags: `ProductName | Buy at digiDirect`,
   };
@@ -292,13 +329,6 @@ const template = () => {
   };
   const seoMetaDescription={
     tags:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
-  }
-  const shortDescription={
-    tags:`<ul>
-  <li> Product Features </li>
-  <li> Product Features </li>
-  <li> Product Features </li>
-</ul>`
   }
   return {
     specsMarkup,
@@ -310,7 +340,8 @@ const template = () => {
     seoMetaTitle,
     seoMetaKeyword,
     seoMetaDescription,
-    shortDescription
+    shortDescription,
+    shortDescriptionKit
   };
 };
 

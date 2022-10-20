@@ -16,6 +16,7 @@ const Templates = () => {
     seoMetaKeyword,
     seoMetaDescription,
     shortDescription,
+    shortDescriptionKit
   } = template();
 
   const pageCategoryRef = useRef([]);
@@ -74,6 +75,13 @@ const Templates = () => {
       title: " Short Description",
       content: " Displays a short description of the product.",
       snippet: shortDescription,
+      child:[
+        {
+          title:"Bundled Short Description",
+          content:'Applies when a listing/product is a bundled,displays a short description of the product.',
+          snippet:shortDescriptionKit
+        }
+      ]
     },
     {
       category: "SEO",
@@ -107,7 +115,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className="font-medium text-[2.5rem] text-white  "
+                className="font-medium text-[2.3rem] text-white  "
               >
                 Templates
               </Typography>
@@ -120,7 +128,7 @@ const Templates = () => {
             }
           />
         </Box>
-        <Box className="space-y-12  box-border"> {/* space-y-12 between siblings */}
+        <Box className="space-y-32  box-border"> {/* space-y-12 between siblings */}
           {articles.map((item) => {
             return (
               <ArticleBlock
@@ -191,7 +199,7 @@ const Templates = () => {
                 });
               }}
               className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
-               text-neutral-500 hover:text-neutral-50 transition-all duration-500 ease-in-out
+               text-stone-500 hover:text-neutral-50 transition-all duration-500 ease-in-out
                    flex items-center justify-center `}
             >
               {/* <BiChevronRight
