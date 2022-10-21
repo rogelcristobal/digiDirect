@@ -16,7 +16,7 @@ const Navbar = () => {
       component="nav"
       className={` fixed  ${
         scrollPosition >= 100 ? 'h-[4.1rem] pt-2' : "h-0 "
-      } bg-[#090909]  trnsition-all duration-300 ease-in-out px-6 z-10 w-full top-0   left-0 box-border flex items-center justify-end  border-thin-dark overflow-y-hidden
+      } bg-[#ffffff]  trnsition-all duration-300 ease-in-out px-6 z-20 w-full top-0   left-0 box-border flex items-center justify-end  border-thiner overflow-y-hidden
     `}
     >
       {/* [#635dff] */}
@@ -28,15 +28,15 @@ const Navbar = () => {
         </Box> */}
         {/* rightside box icons */}
         <Box className="flex items-center justify-around space-x-4 box-border">
-          <Box className="p-2 grid place-content-center cursor-pointer text-stone-100 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
             <HiOutlineMoon></HiOutlineMoon>
           </Box>
           
-            <a href="https://github.com/rogelcristobal/digiDirect" target="_blank" className="p-2 grid place-content-center cursor-pointer text-stone-100 transition-all duration-300 ease-in-out   hover:border-thin   no-underline">
+            <a href="https://github.com/rogelcristobal/digiDirect" target="_blank" className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all duration-300 ease-in-out   hover:border-thin   no-underline">
               <FiGithub></FiGithub>
             </a>
          
-          <Box className="p-2 grid place-content-center cursor-pointer text-stone-100 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
             <AiOutlineUser></AiOutlineUser>
           </Box>
         </Box>

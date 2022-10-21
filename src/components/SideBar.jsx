@@ -18,7 +18,7 @@ import { IoShapes } from "react-icons/io5";
 const SideBar = () => {
   // f7f8fa
   return (
-    <Box className="h-screen w-[23rem]  bg-inherit  z-20 box-border relative border-thin-dark ">
+    <Box className="h-screen w-[23rem]  bg-inherit  z-20 box-border relative border-thiner ">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -59,12 +59,12 @@ const SideBar = () => {
               General
             </Typography> */}
             <ListItemBtnExpandable
-              textColor="text-neutral-50"
-              bgColor="bg-inherit  "
+              textColor="text-gray-700"
+              bgColor="bg-gray-100/80"
               title="product listing"
               initialState={true}
               icon={<AiTwotoneTags className="text-xs " />}
-              enableIcon={<HiChevronDown className="text-neutral-50" />}
+              enableIcon={<HiChevronDown className="text-inherit" />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[

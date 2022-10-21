@@ -17,7 +17,7 @@ const ListItemBtnExpandable = ({
   title,
   textColor,
   bgColor,
-  icon,
+ 
 }) => {
   const [isOpen, setState] = useState(initialState);
   const handleClick = () => {
@@ -30,21 +30,12 @@ const ListItemBtnExpandable = ({
         dense
         disableRipple
         onClick={handleClick}
-        className={`flex ${textColor} justify-between   items-center   py-3 px-3 transition-all duration-300 ease-in-out `}
+        className={`flex ${isOpen&&`${bgColor}`} justify-between  ${isOpen?`${textColor}`:'text-gray-700'} items-center   py-3 px-3 transition-all duration-300 ease-in-out `}
       >
         <Box className="flex h-full w-full space-x-3 ">
-          {/* {icon && (
-            <Paper
-              variant="contained"
-              className={` ${isOpen?'bg-blue-400 text-white':'text-sky-500 border-thiner'} p-1.5 flex items-center  rounded-lg justify-center   transition-all ease-in-out duration-300   cursor-pointer gap-2  `}
-            >
-              {icon}
-            </Paper>
-          )} */}
-
           <Typography
             variant="body2"
-            className=" text-[0.875] font-medium capitalize"
+            className=" text-[0.875] font-semibold capitalize"
           >
             {title}
           </Typography>
@@ -68,7 +59,7 @@ const ListItemBtnExpandable = ({
 
 ListItemBtnExpandable.defaultProps = {
   bgColor: "bg-purple-50",
-  textColor: "text-purple-500",
+  textColor: "text-gray-700",
 };
 
 export default ListItemBtnExpandable;

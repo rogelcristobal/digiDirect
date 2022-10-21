@@ -11,31 +11,29 @@ import { css } from "@codemirror/lang-css";
 const CodeBlock = ({ snippet }) => {
   const theme = {
     colors: {
-      surface1: "#151515", //canvas
-      surface2: "transparent", //border
-      surface3: "#2F2F2F", // ?
-      clickable: "#999999",
-      base: "#808080",
-      disabled: "#4D4D4D",
-      hover: "#C5C5C5",
-      accent: "#90e86f",
-      error: "#E1CFF8",
-      errorSurface: "#b08df8",
+      surface1: "white",
+      surface2: "#F3F3F3",
+      surface3: "#e4e7eb",
+      clickable: "#737373",
+      base: "#323232",
+      disabled: "#C5C5C5",
+      hover: "#1f2933",
+      accent: "#dbb8ff",
     },
 
     syntax: {
-      plain: "#f0fdaf",
+      plain: "#1F2933",
       comment: {
-        color: "#757575",
+        color: "#A7B6C2",
         fontStyle: "italic",
       },
-      keyword: "#e5fd78",
-      tag: "#f0fdaf",
-      punctuation: "#ffffff",
-      definition: "#eeeeee",
-      property: "#90e86f",
-      static: "#ffffff",
-      string: "#dafecf",
+      keyword: "#1A56DB",
+      tag: "#1A56DB",
+      punctuation: "#394b59",
+      definition: "#A23DAD",
+      property: "#2e7692",
+      static: "#1A56DB",
+      string: "#1992D4",
     },
     font: {
       body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
@@ -45,6 +43,7 @@ const CodeBlock = ({ snippet }) => {
     },
   };
   return (
+
     <SandpackProvider
       theme={theme}
       template="react"
@@ -65,9 +64,9 @@ const CodeBlock = ({ snippet }) => {
         },
       }}
     >
-      <SandpackLayout className="box-border  rounded-none">
+      <SandpackLayout className="box-border  rounded-lg border-xl">
         <SandpackCodeViewer
-          className="h-fit max-h-[25rem] min-h-[5rem] p-1 px-2 box-border rounded-none" // styles for the code viewer itself
+          className="h-fit max-h-[25rem] min-h-[5rem]  pl-3 box-border rounded-none" // styles for the code viewer itself
           additionalLanguages={[
             {
               name: "html",
@@ -86,7 +85,6 @@ const CodeBlock = ({ snippet }) => {
           wrapContent
           readOnly
         />
-       
       </SandpackLayout>
     </SandpackProvider>
   );

@@ -5,7 +5,7 @@ import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 
 const ArticleBlock = ({ article, children, titleFontSize}) => {
-  const [copyToggle,setCopyToggle] = useState(false)
+ 
    const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
       return tags;
@@ -14,11 +14,9 @@ const ArticleBlock = ({ article, children, titleFontSize}) => {
     }
   };
   const handleToggleCopyToggle = ()=>{
-    if(article?.snippet?.styles){
-      setCopyToggle((prev) => prev = !copyToggle)
-    }else{
-      navigator.clipboard.writeText(mergeTagsAndStyles(article?.snippet))
-    }
+   
+    navigator.clipboard.writeText(mergeTagsAndStyles(article?.snippet))
+    
   }
   return (
     <Box className="">
@@ -32,7 +30,7 @@ const ArticleBlock = ({ article, children, titleFontSize}) => {
           title={
             <Typography
               variant="subtitle1"
-              className={`font-medium  ${titleFontSize}  text-white  `}
+              className={`font-semibold  ${titleFontSize}  text-gray-800  `}
             >
               {article.title}
             </Typography>
@@ -40,7 +38,7 @@ const ArticleBlock = ({ article, children, titleFontSize}) => {
           subTitle={
             <Typography
               variant="subtitle1"
-              className={`text-white font-normal  text-[0.9rem] `}
+              className={`text-gray-800 font-medium  text-[0.9rem] `}
             >
               {article.content}
             </Typography>
@@ -52,15 +50,11 @@ const ArticleBlock = ({ article, children, titleFontSize}) => {
           {/* btn container  (this will only show if a codeblock is present) */}
           {article?.snippet && (
             <Box
-              className="absolute box-border right-[0.08rem] -bottom-[2.40rem] h-10 w-fit min-w-[10rem] bg-[#151515] flex items-center justify-end pr-8"
-              style={{
-                clipPath: "polygon(0 0, 100% 0%, 100% 100%, 25% 100%,0 0)",
-              }}
+              className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  pt-4  h-fit p-2 w-fit min-w-[8rem] bg-inherit  flex items-center justify-center "
             >
               <Button
-                disableTouchRipple
                 variant="contained"
-                className=" text-stone-500/40 hover:text-neutral-50 bg-transparent rounded-none shadow-none text-xs normal-case"
+                className=" text-white-50 hover:text-neutral-50 rounded-md bg-sky-500 shadow-none text-xs normal-case px-6 py-2"
                 onClick={handleToggleCopyToggle}
               >
                   Copy
