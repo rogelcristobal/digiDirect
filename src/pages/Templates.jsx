@@ -1,9 +1,10 @@
-import { useRef ,useCallback} from "react";
+import { useRef, useCallback } from "react";
 import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import template from "../template/template";
 import ArticleBlock from "../components/ArticleBlock";
 import { useInView } from "react-intersection-observer";
+
 const Templates = () => {
   const {
     inTheBoxMarkup,
@@ -17,7 +18,7 @@ const Templates = () => {
     seoMetaDescription,
     shortDescription,
     shortDescriptionKit,
-    bundleInTheBox
+    bundleInTheBox,
   } = template();
 
   const pageCategoryRef = useRef([]);
@@ -27,23 +28,26 @@ const Templates = () => {
       pageCategoryRef.current.push(element);
     }
   };
+
+  // use inview
+  const [seoRefView, seoViewState] = useInView();
+
   const articles = [
     {
-     
-      category:"what's in the box ",
+      category: "what's in the box ",
       title: "Included in the box",
       content: "Displays the accesories included in the product package.",
       snippet: inTheBoxMarkup,
-      child:[
+      child: [
         {
           title: "Included in the box (Bundle)",
           content: "Displays the specification of the product via. table.",
-          snippet: bundleInTheBox
-        }
-      ]
+          snippet: bundleInTheBox,
+        },
+      ],
     },
     {
-      category:"Basic specification",
+      category: "Basic specification",
       title: "Specifications ",
       content:
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
@@ -51,14 +55,15 @@ const Templates = () => {
       child: [
         {
           title: "Categorized specification",
-          content: "Displays the specification of the product via. table.",
+          content:
+            "Applies when the product specification needed to be categorized, specification can hav multiple categories. In that instance you can just copy the tags and append it on the end.",
           snippet: specsMarkupCategorized,
         },
       ],
     },
 
     {
-      category:" Description",
+      category: " Description",
       title: "Basic description ",
       content:
         " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
@@ -111,20 +116,23 @@ const Templates = () => {
           snippet: seoMetaDescription,
         },
       ],
+      viewState:seoRefView
     },
   ];
 
-//   const ref = useRef()
-//  const { ref: inViewRef, inView } = useInView();
- // Use `useCallback` so we don't recreate the function on each render
+
+  //   const ref = useRef()
+  
+  // Use `useCallback` so we don't recreate the function on each render
   // const setRefs = useCallback(
-  //   (node) => {
+  //   (param) =>(node) => {
   //     Ref's from useRef needs to have the node assigned to `current`
-  //     ref.current = node;
+  //     storeRef(node);
+      
   //     Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-  //     inViewRef(node);
+  //     param(node);
   //   },
-  //   [inViewRef],
+  //   [],
   // );
   return (
     <>
@@ -139,46 +147,47 @@ const Templates = () => {
               <Typography
                 variant="subtitle1"
                 className="font-bold text-[2.2rem] text-gray-800  "
-                
               >
                 Templates
               </Typography>
             }
             subTitle={
-              <Typography variant="subtitle1" className="text-gray-800  font-medium">
+              <Typography
+                variant="subtitle1"
+                className="text-gray-800  font-medium"
+              >
                 Create a Basic listing template for digiDirect . Copy the raw
                 template and paste in Magento.
               </Typography>
             }
           />
         </Box>
-        <Box className="space-y-32  box-border">
+        <Box className="space-y-32  box-border ">
           {/* space-y-12 between siblings */}
-          {articles.map((item) => 
-            (
-              // divided per category
-              <Box className="box-border" ref={storeRef} key={item.id} data-id={item.id}> 
-                <ArticleBlock
-                  article={item}
-                  titleFontSize="text-[1.6rem]"
-                  
-                >
-                  {item.child?.map((childNode) => (
-                    <Box key={childNode.id} className="box-border my-20 ">
-                      {/* my-12 between each child nodes */}
-                      <ArticleBlock
-                        article={childNode}
-                        titleFontSize="text-[1.3rem]"
-                      />
-                    </Box>
-                  ))}
-                </ArticleBlock>
-              </Box>
-            )
-          )}
+          {articles.map((item) => (
+            // divided per category
+            <Box
+              className="box-border scrollMargin "
+              // ref={setRefs(item?.viewState)}
+              key={item.id}
+              data-id={item.id}
+             ref={storeRef}
+            >
+              <ArticleBlock article={item} titleFontSize="text-[1.6rem]">
+                {item.child?.map((childNode) => (
+                  <Box key={childNode.id} className="box-border my-20 ">
+                    {/* my-12 between each child nodes */}
+                    <ArticleBlock
+                      article={childNode}
+                      titleFontSize="text-[1.3rem]"
+                    />
+                  </Box>
+                ))}
+              </ArticleBlock>
+            </Box>
+          ))}
         </Box>
-
-        {/* <p ref={setRefs}>{`hello`}</p> */}
+      
       </Box>
 
       {/* page navigation */}

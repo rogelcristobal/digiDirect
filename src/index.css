@@ -38,6 +38,7 @@
   .border-xl {
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   }
+ 
   
   .border-thin-dark {
   box-shadow: rgba(68, 67, 67, 0.349) 0px 0px 0px 1px;
@@ -46,7 +47,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
   .scrollMargin {
-    scroll-margin-top: "22rem";
+    scroll-margin-top: 6rem;
   }
   /* style to remove btn in number field */
   input::-webkit-outer-spin-button,
