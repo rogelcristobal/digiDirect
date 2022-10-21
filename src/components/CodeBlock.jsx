@@ -1,80 +1,93 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { Box } from "@mui/material";
-import { useState, useMemo } from "react";
-import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-
-import { useRef, useEffect } from "react";
 import React from "react";
-export function Code({ code, lang, styleVisibility }) {
-  const codeBlockContainer = useRef(null);
 
-  // mui transition prop
-  const [blockSize, setBlockSize] = useState(null);
-  const checkBlockHeight = () => {
-    setBlockSize(codeBlockContainer.current.clientHeight);
+import {
+  SandpackProvider,
+  SandpackLayout,
+  SandpackCodeViewer,
+} from "@codesandbox/sandpack-react";
+import { html } from "@codemirror/lang-html";
+
+import { css } from "@codemirror/lang-css";
+const CodeBlock = ({ snippet }) => {
+  const theme = {
+    colors: {
+      surface1: "white",
+      surface2: "#F3F3F3",
+      surface3: "#e4e7eb",
+      clickable: "#737373",
+      base: "#323232",
+      disabled: "#C5C5C5",
+      hover: "#1f2933",
+      accent: "#dbb8ff",
+    },
+
+    syntax: {
+      plain: "#1F2933",
+      comment: {
+        color: "#A7B6C2",
+        fontStyle: "italic",
+      },
+      keyword: "#1A56DB",
+      tag: "#1A56DB",
+      punctuation: "#394b59",
+      definition: "#A23DAD",
+      property: "#2e7692",
+      static: "#1A56DB",
+      string: "#1992D4",
+    },
+    font: {
+      body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
+      size: "13px",
+      lineHeight: "20px",
+    },
   };
-  const blockMemo = useMemo(() => checkBlockHeight, [code]);
-  useEffect(() => {
-    blockMemo();
-  }, [code]);
-
   return (
-    <Box
-      ref={codeBlockContainer}
-      className="h-full  w-full  box-border  relative "
+
+    <SandpackProvider
+      theme={theme}
+      template="react"
+      files={{
+        "/index.html": {
+          code: snippet?.tags,
+          active: true,
+          // readOnly: true,
+        },
+        "/styles.css": {
+          code: snippet?.styles,
+          hidden: snippet?.styles ? false : true,
+        },
+      }}
+      options={{
+        classes: {
+          // "sp-layout":"bg-red-500 "
+        },
+      }}
     >
-      {/* code block */}
-      <SyntaxHighlighter
-        // showLineNumbers={true}
-        className={`  scrollbar-hide hover:scrollbar-default box-border rounded-none font-[500] border-thin`}
-        wrapLongLines={true}
-        wrapLines={true}
-        language={lang}
-        style={stackoverflowDark}
-        codeTagProps={{
-          style: {
-            fontFamily: "Sans-serif ",
-            letterSpacing: "0.10em",
-            fontSize: "0.85rem",
-            lineHeight: "1rem",
-          },
-        }}
-        customStyle={{
-          paddingTop: "1.5rem",
-          paddingBottom: "1.5rem",
-          paddingLeft: "2rem",
-          // borderRadius: " 0.65rem",
-          padding: "1rem",
-          // overflowX: "hidden",
-          minHeight: "5rem",
-          maxHeight: "20rem",
-          height: "fit",
-          margin: "0",
-          display: blockSize === 80 && "flex",
-          alignItems: blockSize === 80 && "center",
-        }}
-        // lineNumberContainerStyle ={{}}
-        lineNumberStyle={{
-          fontSize: "0.7rem",
-          // marginRight:'1rem',
-          // marginLeft:'0.3rem',
-
-          color: "rgb(107, 114, 128)",
-        }}
-      >
-        {styleVisibility
-          ? code?.styles
-            ? `${code.styles}${code.tags}`
-            : code.tags
-          : code.tags}
-      </SyntaxHighlighter>
-      {/* <p className="absolute -top-2 text-blue-400">{blockSize}</p> */}
-    </Box>
+      <SandpackLayout className="box-border  rounded-lg border-xl">
+        <SandpackCodeViewer
+          className="h-fit max-h-[25rem] min-h-[5rem]  pl-3 py-2 box-border rounded-none" // styles for the code viewer itself
+          additionalLanguages={[
+            {
+              name: "html",
+              extensions: ["html"],
+              language: html(),
+            },
+            {
+              name: "css",
+              extensions: ["css"],
+              language: css(),
+            },
+          ]}
+          // showTabs
+          // showLineNumbers
+          showInlineErrors
+          wrapContent
+          readOnly
+        />
+      </SandpackLayout>
+    </SandpackProvider>
   );
-}
-
-Code.defaultProps = {
-  lang: "css",
 };
 
-export const CodeBlock = React.memo(Code);
+export default CodeBlock;

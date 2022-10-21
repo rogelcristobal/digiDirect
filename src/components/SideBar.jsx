@@ -18,7 +18,7 @@ import { IoShapes } from "react-icons/io5";
 const SideBar = () => {
   // f7f8fa
   return (
-    <Box className="h-screen w-[23rem]  bg-inherit  z-20 box-border relative border-thin-dark ">
+    <Box className="h-screen w-[23rem]  bg-inherit  z-20 box-border relative border-thiner ">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -33,38 +33,23 @@ const SideBar = () => {
         <Paper
           square
           variant="contained"
-          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 pl-6   box-border scrollbar-hide hover:scrollbar-default mt-0 space-y-0"
+          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 pl-7   box-border scrollbar-hide hover:scrollbar-default mt-0 space-y-0"
         >
           {/* dashboard */}
           <List>
-            {/* <Typography
-              variant="body1"
-              className="text-stone-700 text-xs font-semibold ml-2 "
-              >
-              Dashboard
-            </Typography> */}
             <ListItemBtnComponent
               path="/"
               title="dashboard"
               icon={<IoShapes />}
               parentBtn
             />
-
-            {/* general */}
-
-            {/* <Typography
-              variant="body1"
-              className="text-neutral-700 text-xs font-semibold ml-2 mb-2"
-            >
-              General
-            </Typography> */}
             <ListItemBtnExpandable
-              textColor="text-neutral-50"
-              bgColor="bg-inherit  "
+              textColor="text-gray-700"
+              bgColor="bg-gray-100/80"
               title="product listing"
               initialState={true}
               icon={<AiTwotoneTags className="text-xs " />}
-              enableIcon={<HiChevronDown className="text-neutral-50" />}
+              enableIcon={<HiChevronDown className="text-inherit" />}
               disableIcon={<HiChevronRight className="text-inherit" />}
             >
               {[
@@ -87,14 +72,6 @@ const SideBar = () => {
               activeStyle="text-neutral-50  no-underline "
             />
 
-            {/* tools */}
-
-            {/* <Typography
-              variant="body1"
-              className="text-stone-700 text-xs font-semibold ml-2 "
-            >
-              Tools & API's
-            </Typography> */}
             <ListItemBtnComponent
               parentBtn
               path="/converter"
