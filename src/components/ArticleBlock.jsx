@@ -50,7 +50,7 @@ const ArticleBlock = ({ article, children, titleFontSize}) => {
           {/* btn container  (this will only show if a codeblock is present) */}
           {article?.snippet && (
             <Box
-              className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  pt-4  h-fit p-2 w-fit min-w-[8rem] bg-inherit  flex items-center justify-center "
+              className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  pt-4  h-fit  w-fit  bg-inherit  flex items-center justify-center "
             >
               <Button
                 variant="contained"

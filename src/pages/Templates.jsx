@@ -17,6 +17,7 @@ const Templates = () => {
     seoMetaDescription,
     shortDescription,
     shortDescriptionKit,
+    bundleInTheBox
   } = template();
 
   const pageCategoryRef = useRef([]);
@@ -33,6 +34,13 @@ const Templates = () => {
       title: "Included in the box",
       content: "Displays the accesories included in the product package.",
       snippet: inTheBoxMarkup,
+      child:[
+        {
+          title: "Included in the box (Bundle)",
+          content: "Displays the specification of the product via. table.",
+          snippet: bundleInTheBox
+        }
+      ]
     },
     {
       category:"Basic specification",
@@ -156,7 +164,7 @@ const Templates = () => {
                   
                 >
                   {item.child?.map((childNode) => (
-                    <Box key={childNode.id} className="box-border my-16 ">
+                    <Box key={childNode.id} className="box-border my-20 ">
                       {/* my-12 between each child nodes */}
                       <ArticleBlock
                         article={childNode}

@@ -37,27 +37,12 @@ const SideBar = () => {
         >
           {/* dashboard */}
           <List>
-            {/* <Typography
-              variant="body1"
-              className="text-stone-700 text-xs font-semibold ml-2 "
-              >
-              Dashboard
-            </Typography> */}
             <ListItemBtnComponent
               path="/"
               title="dashboard"
               icon={<IoShapes />}
               parentBtn
             />
-
-            {/* general */}
-
-            {/* <Typography
-              variant="body1"
-              className="text-neutral-700 text-xs font-semibold ml-2 mb-2"
-            >
-              General
-            </Typography> */}
             <ListItemBtnExpandable
               textColor="text-gray-700"
               bgColor="bg-gray-100/80"
@@ -87,14 +72,6 @@ const SideBar = () => {
               activeStyle="text-neutral-50  no-underline "
             />
 
-            {/* tools */}
-
-            {/* <Typography
-              variant="body1"
-              className="text-stone-700 text-xs font-semibold ml-2 "
-            >
-              Tools & API's
-            </Typography> */}
             <ListItemBtnComponent
               parentBtn
               path="/converter"

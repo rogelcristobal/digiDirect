@@ -6,6 +6,27 @@ const template = () => {
   <li> item3 </li>
 </ul> `,
   };
+  const bundleInTheBox={
+    tags:`<ul>
+  <li>Kit Component Product Name</li>
+  <li>Product Accessories</li>
+  <li>Product Accessories</li>
+  <li>Product Accessories</li>
+</ul>
+<ul>
+  <li>Kit Component Product Name</li>
+  <li>Product Accessories</li>
+  <li>Product Accessories</li>
+  <li>Product Accessories</li>
+</ul>
+<ul>
+  <li>Kit Component Product Name</li>
+  <li>Product Accessories</li>
+  <li>Product Accessories</li>
+  <li>Product Accessories</li>
+</ul>
+    `
+  }
 
   const specsMarkup = {
     styles: `<style>
@@ -330,6 +351,8 @@ const template = () => {
   const seoMetaDescription={
     tags:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
   }
+
+
   return {
     specsMarkup,
     specsMarkupCategorized,
@@ -341,7 +364,8 @@ const template = () => {
     seoMetaKeyword,
     seoMetaDescription,
     shortDescription,
-    shortDescriptionKit
+    shortDescriptionKit,
+    bundleInTheBox
   };
 };
 

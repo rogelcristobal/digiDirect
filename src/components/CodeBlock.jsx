@@ -66,7 +66,7 @@ const CodeBlock = ({ snippet }) => {
     >
       <SandpackLayout className="box-border  rounded-lg border-xl">
         <SandpackCodeViewer
-          className="h-fit max-h-[25rem] min-h-[5rem]  pl-3 box-border rounded-none" // styles for the code viewer itself
+          className="h-fit max-h-[25rem] min-h-[5rem]  pl-3 py-2 box-border rounded-none" // styles for the code viewer itself
           additionalLanguages={[
             {
               name: "html",
