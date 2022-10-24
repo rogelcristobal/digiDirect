@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Typography, Button, Snackbar } from "@mui/material";
+import { Box, Typography, Button, Snackbar ,Alert} from "@mui/material";
 import PageTitle from "./PageTitle";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
-
+import {BsCheckCircle} from 'react-icons/bs'
 const ArticleBlock = ({ article, children, titleFontSize }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -27,15 +27,21 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
     setOpen(true);
   };
   return (
-    <Box className="">
+    <Box>
       <Snackbar
         open={open}
-        autoHideDuration={1500}
+        autoHideDuration={2500}
         onClose={handleClose}
-        message="Copied to clipboard"
-      
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      />
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+       
+      >
+        	{/* .MuiAlert-icon */}
+        <Alert onClick={handleClose} icon={ <BsCheckCircle className="text-white text-xl" /> } className="w-72 h-14 px-4 cursor-pointer bg-blue-500 text-white rounded-lg  flex items-center justify-start space-x-4" color="info">
+          Copied to clipboard! <br />
+
+        
+        </Alert>
+      </Snackbar>
       <Box component="article" className="w-full box-border space-y-4 ">
         <PageTitle
           category={article?.category}
