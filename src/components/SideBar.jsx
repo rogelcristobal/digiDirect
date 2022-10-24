@@ -33,7 +33,7 @@ const SideBar = () => {
         <Paper
           square
           variant="contained"
-          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4 pl-7   box-border scrollbar-hide hover:scrollbar-default mt-0 space-y-0"
+          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4    box-border scrollbar-hide hover:scrollbar-default mt-0 space-y-0"
         >
           {/* dashboard */}
           <List>

@@ -86,13 +86,13 @@ const Templates = () => {
     {
       category: "short description",
       title: " Basic short description ",
-      content: " Displays a short description of the product.",
+      content: "A short description is text that briefly introduces and describes a topic. In DITA, short desciptions are tagged with",
       snippet: shortDescription,
       child: [
         {
           title: "Bundled Short Description",
           content:
-            "Applies when a listing/product is a bundled,displays a short description of the product.",
+            "Applies when a listing/product is a bundled, displays a short description of the product.",
           snippet: shortDescriptionKit,
         },
       ],

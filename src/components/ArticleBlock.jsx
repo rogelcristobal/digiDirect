@@ -1,30 +1,42 @@
 import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, Snackbar } from "@mui/material";
 import PageTitle from "./PageTitle";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 
-const ArticleBlock = ({ article, children, titleFontSize}) => {
- 
-   const mergeTagsAndStyles = ({ tags, styles }) => {
+const ArticleBlock = ({ article, children, titleFontSize }) => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
       return tags;
     } else {
       return styles + tags;
     }
   };
-  const handleToggleCopyToggle = ()=>{
-   
-    navigator.clipboard.writeText(mergeTagsAndStyles(article?.snippet))
-    
-  }
+  const handleToggleCopyToggle = () => {
+    navigator.clipboard.writeText(mergeTagsAndStyles(article?.snippet));
+    setOpen(true);
+  };
   return (
     <Box className="">
-      <Box
-        component="article"
+      <Snackbar
+        open={open}
+        autoHideDuration={1500}
+        onClose={handleClose}
+        message="Copied to clipboard"
       
-        className="w-full box-border space-y-4 "
-      >
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      />
+      <Box component="article" className="w-full box-border space-y-4 ">
         <PageTitle
           category={article?.category}
           title={
@@ -49,15 +61,13 @@ const ArticleBlock = ({ article, children, titleFontSize}) => {
 
           {/* btn container  (this will only show if a codeblock is present) */}
           {article?.snippet && (
-            <Box
-              className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  pt-4  h-fit  w-fit  bg-inherit  flex items-center justify-center "
-            >
+            <Box className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  pt-4  h-fit  w-fit  bg-inherit  flex items-center justify-center ">
               <Button
                 variant="contained"
-                className=" text-white-50 hover:text-neutral-50 font-medium rounded-md bg-sky-500 shadow-none text-xs normal-case px-6 py-2"
+                className=" text-white-50 hover:text-neutral-50 font-medium rounded-md bg-blue-500 shadow-none text-xs normal-case px-6 py-2"
                 onClick={handleToggleCopyToggle}
               >
-                  Copy
+                Copy
               </Button>
             </Box>
           )}

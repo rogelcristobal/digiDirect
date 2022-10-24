@@ -22,7 +22,7 @@ const CodeBlock = ({ snippet }) => {
   },
  
   syntax: {
-    plain: "#1F2933",
+    plain: "rgb(55, 65, 81 )",
     comment: {
       color: "#A7B6C2",
       fontStyle: "italic"
@@ -68,7 +68,7 @@ const CodeBlock = ({ snippet }) => {
     >
       <SandpackLayout className="box-border  rounded-lg border-xl">
         <SandpackCodeViewer
-          className="h-fit max-h-[25rem] min-h-[5rem]  pl-3 py-2 box-border rounded-none" // styles for the code viewer itself
+          className="h-fit max-h-[25rem] min-h-[5rem]   pl-3 py-2 box-border rounded-none" // styles for the code viewer itself
           additionalLanguages={[
             {
               name: "html",
