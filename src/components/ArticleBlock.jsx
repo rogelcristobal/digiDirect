@@ -54,7 +54,7 @@ const ArticleBlock = ({ article, children, titleFontSize}) => {
             >
               <Button
                 variant="contained"
-                className=" text-white-50 hover:text-neutral-50 rounded-md bg-sky-500 shadow-none text-xs normal-case px-6 py-2"
+                className=" text-white-50 hover:text-neutral-50 font-medium rounded-md bg-sky-500 shadow-none text-xs normal-case px-6 py-2"
                 onClick={handleToggleCopyToggle}
               >
                   Copy
