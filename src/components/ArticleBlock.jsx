@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, Typography, Button, Snackbar ,Alert} from "@mui/material";
+import { Box, Typography, IconButton, Snackbar, Alert } from "@mui/material";
 import PageTitle from "./PageTitle";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
-import {BsCheckCircle} from 'react-icons/bs'
+import { BsCheckCircle } from "react-icons/bs";
+import { AiOutlineCopy } from "react-icons/ai";
 const ArticleBlock = ({ article, children, titleFontSize }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -19,7 +20,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
     if (!styles) {
       return tags;
     } else {
-      return styles + tags;
+      return `<style>${styles}</style>` + tags;
     }
   };
   const handleToggleCopyToggle = () => {
@@ -33,13 +34,15 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
         autoHideDuration={2500}
         onClose={handleClose}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-       
       >
-        	{/* .MuiAlert-icon */}
-        <Alert onClick={handleClose} icon={ <BsCheckCircle className="text-white text-xl" /> } className="w-72 h-14 px-4 cursor-pointer bg-blue-500 text-white rounded-lg  flex items-center justify-start space-x-4" color="info">
+        {/* .MuiAlert-icon */}
+        <Alert
+          onClick={handleClose}
+          icon={<BsCheckCircle className="text-white text-xl" />}
+          className="w-72 h-14 px-4 cursor-pointer bg-blue-500 text-white rounded-lg  flex items-center justify-start space-x-4"
+          color="info"
+        >
           Copied to clipboard! <br />
-
-        
         </Alert>
       </Snackbar>
       <Box component="article" className="w-full box-border space-y-4 ">
@@ -62,19 +65,21 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
             </Typography>
           }
         />
-        <Box className="relative box-border">
+        <Box className="relative box-border h-fit">
           {article?.snippet && <CodeBlock snippet={article?.snippet} />}
 
           {/* btn container  (this will only show if a codeblock is present) */}
           {article?.snippet && (
-            <Box className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  pt-4  h-fit  w-fit  bg-inherit  flex items-center justify-center ">
-              <Button
+            <Box className="absolute box-border right-[0rem]  top-0  p-2.5  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-4">
+            {/* <Box className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  px-0 py-2  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-4"> */}
+              
+              <IconButton
                 variant="contained"
-                className=" text-white-50 hover:text-neutral-50 font-medium rounded-md bg-blue-500 shadow-none text-xs normal-case px-6 py-2"
+                className="hover:text-gray-300 hover:border-gray-300 text-gray-300/30  border-solid border-gray-500/30 border-[1.5px]  font-medium rounded-md  bg-transparent shadow-none text-xs normal-case px-2 py-2"
                 onClick={handleToggleCopyToggle}
               >
-                Copy
-              </Button>
+                <AiOutlineCopy className="text-sm" />
+              </IconButton>
             </Box>
           )}
         </Box>

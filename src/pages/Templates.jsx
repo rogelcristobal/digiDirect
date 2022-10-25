@@ -4,7 +4,6 @@ import PageTitle from "../components/PageTitle";
 import template from "../template/template";
 import ArticleBlock from "../components/ArticleBlock";
 import { useInView } from "react-intersection-observer";
-
 const Templates = () => {
   const {
     inTheBoxMarkup,
@@ -23,16 +22,18 @@ const Templates = () => {
 
   const pageCategoryRef = useRef([]);
   pageCategoryRef.current = [];
+   const { ref: descriptionRef, inView:descriptionViewState } = useInView();
   const storeRef = (element) => {
     if (element && !pageCategoryRef.current.includes(element)) {
       pageCategoryRef.current.push(element);
+      // console.log(element)
+    
     }
   };
 
   // use inview
-  const [seoRefView, seoViewState] = useInView();
 
-  const articles = [
+  const articles = [  
     {
       category: "what's in the box ",
       title: "Included in the box",
@@ -47,6 +48,7 @@ const Templates = () => {
       ],
     },
     {
+      viewRef:descriptionRef,
       category: "Basic specification",
       title: "Specifications ",
       content:
@@ -116,24 +118,11 @@ const Templates = () => {
           snippet: seoMetaDescription,
         },
       ],
-      viewState:seoRefView
+      // viewState:seoRefView
     },
   ];
 
-
-  //   const ref = useRef()
-  
-  // Use `useCallback` so we don't recreate the function on each render
-  // const setRefs = useCallback(
-  //   (param) =>(node) => {
-  //     Ref's from useRef needs to have the node assigned to `current`
-  //     storeRef(node);
-      
-  //     Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-  //     param(node);
-  //   },
-  //   [],
-  // );
+ 
   return (
     <>
       <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-8">
@@ -164,18 +153,18 @@ const Templates = () => {
         </Box>
         <Box className="space-y-32  box-border ">
           {/* space-y-12 between siblings */}
-          {articles.map((item) => (
+          {articles.map((item,id) => (
             // divided per category
             <Box
               className="box-border scrollMargin "
               // ref={setRefs(item?.viewState)}
-              key={item.id}
-              data-id={item.id}
-             ref={storeRef}
+              key={id}
+              data-id={id}
+              ref={storeRef}
             >
               <ArticleBlock article={item} titleFontSize="text-[1.6rem]">
-                {item.child?.map((childNode) => (
-                  <Box key={childNode.id} className="box-border my-20 ">
+                {item.child?.map((childNode,idx) => (
+                  <Box key={idx} className="box-border my-20 ">
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
@@ -235,7 +224,9 @@ const Templates = () => {
                 });
               }}
               className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
-               text-gray-500 hover:text-gray-800 transition-all duration-500 ease-in-out
+                hover:text-gray-800 transition-all duration-500 ease-in-out
+
+              //  ${id===3&& descriptionViewState? 'text-blue-500':'text-gray-500'}
                    flex items-center justify-center `}
             >
               {/* <BiChevronRight
