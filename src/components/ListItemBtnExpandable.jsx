@@ -30,7 +30,7 @@ const ListItemBtnExpandable = ({
         dense
         disableRipple
         onClick={handleClick}
-        className={`flex ${isOpen&&`${bgColor}`} justify-between  ${isOpen?`${textColor}`:'text-gray-700'} items-center   py-3 px-3 transition-all duration-300 ease-in-out `}
+        className={`flex ${isOpen&&`${bgColor}`} justify-between  ${isOpen?`${textColor}`:'text-gray-700'} items-center   py-3 pl-7 transition-all duration-300 ease-in-out `}
       >
         <Box className="flex h-full w-full space-x-3 ">
           <Typography

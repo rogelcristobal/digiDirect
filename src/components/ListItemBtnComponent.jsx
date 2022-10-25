@@ -27,7 +27,7 @@ const ListItemBtnComponent = ({
         <ListItemButton
           disableRipple
           className={`m-0 flex items-center font-sans justify-start bg-inherit  capitalize relative ${
-            parentBtn ? "px-3 py-3 " : "pl-3 py-3"
+            parentBtn ? "pl-7 py-3 " : "pl-8 py-3"
           } space-x-3 `}
         >
           <Typography

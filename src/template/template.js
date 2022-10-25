@@ -29,16 +29,14 @@ const template = () => {
   }
 
   const specsMarkup = {
-    styles: `<style>
-  table.specTable {margin: 0 auto;}
+    styles: `table.specTable {margin: 0 auto;}
   table.specTable tr {vertical-align: top;}
   table.specTable th, table.specTable td {width: 50%; padding-top: 1rem;}
   table.specTable th {text-align: right; padding-right: 1rem;}
   table.specTable td {padding-left:1rem;}
   .item.spec h2 {font-weight: 500; text-align: center; border-bottom: solid 0.05rem black; padding-bottom: 0.5rem; color: #ff6600;}
   .item.spec h3 {font-size: 2.5rem; margin: 2rem auto 0; width: fit-content; padding: 0   5rem 0.3rem 5rem; border-bottom: solid 0.05rem;}
-  .item.spec h4 {font-size: 1.6rem;font-weight: 500; text-align: center; text-transform: uppercase; margin-bottom: -0.5rem; text-decoration-line: underline;}
-</style>`,
+  .item.spec h4 {font-size: 1.6rem;font-weight: 500; text-align: center; text-transform: uppercase; margin-bottom: -0.5rem; text-decoration-line: underline;}`,
     tags: `<table class="specTable">
   <tbody>
     <tr>
@@ -53,16 +51,14 @@ const template = () => {
 </table>`,
   };
   const specsMarkupCategorized={
-    styles:`<style>
-  table.specTable {margin: 0 auto;}
+    styles:`table.specTable {margin: 0 auto;}
   table.specTable tr {vertical-align: top;}
   table.specTable th, table.specTable td {width: 50%; padding-top: 1rem;}
   table.specTable th {text-align: right; padding-right: 1rem;}
   table.specTable td {padding-left:1rem;}
   .item.spec h2 {font-weight: 500; text-align: center; border-bottom: solid 0.05rem black; padding-bottom: 0.5rem; color: #ff6600;}
   .item.spec h3 {font-size: 2.5rem; margin: 2rem auto 0; width: fit-content; padding: 0   5rem 0.3rem 5rem; border-bottom: solid 0.05rem;}
-  .item.spec h4 {font-size: 1.6rem;font-weight: 500; text-align: center; text-transform: uppercase; margin-bottom: -0.5rem; text-decoration-line: underline;}
-</style>`,
+  .item.spec h4 {font-size: 1.6rem;font-weight: 500; text-align: center; text-transform: uppercase; margin-bottom: -0.5rem; text-decoration-line: underline;}`,
     tags:`<h3> Category1 </h3>
 <table class="specTable">
   <tbody>
@@ -91,8 +87,7 @@ const template = () => {
 </table>`
   }
   const descriptionSimple = {
-    styles: `<style>
-  h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
+    styles: `h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
   h2.lh1 {line-height: 1;}
   h3.uLit {padding-top: 1rem; margin-bottom: -0.2rem;}
@@ -129,8 +124,7 @@ const template = () => {
       .dMobi {padding-left: 1rem; padding-right: 1rem;}
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
-  .aquaList li::first-line {font-weight: bolder;}
-</style>`,
+  .aquaList li::first-line {font-weight: bolder;}`,
     tags: `<p class="mText">
   The <strong class="h1Lit"> ProductName </strong> decription
 </p>     
@@ -147,8 +141,7 @@ const template = () => {
 </ul>`,
   };
   const descriptionBest = {
-    styles: `<style>
-  h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
+    styles: `h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
   h2.lh1 {line-height: 1;}
   h3.uLit {padding-top: 1rem; margin-bottom: -0.2rem;}
@@ -185,8 +178,7 @@ const template = () => {
       .dMobi {padding-left: 1rem; padding-right: 1rem;}
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
-  .aquaList li::first-line {font-weight: bolder;}
-</style>`,
+  .aquaList li::first-line {font-weight: bolder;}`,
     tags: `<p class="mText">
   The <strong class="h1Lit"> ProductName </strong> description.
 </p>
@@ -216,8 +208,7 @@ const template = () => {
 </ul>`,
   };
   const descriptionKit = {
-    styles: `<style>
-  h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
+    styles: `h2.h2Lit {padding-block-start: 0.6rem;margin-block-end: 0.5rem;}
   .gText h2, .gText3 h2, .gText4 h2, .gText5 h2 {line-height:0.7;}
   h2.lh1 {line-height: 1;}
   h3.uLit {padding-top: 1rem; margin-bottom: -0.2rem;}
@@ -254,8 +245,7 @@ const template = () => {
       .dMobi {padding-left: 1rem; padding-right: 1rem;}
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
-  .aquaList li::first-line {font-weight: bolder;}
-</style>`,
+  .aquaList li::first-line {font-weight: bolder;}`,
     tags: `<p class="mText"> 
   The <strong class="h1Lit"> ProductName </strong> kit description </p>
 <p class="mText"> description </p>

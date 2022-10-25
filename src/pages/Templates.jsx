@@ -1,4 +1,4 @@
-import { useRef ,useCallback} from "react";
+import { useRef, useCallback } from "react";
 import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import template from "../template/template";
@@ -17,33 +17,39 @@ const Templates = () => {
     seoMetaDescription,
     shortDescription,
     shortDescriptionKit,
-    bundleInTheBox
+    bundleInTheBox,
   } = template();
 
   const pageCategoryRef = useRef([]);
   pageCategoryRef.current = [];
+   const { ref: descriptionRef, inView:descriptionViewState } = useInView();
   const storeRef = (element) => {
     if (element && !pageCategoryRef.current.includes(element)) {
       pageCategoryRef.current.push(element);
+      // console.log(element)
+    
     }
   };
-  const articles = [
+
+  // use inview
+
+  const articles = [  
     {
-     
-      category:"what's in the box ",
+      category: "what's in the box ",
       title: "Included in the box",
       content: "Displays the accesories included in the product package.",
       snippet: inTheBoxMarkup,
-      child:[
+      child: [
         {
           title: "Included in the box (Bundle)",
           content: "Displays the specification of the product via. table.",
-          snippet: bundleInTheBox
-        }
-      ]
+          snippet: bundleInTheBox,
+        },
+      ],
     },
     {
-      category:"Basic specification",
+      viewRef:descriptionRef,
+      category: "Basic specification",
       title: "Specifications ",
       content:
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
@@ -51,14 +57,15 @@ const Templates = () => {
       child: [
         {
           title: "Categorized specification",
-          content: "Displays the specification of the product via. table.",
+          content:
+            "Applies when the product specification needed to be categorized, specification can hav multiple categories. In that instance you can just copy the tags and append it on the end.",
           snippet: specsMarkupCategorized,
         },
       ],
     },
 
     {
-      category:" Description",
+      category: " Description",
       title: "Basic description ",
       content:
         " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
@@ -81,13 +88,13 @@ const Templates = () => {
     {
       category: "short description",
       title: " Basic short description ",
-      content: " Displays a short description of the product.",
+      content: "A short description is text that briefly introduces and describes a topic. In DITA, short desciptions are tagged with",
       snippet: shortDescription,
       child: [
         {
           title: "Bundled Short Description",
           content:
-            "Applies when a listing/product is a bundled,displays a short description of the product.",
+            "Applies when a listing/product is a bundled, displays a short description of the product.",
           snippet: shortDescriptionKit,
         },
       ],
@@ -111,21 +118,11 @@ const Templates = () => {
           snippet: seoMetaDescription,
         },
       ],
+      // viewState:seoRefView
     },
   ];
 
-//   const ref = useRef()
-//  const { ref: inViewRef, inView } = useInView();
- // Use `useCallback` so we don't recreate the function on each render
-  // const setRefs = useCallback(
-  //   (node) => {
-  //     Ref's from useRef needs to have the node assigned to `current`
-  //     ref.current = node;
-  //     Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-  //     inViewRef(node);
-  //   },
-  //   [inViewRef],
-  // );
+ 
   return (
     <>
       <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-8">
@@ -139,46 +136,47 @@ const Templates = () => {
               <Typography
                 variant="subtitle1"
                 className="font-bold text-[2.2rem] text-gray-800  "
-                
               >
                 Templates
               </Typography>
             }
             subTitle={
-              <Typography variant="subtitle1" className="text-gray-800  font-medium">
+              <Typography
+                variant="subtitle1"
+                className="text-gray-800  font-medium"
+              >
                 Create a Basic listing template for digiDirect . Copy the raw
                 template and paste in Magento.
               </Typography>
             }
           />
         </Box>
-        <Box className="space-y-32  box-border">
+        <Box className="space-y-32  box-border ">
           {/* space-y-12 between siblings */}
-          {articles.map((item) => 
-            (
-              // divided per category
-              <Box className="box-border" ref={storeRef} key={item.id} data-id={item.id}> 
-                <ArticleBlock
-                  article={item}
-                  titleFontSize="text-[1.6rem]"
-                  
-                >
-                  {item.child?.map((childNode) => (
-                    <Box key={childNode.id} className="box-border my-20 ">
-                      {/* my-12 between each child nodes */}
-                      <ArticleBlock
-                        article={childNode}
-                        titleFontSize="text-[1.3rem]"
-                      />
-                    </Box>
-                  ))}
-                </ArticleBlock>
-              </Box>
-            )
-          )}
+          {articles.map((item,id) => (
+            // divided per category
+            <Box
+              className="box-border scrollMargin "
+              // ref={setRefs(item?.viewState)}
+              key={id}
+              data-id={id}
+              ref={storeRef}
+            >
+              <ArticleBlock article={item} titleFontSize="text-[1.6rem]">
+                {item.child?.map((childNode,idx) => (
+                  <Box key={idx} className="box-border my-20 ">
+                    {/* my-12 between each child nodes */}
+                    <ArticleBlock
+                      article={childNode}
+                      titleFontSize="text-[1.3rem]"
+                    />
+                  </Box>
+                ))}
+              </ArticleBlock>
+            </Box>
+          ))}
         </Box>
-
-        {/* <p ref={setRefs}>{`hello`}</p> */}
+      
       </Box>
 
       {/* page navigation */}
@@ -226,7 +224,9 @@ const Templates = () => {
                 });
               }}
               className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
-               text-gray-500 hover:text-gray-800 transition-all duration-500 ease-in-out
+                hover:text-gray-800 transition-all duration-500 ease-in-out
+
+              //  ${id===3&& descriptionViewState? 'text-blue-500':'text-gray-500'}
                    flex items-center justify-center `}
             >
               {/* <BiChevronRight
