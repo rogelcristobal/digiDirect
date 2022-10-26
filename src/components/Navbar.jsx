@@ -20,7 +20,7 @@ const Navbar = () => {
     `}
     >
       <Box className="ml-2">
-          <DigiLogoInJs dark color="text-blue-500 text-lg font-medium"></DigiLogoInJs>
+          {/* <DigiLogoInJs dark color="text-blue-500 text-lg font-medium"></DigiLogoInJs> */}
       </Box>
       {/* [#635dff] */}
       <div
