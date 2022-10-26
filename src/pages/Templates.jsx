@@ -125,11 +125,11 @@ const Templates = () => {
  
   return (
     <>
-      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-8">
+      <Box className="w-full h-auto box-border px-12  pt-12 pb-36 space-y-8">
         {" "}
         {/* space-y-12 between title and child */}
         {/* page title */}
-        <Box className="pb-8  w-full ">
+        <Box className="pb-8  w-full box-border px-0">
           <PageTitle
             category="general"
             title={
