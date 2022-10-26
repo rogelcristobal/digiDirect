@@ -65,23 +65,10 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
             </Typography>
           }
         />
-        <Box className="relative box-border h-fit">
-          {article?.snippet && <CodeBlock snippet={article?.snippet} />}
+        <Box className="relative box-border h-fit  w-full">
+          {article?.snippet && <CodeBlock handleCopy={handleToggleCopyToggle} snippet={article?.snippet} />}
 
-          {/* btn container  (this will only show if a codeblock is present) */}
-          {article?.snippet && (
-            <Box className="absolute box-border right-[0rem]  top-0  p-2.5  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-4">
-            {/* <Box className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  px-0 py-2  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-4"> */}
-              
-              <IconButton
-                variant="contained"
-                className="hover:text-gray-300 hover:border-gray-300 text-gray-300/30  border-solid border-gray-500/30 border-[1.5px]  font-medium rounded-md  bg-transparent shadow-none text-xs normal-case px-2 py-2"
-                onClick={handleToggleCopyToggle}
-              >
-                <AiOutlineCopy className="text-sm" />
-              </IconButton>
-            </Box>
-          )}
+          
         </Box>
       </Box>
       {/* if nesteded nodes are present*/}

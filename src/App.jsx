@@ -14,12 +14,16 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
-import Dashboard from "./pages/Dashboard";
-import Templates from "./pages/Templates";
-import OpenBox from "./pages/OpenBox";
-import Converter from "./pages/Converter";
-import { useEffect, useRef, useContext } from "react";
+
+import { useEffect, useRef, useContext, lazy, Suspense } from "react";
+
 import NavScrollContext from "./context/NavScrollContext";
+
+import LoadingFallback from './components/LoadingFallback'
+const Templates = lazy(() => import("./pages/Templates"));
+const Converter = lazy(() => import("./pages/Converter"));
+const OpenBox = lazy(() => import("./pages/OpenBox"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
 // query
 const queryClient = new QueryClient();
 
@@ -64,18 +68,24 @@ const Main = () => {
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Navbar />
-              <Box component="main" className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full ">
+              <Box
+                component="main"
+                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full "
+                
+              >
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}
                   className="h-full scroll-smooth overflow-auto w-full  flex pt-[4.2rem] items-start justify-center box-border "
                 >
-                  <Routes>
-                    <Route index element={<Dashboard />} />
-                    <Route path="/templates" element={<Templates />} />
-                    <Route path="/open-box-listing" element={<OpenBox />} />
-                    <Route path="/converter" element={<Converter />} />
-                  </Routes>
+                  <Suspense  fallback={<LoadingFallback/>}>
+                    <Routes>
+                      <Route index element={<Dashboard />} />
+                      <Route path="/templates" element={<Templates />} />
+                      <Route path="/open-box-listing" element={<OpenBox />} />
+                      <Route path="/converter" element={<Converter />} />
+                    </Routes>
+                  </Suspense>
                 </Box>
               </Box>
             </Box>

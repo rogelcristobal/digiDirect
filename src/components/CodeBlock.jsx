@@ -5,10 +5,10 @@ import {
   SandpackLayout,
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
-import { html } from "@codemirror/lang-html";
+import {Box, IconButton} from '@mui/material'
+import { AiOutlineCopy } from "react-icons/ai"; 
 
-import { css } from "@codemirror/lang-css";
-const CodeBlock = ({ snippet }) => {
+const CodeBlock = ({ snippet,handleCopy }) => {
   const theme = {
     colors: {
     surface1: "#011627",
@@ -123,9 +123,9 @@ const CodeBlock = ({ snippet }) => {
         },
       }}
     >
-      <SandpackLayout className="box-border  rounded-lg ">
+      <SandpackLayout className="box-border  rounded-xl  flex items-center justify-center w-full   relative">
         <SandpackCodeViewer
-          className="h-fit  min-h-[4.5rem]   px-4 py-2 box-border rounded-none" // styles for the code viewer itself
+          className="h-fit  min-h-[4.5rem] w-full  px-4 py-2 box-border rounded-none" // styles for the code viewer itself
           // additionalLanguages={[
           //   {
           //     name: "html",
@@ -147,6 +147,23 @@ const CodeBlock = ({ snippet }) => {
           
         />
       </SandpackLayout>
+
+
+
+      {/* btn container  (this will only show if a codeblock is present) */}
+          {snippet && (
+            <Box className="absolute box-border right-1  top-0  p-2.5  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-4">
+              {/* <Box className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  px-0 py-2  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-4"> */}
+
+              <IconButton
+                variant="contained"
+                className=" hover:border-gray-500 text-gray-300  border-solid border-gray-300/20 border-[1.5px] transition-all duration-300 ease-in-out font-medium rounded-lg  bg-transparent shadow-none  normal-case px-2 py-2"
+                onClick={handleCopy}
+              >
+                <AiOutlineCopy className="text-sm" />
+              </IconButton>
+            </Box>
+          )}
     </SandpackProvider>
   );
 };

@@ -4,7 +4,7 @@
 
 @layer components {
    *{
-        @apply box-border
+        @apply box-border 
     } 
   ::-webkit-scrollbar {
     @apply w-2 bg-gray-200;
