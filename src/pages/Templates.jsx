@@ -168,7 +168,7 @@ const Templates = () => {
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
-                      titleFontSize="text-[1.3rem]"
+                      titleFontSize="text-[1.2rem]"
                     />
                   </Box>
                 ))}
