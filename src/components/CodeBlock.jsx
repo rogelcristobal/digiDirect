@@ -138,7 +138,7 @@ const CodeBlock = ({ snippet,handleCopy }) => {
           //     language: css(),
           //   },
           // ]}
-          showTabs
+          // showTabs
           // showLineNumbers
           // showInlineErrors
           wrapContent
