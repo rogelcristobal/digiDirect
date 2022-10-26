@@ -29,8 +29,9 @@ const ListItemBtnExpandable = ({
         disableGutters
         dense
         disableRipple
+        disableTouchRipple
         onClick={handleClick}
-        className={`flex ${isOpen&&`${bgColor}`} justify-between  ${isOpen?`${textColor}`:'text-gray-700'} items-center  box-border py-3 pl-7 transition-all duration-300 ease-in-out `}
+        className={`flex  bg-transparent justify-between  ${isOpen?`${textColor}`:'text-gray-700'} items-center  box-border py-3 pl-7 transition-all duration-300 ease-in-out `}
       >
         <Box className="flex h-full w-full space-x-3 ">
           <Typography
@@ -40,7 +41,7 @@ const ListItemBtnExpandable = ({
             {title}
           </Typography>
         </Box>
-        <Box className="box-border  h-fit grid place-content-center  mr-2">
+        <Box className="box-border  h-fit grid place-content-center  mr-4">
 
           {isOpen ?
             enableIcon : disableIcon

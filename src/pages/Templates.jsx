@@ -4,6 +4,7 @@ import PageTitle from "../components/PageTitle";
 import template from "../template/template";
 import ArticleBlock from "../components/ArticleBlock";
 import { useInView } from "react-intersection-observer";
+import Card from "../components/Card";
 const Templates = () => {
   const {
     inTheBoxMarkup,
@@ -22,18 +23,17 @@ const Templates = () => {
 
   const pageCategoryRef = useRef([]);
   pageCategoryRef.current = [];
-   const { ref: descriptionRef, inView:descriptionViewState } = useInView();
+  const { ref: descriptionRef, inView: descriptionViewState } = useInView();
   const storeRef = (element) => {
     if (element && !pageCategoryRef.current.includes(element)) {
       pageCategoryRef.current.push(element);
       // console.log(element)
-    
     }
   };
 
   // use inview
 
-  const articles = [  
+  const articles = [
     {
       category: "what's in the box ",
       title: "Included in the box",
@@ -48,7 +48,7 @@ const Templates = () => {
       ],
     },
     {
-      viewRef:descriptionRef,
+      viewRef: descriptionRef,
       category: "Basic specification",
       title: "Specifications ",
       content:
@@ -88,7 +88,8 @@ const Templates = () => {
     {
       category: "short description",
       title: " Basic short description ",
-      content: "A short description is text that briefly introduces and describes a topic. In DITA, short desciptions are tagged with",
+      content:
+        "A short description is text that briefly introduces and describes a topic. In DITA, short desciptions are tagged with",
       snippet: shortDescription,
       child: [
         {
@@ -122,20 +123,19 @@ const Templates = () => {
     },
   ];
 
- 
   return (
     <>
-      <Box className="w-full h-auto box-border px-12  pt-12 pb-36 space-y-8">
+      <Box className="w-full h-auto box-border px-12  pt-12 pb-36 space-y-12">
         {" "}
         {/* space-y-12 between title and child */}
         {/* page title */}
         <Box className="pb-8  w-full box-border px-0">
           <PageTitle
-            category="general"
+            category="product listing"
             title={
               <Typography
                 variant="subtitle1"
-                className="font-bold text-[2.2rem] text-gray-800  "
+                className="font-semibold text-[2.1rem] text-gray-800  "
               >
                 Templates
               </Typography>
@@ -151,9 +151,12 @@ const Templates = () => {
             }
           />
         </Box>
+        {/* <Box className="box-border w-full flex justify-start">
+          <Card></Card>
+        </Box> */}
         <Box className="space-y-32  box-border ">
           {/* space-y-12 between siblings */}
-          {articles.map((item,id) => (
+          {articles.map((item, id) => (
             // divided per category
             <Box
               className="box-border scrollMargin "
@@ -162,8 +165,8 @@ const Templates = () => {
               data-id={id}
               ref={storeRef}
             >
-              <ArticleBlock article={item} titleFontSize="text-[1.6rem]">
-                {item.child?.map((childNode,idx) => (
+              <ArticleBlock article={item} titleFontSize="text-[1.5rem]">
+                {item.child?.map((childNode, idx) => (
                   <Box key={idx} className="box-border my-20 ">
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
@@ -176,7 +179,6 @@ const Templates = () => {
             </Box>
           ))}
         </Box>
-      
       </Box>
 
       {/* page navigation */}
@@ -226,7 +228,11 @@ const Templates = () => {
               className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
                 hover:text-gray-800 transition-all duration-500 ease-in-out
 
-              //  ${id===3&& descriptionViewState? 'text-blue-500':'text-gray-500'}
+              //  ${
+                id === 3 && descriptionViewState
+                  ? "text-blue-500"
+                  : "text-gray-500"
+              }
                    flex items-center justify-center `}
             >
               {/* <BiChevronRight
