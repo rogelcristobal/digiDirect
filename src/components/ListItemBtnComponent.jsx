@@ -19,7 +19,7 @@ const ListItemBtnComponent = ({
                 : " text-blue-500 no-underline"
               : // inactive
               parentBtn
-              ? "text-gray-700 no-underline"
+              ? "text-gray-900 no-underline"
               : "text-gray-400  no-underline"
           // isActive ? `text-green-400  no-underline` : " bg-inherit text-neutral-50 no-underline "
         }

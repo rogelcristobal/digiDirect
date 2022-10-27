@@ -31,7 +31,7 @@ const ListItemBtnExpandable = ({
         disableRipple
         disableTouchRipple
         onClick={handleClick}
-        className={`flex  bg-transparent justify-between  ${isOpen?`${textColor}`:'text-gray-700'} items-center  box-border py-3 pl-7 transition-all duration-300 ease-in-out `}
+        className={`flex  bg-transparent justify-between  ${isOpen?`${textColor}`:'text-gray-900'} items-center  box-border py-3 pl-7 transition-all duration-300 ease-in-out `}
       >
         <Box className="flex h-full w-full space-x-3 ">
           <Typography
@@ -62,7 +62,7 @@ const ListItemBtnExpandable = ({
 
 ListItemBtnExpandable.defaultProps = {
   bgColor: "bg-purple-50",
-  textColor: "text-gray-700",
+  textColor: "text-gray-900",
 };
 
 export default ListItemBtnExpandable;
