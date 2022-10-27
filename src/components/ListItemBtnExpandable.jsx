@@ -27,7 +27,7 @@ const ListItemBtnExpandable = ({
     <>
       <ListItemButton
         disableGutters
-        dense
+        
         disableRipple
         disableTouchRipple
         onClick={handleClick}
@@ -36,7 +36,7 @@ const ListItemBtnExpandable = ({
         <Box className="flex h-full w-full space-x-3 ">
           <Typography
             variant="body2"
-            className=" text-[0.875] font-semibold capitalize"
+            className=" text-[0.875] font-medium capitalize"
           >
             {title}
           </Typography>
@@ -52,7 +52,7 @@ const ListItemBtnExpandable = ({
 
       {/* children */}
       <Collapse in={isOpen} timeout="auto" unmountOnExit className="">
-        <List component="div" className="pl-2 ">
+        <List component="div" className="pl-2 py-0 ">
           {children}
         </List>
       </Collapse>

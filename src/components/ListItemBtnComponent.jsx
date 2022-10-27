@@ -26,13 +26,13 @@ const ListItemBtnComponent = ({
       >
         <ListItemButton
           disableRipple
-          className={`m-0 flex items-center font-sans justify-start bg-inherit  capitalize relative ${
+          className={`m-0 flex items-center   justify-start bg-inherit  capitalize relative ${
             parentBtn ? "pl-7 py-3 " : "pl-8 py-3"
           } space-x-3 `}
         >
           <Typography
             variant="body2"
-            className={`font-semibold   ${
+            className={`font-medium   ${
               parentBtn ? "text-[0.875]" : "text-[0.80rem] "
             }`}
           >
