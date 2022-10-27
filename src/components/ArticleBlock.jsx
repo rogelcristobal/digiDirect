@@ -51,7 +51,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 					title={
 						<Typography
 							variant="subtitle1"
-							className={`font-semibold  ${titleFontSize}  text-gray-800  `}
+							className={`font-medium  ${titleFontSize}  text-gray-800  `}
 						>
 							{article.title}
 						</Typography>
@@ -59,7 +59,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 					subTitle={
 						<Typography
 							variant="subtitle1"
-							className={`text-gray-800 font-medium  text-[0.9rem] `}
+							className={`text-gray-800 font-normal  text-[0.9rem] `}
 						>
 							{article.content}
 						</Typography>
@@ -72,6 +72,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 							snippet={article?.snippet}
 						/>
 					)}
+					
 				</Box>
 			</Box>
 			{/* if nesteded nodes are present*/}

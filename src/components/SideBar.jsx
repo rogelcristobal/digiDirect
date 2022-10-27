@@ -18,7 +18,7 @@ import { IoShapes } from "react-icons/io5";
 const SideBar = () => {
   // f7f8fa
   return (
-    <Box className="h-screen w-[23rem]   bg-inherit  z-20 box-border relative ">
+    <Box className="h-screen w-[20rem]   bg-inherit  z-20 box-border relative ">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"

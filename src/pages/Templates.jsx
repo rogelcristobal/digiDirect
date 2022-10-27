@@ -143,7 +143,7 @@ const Templates = () => {
             subTitle={
               <Typography
                 variant="subtitle1"
-                className="text-gray-800  font-medium"
+                className="text-gray-600  font-medium"
               >
                 Create a Basic listing template for digiDirect . Copy the raw
                 template and paste in Magento.
