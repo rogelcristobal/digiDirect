@@ -46,7 +46,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
     // },
     // light
     colors: {
-      surface1: "white",
+      surface1: "#f8f9fb",
       surface2: "#EBEDF0",
       surface3: "#e4e7eb",
       clickable: "#737373",
@@ -121,7 +121,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
     >
       <SandpackLayout
         ref={container}
-        className="box-border  rounded-lg border-thiner  flex items-center justify-center w-full   relative"
+        className="box-border  rounded-lg border-  flex items-center justify-center w-full   relative"
       >
         <SandpackCodeViewer
           className="h-fit  min-h-[4.5rem] w-full  px-4 py-2 box-border rounded-none" // styles for the code 

@@ -49,8 +49,8 @@ const SideBar = () => {
               title="product listing"
               initialState={true}
               icon={<AiTwotoneTags className="text-xs " />}
-              enableIcon={<HiChevronDown className="text-gray-400 text-xl" />}
-              disableIcon={<HiChevronRight className="text-gray-400 text-xl" />}
+              enableIcon={<HiChevronDown className="text-gray-800  text-lg" />}
+              disableIcon={<HiChevronRight className="text-gray-800 text-lg" />}
             >
               {[
                 { title: "quick create", path: "/xyz" },

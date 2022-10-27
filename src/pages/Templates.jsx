@@ -165,13 +165,13 @@ const Templates = () => {
               data-id={id}
               ref={storeRef}
             >
-              <ArticleBlock article={item} titleFontSize="text-[1.5rem]">
+              <ArticleBlock article={item} titleFontSize="text-[1.6rem]">
                 {item.child?.map((childNode, idx) => (
                   <Box key={idx} className="box-border my-20 ">
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
-                      titleFontSize="text-[1.2rem]"
+                      titleFontSize="text-[1.3rem]"
                     />
                   </Box>
                 ))}

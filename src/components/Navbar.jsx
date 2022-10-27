@@ -11,16 +11,20 @@ const Navbar = () => {
   const { scrollPosition  } = useContext(NavScrollContext);
   // console.log('scroll state change')
   return (
+    // <Box
+    //   component="nav"
+    //   className={` fixed  ${
+    //     scrollPosition >= 100 ? 'h-[4.1rem] pt-2' : "h-0 "
+    //   } bg-gray-900  transition-all duration-300 ease-in-out px-6 z-20 w-full top-0   left-0 box-border flex items-center justify-between  overflow-y-hidden shadow
+    // `}
     
     <Box
       component="nav"
-      className={` fixed  ${
-        scrollPosition >= 100 ? 'h-[4.1rem] pt-2' : "h-0 "
-      } bg-[#ffffff]  trnsition-all duration-300 ease-in-out px-6 z-20 w-full top-0   left-0 box-border flex items-center justify-between  border-thiner overflow-y-hidden
+      className={` fixed  h-[4.1rem] pt-2 bg-[#131c28]  transition-all duration-300 ease-in-out px-6 z-20 w-full top-0   left-0 box-border flex items-center justify-between  overflow-y-hidden shadow
     `}
     >
       <Box className="ml-2">
-          {/* <DigiLogoInJs dark color="text-blue-500 text-lg font-medium"></DigiLogoInJs> */}
+          <DigiLogoInJs  color="text-gray-100 text-lg "></DigiLogoInJs>
       </Box>
       {/* [#635dff] */}
       <div
@@ -29,15 +33,15 @@ const Navbar = () => {
         
         {/* rightside box icons */}
         <Box className="flex items-center justify-around space-x-4 box-border">
-          <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-blue-50 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
             <HiOutlineMoon></HiOutlineMoon>
           </Box>
           
-            <a href="https://github.com/rogelcristobal/digiDirect" target="_blank" className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all duration-300 ease-in-out   hover:border-thin   no-underline">
+            <a href="https://github.com/rogelcristobal/digiDirect" target="_blank" className="p-2 grid place-content-center cursor-pointer text-blue-50 transition-all duration-300 ease-in-out   hover:border-thin   no-underline">
               <FiGithub></FiGithub>
             </a>
          
-          <Box className="p-2 grid place-content-center cursor-pointer text-blue-500 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-blue-50 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
             <AiOutlineUser></AiOutlineUser>
           </Box>
         </Box>
