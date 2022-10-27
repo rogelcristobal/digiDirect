@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/digiDirect/static/css/main.06c994de.css",
+    "main.js": "/digiDirect/static/js/main.9bd947b1.js",
+    "static/js/383.7ed00360.chunk.js": "/digiDirect/static/js/383.7ed00360.chunk.js",
+    "static/js/569.80e1a0df.chunk.js": "/digiDirect/static/js/569.80e1a0df.chunk.js",
+    "static/js/875.72794aa2.chunk.js": "/digiDirect/static/js/875.72794aa2.chunk.js",
+    "static/js/480.70964ae8.chunk.js": "/digiDirect/static/js/480.70964ae8.chunk.js",
+    "static/js/787.633816a4.chunk.js": "/digiDirect/static/js/787.633816a4.chunk.js",
+    "static/js/972.a7272e74.chunk.js": "/digiDirect/static/js/972.a7272e74.chunk.js",
+    "static/js/643.3fa45c26.chunk.js": "/digiDirect/static/js/643.3fa45c26.chunk.js",
+    "index.html": "/digiDirect/index.html",
+    "main.06c994de.css.map": "/digiDirect/static/css/main.06c994de.css.map",
+    "main.9bd947b1.js.map": "/digiDirect/static/js/main.9bd947b1.js.map",
+    "383.7ed00360.chunk.js.map": "/digiDirect/static/js/383.7ed00360.chunk.js.map",
+    "569.80e1a0df.chunk.js.map": "/digiDirect/static/js/569.80e1a0df.chunk.js.map",
+    "875.72794aa2.chunk.js.map": "/digiDirect/static/js/875.72794aa2.chunk.js.map",
+    "480.70964ae8.chunk.js.map": "/digiDirect/static/js/480.70964ae8.chunk.js.map",
+    "787.633816a4.chunk.js.map": "/digiDirect/static/js/787.633816a4.chunk.js.map",
+    "972.a7272e74.chunk.js.map": "/digiDirect/static/js/972.a7272e74.chunk.js.map",
+    "643.3fa45c26.chunk.js.map": "/digiDirect/static/js/643.3fa45c26.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.06c994de.css",
+    "static/js/main.9bd947b1.js"
+  ]
+}
