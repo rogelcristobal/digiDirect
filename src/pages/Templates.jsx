@@ -2,9 +2,9 @@ import { useRef, lazy } from "react";
 import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import template from "../template/template";
-import {BiLeftArrowAlt} from 'react-icons/bi'
+import { IoChevronBack } from "react-icons/io5";
 import { useInView } from "react-intersection-observer";
-const ArticleBlock = lazy(()=>import("../components/ArticleBlock"))
+const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
   const {
@@ -126,26 +126,22 @@ const Templates = () => {
 
   return (
     <>
-      <Box className="w-[24rem]   h-full  sticky top-2 px-0 box-border  flex flex-col justify-between pb-8 items-center">
-        
-        <Box className="space-x-4 w-full box-border px-8  flex  justify-start items-center ">
-           
+      <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-between pb-8 pt-4 items-center">
+        <Box className=" w-full box-border px-8  flex flex-col  space-y-5 justify-start items-start ">
+          
           <PageTitle
             category="product listing"
             bottomCategory
             title={
               <Typography
                 variant="subtitle1"
-                className="font-semibold text-[1.7rem] text-[#00203e] leading-10 "
+                className="font-semibold text-[1.5rem] text-[#00203e] leading-10 "
               >
                 Templates
               </Typography>
             }
           />
-          {/* <Box className="text-[1.5rem]  grid place-content-center h-fit">
-            <BiLeftArrowAlt />
-          </Box> */}
-          
+         
         </Box>
         {/* on the page */}
         <Box
@@ -154,12 +150,12 @@ const Templates = () => {
         >
           <Typography
             variant="subtitle1"
-            className="text-sm text-gray-800  font-semibold "
+            className="text-sm text-[#00203e] font-semibold "
           >
             On this page
           </Typography>
 
-          <Box className="flex mt-4 flex-col box-border  pl-2 items-start justify-start h-full  w-fit space-y-3 relative">
+          <Box className="flex mt-4 flex-col box-border  pl-2 items-start justify-start h-full  w-fit space-y-2 relative">
             {[
               {
                 title: "What's in the box",
@@ -191,7 +187,7 @@ const Templates = () => {
                     block: "start",
                   });
                 }}
-                className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
+                className={`font-poppins text-[0.875rem] font-medium cursor-pointer 
                 hover:text-gray-800 transition-all duration-500 ease-in-out
 
               //  ${
@@ -214,7 +210,7 @@ const Templates = () => {
           </Box>
         </Box>
       </Box>
-      <Box className="w-full h-auto box-border px-14  pt-8 pb-36 space-y-12">
+      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12">
         {" "}
         {/* space-y-12 between title and child */}
         {/* <Box className="box-border w-full flex justify-start">
@@ -231,13 +227,13 @@ const Templates = () => {
               data-id={id}
               ref={storeRef}
             >
-              <ArticleBlock article={item} titleFontSize="text-[1.4rem]">
+              <ArticleBlock article={item} titleFontSize="text-[1.5rem]">
                 {item.child?.map((childNode, idx) => (
                   <Box key={idx} className="box-border my-24 ">
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
-                      titleFontSize="text-[1.2rem]"
+                      titleFontSize="text-[1.3rem]"
                     />
                   </Box>
                 ))}

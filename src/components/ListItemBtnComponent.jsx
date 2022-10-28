@@ -10,24 +10,24 @@ const ListItemBtnComponent = ({
     <>
       <NavLink
         to={`${path}`}
-        className={
+        className={ 
           ({ isActive }) =>
             isActive
               ? // active
                 parentBtn
-                ? "text-sky-500 no-underline"
-                : " text-sky-500 no-underline"
-              : // inactive
+                ? "text-[#017eff] no-underline border-b-2 "
+                : " text-[#017eff] no-underline"
+              :  // inactive
               parentBtn
-              ? "text-gray-700 no-underline"
+              ? "text-gray-400 no-underline"
               : "text-gray-400  no-underline"
-          // isActive ? `text-green-400  no-underline` : " bg-inherit text-neutral-50 no-underline "
+          
         }
       >
         <ListItemButton
           disableRipple
           className={`m-0 flex items-center  justify-start bg-inherit  capitalize relative ${
-            parentBtn ? "pl-7 py-2.5" : "pl-8 py-2.5"
+            parentBtn ? " py-2.5" : "pl-8 py-2.5"
           } space-x-3 `}
         >
           <Typography
