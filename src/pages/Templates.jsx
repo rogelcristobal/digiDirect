@@ -2,7 +2,7 @@ import { useRef, lazy } from "react";
 import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import template from "../template/template";
-// import ArticleBlock from "../components/ArticleBlock";
+import {BiLeftArrowAlt} from 'react-icons/bi'
 import { useInView } from "react-intersection-observer";
 const ArticleBlock = lazy(()=>import("../components/ArticleBlock"))
 
@@ -126,23 +126,26 @@ const Templates = () => {
 
   return (
     <>
-      <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-between pb-8 items-center">
+      <Box className="w-[24rem]   h-full  sticky top-2 px-0 box-border  flex flex-col justify-between pb-8 items-center">
         
         <Box className="space-x-4 w-full box-border px-8  flex  justify-start items-center ">
-           {/* <Box className="text-[1.5rem]  grid place-content-center h-fit">
-            <BiLeftArrowAlt />
-          </Box> */}
+           
           <PageTitle
-            // category="product listing"
+            category="product listing"
+            bottomCategory
             title={
               <Typography
                 variant="subtitle1"
-                className="font-semibold text-[1.7rem] text-gray-800 leading-10 "
+                className="font-semibold text-[1.7rem] text-[#00203e] leading-10 "
               >
                 Templates
               </Typography>
             }
           />
+          {/* <Box className="text-[1.5rem]  grid place-content-center h-fit">
+            <BiLeftArrowAlt />
+          </Box> */}
+          
         </Box>
         {/* on the page */}
         <Box
