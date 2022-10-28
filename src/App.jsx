@@ -7,19 +7,17 @@ import {
 import { Box } from "@mui/material";
 import { Routes, Route, HashRouter } from "react-router-dom";
 // icons
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
-import SideBar from "./components/SideBar";
-
+import { useLocation } from "react-router-dom";
 import { useEffect, useRef, useContext, lazy, Suspense } from "react";
-
+import ScrollTopWidget from "./components/ScrollTopWidget";
 import NavScrollContext from "./context/NavScrollContext";
 
-import LoadingFallback from './components/LoadingFallback'
+import LoadingFallback from "./components/LoadingFallback";
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const OpenBox = lazy(() => import("./pages/OpenBox"));
@@ -51,6 +49,18 @@ const App = () => {
 const Main = () => {
   const { handleScroll } = useContext(NavScrollContext);
   const scrollRef = useRef(null);
+  const { pathname } = useLocation();
+  
+  // this code will run every page changes to scroll to top immediately
+  useEffect(() => {
+    scrollRef.current.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
+  // this code  will get the scrolling position of element
   useEffect(() => {
     handleScroll(scrollRef);
   }, []);
@@ -70,15 +80,14 @@ const Main = () => {
               <Navbar />
               <Box
                 component="main"
-                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full "
-                
+                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full relative"
               >
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}
                   className="h-full scroll-smooth overflow-x-hidden w-full  flex pt-[4.2rem] items-start justify-center box-border "
                 >
-                  <Suspense  fallback={<LoadingFallback/>}>
+                  <Suspense fallback={<LoadingFallback />}>
                     <Routes>
                       <Route index element={<Dashboard />} />
                       <Route path="/templates" element={<Templates />} />
@@ -87,6 +96,9 @@ const Main = () => {
                     </Routes>
                   </Suspense>
                 </Box>
+
+                {/* widget (scroll top) */}
+                <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget>
               </Box>
             </Box>
           </Box>

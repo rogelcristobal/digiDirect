@@ -1,9 +1,7 @@
-import { useRef, lazy } from "react";
+import { useRef, lazy ,useEffect} from "react";
 import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import template from "../template/template";
-import { IoChevronBack } from "react-icons/io5";
-import { useInView } from "react-intersection-observer";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -24,7 +22,7 @@ const Templates = () => {
 
   const pageCategoryRef = useRef([]);
   pageCategoryRef.current = [];
-  const { ref: descriptionRef, inView: descriptionViewState } = useInView();
+  // const { ref: descriptionRef, inView: descriptionViewState } = useInView();
   const storeRef = (element) => {
     if (element && !pageCategoryRef.current.includes(element)) {
       pageCategoryRef.current.push(element);
@@ -49,7 +47,7 @@ const Templates = () => {
       ],
     },
     {
-      viewRef: descriptionRef,
+      // viewRef: descriptionRef,
       category: "Basic specification",
       title: "Specifications ",
       content:
@@ -124,24 +122,23 @@ const Templates = () => {
     },
   ];
 
+
   return (
     <>
-      <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-between pb-8 pt-4 items-center">
-        <Box className=" w-full box-border px-8  flex flex-col  space-y-5 justify-start items-start ">
-          
+      <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-between pb-8 pt-4 items-start ">
+        <Box className=" w-full box-border px-8 overflow-hidden cursor-default  flex flex-col  space-y-5 justify-start items-start  pl-8">
           <PageTitle
             category="product listing"
             bottomCategory
             title={
               <Typography
                 variant="subtitle1"
-                className="font-semibold text-[1.5rem] text-[#00203e] leading-10 "
+                className="font-semibold  truncate  text-[1.5rem] text-[#00203e] leading-10 "
               >
-                Templates
+               Templates
               </Typography>
             }
           />
-         
         </Box>
         {/* on the page */}
         <Box
@@ -187,16 +184,15 @@ const Templates = () => {
                     block: "start",
                   });
                 }}
-                className={`font-poppins text-[0.875rem] font-medium cursor-pointer 
-                hover:text-gray-800 transition-all duration-500 ease-in-out
-
-              //  ${
-                id === 3 && descriptionViewState
-                  ? "text-blue-500"
-                  : "text-gray-500"
-              }
-                   flex items-center justify-center `}
-              >
+              //   ${
+              //    id === 3 && descriptionViewState
+              //      ? "text-blue-500"
+              //      : "text-gray-500"
+              //  }
+                className={`font-poppins text-gray-500 font-medium cursor-pointer 
+                hover:text-gray-800 transition-all duration-500 ease-in-out text-sm
+                flex items-center justify-center `}
+                >
                 {/* <BiChevronRight
                 className={`text-xl  ${
                   item.reference.viewState
@@ -210,12 +206,10 @@ const Templates = () => {
           </Box>
         </Box>
       </Box>
+      {/* main content */}
       <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12">
         {" "}
         {/* space-y-12 between title and child */}
-        {/* <Box className="box-border w-full flex justify-start">
-          <Card></Card>
-        </Box> */}
         <Box className="space-y-32  box-border ">
           {/* space-y-12 between siblings */}
           {articles.map((item, id) => (

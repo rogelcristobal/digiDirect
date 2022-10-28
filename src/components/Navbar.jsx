@@ -42,8 +42,8 @@ const Navbar = () => {
           {[
             { title: "templates", path: "/templates" },
             { title: "converter", path: "/converter" },
-          ].map((item) => (
-            <Box key={item.id} className=" h-full w-fit grid place-content-center">
+          ].map((item,id) => (
+            <Box key={id} className=" h-full w-fit grid place-content-center">
 
              <ListItemBtnComponent
               path={`${item.path}`}
