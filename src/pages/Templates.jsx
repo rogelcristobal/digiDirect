@@ -125,7 +125,7 @@ const Templates = () => {
 
   return (
     <>
-      <Box className="w-full h-auto box-border px-12  pt-12 pb-36 space-y-12">
+      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12">
         {" "}
         {/* space-y-12 between title and child */}
         {/* page title */}
@@ -135,7 +135,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className="font-semibold text-[2.1rem] text-gray-800  "
+                className="font-medium text-[1.8rem] text-gray-800  "
               >
                 Templates
               </Typography>
@@ -165,13 +165,13 @@ const Templates = () => {
               data-id={id}
               ref={storeRef}
             >
-              <ArticleBlock article={item} titleFontSize="text-[1.6rem]">
+              <ArticleBlock article={item} titleFontSize="text-[1.4rem]">
                 {item.child?.map((childNode, idx) => (
                   <Box key={idx} className="box-border my-20 ">
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
-                      titleFontSize="text-[1.3rem]"
+                      titleFontSize="text-[1.2rem]"
                     />
                   </Box>
                 ))}

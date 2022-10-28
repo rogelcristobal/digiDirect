@@ -51,7 +51,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 					title={
 						<Typography
 							variant="subtitle1"
-							className={`font-semibold  ${titleFontSize}  text-gray-800  `}
+							className={`font-medium  ${titleFontSize}  text-gray-800  `}
 						>
 							{article.title}
 						</Typography>

@@ -47,7 +47,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
   .scrollMargin {
-    scroll-margin-top: 8rem;
+    scroll-margin-top: 7rem;
   }
   /* style to remove btn in number field */
   input::-webkit-outer-spin-button,

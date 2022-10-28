@@ -44,7 +44,7 @@ const SideBar = () => {
               parentBtn
             />
             <ListItemBtnExpandable
-              textColor="text-gray-900"
+              textColor="text-gray-700"
               bgColor="bg-gray-100/80"
               title="product listing"
               initialState={true}
