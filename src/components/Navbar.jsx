@@ -20,11 +20,11 @@ const Navbar = () => {
     
     <Box
       component="nav"
-      className={` fixed  h-[4.3rem] pt-2 bg-[#ffffff]  transition-all duration-300 ease-in-out px-6 z-20 w-full top-0 border-thiner  left-0 box-border flex items-center justify-between  overflow-y-hidden 
+      className={` fixed  h-[4.3rem] pt-2 bg-[#ffffff]  transition-all duration-300 ease-in-out px-6 z-10 w-full top-0   left-0 box-border flex items-center justify-between  overflow-y-hidden 
     `}
     >
       <Box className="ml-2">
-          <DigiLogoInJs dark color="text-sky-500 text-md font-medium"></DigiLogoInJs>
+          <DigiLogoInJs dark color="text-gray-400 text-md font-medium"></DigiLogoInJs>
       </Box>
       {/* [#635dff] */}
       <div
@@ -33,15 +33,15 @@ const Navbar = () => {
         
         {/* rightside box icons */}
         <Box className="flex items-center justify-around space-x-4 box-border">
-          <Box className="p-2 grid place-content-center cursor-pointer text-sky-500 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-[#017eff] transition-all dration-300 ease-in-out   hover:border-thin text-md ">
             <HiOutlineMoon></HiOutlineMoon>
           </Box>
           
-            <a href="https://github.com/rogelcristobal/digiDirect" target="_blank" className="p-2 grid place-content-center cursor-pointer text-sky-500 transition-all duration-300 ease-in-out   hover:border-thin   no-underline">
+            <a href="https://github.com/rogelcristobal/digiDirect" target="_blank" className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-[#017eff] transition-all duration-300 ease-in-out   hover:border-thin   no-underline">
               <FiGithub></FiGithub>
             </a>
          
-          <Box className="p-2 grid place-content-center cursor-pointer text-sky-500 transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-[#017eff] transition-all dration-300 ease-in-out   hover:border-thin text-md ">
             <AiOutlineUser></AiOutlineUser>
           </Box>
         </Box>

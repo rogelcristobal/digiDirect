@@ -45,7 +45,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 					Copied to clipboard! <br />
 				</Alert>
 			</Snackbar>
-			<Box component="article" className="w-full box-border space-y-4 ">
+			<Box component="article" className="w-full box-border space-y-6 ">
 				<PageTitle
 					category={article?.category}
 					title={
@@ -59,13 +59,14 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 					subTitle={
 						<Typography
 							variant="subtitle1"
-							className={`text-gray-800 font-normal  text-[0.9rem] `}
+							className={`text-gray-500 font-medium  text-[0.9rem] `}
 						>
 							{article.content}
 						</Typography>
 					}
 				/>
-				<Box className="relative box-border h-fit  w-full">
+				{/* code block width */}
+				<Box className="relative box-border h-fit max-w-[70%]  w-full">
 					{article?.snippet && (
 						<CodeBlock
 							handleCopy={handleToggleCopyToggle}

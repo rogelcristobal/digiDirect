@@ -1,10 +1,11 @@
-import { useRef, useCallback } from "react";
+import { useRef, lazy } from "react";
 import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/PageTitle";
 import template from "../template/template";
-import ArticleBlock from "../components/ArticleBlock";
+// import ArticleBlock from "../components/ArticleBlock";
 import { useInView } from "react-intersection-observer";
-import Card from "../components/Card";
+const ArticleBlock = lazy(()=>import("../components/ArticleBlock"))
+
 const Templates = () => {
   const {
     inTheBoxMarkup,
@@ -125,32 +126,94 @@ const Templates = () => {
 
   return (
     <>
-      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12">
-        {" "}
-        {/* space-y-12 between title and child */}
-        {/* page title */}
-        <Box className="pb-8  w-full box-border px-0">
+      <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-between pb-8 items-center">
+        
+        <Box className="space-x-4 w-full box-border px-8  flex  justify-start items-center ">
+           {/* <Box className="text-[1.5rem]  grid place-content-center h-fit">
+            <BiLeftArrowAlt />
+          </Box> */}
           <PageTitle
-            category="product listing"
+            // category="product listing"
             title={
               <Typography
                 variant="subtitle1"
-                className="font-medium text-[1.8rem] text-gray-800  "
+                className="font-semibold text-[1.7rem] text-gray-800 leading-10 "
               >
                 Templates
               </Typography>
             }
-            subTitle={
-              <Typography
-                variant="subtitle1"
-                className="text-gray-600  font-medium"
-              >
-                Create a Basic listing template for digiDirect . Copy the raw
-                template and paste in Magento.
-              </Typography>
-            }
           />
         </Box>
+        {/* on the page */}
+        <Box
+          className="h-fit       w-full box-border py-2 pl-8  flex flex-col items-start justify-start 
+        "
+        >
+          <Typography
+            variant="subtitle1"
+            className="text-sm text-gray-800  font-semibold "
+          >
+            On this page
+          </Typography>
+
+          <Box className="flex mt-4 flex-col box-border  pl-2 items-start justify-start h-full  w-fit space-y-3 relative">
+            {[
+              {
+                title: "What's in the box",
+                reference: {},
+              },
+              {
+                title: "Specifications",
+                reference: {},
+              },
+              {
+                title: `Descrptions `,
+                reference: {},
+              },
+              {
+                title: "Short description",
+                reference: {},
+              },
+              {
+                title: "Search Engine Optimization",
+                reference: {},
+              },
+            ].map((item, id) => (
+              <Link
+                key={id}
+                underline="none"
+                onClick={() => {
+                  pageCategoryRef.current[id].scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+                className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
+                hover:text-gray-800 transition-all duration-500 ease-in-out
+
+              //  ${
+                id === 3 && descriptionViewState
+                  ? "text-blue-500"
+                  : "text-gray-500"
+              }
+                   flex items-center justify-center `}
+              >
+                {/* <BiChevronRight
+                className={`text-xl  ${
+                  item.reference.viewState
+                    ? "text-sky-600 visible"
+                    : "invisible"
+                }`}
+              ></BiChevronRight> */}
+                {item.title}
+              </Link>
+            ))}
+          </Box>
+        </Box>
+      </Box>
+      <Box className="w-full h-auto box-border px-14  pt-8 pb-36 space-y-12">
+        {" "}
+        {/* space-y-12 between title and child */}
         {/* <Box className="box-border w-full flex justify-start">
           <Card></Card>
         </Box> */}
@@ -167,7 +230,7 @@ const Templates = () => {
             >
               <ArticleBlock article={item} titleFontSize="text-[1.4rem]">
                 {item.child?.map((childNode, idx) => (
-                  <Box key={idx} className="box-border my-20 ">
+                  <Box key={idx} className="box-border my-24 ">
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
@@ -182,71 +245,6 @@ const Templates = () => {
       </Box>
 
       {/* page navigation */}
-      <Box
-        className="h-fit mx-6 rounded-2xl w-80 box-border py-4 px-4 sticky top-10   flex flex-col items-start justify-start 
-        "
-      >
-        <Typography
-          variant="subtitle1"
-          className="text-sm text-gray-800  font-medium"
-        >
-          On this page
-        </Typography>
-
-        <Box className="flex flex-col box-border pl-2 items-start justify-start h-full mt-6 w-full space-y-3 relative">
-          {[
-            {
-              title: "What's in the box",
-              reference: {},
-            },
-            {
-              title: "Specifications",
-              reference: {},
-            },
-            {
-              title: `Descrptions `,
-              reference: {},
-            },
-            {
-              title: "Short description",
-              reference: {},
-            },
-            {
-              title: "Search Engine Optimization",
-              reference: {},
-            },
-          ].map((item, id) => (
-            <Link
-              key={id}
-              underline="none"
-              onClick={() => {
-                pageCategoryRef.current[id].scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }}
-              className={`font-poppins text-[0.775rem] font-medium cursor-pointer 
-                hover:text-gray-800 transition-all duration-500 ease-in-out
-
-              //  ${
-                id === 3 && descriptionViewState
-                  ? "text-blue-500"
-                  : "text-gray-500"
-              }
-                   flex items-center justify-center `}
-            >
-              {/* <BiChevronRight
-                className={`text-xl  ${
-                  item.reference.viewState
-                    ? "text-sky-600 visible"
-                    : "invisible"
-                }`}
-              ></BiChevronRight> */}
-              {item.title}
-            </Link>
-          ))}
-        </Box>
-      </Box>
     </>
   );
 };

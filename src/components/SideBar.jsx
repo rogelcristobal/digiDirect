@@ -18,7 +18,7 @@ import { IoShapes } from "react-icons/io5";
 const SideBar = () => {
   // f7f8fa
   return (
-    <Box className="h-screen w-[20rem]   bg-inherit  z-20 box-border relative ">
+    <Box className="h-screen w-[20rem]   bg-inherit  z-30 box-border relative ">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -27,7 +27,7 @@ const SideBar = () => {
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
       <Box className="h-20    w-full flex flex-col items-start  justify-center  px-8   box-border ">
-        {/* <DigiLogoInJs   dark color="text-blue-500 font-medium  text-[1.2rem]" /> */}
+        <DigiLogoInJs   dark color="text-gray-400 font-medium  text-md" />
       </Box>
       <Box className="w-full  box-border h-auto    ">
         <Paper

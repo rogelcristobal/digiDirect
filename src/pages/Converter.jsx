@@ -38,7 +38,7 @@ const Converter = () => {
   };
   return (
     <>
-         <Box className="w-full h-auto box-border px-12  pt-12 pb-36 space-y-12">
+         <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12">
         {/* page title */}
          <Box className="pb-8  w-full box-border px-0">
             <PageTitle
@@ -46,20 +46,20 @@ const Converter = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className="font-semibold text-[2.1rem] text-gray-800  "
+                className="font-medium text-[1.8rem] text-gray-800  "
               >
-                Converter
+                Converters
               </Typography>
             }
-            subTitle={
-              <Typography
-                variant="subtitle1"
-                className="text-gray-800  font-medium"
-              >
-                Create a Basic listing template for digiDirect . Copy the raw
-                template and paste in Magento.
-              </Typography>
-            }
+            // subTitle={
+            //   <Typography
+            //     variant="subtitle1"
+            //     className="text-gray-800  font-medium"
+            //   >
+            //     Create a Basic listing template for digiDirect . Copy the raw
+            //     template and paste in Magento.
+            //   </Typography>
+            // }
           />
           </Box>
           <Box className="box-border">

@@ -63,7 +63,7 @@ const Main = () => {
           <Box className="h-screen w-full text-gray-800  font-poppins  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
 
-            <SideBar />
+            {/* <SideBar /> */}
 
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
