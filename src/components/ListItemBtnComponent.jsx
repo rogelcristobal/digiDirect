@@ -18,11 +18,11 @@ const ListItemBtnComponent = ({
             isActive
               ? // active
                 parentBtn
-                ? "text-[#131918] no-underline "
-                : " text-[#131918] no-underline"
+                ? "text-white no-underline "
+                : " text-white no-underline"
               :  // inactive
               parentBtn
-              ? "text-[#131918] no-underline"
+              ? "text-white no-underline"
               : "text-gray-400  no-underline"
           
         }
@@ -35,7 +35,7 @@ const ListItemBtnComponent = ({
         >
           <Typography
             variant="body2"
-            className={` font-medium   ${
+            className={` font-normal   ${
               parentBtn ? "text-[0.9rem]" : "text-[0.80rem] "
             }`}
           >

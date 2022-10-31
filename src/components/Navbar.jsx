@@ -22,7 +22,7 @@ const Navbar = () => {
 
     <Box
       component="nav"
-      className={` fixed    h-[4.4rem] pt-2 bg-[#ffffff]  transition-all duration-300 ease-in-out px-6 z-10 w-full top-0  left-0 box-border flex items-center justify-between  overflow-y-hidden 
+      className={` fixed    h-[4.4rem] pt-2 bg-[#121418]  transition-all duration-300 ease-in-out px-6 z-10 w-full top-0  left-0 box-border flex items-center justify-between  overflow-y-hidden 
     `}
     >
       <Box className="ml-2  ">
@@ -36,7 +36,7 @@ const Navbar = () => {
         className={`w-[calc(100%-15rem)] box-border   h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500 `}
       >
         <Box className="flex items-center justify-end pr-20 space-x-3 box-border  w-full">
-          {/*  <Box key={item.id} className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-[#00203e] transition-all dration-300 ease-in-out text-sm font-medium capitalize">
+          {/*  <Box key={item.id} className="p-2 grid place-content-center cursor-pointer text-white hover:text-[#00203e] transition-all dration-300 ease-in-out text-sm font-medium capitalize">
              {item.title}
            </Box> */}
           {[
@@ -56,19 +56,19 @@ const Navbar = () => {
 
         {/* rightside box icons */}
         <Box className="flex items-center   justify-around space-x-4 box-border">
-          <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-[#017eff] transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-white  transition-all dration-300 ease-in-out   hover:border-thin text-md ">
             <HiOutlineMoon></HiOutlineMoon>
           </Box>
 
           <a
             href="https://github.com/rogelcristobal/digiDirect"
             target="_blank"
-            className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-[#017eff] transition-all duration-300 ease-in-out   hover:border-thin   no-underline"
+            className="p-2 grid place-content-center cursor-pointer text-white  transition-all duration-300 ease-in-out   hover:border-thin   no-underline"
           >
             <FiGithub></FiGithub>
           </a>
 
-          <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-[#017eff] transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-white  transition-all dration-300 ease-in-out   hover:border-thin text-md ">
             <AiOutlineUser></AiOutlineUser>
           </Box>
         </Box>

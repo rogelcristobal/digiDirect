@@ -138,7 +138,7 @@ const Templates = () => {
             On this page
           </Typography> */}
 
-          <Box className="flex mt-10 flex-col box-border pl-2 items-end justify-start h-full  w-fit space-y-3 relative">
+          <Box className="flex mt-10 flex-col box-border pl-2 items-end justify-start h-full  w-fit space-y-3.5 relative">
             {[
               {
                 title: "What's in the box",
@@ -171,8 +171,8 @@ const Templates = () => {
                   });
                 }}
             
-                className={`font-poppins text-base   cursor-pointer 
-                text-[#a6c4be] hover:text-[#042825] transition-all duration-500 ease-in-out 
+                className={`font-poppins text-sm   cursor-pointer 
+                text-white  transition-all duration-500 ease-in-out 
                 flex items-center justify-center `}
                 >
                
@@ -191,7 +191,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-medium  truncate  text-[2rem]  leading-10 "
+                className=" font-medium  truncate  text-[2.4rem] text-neutral-100 leading-10 "
               >
                Templates
               </Typography>

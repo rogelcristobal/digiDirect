@@ -70,7 +70,7 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800 font-poppins text-[#131918]  box-border flex items-start justify-start bg-[#ffffff] relative">
+          <Box className="h-screen w-full text-gray-800 font-poppins text-[#131918]  box-border flex items-start justify-start bg-[#121418] relative">
             {/* navbar */}
 
             {/* <SideBar /> */}
@@ -80,7 +80,7 @@ const Main = () => {
               <Navbar />
               <Box
                 component="main"
-                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full relative"
+                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#121418]  w-full relative"
               >
                 {/* element that scrolling */}
                 <Box

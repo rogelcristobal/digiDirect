@@ -16,7 +16,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
   
     // light
    colors: {
-    surface1: "#ffffff",
+    surface1: "#141414",
     surface2: "transparent",
     surface3: "#f5f5f5",
     clickable: "#959da5",
@@ -105,9 +105,9 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
               className="absolute bg-blue-500 top-0 rounded-lg h-0 z-10"
             ></motion.div>
       {/* btn container  (this will only show if a codeblock is present) */}
-      {snippet && (
+      {/* {snippet && (
         <Box className="absolute box-border right-1  bottom-1  p-2.5  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-2">
-          {/* <Box className="absolute box-border right-[0rem]  -bottom-[calc(1.2rem + 0.75rem)]  px-0 py-2  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-4"> */}
+         
 			
           <IconButton
             variant="contained"
@@ -116,7 +116,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
           >
             
             <MdContentCopy className="text-sm" />
-            {/* <Typography className="text-xs font-medium">Copy</Typography> */}
+           
           </IconButton>
 
           {!snippet?.text && (
@@ -125,12 +125,12 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
               className="   transition-all duration-300 ease-in-out font-medium rounded-md  bg-white    normal-case h-8 px-3 space-x-2"
               onClick={handleCopy}
             >
-              {/* <MdContentCopy className="text-sm" /> */}
+             
               <Typography className="text-xs font-medium">Preview</Typography>
             </IconButton>
           )}
         </Box>
-      )}
+      )} */}
     </SandpackProvider>
   );
 };

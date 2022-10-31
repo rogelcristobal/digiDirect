@@ -8,7 +8,7 @@ const PageTitle = ({ category, title, subTitle, bottomCategory }) => {
         {title}
         <Typography
           variant="h6"
-          className="font-medium font-LotaGrotesqueSemiBold text-sm text-gray-500 capitalize	 mt-1"
+          className="font-medium font-LotaGrotesqueSemiBold text-sm text-gray-200 capitalize	 mt-1"
         >
           {category}
         </Typography>
@@ -21,7 +21,7 @@ const PageTitle = ({ category, title, subTitle, bottomCategory }) => {
       <Box className=" normal-case">
         <Typography
           variant="h6"
-          className="font-semibold text-base font-lota  text-[#042825]/50 capitalize	 mb-4"
+          className="font-medium text-base   text-gray-400 capitalize	 mb-4"
         >
           {category}
         </Typography>
