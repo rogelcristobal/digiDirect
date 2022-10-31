@@ -40,7 +40,7 @@ const Templates = () => {
       snippet: inTheBoxMarkup,
       child: [
         {
-          title: "Included in the box (Bundle)",
+          title: "Included in the box ",
           content: "Displays the specification of the product via. table.",
           snippet: bundleInTheBox,
         },
@@ -125,34 +125,20 @@ const Templates = () => {
 
   return (
     <>
-      <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-between pb-8 pt-4 items-start ">
-        <Box className=" w-full box-border px-8 overflow-hidden cursor-default  flex flex-col  space-y-5 justify-start items-start  pl-8">
-          <PageTitle
-            category="product listing"
-            bottomCategory
-            title={
-              <Typography
-                variant="subtitle1"
-                className="font-semibold  truncate  text-[1.5rem] text-[#00203e] leading-10 "
-              >
-               Templates
-              </Typography>
-            }
-          />
-        </Box>
-        {/* on the page */}
+      <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-start pb-8 pt-4 items-start ">
+       
         <Box
-          className="h-fit       w-full box-border py-2 pl-8  flex flex-col items-start justify-start 
+          className="h-fit     w-full box-border py-2 pr-14  flex flex-col items-end justify-start 
         "
         >
-          <Typography
+          {/* <Typography
             variant="subtitle1"
-            className="text-sm text-[#00203e] font-semibold "
+            className="text-sm text-[#131918] font-semibold "
           >
             On this page
-          </Typography>
+          </Typography> */}
 
-          <Box className="flex mt-4 flex-col box-border  pl-2 items-start justify-start h-full  w-fit space-y-2 relative">
+          <Box className="flex mt-10 flex-col box-border pl-2 items-end justify-start h-full  w-fit space-y-3 relative">
             {[
               {
                 title: "What's in the box",
@@ -163,7 +149,7 @@ const Templates = () => {
                 reference: {},
               },
               {
-                title: `Descrptions `,
+                title: `Descriptions `,
                 reference: {},
               },
               {
@@ -171,7 +157,7 @@ const Templates = () => {
                 reference: {},
               },
               {
-                title: "Search Engine Optimization",
+                title: "SEO",
                 reference: {},
               },
             ].map((item, id) => (
@@ -184,22 +170,12 @@ const Templates = () => {
                     block: "start",
                   });
                 }}
-              //   ${
-              //    id === 3 && descriptionViewState
-              //      ? "text-blue-500"
-              //      : "text-gray-500"
-              //  }
-                className={`font-poppins text-gray-500 font-medium cursor-pointer 
-                hover:text-gray-800 transition-all duration-500 ease-in-out text-sm
+            
+                className={`font-poppins text-base   cursor-pointer 
+                text-[#a6c4be] hover:text-[#042825] transition-all duration-500 ease-in-out 
                 flex items-center justify-center `}
                 >
-                {/* <BiChevronRight
-                className={`text-xl  ${
-                  item.reference.viewState
-                    ? "text-sky-600 visible"
-                    : "invisible"
-                }`}
-              ></BiChevronRight> */}
+               
                 {item.title}
               </Link>
             ))}
@@ -207,23 +183,37 @@ const Templates = () => {
         </Box>
       </Box>
       {/* main content */}
-      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12">
+      <Box className="w-full h-auto box-border px-14  pt-16 pb-36 space-y-40">
+         <Box className=" w-full box-border  overflow-hidden cursor-default  flex flex-col  space-y-5 justify-start items-start  ">
+          <PageTitle
+            category="product listing"
+            
+            title={
+              <Typography
+                variant="subtitle1"
+                className=" font-medium  truncate  text-[2rem]  leading-10 "
+              >
+               Templates
+              </Typography>
+            }
+          />
+        </Box>
         {" "}
         {/* space-y-12 between title and child */}
-        <Box className="space-y-32  box-border ">
+        <Box className="space-y-32 w-full  box-border ">
           {/* space-y-12 between siblings */}
           {articles.map((item, id) => (
             // divided per category
             <Box
-              className="box-border scrollMargin "
+              className="box-border w-full scrollMargin flex items-center justify-start"
               // ref={setRefs(item?.viewState)}
               key={id}
               data-id={id}
               ref={storeRef}
             >
-              <ArticleBlock article={item} titleFontSize="text-[1.5rem]">
+              <ArticleBlock article={item} titleFontSize="text-[1.6rem]">
                 {item.child?.map((childNode, idx) => (
-                  <Box key={idx} className="box-border my-24 ">
+                  <Box key={idx} className="box-border my-24 w-full ">
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
@@ -242,4 +232,5 @@ const Templates = () => {
   );
 };
 // https://codingbeautydev.com/blog/material-ui-tabs/
+// https://www.cdnfonts.com/lota-grotesque-alt-1.font
 export default Templates;

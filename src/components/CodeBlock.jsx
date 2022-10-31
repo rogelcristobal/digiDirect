@@ -12,97 +12,39 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
   const container = useRef(null);
   const { width, height } = useElementDimension(container);
   const theme = {
-    // colors: {
-    // 	surface1: "#011627",
-    // 	surface2: "#243b4c",
-    // 	surface3: "#112331",
-    // 	clickable: "#6988a1",
-    // 	base: "#808080",
-    // 	disabled: "#4D4D4D",
-    // 	hover: "#c5e4fd",
-    // 	accent: "#c5e4fd",
-    // 	error: "#ffcdca",
-    // 	errorSurface: "#811e18",
-    // },
-    // syntax: {
-    // 	plain: "#d6deeb",
-    // 	comment: {
-    // 		color: "#999999",
-    // 		fontStyle: "italic",
-    // 	},
-    // 	keyword: {
-    // 		color: "#c792ea",
-    // 		fontStyle: "italic",
-    // 	},
-    // 	tag: "#5A9AE6",
-    // 	punctuation: "#7fdbca",
-    // 	definition: "#82aaff",
-    // 	property: {
-    // 		color: "#addb67",
-    // 		fontStyle: "italic",
-    // 	},
-    // 	static: "#f78c6c",
-    // 	string: "#ecc48d",
-    // },
+    
+  
     // light
-    colors: {
-      surface1: "white",
-      surface2: "#EBEDF0",
-      surface3: "#e4e7eb",
-      clickable: "#737373",
-      base: "#323232",
-      disabled: "#C5C5C5",
-      hover: "#1f2933",
-      accent: "#2e7692",
-    },
-
-    syntax: {
-      plain: "#4b5563",
-      comment: {
-        color: "#A7B6C2",
-        fontStyle: "italic",
-      },
-      keyword: "#1A56DB",
-      tag: "#1A56DB",
-      punctuation: "#394b59",
-      definition: "#82d8d8",
-      property: "#2e7692",
-      static: "#1A56DB",
-      string: "#1992D4",
-    },  colors: {
-      surface1: "white",
-      surface2: "#EBEDF0",
-      surface3: "#e4e7eb",
-      clickable: "#737373",
-      base: "#323232",
-      disabled: "#C5C5C5",
-      hover: "#1f2933",
-      accent: "#2e7692",
-    },
-
-    syntax: {
-      plain: "#4b5563",
-      comment: {
-        color: "#A7B6C2",
-        fontStyle: "italic",
-      },
-      keyword: "#1A56DB",
-      tag: "#1A56DB",
-      punctuation: "#394b59",
-      definition: "#82d8d8",
-      property: "#2e7692",
-      static: "#1A56DB",
-      string: "#1992D4",
-    },
-
-    font: {
-      body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-
-      mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
-
-      size: "14px",
-      lineHeight: "21px",
-    },
+   colors: {
+    surface1: "#ffffff",
+    surface2: "transparent",
+    surface3: "#f5f5f5",
+    clickable: "#959da5",
+    base: "#24292e",
+    disabled: "#d1d4d8",
+    hover: "#24292e",
+    accent: "#24292e"
+  },
+  syntax: {
+    keyword: "#d73a49",
+    property: "#005cc5",
+    plain: "#24292e",
+    static: "#032f62",
+    string: "#032f62",
+    definition: "#6f42c1",
+    punctuation: "#24292e",
+    tag: "#22863a",
+    comment: {
+      color: "#6a737d",
+      fontStyle: "normal"
+    }
+  },
+  font: {
+    body: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+    mono:"\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
+    size: "13px",
+    lineHeight: "22px"
+  }
   };
   // animatin
   const variant = {
@@ -144,10 +86,12 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
       }}
     >
       <SandpackLayout
+
         ref={container}
-        className="box-border border-xl flex items-center justify-center w-full   relative"
+        className="box-border  flex items-center justify-center w-full   relative"
       >
         <SandpackCodeViewer
+          
           className="h-fit  min-h-[4.5rem] w-full  px-4   box-border " // styles for the code 
           // showTabs
           // showLineNumbers
@@ -167,7 +111,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
 			
           <IconButton
             variant="contained"
-            className="  text-gray-800 transition-all duration-300 ease-in-out font-medium rounded-md  bg-white  border-lg  normal-case h-8 px-3 relative"
+            className="   transition-all duration-300 ease-in-out font-medium rounded-md  bg-white   normal-case h-8 px-3 relative"
             onClick={handleCopy}
           >
             
@@ -178,7 +122,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
           {!snippet?.text && (
             <IconButton
               variant="contained"
-              className="  text-gray-800 transition-all duration-300 ease-in-out font-medium rounded-md  bg-white  border-lg  normal-case h-8 px-3 space-x-2"
+              className="   transition-all duration-300 ease-in-out font-medium rounded-md  bg-white    normal-case h-8 px-3 space-x-2"
               onClick={handleCopy}
             >
               {/* <MdContentCopy className="text-sm" /> */}

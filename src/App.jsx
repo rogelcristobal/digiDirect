@@ -70,7 +70,7 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800  font-poppins  box-border flex items-start justify-start bg-[#ffffff] relative">
+          <Box className="h-screen w-full text-gray-800 font-poppins text-[#131918]  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
 
             {/* <SideBar /> */}

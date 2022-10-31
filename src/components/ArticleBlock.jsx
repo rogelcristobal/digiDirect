@@ -28,7 +28,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 		setOpen(true);
 	};
 	return (
-		<Box>
+		<Box className="w-full ">
 			<Snackbar
 				open={open}
 				autoHideDuration={2500}
@@ -51,7 +51,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 					title={
 						<Typography
 							variant="subtitle1"
-							className={`font-medium  ${titleFontSize}  text-[#00203e]  `}
+							className={`font-medium font-poppins   ${titleFontSize}  text-[#131918]  `}
 						>
 							{article.title}
 						</Typography>
@@ -59,14 +59,14 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 					subTitle={
 						<Typography
 							variant="subtitle1"
-							className={`text-gray-500 font-medium  text-[0.9rem] `}
+							className={`text-gray-500 font-medium font-LotaGrotesqueRegular text-[1.1rem] `}
 						>
 							{article.content}
 						</Typography>
 					}
 				/>
 				{/* code block width */}
-				<Box className="relative box-border h-fit max-w-[70%]  w-full">
+				<Box className=" relative box-border h-fit    max-w-[45rem]">
 					{article?.snippet && (
 						<CodeBlock
 							handleCopy={handleToggleCopyToggle}
