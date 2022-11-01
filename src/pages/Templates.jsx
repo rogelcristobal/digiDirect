@@ -24,53 +24,52 @@ const Templates = () => {
   const pageCategoryRef = useRef([]);
   pageCategoryRef.current = [];
 
-
   const useInViewRef = useRef([]);
   useInViewRef.current = [];
-
 
   const storeRef = (element) => {
     if (element && !pageCategoryRef.current.includes(element)) {
       pageCategoryRef.current.push(element);
       // console.log(element)
-     
     }
-    
   };
   // useinview
-  const [inTheBoxRef,inTheBoxState] = useInView({threshold:0.3})
-  const [specsRef,specsState] = useInView({threshold:0.2})
-  const [descriptionRef,descriptionState] = useInView({threshold:0.1})
-  const [shortDescriptionRef,shortDescriptionState] = useInView({threshold:0.2})
-  const [seoRef,seoState] = useInView({threshold:0.4})
-  
+  const [inTheBoxRef, inTheBoxState] = useInView({ threshold: 0.3 });
+  const [specsRef, specsState] = useInView({ threshold: 0.2 });
+  const [descriptionRef, descriptionState] = useInView({ threshold: 0.1 });
+  const [shortDescriptionRef, shortDescriptionState] = useInView({
+    threshold: 0.2,
+  });
+  const [seoRef, seoState] = useInView({ threshold: 0.4 });
 
   // string parser
 
-  const parseString=(str)=>{
-  const res = new DOMParser().parseFromString(str,'text/html').body.textContent
-    return res
-}
+  const parseString = (str) => {
+    const res = new DOMParser().parseFromString(str, "text/html").body
+      .textContent;
+    return res;
+  };
   const articles = [
+    // inTheBox
     {
-      refView:inTheBoxRef,
-      isInView:inTheBoxState,
+      refView: inTheBoxRef,
+      isInView: inTheBoxState,
       category: "What's in the box ",
       title: "Included in the box",
       content: "Displays the accesories included in the product package.",
       snippet: inTheBoxMarkup,
       child: [
         {
-          title: parseString('Included in the box&#x2015;bundle'),
+          title: parseString("Included in the box&#x2015;bundle"),
           content: "Displays the specification of the product via. table.",
           snippet: bundleInTheBox,
         },
       ],
     },
+    // specs
     {
-    
-      refView:specsRef,
-      isInView:specsState,
+      refView: specsRef,
+      isInView: specsState,
       category: "Basic specification",
       title: "Specifications ",
       content:
@@ -85,10 +84,10 @@ const Templates = () => {
         },
       ],
     },
-
+    // description
     {
-      refView:descriptionRef,
-      isInView:descriptionState,
+      refView: descriptionRef,
+      isInView: descriptionState,
       category: " Description",
       title: "Basic description ",
       content:
@@ -108,10 +107,10 @@ const Templates = () => {
         },
       ],
     },
-
+    // short description
     {
-      refView:shortDescriptionRef,
-      isInView:shortDescriptionState,
+      refView: shortDescriptionRef,
+      isInView: shortDescriptionState,
       category: "Short description",
       title: " Basic short description ",
       content:
@@ -119,16 +118,17 @@ const Templates = () => {
       snippet: shortDescription,
       child: [
         {
-          title:parseString('Short Description&#x2015;bundle'),
+          title: parseString("Short Description&#x2015;bundle"),
           content:
             "Applies when a listing/product is a bundled, displays a short description of the product.",
           snippet: shortDescriptionKit,
         },
       ],
     },
+    // SEO
     {
-      refView:seoRef,
-      isInView:seoState,
+      refView: seoRef,
+      isInView: seoState,
       category: "SEO",
       title: "Search engine optimization",
       content:
@@ -151,16 +151,14 @@ const Templates = () => {
     },
   ];
 
-
   return (
     <>
       <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-start pb-8 pt-4 items-center ">
-       
         <Box
           className="h-fit   mt-10   w-full box-border py-2 px-10  flex flex-col items-end justify-start 
         "
         >
-          <Box className="flex   flex-col box-border pr-12 pl-4 items-start justify-start h-full  w-full space-y-4 relative ">
+          <Box className="flex  flex-col box-border pr-12 pl-4 items-end justify-start h-full  w-full space-y-3 relative ">
             {articles.map((item, id) => (
               <Link
                 key={id}
@@ -171,12 +169,12 @@ const Templates = () => {
                     block: "start",
                   });
                 }}
-            
-                className={` text-sm   cursor-pointer ${item?.isInView? 'text-white':'text-gray-500'}
+                className={` text-[0.9rem]   cursor-pointer ${
+                  item?.isInView ? "text-white" : "text-gray-500"
+                }
                  hover:text-white transition-all duration-500 ease-in-out 
                 flex items-center justify-center `}
-                >
-               
+              >
                 {item.category}
               </Link>
             ))}
@@ -184,24 +182,22 @@ const Templates = () => {
         </Box>
       </Box>
 
-
       {/* main content */}
       <Box className="w-full h-auto box-border px-14  pt-16 pb-36 space-y-40">
-         <Box className=" w-full box-border  overflow-hidden cursor-default  flex flex-col  space-y-5 justify-start items-start  ">
+        <Box className=" w-full box-border  overflow-hidden cursor-default  flex flex-col  space-y-5 justify-start items-start  ">
           <PageTitle
             category="product listing"
-            
             title={
               <Typography
                 variant="subtitle1"
                 className=" font-medium  truncate  text-[2.4rem] text-neutral-100 leading-10 "
               >
-               Templates
+                Templates
               </Typography>
             }
           />
         </Box>
-   
+
         {/* space-y-12 between title and child */}
         <Box className="space-y-32 w-full  box-border ">
           {/* space-y-12 between siblings */}
@@ -209,13 +205,15 @@ const Templates = () => {
             // divided per category
             <Box
               className="box-border w-full scrollMargin flex items-center justify-start"
-              // ref={setRefs(item?.viewState)}
               key={id}
               data-id={id}
               ref={storeRef}
-              
             >
-              <ArticleBlock article={item} titleFontSize="text-[1.7rem]" view={item?.refView}>
+              <ArticleBlock
+                article={item}
+                titleFontSize="text-[1.7rem]"
+                view={item?.refView}
+              >
                 {item.child?.map((childNode, idx) => (
                   <Box key={idx} className="box-border my-16 w-full ">
                     {/* my-12 between each child nodes */}

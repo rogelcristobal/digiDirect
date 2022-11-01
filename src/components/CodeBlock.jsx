@@ -48,7 +48,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
   font: {
     body: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
     mono:"\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
-    size: "13px",
+    size: "14px",
     lineHeight: "22px"
   }
   };
@@ -98,7 +98,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
       >
         <SandpackCodeViewer
           
-          className="h-fit  min-h-[4.5rem] w-full  px-4   box-border " // styles for the code 
+          className="h-fit  min-h-[4.5rem] w-full  px-4 py-1  box-border " // styles for the code 
           // showTabs
           // showLineNumbers
           // showInlineErrors
@@ -121,7 +121,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
             onClick={handleCopy}
           >
             
-            <TbCopy className="text-base" />
+            <TbCopy className="text-lg" />
            
           </IconButton>
 
