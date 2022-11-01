@@ -25,7 +25,7 @@ const ListItemBtnComponent = ({
               :  
               parentBtn
               // active
-              ? "text-gray-400 no-underline"
+              ? "text-gray-500 no-underline"
               // inactive
               : "text-gray-400  no-underline"
           

@@ -22,23 +22,21 @@ const Navbar = () => {
 
     <Box
       component="nav"
-      className={` fixed    h-[4.4rem] pt-2 bg-[#121418]  transition-all duration-300 ease-in-out px-6 z-10 w-full top-0  left-0 box-border flex items-center justify-between  overflow-y-hidden 
+      className={` fixed      h-[4.4rem] pt-2 bg-[#121418]  transition-all duration-300 ease-in-out px-6 z-10 w-full top-0  left-0 box-border flex items-center justify-end  overflow-y-hidden 
     `}
     >
-      <Box className="ml-2  ">
-        {/* <DigiLogoInJs
-          dark
-          color="text-[#017eff] text-lg font-semibold"
-        ></DigiLogoInJs> */}
-      </Box>
-      {/* [#635dff] */}
+      {/* <Box className="ml-2  ">
+        <DigiLogoInJs
+          
+          color="text-gray-50  font-medium"
+        ></DigiLogoInJs>
+      </Box> */}
+    
       <div
-        className={`w-[calc(100%-15rem)] box-border   h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500 `}
+        className={`w-[calc(100%-12rem)] box-border     h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500 `}
       >
         <Box className="flex items-center justify-end pr-20 space-x-3 box-border  w-full">
-          {/*  <Box key={item.id} className="p-2 grid place-content-center cursor-pointer text-white hover:text-[#00203e] transition-all dration-300 ease-in-out text-sm font-medium capitalize">
-             {item.title}
-           </Box> */}
+         
           {[
             { title: "templates", path: "/templates" },
             { title: "converter", path: "/converter" },

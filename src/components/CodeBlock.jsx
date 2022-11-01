@@ -6,7 +6,7 @@ import {
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
 import { Box, IconButton, Typography } from "@mui/material";
-import { MdContentCopy } from "react-icons/md";
+import { TbCopy } from "react-icons/tb";
 import { useElementDimension } from "../hooks/useElementDimension";
 const CodeBlock = ({ snippet, handleCopy, copyState }) => {
   const container = useRef(null);
@@ -16,7 +16,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
   
     // light
    colors: {
-    surface1: "#282c34",
+    surface1: "#21252b",
     surface2: "transparent",
     surface3: "#f5f5f5",
     clickable: "#959da5",
@@ -94,7 +94,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
       <SandpackLayout
 
         ref={container}
-        className="box-border  flex items-center justify-center w-full   relative"
+        className="box-border cursor-pointer flex items-center justify-center w-full   relative"
       >
         <SandpackCodeViewer
           
@@ -111,32 +111,23 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
               className="absolute bg-blue-500 top-0 rounded-lg h-0 z-10"
             ></motion.div>
       {/* btn container  (this will only show if a codeblock is present) */}
-      {/* {snippet && (
-        <Box className="absolute box-border right-1  bottom-1  p-2.5  h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-2">
+      {snippet && (
+        <Box className="absolute box-border right-2 top-2   h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-2">
          
 			
           <IconButton
             variant="contained"
-            className="   transition-all duration-300 ease-in-out font-medium rounded-md  bg-white   normal-case h-8 px-3 relative"
+            className="  transition-all duration-300 ease-in-out font-medium rounded-md  bg-transparent  text-gray-400 hover:text-white normal-case h-8 px-3 relative"
             onClick={handleCopy}
           >
             
-            <MdContentCopy className="text-sm" />
+            <TbCopy className="text-base" />
            
           </IconButton>
 
-          {!snippet?.text && (
-            <IconButton
-              variant="contained"
-              className="   transition-all duration-300 ease-in-out font-medium rounded-md  bg-white    normal-case h-8 px-3 space-x-2"
-              onClick={handleCopy}
-            >
-             
-              <Typography className="text-xs font-medium">Preview</Typography>
-            </IconButton>
-          )}
+          
         </Box>
-      )} */}
+      )}
     </SandpackProvider>
   );
 };

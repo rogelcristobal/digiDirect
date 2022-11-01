@@ -16,11 +16,10 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useRef, useContext, lazy, Suspense } from "react";
 import ScrollTopWidget from "./components/ScrollTopWidget";
 import NavScrollContext from "./context/NavScrollContext";
-
+import useMousePosition from "./hooks/useMousePosition";
 import LoadingFallback from "./components/LoadingFallback";
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
-const OpenBox = lazy(() => import("./pages/OpenBox"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 // query
 const queryClient = new QueryClient();
@@ -47,7 +46,7 @@ const App = () => {
   );
 };
 const Main = () => {
-  const { handleScroll } = useContext(NavScrollContext);
+  const { handleScroll,scrollPosition } = useContext(NavScrollContext);
   const scrollRef = useRef(null);
   const { pathname } = useLocation();
   
@@ -63,7 +62,10 @@ const Main = () => {
   // this code  will get the scrolling position of element
   useEffect(() => {
     handleScroll(scrollRef);
-  }, []);
+  }, [scrollPosition]);
+  
+  const {x,y} = useMousePosition()
+ 
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
@@ -91,7 +93,6 @@ const Main = () => {
                     <Routes>
                       <Route index element={<Dashboard />} />
                       <Route path="/templates" element={<Templates />} />
-                      <Route path="/open-box-listing" element={<OpenBox />} />
                       <Route path="/converter" element={<Converter />} />
                     </Routes>
                   </Suspense>

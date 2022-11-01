@@ -1,11 +1,12 @@
 import React from "react";
 import { Box, Typography, IconButton, Snackbar, Alert } from "@mui/material";
-import PageTitle from "./PageTitle";
+import TextContent from "./TextContent";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { BsCheckCircle } from "react-icons/bs";
-import { AiOutlineCopy } from "react-icons/ai";
-const ArticleBlock = ({ article, children, titleFontSize }) => {
+import { useInView } from "react-intersection-observer";
+const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
+
   const [open, setOpen] = React.useState(false);
 
   const handleClose = (event, reason) => {
@@ -28,7 +29,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
     setOpen(true);
   };
   return (
-    <Box className="w-full ">
+    <Box className="w-full" ref={view}>
       <Snackbar
         open={open}
         autoHideDuration={2500}
@@ -46,7 +47,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
         </Alert>
       </Snackbar>
       <Box component="article" className="w-full box-border space-y-6 ">
-        <PageTitle
+        <TextContent
           category={article?.category}
           title={
             <Typography
@@ -59,7 +60,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
           subTitle={
             <Typography
               variant="subtitle1"
-              className={`text-gray-400 font-normal  text-[0.9rem] `}
+              className={`text-gray-500 font-normal  text-[0.9rem] `}
             >
               {article.content}
             </Typography>

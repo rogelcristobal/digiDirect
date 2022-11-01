@@ -10,8 +10,8 @@ module.exports = {
       
       
       poppins: ["Poppins", "sans-serif"],
-      general: ["General Sans", "sans-serif"],
-      lota:["Lota Grotesque Alt 3", "sans-serif"]
+      supreme: ["Supreme", "sans-serif"],
+      switzer:["Switzer", "sans-serif"]
      
      
     },

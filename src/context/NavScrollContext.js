@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState,useEffect } from "react";
 
 const NavScrollContext = createContext();
 
@@ -6,8 +6,8 @@ export const NavScrollProvider = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [transparency,setTransparency] = useState(false)
   // scroll function
-  const handleScroll=(scrollRef)=>{
-    const element = scrollRef?.current;
+  const handleScroll=(ref)=>{
+    const element = ref?.current;
     const scroll = () => {
       let x = element.scrollTop;
       setScrollPosition(x);
@@ -18,6 +18,8 @@ export const NavScrollProvider = ({ children }) => {
       setScrollPosition(0);
     };
   }
+ 
+
   return (
     <NavScrollContext.Provider value={{scrollPosition,setScrollPosition,transparency,setTransparency,handleScroll}}>
       {children}

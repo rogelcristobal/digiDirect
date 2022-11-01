@@ -1,6 +1,6 @@
 import { useState, useRef, useContext } from "react";
 import { Box, Tooltip, IconButton, Button, Typography } from "@mui/material";
-import PageTitle from "../components/PageTitle";
+import PageTitle from "../components/TextContent";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
