@@ -1,6 +1,6 @@
 import { useState, useRef, useContext } from "react";
 import { Box, Tooltip, IconButton, Button, Typography } from "@mui/material";
-import PageTitle from "../components/PageTitle";
+import PageTitle from "../components/TextContent";
 import template from "../template/template";
 import NavScrollContext from "../context/NavScrollContext";
 import { useEffect } from "react";
@@ -37,34 +37,37 @@ const Converter = () => {
     setConverterValue((prev) => (prev = e.target.value));
   };
   return (
-    <Box className="h-full box-border flex items-start gap-3 rounded-lg   w-full ">
-      <Box
-        ref={scrollRef}
-        className="h-full  overflow-auto w-full  flex  items-start justify-center box-border"
-      >
-        <Box className="w-full  h-auto box-border px-14  pt-28  space-y-8">
-          {/* page title */}
-          <Box className="  w-full px-2">
+    <>
+         <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-12">
+        {/* page title */}
+         <Box className="pb-8  w-full box-border px-0">
             <PageTitle
-              category="Tools & API's"
-              title={
-                <Typography
-                  variant="body2"
-                  className="font-[500] text-2xl text-gray-700 capitalize"
-                >
-                  Converters
-                </Typography>
-              }
-            />
+            category="general"
+            title={
+              <Typography
+                variant="subtitle1"
+                className="font-medium text-[1.8rem] text-gray-800  "
+              >
+                Converters
+              </Typography>
+            }
+            // subTitle={
+            //   <Typography
+            //     variant="subtitle1"
+            //     className="text-gray-800  font-medium"
+            //   >
+            //     Create a Basic listing template for digiDirect . Copy the raw
+            //     template and paste in Magento.
+            //   </Typography>
+            // }
+          />
           </Box>
           <Box className="box-border">
             <Box className="h-full w-full min-h-[40rem] box-border flex  flex-col items-start justify-start">
               <Box className="w-full  box-border flex  items-start justify-start h-fit gap-3 py-4 ">
                 <Box className="h-52 w-full box-border ">
                   {/* unit input container */}
-                  <Box className="h-full w-full flex flex-col items-center justify-center box-border border-thin">
-                    {/* <input type="number" className="h-fit text-4xl bg-inherit text-gray-700 text-poppins outline-none border-none w-52 p-8 px-0 text-center" value={converterValue} onChange={handleInputChange}/> */}
-                  </Box>
+                  
                 </Box>
 
                 {/*  */}
@@ -156,10 +159,10 @@ const Converter = () => {
           className="h-72 w-72  box-border  sticky top-0 mt-16 flex flex-col items-start justify-start
           "
         ></Box>
-      </Box>
+      
 
       {/* sidepage nav */}
-    </Box>
+    </>
   );
 };
 // https://codingbeautydev.com/blog/material-ui-tabs/

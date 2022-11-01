@@ -4,16 +4,11 @@ import  { LinearProgress, linearProgressClasses }from '@mui/material'
 import {styled} from '@mui/material/styles'
 
 const StyledLinearProgress = styled(LinearProgress)(({theme})=>({
-    height:7,
+    height:5,
     backgroundColor:'#93c5fd',
     [`& .${linearProgressClasses.bar}`]:{
         backgroundColor: '#3b82f6',
     },
-
-    // [`& . ${linearProgressClasses.cc}`]:{
-    //     backgroundColor: 'yellow',
-    // }
-
 }))
 const LoadingFallback = () => {
   return (

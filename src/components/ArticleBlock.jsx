@@ -1,11 +1,12 @@
 import React from "react";
 import { Box, Typography, IconButton, Snackbar, Alert } from "@mui/material";
-import PageTitle from "./PageTitle";
+import TextContent from "./TextContent";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { BsCheckCircle } from "react-icons/bs";
-import { AiOutlineCopy } from "react-icons/ai";
-const ArticleBlock = ({ article, children, titleFontSize }) => {
+import { useInView } from "react-intersection-observer";
+const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
+
   const [open, setOpen] = React.useState(false);
 
   const handleClose = (event, reason) => {
@@ -28,7 +29,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
     setOpen(true);
   };
   return (
-    <Box>
+    <Box className="w-full" ref={view}>
       <Snackbar
         open={open}
         autoHideDuration={2500}
@@ -45,13 +46,13 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
           Copied to clipboard! <br />
         </Alert>
       </Snackbar>
-      <Box component="article" className="w-full box-border space-y-4 ">
-        <PageTitle
+      <Box component="article" className="w-full box-border space-y-6 ">
+        <TextContent
           category={article?.category}
           title={
             <Typography
               variant="subtitle1"
-              className={`font-semibold  ${titleFontSize}  text-gray-800  `}
+              className={`font-medium    ${titleFontSize}  text-white  `}
             >
               {article.title}
             </Typography>
@@ -59,16 +60,21 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
           subTitle={
             <Typography
               variant="subtitle1"
-              className={`text-gray-800 font-medium  text-[0.9rem] `}
+              className={`text-gray-500 font-normal  text-[0.9rem] `}
             >
               {article.content}
             </Typography>
           }
         />
-        <Box className="relative box-border h-fit  w-full">
-          {article?.snippet && <CodeBlock handleCopy={handleToggleCopyToggle} snippet={article?.snippet} />}
-
-          
+        {/* code block width */}
+        <Box className=" relative box-border h-fit    max-w-[45rem]">
+          {article?.snippet && (
+            <CodeBlock
+              handleCopy={handleToggleCopyToggle}
+              copyState={open}
+              snippet={article?.snippet}
+            />
+          )}
         </Box>
       </Box>
       {/* if nesteded nodes are present*/}
@@ -78,4 +84,4 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
 };
 
 export default ArticleBlock;
-// https://sandpack.codesandbox.io/theme
+// https://dribbble.com/shots/17800881-Web-UI

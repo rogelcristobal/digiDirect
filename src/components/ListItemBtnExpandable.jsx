@@ -27,20 +27,21 @@ const ListItemBtnExpandable = ({
     <>
       <ListItemButton
         disableGutters
-        dense
+        
         disableRipple
+        disableTouchRipple
         onClick={handleClick}
-        className={`flex ${isOpen&&`${bgColor}`} justify-between  ${isOpen?`${textColor}`:'text-gray-700'} items-center  box-border py-3 pl-7 transition-all duration-300 ease-in-out `}
+        className={`flex  bg-transparent justify-between  ${isOpen?`${textColor}`:'text-gray-700'} items-center  box-border py-2.5 pl-7 transition-all duration-300 ease-in-out `}
       >
         <Box className="flex h-full w-full space-x-3 ">
           <Typography
             variant="body2"
-            className=" text-[0.875] font-semibold capitalize"
+            className=" text-[0.875] font-medium capitalize"
           >
             {title}
           </Typography>
         </Box>
-        <Box className="box-border  h-fit grid place-content-center  mr-2">
+        <Box className="box-border  h-fit grid place-content-center  mr-4">
 
           {isOpen ?
             enableIcon : disableIcon
@@ -51,7 +52,7 @@ const ListItemBtnExpandable = ({
 
       {/* children */}
       <Collapse in={isOpen} timeout="auto" unmountOnExit className="">
-        <List component="div" className="pl-2 ">
+        <List component="div" className="pl-2 py-0 ">
           {children}
         </List>
       </Collapse>
@@ -61,7 +62,7 @@ const ListItemBtnExpandable = ({
 
 ListItemBtnExpandable.defaultProps = {
   bgColor: "bg-purple-50",
-  textColor: "text-gray-700",
+  textColor: "text-gray-900",
 };
 
 export default ListItemBtnExpandable;

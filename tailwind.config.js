@@ -8,11 +8,11 @@ module.exports = {
     extend: {},
     fontFamily: {
       
-     
-      poppins: ["Poppins", "sans-serif"],
-      roboto: ["Roboto", "sans-serif"],
-      source: ["Source Code Pro", "monospace"],
       
+      poppins: ["Poppins", "sans-serif"],
+      supreme: ["Supreme", "sans-serif"],
+      switzer:["Switzer", "sans-serif"]
+     
      
     },
   },

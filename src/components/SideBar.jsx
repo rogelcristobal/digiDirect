@@ -18,7 +18,7 @@ import { IoShapes } from "react-icons/io5";
 const SideBar = () => {
   // f7f8fa
   return (
-    <Box className="h-screen w-[23rem]   bg-inherit  z-20 box-border relative border-thiner ">
+    <Box className="h-screen w-[22rem]   bg-[#e6eded]  z-10 box-border relative ">
       {/* <Divider
         orientation="vertical"
         className="absolute right-0 top-0"
@@ -27,7 +27,7 @@ const SideBar = () => {
       ></Divider> */}
       {/* sidebar bg-[#111827] */}
       <Box className="h-20    w-full flex flex-col items-start  justify-center  px-8   box-border ">
-        {/* <DigiLogoInJs   dark color="text-blue-500 font-medium  text-[1.2rem]" /> */}
+        <DigiLogoInJs   dark color="text-gray-400 font-medium  text-md" />
       </Box>
       <Box className="w-full  box-border h-auto    ">
         <Paper
@@ -49,8 +49,8 @@ const SideBar = () => {
               title="product listing"
               initialState={true}
               icon={<AiTwotoneTags className="text-xs " />}
-              enableIcon={<HiChevronDown className="text-inherit text-xl" />}
-              disableIcon={<HiChevronRight className="text-inherit text-xl" />}
+              enableIcon={<HiChevronDown className="text-gray-800  text-lg" />}
+              disableIcon={<HiChevronRight className="text-gray-800 text-lg" />}
             >
               {[
                 { title: "quick create", path: "/xyz" },

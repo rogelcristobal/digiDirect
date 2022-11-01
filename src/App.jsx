@@ -7,22 +7,19 @@ import {
 import { Box } from "@mui/material";
 import { Routes, Route, HashRouter } from "react-router-dom";
 // icons
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
-import SideBar from "./components/SideBar";
-
+import { useLocation } from "react-router-dom";
 import { useEffect, useRef, useContext, lazy, Suspense } from "react";
-
+import ScrollTopWidget from "./components/ScrollTopWidget";
 import NavScrollContext from "./context/NavScrollContext";
-
-import LoadingFallback from './components/LoadingFallback'
+import useMousePosition from "./hooks/useMousePosition";
+import LoadingFallback from "./components/LoadingFallback";
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
-const OpenBox = lazy(() => import("./pages/OpenBox"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 // query
 const queryClient = new QueryClient();
@@ -49,44 +46,60 @@ const App = () => {
   );
 };
 const Main = () => {
-  const { handleScroll } = useContext(NavScrollContext);
+  const { handleScroll,scrollPosition } = useContext(NavScrollContext);
   const scrollRef = useRef(null);
+  const { pathname } = useLocation();
+  
+  // this code will run every page changes to scroll to top immediately
+  useEffect(() => {
+    scrollRef.current.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
+  // this code  will get the scrolling position of element
   useEffect(() => {
     handleScroll(scrollRef);
-  }, []);
+  }, [scrollPosition]);
+  
+  const {x,y} = useMousePosition()
+ 
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800  font-poppins  box-border flex items-start justify-start bg-[#ffffff] relative">
+          <Box className="h-screen w-full text-gray-800 font-poppins text-[#131918]  box-border flex items-start justify-start bg-[#121418] relative">
             {/* navbar */}
 
-            <SideBar />
+            {/* <SideBar /> */}
 
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Navbar />
               <Box
                 component="main"
-                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full "
-                
+                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#121418]  w-full relative"
               >
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}
                   className="h-full scroll-smooth overflow-x-hidden w-full  flex pt-[4.2rem] items-start justify-center box-border "
                 >
-                  <Suspense  fallback={<LoadingFallback/>}>
+                  <Suspense fallback={<LoadingFallback />}>
                     <Routes>
                       <Route index element={<Dashboard />} />
                       <Route path="/templates" element={<Templates />} />
-                      <Route path="/open-box-listing" element={<OpenBox />} />
                       <Route path="/converter" element={<Converter />} />
                     </Routes>
                   </Suspense>
                 </Box>
+
+                {/* widget (scroll top) */}
+                <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget>
               </Box>
             </Box>
           </Box>

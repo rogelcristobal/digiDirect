@@ -1,43 +1,53 @@
 import React from "react";
-import { Typography, ListItemButton } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Typography, ListItemButton,Box } from "@mui/material";
+import { NavLink,useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 const ListItemBtnComponent = ({
   title,
   parentBtn,
   path,
 }) => {
-  return (
+ const {pathname} = useLocation()
+
+ return (
     <>
       <NavLink
         to={`${path}`}
-        className={
+        className={ 
           ({ isActive }) =>
             isActive
-              ? // active
+              ? 
                 parentBtn
-                ? "text-blue-500 no-underline"
-                : " text-blue-500 no-underline"
-              : // inactive
+                // active
+                ? "text-white no-underline "
+                // inactive
+                : " text-white no-underline"
+              :  
               parentBtn
-              ? "text-gray-700 no-underline"
+              // active
+              ? "text-gray-500 no-underline"
+              // inactive
               : "text-gray-400  no-underline"
-          // isActive ? `text-green-400  no-underline` : " bg-inherit text-neutral-50 no-underline "
+          
         }
       >
         <ListItemButton
           disableRipple
-          className={`m-0 flex items-center font-sans justify-start bg-inherit  capitalize relative ${
-            parentBtn ? "pl-7 py-3 " : "pl-8 py-3"
+          className={`m-0 flex items-center box-border  justify-start bg-inherit  capitalize relative ${
+            parentBtn ? " py-2.5" : "pl-8 py-2.5 "
           } space-x-3 `}
         >
           <Typography
             variant="body2"
-            className={`font-semibold   ${
-              parentBtn ? "text-[0.875]" : "text-[0.80rem] "
+            className={` font-normal   ${
+              parentBtn ? "text-[0.9rem]" : "text-[0.80rem] "
             }`}
           >
             {title}
           </Typography>
+        {/* <motion.div variants={linkAnimation} initial="initial" animate="animate" className={`absolute bottom-0 -left-3 box-border w-full h-2 bg-blue-400`}>
+
+        </motion.div> */}
         </ListItemButton>
       </NavLink>
     </>
