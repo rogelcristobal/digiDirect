@@ -16,13 +16,17 @@ const ListItemBtnComponent = ({
         className={ 
           ({ isActive }) =>
             isActive
-              ? // active
+              ? 
                 parentBtn
+                // active
                 ? "text-white no-underline "
+                // inactive
                 : " text-white no-underline"
-              :  // inactive
+              :  
               parentBtn
-              ? "text-white no-underline"
+              // active
+              ? "text-gray-400 no-underline"
+              // inactive
               : "text-gray-400  no-underline"
           
         }

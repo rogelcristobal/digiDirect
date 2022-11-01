@@ -51,7 +51,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
           title={
             <Typography
               variant="subtitle1"
-              className={`font-medium font-poppins text-[30rem]  ${titleFontSize}  text-white  `}
+              className={`font-medium    ${titleFontSize}  text-white  `}
             >
               {article.title}
             </Typography>
@@ -59,7 +59,7 @@ const ArticleBlock = ({ article, children, titleFontSize }) => {
           subTitle={
             <Typography
               variant="subtitle1"
-              className={`text-neutral-300 font-normal  text-[0.9rem] `}
+              className={`text-gray-400 font-normal  text-[0.9rem] `}
             >
               {article.content}
             </Typography>

@@ -56,19 +56,19 @@ const Navbar = () => {
 
         {/* rightside box icons */}
         <Box className="flex items-center   justify-around space-x-4 box-border">
-          <Box className="p-2 grid place-content-center cursor-pointer text-white  transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-white  transition-all dration-300 ease-in-out text-md ">
             <HiOutlineMoon></HiOutlineMoon>
           </Box>
 
           <a
             href="https://github.com/rogelcristobal/digiDirect"
             target="_blank"
-            className="p-2 grid place-content-center cursor-pointer text-white  transition-all duration-300 ease-in-out   hover:border-thin   no-underline"
+            className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-white  transition-all duration-300 ease-in-out   no-underline"
           >
             <FiGithub></FiGithub>
           </a>
 
-          <Box className="p-2 grid place-content-center cursor-pointer text-white  transition-all dration-300 ease-in-out   hover:border-thin text-md ">
+          <Box className="p-2 grid place-content-center cursor-pointer text-gray-400 hover:text-white  transition-all dration-300 ease-in-out text-md ">
             <AiOutlineUser></AiOutlineUser>
           </Box>
         </Box>

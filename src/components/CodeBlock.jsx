@@ -16,7 +16,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
   
     // light
    colors: {
-    surface1: "#141414",
+    surface1: "#282c34",
     surface2: "transparent",
     surface3: "#f5f5f5",
     clickable: "#959da5",
@@ -25,19 +25,25 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
     hover: "#24292e",
     accent: "#24292e"
   },
-  syntax: {
-    keyword: "#d73a49",
-    property: "#005cc5",
-    plain: "#24292e",
-    static: "#032f62",
-    string: "#032f62",
-    definition: "#6f42c1",
-    punctuation: "#24292e",
-    tag: "#22863a",
+   syntax: {
+    plain: "#d6deeb",
     comment: {
-      color: "#6a737d",
-      fontStyle: "normal"
-    }
+      color: "#999999",
+      fontStyle: "italic"
+    },
+    keyword: {
+      color: "#c792ea",
+      fontStyle: "italic"
+    },
+    tag: "#7fdbca",
+    punctuation: "#7fdbca",
+    definition: "#82aaff",
+    property: {
+      color: "#addb67",
+      fontStyle: "italic"
+    },
+    static: "#f78c6c",
+    string: "#ecc48d"
   },
   font: {
     body: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
