@@ -4,6 +4,7 @@ import PageTitle from "../components/TextContent";
 import template from "../template/template";
 import { useInView } from "react-intersection-observer";
 import {motion} from 'framer-motion'
+import Card from '../components/Card'
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -35,7 +36,7 @@ const Templates = () => {
     }
   };
   // useinview
-  const [inTheBoxRef, inTheBoxState] = useInView({ threshold: 0.3 });
+  const [inTheBoxRef, inTheBoxState] = useInView({ threshold: 0.3});
   const [specsRef, specsState] = useInView({ threshold: 0.2 });
   const [descriptionRef, descriptionState] = useInView({ threshold: 0.1 });
   const [shortDescriptionRef, shortDescriptionState] = useInView({
@@ -71,8 +72,8 @@ const Templates = () => {
     {
       refView: specsRef,
       isInView: specsState,
-      category: "Basic specification",
-      title: "Specifications ",
+      category: " Specification",
+      title: "Basics pecifications ",
       content:
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
       snippet: specsMarkup,
@@ -130,7 +131,7 @@ const Templates = () => {
     {
       refView: seoRef,
       isInView: seoState,
-      category: "SEO",
+      category: "Search engine optimization ",
       title: "Search engine optimization",
       content:
         "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
@@ -156,10 +157,10 @@ const Templates = () => {
     <>
       <Box className="w-[24rem]   h-full  sticky top-0 px-0 box-border  flex flex-col justify-start pb-8 pt-4 items-center ">
         <Box
-          className="h-fit   mt-10   w-full box-border py-2 px-10  flex flex-col items-end justify-start 
+          className="h-fit   mt-10   w-full box-border py-2 px-8  flex flex-col items-end justify-start 
         "
         >
-          <Box className="flex  flex-col box-border pr-12 pl-4 items-end justify-start h-full  w-full space-y-3 relative ">
+          <Box className="flex  flex-col  max-w-[calc(24rem-10rem)] box-border   px-4 items-center justify-start h-full  w-full space-y-3 relative ">
             {articles.map((item, id) => (
               <Link
                 key={id}
@@ -170,13 +171,13 @@ const Templates = () => {
                     block: "start",
                   });
                 }}
-                className={` text-[0.9rem] relative  cursor-pointer ${
+                className={` text-[0.9rem] relative  text-right w-full cursor-pointer ${
                   item?.isInView ? "text-white" : "text-gray-500"
                 }
-                 hover:text-white transition-all duration-500 ease-in-out 
+                 hover:text-gray-400 transition-all duration-500 ease-in-out 
                 flex items-center justify-center `}
               >
-                {item.category}
+               <span className="text-right w-full overflow-x-hidden "> {item.category}</span>
 
                 <motion.div animate={{
                   width: item?.isInView ? 5: 0,
@@ -189,8 +190,8 @@ const Templates = () => {
       </Box>
 
       {/* main content */}
-      <Box className="w-full h-auto box-border px-14  pt-16 pb-36 space-y-40">
-        <Box className=" w-full box-border  overflow-hidden cursor-default  flex flex-col  space-y-5 justify-start items-start  ">
+      <Box className="w-full h-auto box-border px-14  pt-16 pb-36 space-y-32">
+        <Box className=" w-full max-w-xl box-border  overflow-hidden cursor-default  flex flex-col  space-y-10 justify-between items-start   ">
           <PageTitle
             category="product listing"
             title={
@@ -202,6 +203,8 @@ const Templates = () => {
               </Typography>
             }
           />
+          <Card></Card>
+          
         </Box>
 
         {/* space-y-12 between title and child */}
@@ -210,7 +213,7 @@ const Templates = () => {
           {articles.map((item, id) => (
             // divided per category
             <Box
-              className="box-border w-full scrollMargin flex items-center justify-start"
+              className="box-border w-full scrollMargin flex items-center justify-start "
               key={id}
               data-id={id}
               ref={storeRef}
