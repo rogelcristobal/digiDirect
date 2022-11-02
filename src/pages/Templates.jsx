@@ -3,6 +3,7 @@ import { Box, Typography, Link } from "@mui/material";
 import PageTitle from "../components/TextContent";
 import template from "../template/template";
 import { useInView } from "react-intersection-observer";
+import {motion} from 'framer-motion'
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -169,13 +170,18 @@ const Templates = () => {
                     block: "start",
                   });
                 }}
-                className={` text-[0.9rem]   cursor-pointer ${
+                className={` text-[0.9rem] relative  cursor-pointer ${
                   item?.isInView ? "text-white" : "text-gray-500"
                 }
                  hover:text-white transition-all duration-500 ease-in-out 
                 flex items-center justify-center `}
               >
                 {item.category}
+
+                <motion.div animate={{
+                  width: item?.isInView ? 5: 0,
+                  height: item?.isInView ? 5: 0
+                }} className="absolute bottom-1.5 -right-2.5 h-1 w-[3px]  bg-blue-500"></motion.div>
               </Link>
             ))}
           </Box>

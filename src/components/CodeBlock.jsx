@@ -94,7 +94,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
       <SandpackLayout
 
         ref={container}
-        className="box-border cursor-pointer flex items-center justify-center w-full   relative"
+        className="box-border rounded-lg cursor-pointer flex items-center justify-center w-full   relative"
       >
         <SandpackCodeViewer
           
@@ -117,7 +117,7 @@ const CodeBlock = ({ snippet, handleCopy, copyState }) => {
 			
           <IconButton
             variant="contained"
-            className="  transition-all duration-300 ease-in-out font-medium rounded-md  bg-transparent  text-gray-400 hover:text-white normal-case h-8 px-3 relative"
+            className="  transition-all duration-300 ease-in-out font-medium rounded-md  bg-gray-700/20  text-gray-400 hover:text-white normal-case h-8 px-3 relative"
             onClick={handleCopy}
           >
             
