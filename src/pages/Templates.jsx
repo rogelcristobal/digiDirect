@@ -190,8 +190,8 @@ const Templates = () => {
       </Box>
 
       {/* main content */}
-      <Box className="w-full h-auto box-border px-14  pt-16 pb-36 space-y-40">
-        <Box className=" w-full box-border  overflow-hidden cursor-default  flex flex-col  space-y-5 justify-start items-start  ">
+      <Box className="w-full h-auto box-border px-14  pt-16 pb-36 space-y-32">
+        <Box className=" w-full max-w-xl box-border  overflow-hidden cursor-default  flex flex-col  space-y-10 justify-between items-start   ">
           <PageTitle
             category="product listing"
             title={
