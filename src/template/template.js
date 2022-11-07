@@ -8,22 +8,22 @@ const template = () => {
   };
   const bundleInTheBox={
     tags:`<ul>
-  <li>Kit Component Product Name</li>
-  <li>Product Accessories</li>
-  <li>Product Accessories</li>
-  <li>Product Accessories</li>
+  <li> Kit Component Product Name </li>
+  <li> Product Accessories </li>
+  <li> Product Accessories </li>
+  <li> Product Accessories </li>
 </ul>
 <ul>
-  <li>Kit Component Product Name</li>
-  <li>Product Accessories</li>
-  <li>Product Accessories</li>
-  <li>Product Accessories</li>
+  <li> Kit Component Product Name </li>
+  <li> Product Accessories </li>
+  <li> Product Accessories </li>
+  <li> Product Accessories </li>
 </ul>
 <ul>
-  <li>Kit Component Product Name</li>
-  <li>Product Accessories</li>
-  <li>Product Accessories</li>
-  <li>Product Accessories</li>
+  <li> Kit Component Product Name </li>
+  <li> Product Accessories </li>
+  <li> Product Accessories </li>
+  <li> Product Accessories </li>
 </ul>
     `
   }
@@ -125,17 +125,17 @@ const template = () => {
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
   .aquaList li::first-line {font-weight: bolder;}`,
-    tags: `<p class="mText">
-  The <strong class="h1Lit"> ProductName </strong> decription
+    tags: `<p class="mText">
+  The <strong class="h1Lit"> ProductName </strong> decription
 </p>     
 
-<h2 class="h2Lit"> Key Features of the ProductName </h2>
+<h2 class="h2Lit"> Key Features of the ProductName </h2>
 <ul>
   <li> Product Features </li>
 </ul>
 
 <p></p>
-<ul class="mpn">
+<ul class="mpn">
   <li> MPN - Barcode1 </li>
   <li> GTIN - Barcode2 </li>
 </ul>`,
@@ -179,30 +179,30 @@ const template = () => {
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
   .aquaList li::first-line {font-weight: bolder;}`,
-    tags: `<p class="mText">
-  The <strong class="h1Lit"> ProductName </strong> description.
+    tags: `<p class="mText">
+  The <strong class="h1Lit"> ProductName </strong> description.
 </p>
-<br />
+<br/>
 
-<h2 class="h2Lit"> Key Features of the ProductName</h2>
+<h2 class="h2Lit"> Key Features of the ProductName</h2>
 <ul>
   <li> Product Features </li>
 </ul>
 <br />
 
-<div class="gText">
+<div class="gText">
   <div>
-    <h2 class="h2Lit"><span class="h2Lit"> Product Features </h2>
+    <h2 class="h2Lit"><span class="h2Lit"> Product Features </h2>
     <p> details </p>
   </div>
   <div>
-    <h2 class="h2Lit"><span class="h2Lit"> Product Features </h2>
+    <h2 class="h2Lit"><span class="h2Lit"> Product Features </h2>
     <p> details </p>
   </div>
 </div>
 <br/>
 
-<ul class="mpn">
+<ul class="mpn">
   <li> MPN - Barcode1 </li>
   <li>  GTIN - Barcode2 </li>
 </ul>`,
@@ -246,13 +246,13 @@ const template = () => {
       u.h1Lit {font-size: large;}
   .aquaList li {padding-top: 0.5rem;}
   .aquaList li::first-line {font-weight: bolder;}`,
-    tags: `<p class="mText"> 
-  The <strong class="h1Lit"> ProductName </strong> kit description </p>
-<p class="mText"> description </p>
-<p class="mText"> description </p>
+    tags: `<p class="mText"> 
+  The <strong class="h1Lit"> ProductName </strong> kit description </p>
+<p class="mText"> description </p>
+<p class="mText"> description </p>
      
-<br />
-<h2 class="h2Lit"> Key Features of the ProductName </h2>
+<br/>
+<h2 class="h2Lit"> Key Features of the ProductName </h2>
 <ul>
   <li> Product Features </li>
   <li> Product Features </li>
@@ -260,38 +260,38 @@ const template = () => {
   <li> Product Features </li>
   <li> Product Features </li>
 </ul>
-<br />
-<div class="l1div"></div>
+<br/>
+<div class="l1div"></div>
 
-<h2 class="h2Lit">
+<h2 class="h2Lit">
   <strong> AdditionalProductName1 </strong>
 </h2>
-<p class="mText">
-  The <strong class="h1Lit"> ProductName </strong> description </p>
-  <p class="mText"> description</p>
-<br />
-
-<div class="l1div"></div>
-<h2 class="h2Lit">
-  <strong> AdditionalProductName2 </strong>
-</h2>
-<p class="mText">
-  The <strong class="h1Lit"> ProductName </strong> description </p>
-  <p class="mText"> description </p>
-<br />
-
-<div class="l1div"></div>
-<h2 class="h2Lit">
-  <strong> AdditionalProductName3 </strong>
-</h2>
-<p class="mText">
-  The <strong class="h1Lit"> ProductName </strong> description </p>
-  <p class="mText" description </p>
+<p class="mText">
+  The <strong class="h1Lit"> ProductName </strong> description </p>
+  <p class="mText"> description</p>
 <br/>
 
-<ul class="mpn">
-<li> MPN - Barcode1</li>
-<li> GTIN - Barcode2</li>
+<div class="l1div"></div>
+<h2 class="h2Lit">
+  <strong> AdditionalProductName2 </strong>
+</h2>
+<p class="mText">
+  The <strongclass="h1Lit"> ProductName </strong> description </p>
+  <pclass="mText"> description </p>
+<br/>
+
+<div class="l1div"></div>
+<h2 class="h2Lit">
+  <strong> AdditionalProductName3 </strong>
+</h2>
+<p class="mText">
+  The <strong class="h1Lit"> ProductName </strong> description </p>
+  <p class="mText" description </p>
+<br/>
+
+<ul class="mpn">
+<li> MPN - Barcode1</li>
+<li> GTIN - Barcode2</li>
 </ul>`,
   };
 

@@ -19,7 +19,7 @@ const ListItemBtnComponent = ({ title, parentBtn, path }) => {
             <Typography
               variant="body2"
               className={` font-normal text-[0.9rem] " ${
-                isActive ? "text-white"  : "text-gray-500"
+                isActive ? "text-white"  : "text-gray-600"
               }`}
             >
               {title}
