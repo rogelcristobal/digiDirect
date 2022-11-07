@@ -46,8 +46,9 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
     font: {
       body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
       mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
-      size: "13px",
+      size: "14px",
       lineHeight: "21px",
+      
     },
   };
   // animatin
@@ -82,7 +83,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
       >
         <SandpackCodeViewer
            // styles for the code
-          className="h-fit  min-h-[4.5rem] w-full  px-4 py-1   box-border "
+          className="h-fit  min-h-[4.5rem] w-full  px-4 py-1  font-medium box-border "
           wrapContent
         />
       </SandpackLayout>
@@ -92,7 +93,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
         <Box className="absolute box-border right-2 top-2   h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-2">
           <IconButton
             variant="contained"
-            className="  transition-all duration-300 ease-in-out font-medium rounded-md  bg-gray-700/20  text-gray-400 hover:text-white normal-case h-8 px-3 relative"
+            className="  transition-all duration-300 ease-in-out font-medium rounded-lg  bg-gray-700/20  text-gray-400 hover:text-white normal-case h-8 px-3 relative"
             onClick={handleCopy}
           >
             <TbCopy className="text-lg" />
