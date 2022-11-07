@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_project=self.webpackChunkmy_project||[]).push([[480],{6480:function(e,r,t){t.r(r);var c=t(6015),s=t(184);r.default=function(){return(0,s.jsx)(s.Fragment,{children:(0,s.jsx)(c.Z,{className:"w-full h-auto box-border px-14  pt-8 pb-36 space-y-6"})})}}}]);
+//# sourceMappingURL=480.278947df.chunk.js.map
