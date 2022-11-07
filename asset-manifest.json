@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/digiDirect/static/css/main.ef3c3120.css",
-    "main.js": "/digiDirect/static/js/main.48e59dce.js",
-    "static/js/779.edb49d7b.chunk.js": "/digiDirect/static/js/779.edb49d7b.chunk.js",
-    "static/js/569.69b1d5a3.chunk.js": "/digiDirect/static/js/569.69b1d5a3.chunk.js",
+    "main.css": "/digiDirect/static/css/main.079ce063.css",
+    "main.js": "/digiDirect/static/js/main.3f052ffd.js",
+    "static/js/779.72a14147.chunk.js": "/digiDirect/static/js/779.72a14147.chunk.js",
+    "static/js/569.9407bf97.chunk.js": "/digiDirect/static/js/569.9407bf97.chunk.js",
     "static/js/480.278947df.chunk.js": "/digiDirect/static/js/480.278947df.chunk.js",
     "static/js/787.633816a4.chunk.js": "/digiDirect/static/js/787.633816a4.chunk.js",
     "static/js/200.0e8c9d81.chunk.js": "/digiDirect/static/js/200.0e8c9d81.chunk.js",
     "static/js/972.a7272e74.chunk.js": "/digiDirect/static/js/972.a7272e74.chunk.js",
-    "static/js/141.91ab6a4a.chunk.js": "/digiDirect/static/js/141.91ab6a4a.chunk.js",
+    "static/js/141.40961f25.chunk.js": "/digiDirect/static/js/141.40961f25.chunk.js",
     "static/js/778.780bc4ba.chunk.js": "/digiDirect/static/js/778.780bc4ba.chunk.js",
     "index.html": "/digiDirect/index.html",
-    "main.ef3c3120.css.map": "/digiDirect/static/css/main.ef3c3120.css.map",
-    "main.48e59dce.js.map": "/digiDirect/static/js/main.48e59dce.js.map",
-    "779.edb49d7b.chunk.js.map": "/digiDirect/static/js/779.edb49d7b.chunk.js.map",
-    "569.69b1d5a3.chunk.js.map": "/digiDirect/static/js/569.69b1d5a3.chunk.js.map",
+    "main.079ce063.css.map": "/digiDirect/static/css/main.079ce063.css.map",
+    "main.3f052ffd.js.map": "/digiDirect/static/js/main.3f052ffd.js.map",
+    "779.72a14147.chunk.js.map": "/digiDirect/static/js/779.72a14147.chunk.js.map",
+    "569.9407bf97.chunk.js.map": "/digiDirect/static/js/569.9407bf97.chunk.js.map",
     "480.278947df.chunk.js.map": "/digiDirect/static/js/480.278947df.chunk.js.map",
     "787.633816a4.chunk.js.map": "/digiDirect/static/js/787.633816a4.chunk.js.map",
     "200.0e8c9d81.chunk.js.map": "/digiDirect/static/js/200.0e8c9d81.chunk.js.map",
     "972.a7272e74.chunk.js.map": "/digiDirect/static/js/972.a7272e74.chunk.js.map",
-    "141.91ab6a4a.chunk.js.map": "/digiDirect/static/js/141.91ab6a4a.chunk.js.map",
+    "141.40961f25.chunk.js.map": "/digiDirect/static/js/141.40961f25.chunk.js.map",
     "778.780bc4ba.chunk.js.map": "/digiDirect/static/js/778.780bc4ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef3c3120.css",
-    "static/js/main.48e59dce.js"
+    "static/css/main.079ce063.css",
+    "static/js/main.3f052ffd.js"
   ]
 }
