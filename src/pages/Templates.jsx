@@ -1,10 +1,10 @@
 import { useRef, lazy } from "react";
 import { Box, Typography, Link } from "@mui/material";
-import PageTitle from "../components/TextContent";
+import TextContent from "../components/TextContent";
 import template from "../template/template";
 import { useInView } from "react-intersection-observer";
-import {motion} from 'framer-motion'
-import Card from '../components/Card'
+import { motion } from "framer-motion";
+import Card from "../components/Card";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -36,13 +36,11 @@ const Templates = () => {
     }
   };
   // useinview
-  const [inTheBoxRef, inTheBoxState] = useInView({ threshold: 0.3});
+  const [inTheBoxRef, inTheBoxState] = useInView({ threshold: 0.3 });
   const [specsRef, specsState] = useInView({ threshold: 0.2 });
   const [descriptionRef, descriptionState] = useInView({ threshold: 0.1 });
-  const [shortDescriptionRef, shortDescriptionState] = useInView({
-    threshold: 0.2,
-  });
-  const [seoRef, seoState] = useInView({ threshold: 0.4 });
+  const [shortDescriptionRef, shortDescriptionState] = useInView({threshold: 0.3,});
+  const [seoRef, seoState] = useInView({ threshold: 0.3 });
 
   // string parser
 
@@ -73,7 +71,7 @@ const Templates = () => {
       refView: specsRef,
       isInView: specsState,
       category: " Specification",
-      title: "Basics pecifications ",
+      title: "Basic specifications ",
       content:
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
       snippet: specsMarkup,
@@ -90,7 +88,7 @@ const Templates = () => {
     {
       refView: descriptionRef,
       isInView: descriptionState,
-      category: " Description",
+      category: " Descriptions",
       title: "Basic description ",
       content:
         " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
@@ -113,7 +111,7 @@ const Templates = () => {
     {
       refView: shortDescriptionRef,
       isInView: shortDescriptionState,
-      category: "Short description",
+      category: "Short descriptions",
       title: " Basic short description ",
       content:
         "A short description is text that briefly introduces and describes a topic. In DITA, short desciptions are tagged with",
@@ -131,7 +129,7 @@ const Templates = () => {
     {
       refView: seoRef,
       isInView: seoState,
-      category: "Search engine optimization ",
+      category: "Search engine optimizations",
       title: "Search engine optimization",
       content:
         "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",
@@ -160,7 +158,14 @@ const Templates = () => {
           className="h-fit   mt-10   w-full box-border py-2 px-8  flex flex-col items-end justify-start 
         "
         >
-          <Box className="flex  flex-col  max-w-[calc(24rem-10rem)] box-border   px-4 items-center justify-start h-full  w-full space-y-3 relative ">
+          <Box className="flex  flex-col  max-w-[calc(24rem-10rem)] box-border   px-4 items-center justify-start h-full  w-full space-y-4 relative ">
+            <Box className=" w-full flex items-center justify-end py-2  box-border">
+              <TextContent
+                title={
+                  <Typography className="text-white">On this page</Typography>
+                }
+              ></TextContent>
+            </Box>
             {articles.map((item, id) => (
               <Link
                 key={id}
@@ -172,17 +177,20 @@ const Templates = () => {
                   });
                 }}
                 className={` text-[0.9rem] relative  text-right w-full cursor-pointer ${
-                  item?.isInView ? "text-white" : "text-gray-500"
+                  item?.isInView ? "text-white" : "text-gray-600"
                 }
                  hover:text-gray-400 transition-all duration-500 ease-in-out 
                 flex items-center justify-center `}
               >
-               <span className="text-right w-full overflow-x-hidden "> {item.category}</span>
+                <span className="text-right w-full overflow-x-hidden ">
+                  {" "}
+                  {item.category}
+                </span>
 
-                <motion.div animate={{
+                {/* <motion.div animate={{
                   width: item?.isInView ? 5: 0,
                   height: item?.isInView ? 5: 0
-                }} className="absolute bottom-1.5 -right-2.5 h-1 w-[3px]  bg-blue-500"></motion.div>
+                }} className="absolute bottom-1.5 -right-2.5 h-1 w-[3px]  bg-blue-500"></motion.div> */}
               </Link>
             ))}
           </Box>
@@ -192,19 +200,17 @@ const Templates = () => {
       {/* main content */}
       <Box className="w-full h-auto box-border px-14  pt-16 pb-36 space-y-32">
         <Box className=" w-full max-w-xl box-border  overflow-hidden cursor-default  flex flex-col  space-y-10 justify-between items-start   ">
-          <PageTitle
+          <TextContent
             category="product listing"
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-medium  truncate  text-[2.4rem] text-neutral-100 leading-10 "
+                className=" font-medium  truncate  text-[2.2rem] text-neutral-100 leading-10 "
               >
                 Templates
               </Typography>
             }
           />
-        
-          
         </Box>
 
         {/* space-y-12 between title and child */}
@@ -220,7 +226,7 @@ const Templates = () => {
             >
               <ArticleBlock
                 article={item}
-                titleFontSize="text-[1.7rem]"
+                titleFontSize="text-[1.4rem]"
                 view={item?.refView}
               >
                 {item.child?.map((childNode, idx) => (
@@ -228,7 +234,7 @@ const Templates = () => {
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
-                      titleFontSize="text-[1.3rem]"
+                      titleFontSize="text-[1.2rem]"
                     />
                   </Box>
                 ))}

@@ -72,7 +72,7 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
             <CodeBlock
               handleCopy={handleToggleCopyToggle}
               copyState={open}
-              snippet={article?.snippet}
+              content={article}
             />
           )}
         </Box>
