@@ -203,7 +203,7 @@ const Templates = () => {
               </Typography>
             }
           />
-          <Card></Card>
+        
           
         </Box>
 
