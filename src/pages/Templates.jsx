@@ -26,9 +26,6 @@ const Templates = () => {
   const pageCategoryRef = useRef([]);
   pageCategoryRef.current = [];
 
-  const useInViewRef = useRef([]);
-  useInViewRef.current = [];
-
   const storeRef = (element) => {
     if (element && !pageCategoryRef.current.includes(element)) {
       pageCategoryRef.current.push(element);
@@ -198,7 +195,7 @@ const Templates = () => {
       </Box>
 
       {/* main content */}
-      <Box className="w-full h-auto box-border px-14  pt-16 pb-36 space-y-32">
+      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-32">
         <Box className=" w-full max-w-xl box-border  overflow-hidden cursor-default  flex flex-col  space-y-10 justify-between items-start   ">
           <TextContent
             category="product listing"
