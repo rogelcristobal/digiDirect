@@ -7,13 +7,20 @@ import {
 import { Box } from "@mui/material";
 import { Routes, Route, HashRouter } from "react-router-dom";
 // icons
-
+import SideBar from "./components/SideBar";
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
 import { useLocation } from "react-router-dom";
-import { useEffect, useRef, useContext, lazy, Suspense } from "react";
+import {
+  useEffect,
+  useRef,
+  useContext,
+  lazy,
+  Suspense,
+
+} from "react";
 import ScrollTopWidget from "./components/ScrollTopWidget";
 import NavScrollContext from "./context/NavScrollContext";
 import useMousePosition from "./hooks/useMousePosition";
@@ -38,7 +45,7 @@ const App = () => {
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
-            <Main />
+              <Main />
           </ThemeProvider>
         </StyledEngineProvider>
       </HashRouter>
@@ -46,10 +53,10 @@ const App = () => {
   );
 };
 const Main = () => {
-  const { handleScroll,scrollPosition } = useContext(NavScrollContext);
+  const { handleScroll, scrollPosition } = useContext(NavScrollContext);
   const scrollRef = useRef(null);
   const { pathname } = useLocation();
-  
+
   // this code will run every page changes to scroll to top immediately
   useEffect(() => {
     scrollRef.current.scrollTo({
@@ -63,9 +70,9 @@ const Main = () => {
   useEffect(() => {
     handleScroll(scrollRef);
   }, [scrollPosition]);
-  
-  const {x,y} = useMousePosition()
- 
+
+  const { x, y } = useMousePosition();
+
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
@@ -75,11 +82,11 @@ const Main = () => {
           <Box className="h-screen w-full text-gray-800 font-poppins text-white  box-border flex items-start justify-start bg-[#121418] relative">
             {/* navbar */}
 
-            {/* <SideBar /> */}
+            
+            <Navbar />
 
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
-              <Navbar />
               <Box
                 component="main"
                 className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#121418]  w-full relative"

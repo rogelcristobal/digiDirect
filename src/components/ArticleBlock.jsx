@@ -46,13 +46,13 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
           Copied to clipboard! <br />
         </Alert>
       </Snackbar>
-      <Box component="article" className="w-full box-border space-y-8 ">
+      <Box component="article" className="w-full box-border space-y-4 ">
         <TextContent
-          category={article?.category}
+          // category={article?.category}
           title={
             <Typography
               variant="subtitle1"
-              className={`font-medium    ${titleFontSize}  text-white  `}
+              className={`font-medium    ${titleFontSize}  text-gray-200  `}
             >
               {article.title}
             </Typography>
@@ -60,7 +60,7 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
           subTitle={
             <Typography
               variant="subtitle1"
-              className={`text-gray-500 font-normal  text-[0.9rem] `}
+              className={`text-gray-500   text-[0.9rem] `}
             >
               {article.content}
             </Typography>

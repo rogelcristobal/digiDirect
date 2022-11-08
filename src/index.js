@@ -3,18 +3,19 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {NavScrollProvider} from './context/NavScrollContext'
-
+import { NavScrollProvider } from "./context/NavScrollContext";
+import { TemplateSectionProvider } from "./context/TemplateSectionContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-	
-	// <React.StrictMode>
-	<NavScrollProvider>
-		<App />
-		</NavScrollProvider>
-	// </React.StrictMode>
+  // <React.StrictMode>
+  <NavScrollProvider>
+    <TemplateSectionProvider>
+      <App />
+    </TemplateSectionProvider>
+  </NavScrollProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
