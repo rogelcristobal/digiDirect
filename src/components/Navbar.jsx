@@ -23,7 +23,7 @@ const Navbar = () => {
 
     <Box
       component="nav"
-      className={` fixed      h-[4.4rem] pt-2 bg-[#121418]  transition-all duration-300 ease-in-out px-6 z-10 w-full top-0  left-0 box-border flex items-center justify-end  overflow-y-hidden 
+      className={` fixed     h-[4.4rem] pt-2 bg-[#121418]  transition-all duration-300 ease-in-out px-6 z-10 w-full top-0  left-0 box-border flex items-center justify-end  overflow-y-hidden 
     `}
     >
      
@@ -34,7 +34,8 @@ const Navbar = () => {
         <Box className="flex items-center justify-end pr-20 space-x-3 box-border  w-full">
           {[
             { title: "templates", path: "/templates" },
-            { title: "tools", path: "/converter" },
+            { title: "converters", path: "/converter" },
+             { title: "tools", path: "/" },
           ].map((item, id) => (
             <Box key={id} className=" h-full w-fit  grid place-content-center">
               <ListItemBtnComponent

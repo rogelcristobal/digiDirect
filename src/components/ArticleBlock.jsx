@@ -46,7 +46,7 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
           Copied to clipboard! <br />
         </Alert>
       </Snackbar>
-      <Box component="article" className="w-full box-border space-y-6 ">
+      <Box component="article" className="w-full box-border space-y-8 ">
         <TextContent
           category={article?.category}
           title={

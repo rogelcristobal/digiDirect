@@ -14,7 +14,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
   const theme = {
     // light
     colors: {
-      surface1: "#21252b",
+      surface1: "#191c20",
       surface2: "transparent",
       surface3: "#f5f5f5",
       clickable: "#959da5",
@@ -24,7 +24,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
       accent: "#24292e",
     },
     syntax: {
-      plain: "#d1d5db",
+      plain: "#d4d4d8",
       comment: {
         color: "#999999",
         fontStyle: "italic",
@@ -83,17 +83,17 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
       >
         <SandpackCodeViewer
            // styles for the code
-          className="h-fit  min-h-[4.5rem] w-full  px-4 py-1  font-medium box-border "
+          className="h-fit  min-h-[4.5rem] w-full tracking-wide px-4 py-1  font-medium box-border "
           wrapContent
         />
       </SandpackLayout>
 
       {/* btn container  (this will only show if a codeblock is present) */}
       {content?.snippet && (
-        <Box className="absolute box-border right-2 top-2   h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-2">
+        <Box className="absolute box-border right-2.5 top-2   h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-2">
           <IconButton
             variant="contained"
-            className="  transition-all duration-300 ease-in-out font-medium rounded-lg  bg-gray-700/20  text-gray-400 hover:text-white normal-case h-8 px-3 relative"
+            className="  transition-all duration-300 ease-in-out font-medium rounded-lg  bg-gray-700/20 hover:bg-[#2a3037] text-gray-400 hover:text-white normal-case py-2 px-2 relative"
             onClick={handleCopy}
           >
             <TbCopy className="text-lg" />

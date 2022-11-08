@@ -29,7 +29,7 @@ const Templates = () => {
   const storeRef = (element) => {
     if (element && !pageCategoryRef.current.includes(element)) {
       pageCategoryRef.current.push(element);
-      // console.log(element)
+
     }
   };
   // useinview

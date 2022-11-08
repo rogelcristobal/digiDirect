@@ -4,16 +4,16 @@ const TextContent = ({ category, title, subTitle }) => {
  
     return (
       <Box className=" normal-case">
-        <Typography
+       {category? <Typography
           variant="h6"
           className="font-medium text-base   text-gray-600 capitalize	 mb-4"
         >
           {category}
-        </Typography>
+        </Typography>:null}
 
         {title}
 
-        <Box className=" mt-2 max-w-[80%] ">{subTitle}</Box>
+       {subTitle? <Box className=" mt-3 max-w-[80%] ">{subTitle}</Box>:null}
       </Box>
     );
   
