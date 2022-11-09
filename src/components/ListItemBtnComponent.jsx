@@ -11,7 +11,7 @@ const ListItemBtnComponent = ({ title, parentBtn, path }) => {
           <ListItemButton
             disableRipple
             className={`m-0 rounded-lg flex items-center  box-border justify-start   capitalize relative ${
-              parentBtn ? " py-2.5" : "pl-8 py-2.5 "
+              parentBtn ? " py-2.5" : "pl-8 py-2 "
             } 
           
             
@@ -19,8 +19,8 @@ const ListItemBtnComponent = ({ title, parentBtn, path }) => {
           >
             <Typography
               variant="body2"
-              className={` font-medium text-[0.9rem] " ${
-                isActive ? "text-white " : "text-gray-600"
+              className={` font-semibold text-[0.9rem] " ${
+                isActive ? "text-gray-600 " : "text-gray-400"
               }`}
             >
               {title}
@@ -30,10 +30,6 @@ const ListItemBtnComponent = ({ title, parentBtn, path }) => {
       </NavLink>
     </>
   );
-};
-
-ListItemBtnComponent.defaultProps = {
-  hoverColor: "hover:text-purple-500",
 };
 
 export default ListItemBtnComponent;

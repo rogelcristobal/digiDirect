@@ -32,7 +32,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const queryClient = new QueryClient();
 
 const App = () => {
-  const font = "'Poppins', sans-serif";
+  const font = "'Plus Jakarta Sans', sans-serif";
   const theme = createTheme({
     typography: {
       fontFamily: [font].join(","),
@@ -79,17 +79,17 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800 font-poppins text-white  box-border flex items-start justify-start bg-[#121418] relative">
+          <Box className="h-screen w-full text-gray-800 font-plus text-[#1d1e1f]  box-border flex items-start justify-start bg-[#ffffff] relative">
             {/* navbar */}
 
             
             <Navbar />
-
+          <SideBar />
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Box
                 component="main"
-                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#121418]  w-full relative"
+                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full relative"
               >
                 {/* element that scrolling */}
                 <Box
@@ -119,6 +119,7 @@ const Main = () => {
     </Routes>
   );
 };
+
 export default App;
 
 // https://demos.creative-tim.com/soft-ui-dashboard-pro-react/marketplace/#/ecommerce/overview

@@ -119,7 +119,7 @@ export const TemplateSectionProvider = ({ children }) => {
     {
       refView: seoRef,
       isInView: seoState,
-      category: "Search engine optimizations",
+      category: "SEO",
       title: "Search engine optimization",
       content:
         "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",

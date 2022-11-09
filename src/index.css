@@ -7,7 +7,7 @@
     @apply box-border;
   }
   ::-webkit-scrollbar {
-    @apply w-2 bg-neutral-800/70;
+    @apply w-2 bg-neutral-300/70;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-gray-400/20 hover:bg-gray-400/30;
@@ -52,7 +52,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
   .scrollMargin {
-    scroll-margin-top: 8rem;
+    scroll-margin-top: 4rem;
   }
   /* style to remove btn in number field */
   input::-webkit-outer-spin-button,

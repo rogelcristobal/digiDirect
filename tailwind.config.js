@@ -11,7 +11,9 @@ module.exports = {
       
       poppins: ["Poppins", "sans-serif"],
       supreme: ["Supreme", "sans-serif"],
-      switzer:["Switzer", "sans-serif"]
+      general:["General Sans", "sans-serif"],
+      excon:["Excon", "sans-serif"],
+      plus:["Plus Jakarta Sans", "sans-serif"]
      
      
     },

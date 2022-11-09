@@ -29,8 +29,8 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
     setOpen(true);
   };
   return (
-    <Box className="w-full" ref={view}>
-      <Snackbar
+    <>
+    <Snackbar
         open={open}
         autoHideDuration={2500}
         onClose={handleClose}
@@ -45,14 +45,17 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
         >
           Copied to clipboard! <br />
         </Alert>
-      </Snackbar>
-      <Box component="article" className="w-full box-border space-y-4 ">
+    </Snackbar>
+   
+    <Box className={`w-full  bg-[#ffffff] rounded-xl ${children?'py-9 px-12':null}`} ref={view} >
+      
+      <Box component="article" className="w-full box-border space-y-6 ">
         <TextContent
-          // category={article?.category}
+          category={article?.category}
           title={
             <Typography
               variant="subtitle1"
-              className={`font-medium    ${titleFontSize}  text-gray-200  `}
+              className={`font-semibold    ${titleFontSize}  text-gray-700  `}
             >
               {article.title}
             </Typography>
@@ -60,7 +63,7 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
           subTitle={
             <Typography
               variant="subtitle1"
-              className={`text-gray-500   text-[0.9rem] `}
+              className={`text-gray-500 font-medium  text-[0.9rem] `}
             >
               {article.content}
             </Typography>
@@ -80,6 +83,7 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
       {/* if nesteded nodes are present*/}
       {children}
     </Box>
+    </>
   );
 };
 

@@ -6,7 +6,7 @@ const TextContent = ({ category, title, subTitle }) => {
       <Box className=" normal-case">
        {category? <Typography
           variant="h6"
-          className="font-medium text-sm   text-gray-700 capitalize	 mb-3"
+          className="font-medium text-sm   text-gray-400 capitalize	 mb-4"
         >
           {category}
         </Typography>:null}

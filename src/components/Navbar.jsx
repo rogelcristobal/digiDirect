@@ -23,7 +23,7 @@ const Navbar = () => {
 
     <Box
       component="nav"
-      className={` fixed     h-[4rem] pt-2 bg-[#121418]  transition-all duration-300 ease-in-out px-6 z-10 w-full top-0  left-0 box-border flex items-center justify-end  overflow-y-hidden 
+      className={` fixed  border-thiner   h-[4rem] pt-2 bg-[#ffffff] transition-all duration-300 ease-in-out px-6 z-30 w-full top-0  left-0 box-border flex items-center justify-end  overflow-y-hidden 
     `}
     >
      
@@ -31,7 +31,7 @@ const Navbar = () => {
       <div
         className={`w-[calc(100%-12rem)] box-border     h-full  flex items-center justify-end   px-8 transition-all ease-in-out duration-500 `}
       >
-        <Box className="flex items-center justify-end pr-20 space-x-3 box-border  w-full">
+        {/* <Box className="flex items-center justify-end pr-20 space-x-3 box-border  w-full">
           {[
             { title: "templates", path: "/templates" },
             { title: "converters", path: "/converter" },
@@ -45,13 +45,13 @@ const Navbar = () => {
               />
             </Box>
           ))}
-        </Box>
+        </Box> */}
 
         {/* rightside box icons */}
         <Box className="flex items-center  justify-around space-x-4 box-border">
           <IconButton
             size="small"
-            className="p-2  cursor-pointer  text-gray-600 hover:text-white    transition-all dration-300 ease-in-out text-[1rem] "
+            className="p-2  cursor-pointer  text-[#3180e2]    transition-all dration-300 ease-in-out text-[1rem] "
           >
             <HiOutlineMoon></HiOutlineMoon>
           </IconButton>
@@ -60,14 +60,14 @@ const Navbar = () => {
             size="small"
             target="_blank"
             href="https://github.com/rogelcristobal/digiDirect"
-            className="p-2  cursor-pointer  text-gray-600 hover:text-white    transition-all dration-300 ease-in-out text-[1rem]  no-underline"
+            className="p-2  cursor-pointer  text-[#3180e2]    transition-all dration-300 ease-in-out text-[1rem]  no-underline"
           >
             <FiGithub></FiGithub>
           </IconButton>
 
           <IconButton
             size="small"
-            className="p-2  cursor-pointer  text-gray-600 hover:text-white    transition-all dration-300 ease-in-out text-[1rem] "
+            className="p-2  cursor-pointer  text-[#3180e2]    transition-all dration-300 ease-in-out text-[1rem] "
           >
             <AiOutlineUser></AiOutlineUser>
           </IconButton>
