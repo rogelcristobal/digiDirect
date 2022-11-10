@@ -22,19 +22,19 @@ const Templates = () => {
 
       {/* main content */}
       <Box className="w-full h-auto box-border px-6  pt-8 pb-36 space-y-20">
-        {/* <Box className=" w-full max-w-xl box-border px-12 overflow-hidden cursor-default  flex flex-col  space-y-10 justify-between items-start   ">
+        <Box className=" w-full max-w-xl box-border px-12 overflow-hidden cursor-default  flex flex-col  space-y-10 justify-between items-start   ">
           <TextContent
-            // category="product listing"
+            category="product listing"
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-semibold  truncate  text-[1.8rem] text-gray-100  "
+                className=" font-semibold  truncate  text-[1.8rem] text-gray-700  "
               >
                 Templates
               </Typography>
             }
           />
-        </Box> */}
+        </Box>
 
         {/* space-y-12 between title and child */}
         <Box className="space-y-20 w-full  box-border ">

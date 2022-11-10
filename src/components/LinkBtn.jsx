@@ -11,13 +11,14 @@ import {
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { HiChevronRight, HiChevronDown } from "react-icons/hi";
-const CustomBtn = ({ children, initialState, title,path }) => {
+const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
   const [isOpen, setState] = useState(initialState);
   const {pathname} = useLocation()
   const navigate = useNavigate()
   const handleClick = () => {
     setState(true);
     navigate(path)
+    scrollRef?.current.scrollTo(0,0)
   };
   useEffect(() => {
     if(pathname !== path){
@@ -69,9 +70,9 @@ const CustomBtn = ({ children, initialState, title,path }) => {
 };
 
 
-CustomBtn.propTypes={
+LinkBtn.propTypes={
   children: PropTypes.node,
   path: PropTypes.string.isRequired 
 
 }
-export default CustomBtn;
+export default LinkBtn;

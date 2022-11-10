@@ -84,7 +84,7 @@ const Main = () => {
 
             
             <Navbar />
-          <SideBar />
+          <SideBar scrollRef={scrollRef}/>
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Box

@@ -3,14 +3,14 @@ import { Box, Typography } from "@mui/material";
 import { useContext } from "react";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import Link from "@mui/material/Link";
-import CustomBtn from "./CustomBtn";
+import LinkBtn from "./LinkBtn";
 import Templates from "../pages/Templates";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AiOutlineFileSync } from "react-icons/ai";
 // components
 // icon
 
-const SideBar = () => {
+const SideBar = ({scrollRef}) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { templateSections, pageCategoryRef } = useContext(
@@ -27,7 +27,7 @@ const SideBar = () => {
   return (
     <Box className="w-[22rem] z-10 h-full bg-[#ffffff] sticky top-0 px-4 box-border  flex flex-col justify-start pb-8 pt-8 border-thiner items-center overflow-y-auto">
       <Box
-        className="h-fit w-full  mt-16 box-border py-1 px-2  flex flex-col items-end justify-start  max-w-[17rem] 
+        className="h-fit w-full border-thiner  mt-16 box-border py-1 px-2  flex flex-col items-end justify-start  max-w-[17rem] 
 
         "
       >
@@ -40,7 +40,8 @@ const SideBar = () => {
           { title: "converters", path: "/converters" },
           { title: "tools", path: "/tools" },
         ].map((item, idx) => (
-          <CustomBtn
+          <LinkBtn
+            scrollRef={scrollRef}
             key={idx}
             title={item.title}
             initialState={item?.child?.state}
@@ -62,7 +63,7 @@ const SideBar = () => {
                 </span>
               </Link>
             ))}
-          </CustomBtn>
+          </LinkBtn>
         ))}
       </Box>
     </Box>
