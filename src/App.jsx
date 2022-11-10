@@ -79,17 +79,17 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800 font-plus text-[#1d1e1f]  box-border flex items-start justify-start bg-[#ffffff] relative">
+          <Box className="h-screen w-full text-gray-800 font-plus text-[#1d1e1f]  box-border flex items-start justify-start bg-[#fcfbfd] relative">
             {/* navbar */}
 
             
             <Navbar />
-          <SideBar scrollRef={scrollRef}/>
+            <SideBar scrollRef={scrollRef}/>
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Box
                 component="main"
-                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full relative"
+                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#fcfbfd]  w-full relative"
               >
                 {/* element that scrolling */}
                 <Box

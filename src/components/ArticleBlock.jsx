@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, IconButton, Snackbar, Alert } from "@mui/material";
+import { Box, Typography, Divider, Snackbar, Alert } from "@mui/material";
 import TextContent from "./TextContent";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
@@ -47,15 +47,16 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
         </Alert>
     </Snackbar>
    
-    <Box className={`w-full  bg-[#ffffff] rounded-xl ${children?'py-9 px-12':null}`} ref={view} >
+    <Box className={`w-full  bg-inherit rounded-xl ${children?'py-8 px-8':null}`} ref={view} >
       
       <Box component="article" className="w-full box-border space-y-6 ">
+
         <TextContent
           category={article?.category}
           title={
             <Typography
               variant="subtitle1"
-              className={`font-semibold    ${titleFontSize}  text-gray-700  `}
+              className={`font-bold    ${titleFontSize}  text-gray-800  `}
             >
               {article.title}
             </Typography>
@@ -69,8 +70,9 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
             </Typography>
           }
         />
+
         {/* code block width */}
-        <Box className=" relative box-border h-fit    max-w-[45rem]">
+        <Box className=" relative box-border h-fit    max-w-[43rem]">
           {article?.snippet && (
             <CodeBlock
               handleCopy={handleToggleCopyToggle}

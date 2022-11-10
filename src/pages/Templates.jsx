@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Card from "../components/Card";
 import { useContext } from "react";
 import TemplateSectionContext from "../context/TemplateSectionContext";
-import SideBar from "../components/SideBar";
+
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -21,23 +21,26 @@ const Templates = () => {
       
 
       {/* main content */}
-      <Box className="w-full h-auto box-border px-6  pt-8 pb-36 space-y-20">
-        <Box className=" w-full max-w-xl box-border px-12 overflow-hidden cursor-default  flex flex-col  space-y-10 justify-between items-start   ">
+      <Box className="w-full h-auto box-border px-6  pt-12 pb-36 space-y-0">
+        <Box className=" w-full max-w-xl box-border px-8 overflow-hidden cursor-default  flex flex-col  justify-between items-start   ">
           <TextContent
-            category="product listing"
+            // category="product listing"
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-semibold  truncate  text-[1.8rem] text-gray-700  "
+                className=" font-semibold    text-[2.2rem] text-gray-800  "
               >
-                Templates
+                 Templates
               </Typography>
+            }
+            subTitle={
+              <Typography variant="subtitle1"></Typography>
             }
           />
         </Box>
 
         {/* space-y-12 between title and child */}
-        <Box className="space-y-20 w-full  box-border ">
+        <Box className="space-y-0 w-full  box-border ">
           {/* space-y-12 between siblings */}
           {templateSections.map((item, id) => (
             // divided per category
@@ -49,7 +52,7 @@ const Templates = () => {
             >
               <ArticleBlock
                 article={item}
-                titleFontSize="text-[1.3rem]"
+                titleFontSize="text-[1.4rem]"
                 view={item?.refView}
               >
                 {item.child?.map((childNode, idx) => (
@@ -57,12 +60,15 @@ const Templates = () => {
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
-                      titleFontSize="text-[1.2rem]"
+                      titleFontSize="text-[1.3rem]"
                     />
                   </Box>
                 ))}
               </ArticleBlock>
+             
+
             </Box>
+            
           ))}
         </Box>
       </Box>

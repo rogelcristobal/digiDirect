@@ -23,7 +23,7 @@ const Navbar = () => {
 
     <Box
       component="nav"
-      className={` fixed   border-thiner  h-[4rem] pt-2 bg-[#ffffff] transition-all duration-300 ease-in-out px-6 z-30 w-full top-0  left-0 box-border flex items-center justify-end  overflow-y-hidden 
+      className={` fixed  h-[4.3rem] pt-2 bg-[#fcfbfd] transition-all duration-300 ease-in-out px-6 z-30 w-full top-0  left-0 box-border flex items-center justify-end  overflow-y-hidden 
     `}
     >
      
@@ -48,10 +48,10 @@ const Navbar = () => {
         </Box> */}
 
         {/* rightside box icons */}
-        <Box className="flex items-center  justify-around space-x-4 box-border">
+        {/* <Box className="flex items-center  justify-around space-x-4 box-border">
           <IconButton
             size="small"
-            className="p-2  cursor-pointer  text-gray-700    transition-all dration-300 ease-in-out text-[1rem] "
+            className="p-2  cursor-pointer  text-gray-600 hover:text-[#3180e2]   transition-all dration-300 ease-in-out text-[0.985rem] "
           >
             <HiOutlineMoon></HiOutlineMoon>
           </IconButton>
@@ -60,18 +60,18 @@ const Navbar = () => {
             size="small"
             target="_blank"
             href="https://github.com/rogelcristobal/digiDirect"
-            className="p-2  cursor-pointer  text-gray-700    transition-all dration-300 ease-in-out text-[1rem]  no-underline"
+            className="p-2  cursor-pointer  text-gray-600 hover:text-[#3180e2]   transition-all dration-300 ease-in-out text-[0.985rem]  no-underline"
           >
             <FiGithub></FiGithub>
           </IconButton>
 
           <IconButton
             size="small"
-            className="p-2  cursor-pointer  text-gray-700    transition-all dration-300 ease-in-out text-[1rem] "
+            className="p-2  cursor-pointer  text-gray-600 hover:text-[#3180e2]   transition-all dration-300 ease-in-out text-[0.985rem] "
           >
             <AiOutlineUser></AiOutlineUser>
           </IconButton>
-        </Box>
+        </Box> */}
       </div>
     </Box>
   );

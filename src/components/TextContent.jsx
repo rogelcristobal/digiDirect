@@ -6,14 +6,14 @@ const TextContent = ({ category, title, subTitle }) => {
       <Box className=" normal-case">
        {category? <Typography
           variant="h6"
-          className="font-medium text-sm   text-gray-400 capitalize	 mb-3"
+          className="font-semibold text-[0.825rem]   text-[#3180e2] capitalize	 mb-1"
         >
           {category}
         </Typography>:null}
 
         {title}
 
-       {subTitle? <Box className=" mt-0 max-w-[80%] ">{subTitle}</Box>:null}
+       {subTitle? <Box className=" mt-4 max-w-[80%] ">{subTitle}</Box>:null}
       </Box>
     );
   

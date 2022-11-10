@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { nightOwl} from '@codesandbox/sandpack-themes'
 
 import {
   SandpackProvider,
@@ -12,53 +13,14 @@ import { useElementDimension } from "../hooks/useElementDimension";
 const CodeBlock = ({ content, handleCopy, copyState }) => {
   const container = useRef(null);
   const { width, height } = useElementDimension(container);
-  const theme = {
+  
     // light
-    colors: {
-    surface1: "#011627",
-    surface2: "#243b4c",
-    surface3: "#112331",
-    clickable: "#6988a1",
-    base: "#808080",
-    disabled: "#4D4D4D",
-    hover: "#c5e4fd",
-    accent: "#c5e4fd",
-    error: "#ffcdca",
-    errorSurface: "#811e18"
-  },
-  syntax: {
-    plain: "#d6deeb",
-    comment: {
-      color: "#999999",
-      fontStyle: "italic"
-    },
-    keyword: {
-      color: "#c792ea",
-      fontStyle: "italic"
-    },
-    tag: "#7fdbca",
-    punctuation: "#7fdbca",
-    definition: "#82aaff",
-    property: {
-      color: "#addb67",
-      fontStyle: "italic"
-    },
-    static: "#f78c6c",
-    string: "#ecc48d"
-  },
-    font: {
-      body: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
-      mono: "\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
-      size: "13.5px",
-      lineHeight: "21px",
-      
-    },
-  };
+ 
   // animatin
 
   return (
     <SandpackProvider
-      theme={theme}
+      theme={nightOwl}
       template="react"
       customSetup={{
         entry: "index.css",
@@ -82,13 +44,13 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
       <SandpackLayout
         ref={container}
         // onClick={(e)=>alert( content?.title )}
-        className="box-border cursor-pointer   flex items-center justify-center w-full   relative"
+        className="box-border cursor-pointer rounded-none  flex items-center justify-center w-full   relative "
       >
         <SandpackCodeViewer
            // styles for the code
-          className="h-fit  min-h-[4.5rem] w-full tracking-wide px-4 py-1  font-medium box-border "
+          className="h-fit  min-h-[4.5rem] w-full tracking-wide px-3 py-0  font-plus font-medium box-border "
           wrapContent
-          // showTabs
+          
           // showLineNumbers
         />
       </SandpackLayout>

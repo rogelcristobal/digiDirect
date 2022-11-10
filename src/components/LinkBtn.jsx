@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { HiChevronRight, HiChevronDown } from "react-icons/hi";
+import { BiCaretRight, BiCaretDown } from "react-icons/bi";
 const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
   const [isOpen, setState] = useState(initialState);
   const {pathname} = useLocation()
@@ -27,32 +27,36 @@ const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
   }, [pathname]);
   
   return (
+    // [#f5f4f5]
     <>
       <ListItemButton
         disableGutters
         disableTouchRipple
         onClick={handleClick}
         className={`flex  justify-between  
-          ${pathname === path? 'text-gray-800': 'text-gray-400'} items-center hover:bg-inherit box-border  py-2 w-full px-4 transition-all duration-300 ease-in-out `}
+          ${pathname === path? 'text-black': 'text-black'} 
+            items-center  box-border  py-2 bg-inherit rounded-lg w-full px-5 transition-all duration-300 ease-in-out space-x-2 `}
       >
+       
+
         {/* title */}
-        <Box className="flex h-full w-full space-x-3 ">
+        <Box className="flex h-full w-full ">
           <Typography
             variant="body2"
-            className=" text-[0.9rem] font-semibold capitalize"
+            className=" text-[1rem] font-bold capitalize"
           >
             {title}
           </Typography>
         </Box>
-        {children ? (
-          <Box className=" flex items-center p-0.5 rounded-md  justify-center box-border">
+       {/* {children ? (
+          <Box className=" flex items-center p-0.5    justify-center box-border">
             {isOpen ? (
-              <HiChevronDown className="text-inherit" />
+              <BiCaretDown className="text-inherit" />
             ) : (
-              <HiChevronRight className="text-inherit" />
+              <BiCaretRight className="text-inherit" />
             )}
           </Box>
-        ) : null}
+        ) : null} */}
       </ListItemButton>
 
 
@@ -60,7 +64,7 @@ const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
       {/* children */}
       {children ? (
         <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full ">
-          <List component="div" className=" py-0  ">
+          <List component="div" className=" py-0  pl-4 ">
             {children}
           </List>
         </Collapse>
