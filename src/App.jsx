@@ -79,12 +79,11 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800 text-black  box-border flex items-start flex-col justify-start bg-[#fcfbfd] relative">
+          <Box className="h-screen w-full text-gray-800 text-black  box-border flex  flex-col items-center justify-start bg-[#fcfbfd] ">
             {/* navbar */}
 
             
-            <Navbar />
-            {/* <SideBar scrollRef={scrollRef}/> */}
+            <Navbar></Navbar>
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Box
@@ -94,7 +93,7 @@ const Main = () => {
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}
-                  className="h-full scroll-smooth overflow-x-hidden w-full  flex pt-[4.2rem] items-start justify-center box-border "
+                  className="h-full scroll-smooth overflow-x-hidden w-full  flex  items-start justify-center box-border "
                 >
                
                   <Suspense fallback={<LoadingFallback />}>
@@ -107,7 +106,7 @@ const Main = () => {
                 </Box>
 
                 {/* widget (scroll top) */}
-                <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget>
+                {/* <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget> */}
               </Box>
             </Box>
           </Box>
@@ -120,7 +119,7 @@ const Main = () => {
 
 export default App;
 
-// https://demos.creative-tim.com/soft-ui-dashboard-pro-react/marketplace/#/ecommerce/overview
+//https://products.ls.graphics/qubus/
 
 // code blocks with copy btn (https://www.npmjs.com/package/react-code-blocks)
 // html playground (https://www.npmjs.com/package/playground-elements)

@@ -19,14 +19,14 @@ const Templates = () => {
     <>
       {/* main content */}
       <Box className="w-full h-auto box-border px-0   pt-0 pb-36 space-y-16 border-thiner">
-        <Box className=" w-full h-[34rem] box-border px-24  pt-[4.5rem]  cursor-default  flex flex-col  justify-start items-start    border-thiner">
+        <Box className=" w-full h-[28rem] box-border px-24  pt-[4.5rem]  cursor-default  flex flex-col  justify-center items-start    border-thiner">
           <Box className="border-thiner box-border sticky top-3 ">
             <TextContent
-              category="digiDirect"
+              // category="digiDirect"
               title={
                 <Typography
                   variant="subtitle1"
-                  className=" font-ukraine-regular leading-[3rem]  text-[2.6rem] text-black  "
+                  className=" font-ukraine-regular leading-[5rem]  text-[5rem] text-black  "
                 >
                   Product <br /> Listing Templates
                 </Typography>

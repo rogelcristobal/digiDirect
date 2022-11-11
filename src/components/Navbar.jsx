@@ -14,16 +14,11 @@ const Navbar = () => {
   // const { scrollPosition } = useContext(NavScrollContext);
   // console.log('scroll state change')
   return (
-    // <Box
-    //   component="nav"
-    //   className={` fixed  ${
-    //     scrollPosition >= 100 ? 'h-[4.1rem] pt-2' : "h-0 "
-    //   } bg-gray-900  transition-all duration-300 ease-in-out px-6 z-20 w-full top-0   left-0 box-border flex items-center justify-between  overflow-y-hidden shadow
-    // `}
+    
 
     <Box
       component="nav"
-      className={`  h-[4.3rem] border-thiner  bg-[#ffffff] transition-all duration-300 ease-in-out px-6 z-30 w-full  box-border flex items-center justify-end  overflow-y-hidden 
+      className={`  h-[4.3rem] border-thiner  bg-black transition-all duration-300 ease-in-out px-6 z-30 w-full  box-border 
     `}
     >
      
