@@ -11,36 +11,34 @@ import TemplateSectionContext from "../context/TemplateSectionContext";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
-   const {templateSections,pageCategoryRef,storeRef} = useContext(TemplateSectionContext)
-
- 
- 
-
+  const { templateSections, pageCategoryRef, storeRef } = useContext(
+    TemplateSectionContext
+  );
+  
   return (
     <>
-      
-
       {/* main content */}
-      <Box className="w-full h-auto box-border px-6  pt-12 pb-36 space-y-0">
-        <Box className=" w-full max-w-xl box-border px-8 overflow-hidden cursor-default  flex flex-col  justify-between items-start   ">
-          <TextContent
-            // category="product listing"
-            title={
-              <Typography
-                variant="subtitle1"
-                className=" font-semibold    text-[2.2rem] text-gray-800  "
-              >
-                 Templates
-              </Typography>
-            }
-            subTitle={
-              <Typography variant="subtitle1"></Typography>
-            }
-          />
+      <Box className="w-full h-auto box-border px-0   pt-0 pb-36 space-y-16 border-thiner">
+        <Box className=" w-full h-[34rem] box-border px-24  pt-[4.5rem]  cursor-default  flex flex-col  justify-start items-start    border-thiner">
+          <Box className="border-thiner box-border sticky top-3 ">
+            <TextContent
+              category="digiDirect"
+              title={
+                <Typography
+                  variant="subtitle1"
+                  className=" font-ukraine-regular leading-[3rem]  text-[2.6rem] text-black  "
+                >
+                  Product <br /> Listing Templates
+                </Typography>
+              }
+              subTitle={<Typography variant="subtitle1"></Typography>}
+            />
+          </Box>
         </Box>
 
+        {/* main content here */}
         {/* space-y-12 between title and child */}
-        <Box className="space-y-0 w-full  box-border ">
+        <Box className="space-y-20 w-full box-border border-thiner px-24">
           {/* space-y-12 between siblings */}
           {templateSections.map((item, id) => (
             // divided per category
@@ -52,32 +50,29 @@ const Templates = () => {
             >
               <ArticleBlock
                 article={item}
-                titleFontSize="text-[1.4rem]"
+                titleFontSize="text-[1.7rem]"
                 view={item?.refView}
+                id={id}
               >
+                {/* category */}
                 {item.child?.map((childNode, idx) => (
-                  <Box key={idx} className="box-border my-16 w-full ">
+                  <Box key={idx} className="box-border my-32 w-full ">
                     {/* my-12 between each child nodes */}
                     <ArticleBlock
                       article={childNode}
-                      titleFontSize="text-[1.3rem]"
+                      titleFontSize="text-[1.2rem]"
                     />
                   </Box>
                 ))}
               </ArticleBlock>
-             
-
             </Box>
-            
           ))}
         </Box>
       </Box>
-    
 
       {/* page navigation */}
     </>
   );
 };
-// https://codingbeautydev.com/blog/material-ui-tabs/
-// https://www.cdnfonts.com/lota-grotesque-alt-1.font
+
 export default Templates;

@@ -34,16 +34,16 @@ const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
         disableTouchRipple
         onClick={handleClick}
         className={`flex  justify-between  
-          ${pathname === path? 'text-black': 'text-black'} 
-            items-center  box-border  py-2 bg-inherit rounded-lg w-full px-5 transition-all duration-300 ease-in-out space-x-2 `}
+          ${pathname === path? 'text-black': 'text-gray-400/70'} 
+            items-center  box-border  py-3 bg-inherit  w-full px-4 transition-all duration-300 ease-in-out space-x-2 `}
       >
        
 
         {/* title */}
-        <Box className="flex h-full w-full ">
+        <Box className="flex h-full w-full justify-start">
           <Typography
             variant="body2"
-            className=" text-[1rem] font-bold capitalize"
+            className=" text-[0.875rem]  font-ukraine-regular capitalize"
           >
             {title}
           </Typography>
@@ -64,7 +64,7 @@ const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
       {/* children */}
       {children ? (
         <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full ">
-          <List component="div" className=" py-0  pl-4 ">
+          <List component="div" className=" py-0  ">
             {children}
           </List>
         </Collapse>

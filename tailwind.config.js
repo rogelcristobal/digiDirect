@@ -7,7 +7,10 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      
+      "ukraine-light":["ukraine-light","sans-serif"],
+      "ukraine-regular":["ukraine-regular","sans-serif"],
+      "ukraine-md":["ukraine-medium","sans-serif"],
+      "ukraine-bold":["ukraine-bold","sans-serif"],
       
       poppins: ["Poppins", "sans-serif"],
       supreme: ["Supreme", "sans-serif"],

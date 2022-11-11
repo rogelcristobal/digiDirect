@@ -37,7 +37,7 @@ export const TemplateSectionProvider = ({ children }) => {
   const [specsRef, specsState] = useInView({ threshold: 0.3 });
   const [descriptionRef, descriptionState] = useInView({ threshold: 0.1 });
   const [shortDescriptionRef, shortDescriptionState] = useInView({threshold: 0.4,});
-  const [seoRef, seoState] = useInView({ threshold: 0.2 });
+  const [seoRef, seoState] = useInView({ threshold: 0.3 });
 
   const templateSections=[
   
@@ -67,7 +67,7 @@ export const TemplateSectionProvider = ({ children }) => {
       snippet: specsMarkup,
       child: [
         {
-          title: "Categorized specification",
+          title:  parseString("Specification&#x2015;categorized"),
           content:
             "Applies when the product specification needed to be categorized, specification can hav multiple categories. In that instance you can just copy the tags and append it on the end.",
           snippet: specsMarkupCategorized,

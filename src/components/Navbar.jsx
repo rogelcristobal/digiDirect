@@ -3,15 +3,15 @@ import { HiOutlineMoon } from "react-icons/hi";
 import { AiOutlineUser } from "react-icons/ai";
 import { FiGithub } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useContext } from "react";
-import NavScrollContext from "../context/NavScrollContext";
+// import NavScrollContext from "../context/ScrollContext";
 import DigiLogoInJs from "./DigiLogoInJs";
 import { NavLink } from "react-router-dom";
 import ListItemBtnComponent from "./ListItemBtnComponent";
 import IconButton from "@mui/material/IconButton";
 const Navbar = () => {
-  const { scrollPosition } = useContext(NavScrollContext);
+  // const { scrollPosition } = useContext(NavScrollContext);
   // console.log('scroll state change')
   return (
     // <Box
@@ -23,7 +23,7 @@ const Navbar = () => {
 
     <Box
       component="nav"
-      className={` fixed  h-[4.3rem] pt-2 bg-[#fcfbfd] transition-all duration-300 ease-in-out px-6 z-30 w-full top-0  left-0 box-border flex items-center justify-end  overflow-y-hidden 
+      className={`  h-[4.3rem] border-thiner  bg-[#ffffff] transition-all duration-300 ease-in-out px-6 z-30 w-full  box-border flex items-center justify-end  overflow-y-hidden 
     `}
     >
      
@@ -48,8 +48,8 @@ const Navbar = () => {
         </Box> */}
 
         {/* rightside box icons */}
-        {/* <Box className="flex items-center  justify-around space-x-4 box-border">
-          <IconButton
+        <Box className="flex items-center  justify-around space-x-4 box-border">
+          {/* <IconButton
             size="small"
             className="p-2  cursor-pointer  text-gray-600 hover:text-[#3180e2]   transition-all dration-300 ease-in-out text-[0.985rem] "
           >
@@ -70,8 +70,16 @@ const Navbar = () => {
             className="p-2  cursor-pointer  text-gray-600 hover:text-[#3180e2]   transition-all dration-300 ease-in-out text-[0.985rem] "
           >
             <AiOutlineUser></AiOutlineUser>
-          </IconButton>
-        </Box> */}
+          </IconButton> */}
+          {/* <Button
+            variant="text"
+            size="small"
+           className=" py-2 px-4 rounded-lg bg-[#3b72ff] text-white grid place-content-center "
+          >
+            <Typography variant="overline" className="text-xs capitalize p-0 m-0">sign in</Typography>
+            
+          </Button> */}
+        </Box>
       </div>
     </Box>
   );

@@ -53,6 +53,7 @@ const App = () => {
   );
 };
 const Main = () => {
+
   const { handleScroll, scrollPosition } = useContext(NavScrollContext);
   const scrollRef = useRef(null);
   const { pathname } = useLocation();
@@ -71,7 +72,6 @@ const Main = () => {
     handleScroll(scrollRef);
   }, [scrollPosition]);
 
-  const { x, y } = useMousePosition();
 
   return (
     <Routes>
@@ -79,12 +79,12 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800 font-plus text-[#1d1e1f]  box-border flex items-start justify-start bg-[#fcfbfd] relative">
+          <Box className="h-screen w-full text-gray-800 text-black  box-border flex items-start flex-col justify-start bg-[#fcfbfd] relative">
             {/* navbar */}
 
             
             <Navbar />
-            <SideBar scrollRef={scrollRef}/>
+            {/* <SideBar scrollRef={scrollRef}/> */}
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Box
@@ -96,6 +96,7 @@ const Main = () => {
                   ref={scrollRef}
                   className="h-full scroll-smooth overflow-x-hidden w-full  flex pt-[4.2rem] items-start justify-center box-border "
                 >
+               
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>
                       <Route index element={<Dashboard />} />
@@ -112,10 +113,7 @@ const Main = () => {
           </Box>
         }
       ></Route>
-      <Route
-        path="/login"
-        element={<div className="h-full bg-blue-100">s</div>}
-      />
+     
     </Routes>
   );
 };

@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
   * {
     @apply box-border;
   }
   ::-webkit-scrollbar {
-    @apply w-2 bg-neutral-300/70;
+    @apply w-2 bg-neutral-300/50;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-400/20 hover:bg-gray-400/30;
+    @apply bg-gray-400/30 hover:bg-gray-400/50;
   }
   .shad {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
@@ -44,7 +45,7 @@
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
   }
   .scrollMargin {
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 5rem;
   }
   /* style to remove btn in number field */
   input::-webkit-outer-spin-button,
@@ -58,5 +59,21 @@
     -moz-appearance: textfield;
   }
 }
+@font-face {
+  font-family: "ukraine-light";
+  src: url("./fonts/eUkraineLight.otf");
+}
+@font-face {
+  font-family: "ukraine-regular";
+  src: url("./fonts/eUkraineRegular.otf");
+}
 
+@font-face {
+  font-family: "ukraine-md";
+  src: url("./fonts/eUkraineMedium.otf");
+}
+@font-face {
+  font-family: "ukraine-bold";
+  src: url("./fonts/eUkraineBold.otf");
+}
 /* https://getcssscan.com/css-box-shadow-examples */

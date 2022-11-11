@@ -28,4 +28,3 @@ export const NavScrollProvider = ({ children }) => {
 };
 
 export default NavScrollContext
-
