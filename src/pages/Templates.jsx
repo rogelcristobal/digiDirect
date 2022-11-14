@@ -6,44 +6,50 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import Card from "../components/Card";
 import { useContext } from "react";
+import LinkBtn from "../components/LinkBtn";
 import TemplateSectionContext from "../context/TemplateSectionContext";
-
+import { HiArrowUpRight } from "react-icons/hi2";
+import SideBar from "../components/SideBar";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
   const { templateSections, pageCategoryRef, storeRef } = useContext(
     TemplateSectionContext
   );
-  
+
   return (
     <>
       {/* main content */}
-      <Box className="w-full h-auto box-border px-0   pt-0 pb-36 space-y-16 border-thiner">
-        <Box className=" w-full h-[28rem] box-border px-24  pt-[4.5rem]  cursor-default  flex flex-col  justify-center items-start    border-thiner">
-          <Box className="border-thiner box-border sticky top-3 ">
+      <Box className="w-full h-auto box-border px-0 pt-28 pb-36 space-y-16 border-thiner">
+        <Box className=" w-full h-fit box-border px-14  pt-8 pb-8 cursor-default  flex flex-col  justify-center items-start    border-thiner">
+          <Box className=" box-border  ">
             <TextContent
-              // category="digiDirect"
               title={
                 <Typography
                   variant="subtitle1"
-                  className=" font-ukraine-regular leading-[5rem]  text-[5rem] text-black  "
+                  className=" font-ukraine-regular text-[2.8rem] uppercase space-x-12 box-border leading-[3.3rem] text-black  "
                 >
                   Product <br /> Listing Templates
+                  <span className="text-5xl">&#8599;</span>
                 </Typography>
               }
-              subTitle={<Typography variant="subtitle1"></Typography>}
+              // subTitle={
+              //   <Typography
+              //     variant="subtitle1"
+              //     className="font-ukraine-light  text-neutral-400 mt-8 "
+              //   >
+              //     Control how the product descriptions, what's in the box and specifications looks on digiDirect, and what content is included. 
+              //   </Typography>
+              // }
             />
           </Box>
         </Box>
-
-        {/* main content here */}
-        {/* space-y-12 between title and child */}
-        <Box className="space-y-20 w-full box-border border-thiner px-24">
+        <Box className="space-y-20 w-full box-border border-thiner px-14 pt-20 ">
           {/* space-y-12 between siblings */}
           {templateSections.map((item, id) => (
             // divided per category
             <Box
-              className="box-border w-full scrollMargin flex items-center justify-start "
+              className="box-border w-full scrollMargin flex items-center  justify-start "
               key={id}
               data-id={id}
               ref={storeRef}
@@ -68,6 +74,10 @@ const Templates = () => {
             </Box>
           ))}
         </Box>
+        {/* main content here */}
+        {/* space-y-12 between title and child */}
+
+         
       </Box>
 
       {/* page navigation */}

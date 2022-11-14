@@ -13,18 +13,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
 import { useLocation } from "react-router-dom";
-import {
-  useEffect,
-  useRef,
-  useContext,
-  lazy,
-  Suspense,
-
-} from "react";
+import { useEffect, useRef, useContext, lazy, Suspense } from "react";
 import ScrollTopWidget from "./components/ScrollTopWidget";
 import NavScrollContext from "./context/NavScrollContext";
 import useMousePosition from "./hooks/useMousePosition";
 import LoadingFallback from "./components/LoadingFallback";
+import {PageScrollableProvider} from "./context/PageScrollableContext";
+import PageScrollableContext from "./context/PageScrollableContext";
+
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -45,7 +41,10 @@ const App = () => {
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
-              <Main />
+           <PageScrollableProvider>
+
+            <Main />
+           </PageScrollableProvider>
           </ThemeProvider>
         </StyledEngineProvider>
       </HashRouter>
@@ -53,11 +52,10 @@ const App = () => {
   );
 };
 const Main = () => {
-
   const { handleScroll, scrollPosition } = useContext(NavScrollContext);
   const scrollRef = useRef(null);
   const { pathname } = useLocation();
-
+  const {setScrolRefState} = useContext(PageScrollableContext)
   // this code will run every page changes to scroll to top immediately
   useEffect(() => {
     scrollRef.current.scrollTo({
@@ -69,8 +67,11 @@ const Main = () => {
 
   // this code  will get the scrolling position of element
   useEffect(() => {
+    
     handleScroll(scrollRef);
+    setScrolRefState(scrollRef)
   }, [scrollPosition]);
+
 
 
   return (
@@ -79,11 +80,11 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800 text-black  box-border flex  flex-col items-center justify-start bg-[#fcfbfd] ">
+          <Box className="h-screen w-full text-gray-800 text-black  box-border flex   items-center justify-start bg-[#fcfbfd] ">
             {/* navbar */}
 
-            
             <Navbar></Navbar>
+            <SideBar></SideBar>
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Box
@@ -93,9 +94,8 @@ const Main = () => {
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}
-                  className="h-full scroll-smooth overflow-x-hidden w-full  flex  items-start justify-center box-border "
+                  className="h-full scroll-smooth overflow-x-hidden w-full  flex  items-start justify-center box-border scrollbar-hide "
                 >
-               
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>
                       <Route index element={<Dashboard />} />
@@ -112,7 +112,6 @@ const Main = () => {
           </Box>
         }
       ></Route>
-     
     </Routes>
   );
 };

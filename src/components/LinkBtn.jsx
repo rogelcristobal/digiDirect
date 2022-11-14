@@ -11,14 +11,19 @@ import {
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { BiCaretRight, BiCaretDown } from "react-icons/bi";
-const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
+
+  import { useContext } from "react";
+  import PageScrollableContext from "../context/PageScrollableContext";
+const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
   const [isOpen, setState] = useState(initialState);
+  
+  const {scrollRefState} = useContext(PageScrollableContext)
   const {pathname} = useLocation()
   const navigate = useNavigate()
   const handleClick = () => {
-    setState(true);
-    navigate(path)
-    scrollRef?.current.scrollTo(0,0)
+      setState(true)
+      navigate(path)
+      scrollRefState?.current.scrollTo(0,0)
   };
   useEffect(() => {
     if(pathname !== path){
@@ -34,8 +39,8 @@ const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
         disableTouchRipple
         onClick={handleClick}
         className={`flex  justify-between  
-          ${pathname === path? 'text-black': 'text-gray-400/70'} 
-            items-center  box-border  py-3 bg-inherit  w-full px-4 transition-all duration-300 ease-in-out space-x-2 `}
+          ${navigationBtn?(pathname === path? 'text-black': 'text-neutral-400/80 '):('text-black')} 
+            items-center  box-border  py-3 bg-inherit border-thiner w-full px-4 transition-all duration-300 ease-in-out space-x-2 ${sx}`}
       >
        
 
@@ -43,7 +48,7 @@ const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
         <Box className="flex h-full w-full justify-start">
           <Typography
             variant="body2"
-            className=" text-[0.875rem]  font-ukraine-regular capitalize"
+            className=" text-[0.9rem]  font-ukraine-regular capitalize"
           >
             {title}
           </Typography>
@@ -63,8 +68,8 @@ const LinkBtn = ({ children, initialState, title,path ,scrollRef}) => {
 
       {/* children */}
       {children ? (
-        <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full ">
-          <List component="div" className=" py-0  ">
+        <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full box-border">
+          <List component="div" className="px-0 py-0  box-border">
             {children}
           </List>
         </Collapse>

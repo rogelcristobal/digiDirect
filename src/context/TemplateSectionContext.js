@@ -44,7 +44,7 @@ export const TemplateSectionProvider = ({ children }) => {
     {
       refView: inTheBoxRef,
       isInView: inTheBoxState,
-      category: "What's in the box ",
+      category: "What's in the box",
       title: "Included in the box",
       content: "Displays the accesories included in the product package.",
       snippet: inTheBoxMarkup,
@@ -61,7 +61,7 @@ export const TemplateSectionProvider = ({ children }) => {
       refView: specsRef,
       isInView: specsState,
       category: " Specification",
-      title: "Basic specifications ",
+      title: "Basic specifications",
       content:
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
       snippet: specsMarkup,
@@ -79,14 +79,14 @@ export const TemplateSectionProvider = ({ children }) => {
       refView: descriptionRef,
       isInView: descriptionState,
       category: " Descriptions",
-      title: "Basic description ",
+      title: "Basic description",
       content:
         " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
       snippet: descriptionSimple,
 
       child: [
         {
-          title: "Advanced description ",
+          title: "Advanced description",
           content: " Displays the description of the product.",
           snippet: descriptionBest,
         },
@@ -102,7 +102,7 @@ export const TemplateSectionProvider = ({ children }) => {
       refView: shortDescriptionRef,
       isInView: shortDescriptionState,
       category: "Short descriptions",
-      title: " Basic short description ",
+      title: " Basic short description",
       content:
         "A short description is text that briefly introduces and describes a topic. In DITA, short desciptions are tagged with",
       snippet: shortDescription,
