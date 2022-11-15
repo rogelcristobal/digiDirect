@@ -16,7 +16,7 @@ const Navbar = () => {
         className={`box-border container    h-full  flex items-center justify-end    transition-all ease-in-out duration-500 `}
       >
         <TextContent title={
-          <Typography variant="body1" className="font-ukraine-regular text-[0.8rem]">ROGELC_</Typography>
+          <Typography variant="body1" className="font-ukraine-regular text-[0.8rem]">ROGEL</Typography>
         }></TextContent>
 
         

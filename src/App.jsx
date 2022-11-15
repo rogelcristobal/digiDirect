@@ -67,12 +67,13 @@ const Main = () => {
 
   // this code  will get the scrolling position of element
   useEffect(() => {
-    
     handleScroll(scrollRef);
     setScrolRefState(scrollRef)
   }, [scrollPosition]);
 
 
+  // mouse posiiton hook
+ 
 
   return (
     <Routes>

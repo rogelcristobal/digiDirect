@@ -48,7 +48,7 @@ const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
         <Box className="flex h-full w-full justify-start">
           <Typography
             variant="body2"
-            className=" text-[0.9rem]  font-ukraine-regular capitalize"
+            className=" text-[0.9rem]  font-ukraine-medium capitalize"
           >
             {title}
           </Typography>
