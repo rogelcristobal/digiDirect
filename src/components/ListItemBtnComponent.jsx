@@ -6,38 +6,30 @@ const ListItemBtnComponent = ({ title, parentBtn, path }) => {
   const [state, setstate] = useState(false);
   return (
     <>
-      <NavLink
-        to={`${path}`}
-        className="no-underline">
+      <NavLink to={`${path}`} className="no-underline">
         {({ isActive }) => (
           <ListItemButton
             disableRipple
-            className={`m-0 flex items-center box-border justify-start bg-inherit  capitalize relative ${
-              parentBtn ? " py-2.5" : "pl-8 py-2.5 "
-            } space-x-3 `}
+            className={`m-0 rounded-lg flex items-center  box-border justify-start   capitalize relative ${
+              parentBtn ? " py-2.5" : "pl-8 py-2 "
+            } 
+          
+            
+            `}
           >
             <Typography
               variant="body2"
-              className={` font-normal text-[0.9rem] " ${
-                isActive ? "text-white"  : "text-gray-600"
+              className={` font-semibold text-[0.9rem] " ${
+                isActive ? "text-gray-600 " : "text-gray-400"
               }`}
             >
               {title}
             </Typography>
-
-
-          
           </ListItemButton>
-
-
         )}
       </NavLink>
     </>
   );
-};
-
-ListItemBtnComponent.defaultProps = {
-  hoverColor: "hover:text-purple-500",
 };
 
 export default ListItemBtnComponent;

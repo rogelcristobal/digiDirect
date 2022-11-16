@@ -1,12 +1,11 @@
 import React from "react";
-import { Box, Typography, IconButton, Snackbar, Alert } from "@mui/material";
+import { Box, Typography, Divider, Snackbar, Alert } from "@mui/material";
 import TextContent from "./TextContent";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { BsCheckCircle } from "react-icons/bs";
 import { useInView } from "react-intersection-observer";
-const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
-
+const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClose = (event, reason) => {
@@ -29,7 +28,7 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
     setOpen(true);
   };
   return (
-    <Box className="w-full" ref={view}>
+    <>
       <Snackbar
         open={open}
         autoHideDuration={2500}
@@ -46,28 +45,32 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
           Copied to clipboard! <br />
         </Alert>
       </Snackbar>
-      <Box component="article" className="w-full box-border space-y-6 ">
-        <TextContent
-          category={article?.category}
-          title={
-            <Typography
-              variant="subtitle1"
-              className={`font-medium    ${titleFontSize}  text-white  `}
-            >
-              {article.title}
-            </Typography>
-          }
-          subTitle={
-            <Typography
-              variant="subtitle1"
-              className={`text-gray-500 font-normal  text-[0.9rem] `}
-            >
-              {article.content}
-            </Typography>
-          }
-        />
-        {/* code block width */}
-        <Box className=" relative box-border h-fit    max-w-[45rem]">
+
+      <Box className={`w-full border-thiner  ${children ? "py-8 px-0" : null}`} ref={view}>
+        <Box component="article" className="w-full box-border space-y-6 ">
+          <TextContent
+            // category={article?.category}
+            title={
+              <Typography
+                variant="subtitle1"
+                className={`font-ukraine-regular  flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1c1c1d]`}
+              >
+                {/* <Typography variant="overline w-fit text-lg text-gray-400">{id}</Typography> */}
+                {article.title}.
+              </Typography>
+            }
+            subTitle={
+              <Typography
+                variant="subtitle1"
+                className={`text-neutral-400/80 font-ukraine-regular  text-[1rem] `}
+              >
+                {article.content}
+              </Typography>
+            }
+          />
+
+          {/* code block width */}
+          {/* <Box className=" relative box-border h-fit    max-w-[48rem]">
           {article?.snippet && (
             <CodeBlock
               handleCopy={handleToggleCopyToggle}
@@ -75,11 +78,12 @@ const ArticleBlock = ({ article, children, titleFontSize ,view}) => {
               content={article}
             />
           )}
+        </Box> */}
         </Box>
+        {/* if nesteded nodes are present*/}
+        {children}
       </Box>
-      {/* if nesteded nodes are present*/}
-      {children}
-    </Box>
+    </>
   );
 };
 

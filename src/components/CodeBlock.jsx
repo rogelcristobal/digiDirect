@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { monokaiPro} from '@codesandbox/sandpack-themes'
+
 import {
   SandpackProvider,
   SandpackLayout,
@@ -11,51 +13,14 @@ import { useElementDimension } from "../hooks/useElementDimension";
 const CodeBlock = ({ content, handleCopy, copyState }) => {
   const container = useRef(null);
   const { width, height } = useElementDimension(container);
-  const theme = {
+  
     // light
-    colors: {
-      surface1: "#21252b",
-      surface2: "transparent",
-      surface3: "#f5f5f5",
-      clickable: "#959da5",
-      base: "#24292e",
-      disabled: "#d1d4d8",
-      hover: "#24292e",
-      accent: "#24292e",
-    },
-    syntax: {
-      plain: "#d1d5db",
-      comment: {
-        color: "#999999",
-        fontStyle: "italic",
-      },
-      keyword: {
-        color: "#c792ea",
-        fontStyle: "italic",
-      },
-      tag: "#6b7280",
-      punctuation: "#6b7280",
-      definition: "#82aaff",
-      property: {
-        color: "#06b6d4",
-        fontStyle: "italic",
-      },
-      static: "#f78c6c",
-      string: "#7dd3fc  ",
-    },
-    font: {
-      body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-      mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
-      size: "14px",
-      lineHeight: "21px",
-      
-    },
-  };
+ 
   // animatin
 
   return (
     <SandpackProvider
-      theme={theme}
+      theme={monokaiPro}
       template="react"
       customSetup={{
         entry: "index.css",
@@ -79,21 +44,23 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
       <SandpackLayout
         ref={container}
         // onClick={(e)=>alert( content?.title )}
-        className="box-border cursor-pointer rounded-2xl  flex items-center justify-center w-full   relative"
+        className="box-border cursor-pointer rounded-none  flex items-center justify-center w-full   relative "
       >
         <SandpackCodeViewer
            // styles for the code
-          className="h-fit  min-h-[4.5rem] w-full  px-4 py-1  font-medium box-border "
+          className="h-fit  min-h-[4.5rem] w-full tracking-wide px-3 py-0  font-plus font-medium box-border "
           wrapContent
+          
+          // showLineNumbers
         />
       </SandpackLayout>
 
       {/* btn container  (this will only show if a codeblock is present) */}
       {content?.snippet && (
-        <Box className="absolute box-border right-2 top-2   h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-2">
+        <Box className="absolute box-border right-2.5 top-2   h-fit  w-fit  bg-inherit   flex items-center justify-center space-x-2">
           <IconButton
             variant="contained"
-            className="  transition-all duration-300 ease-in-out font-medium rounded-lg  bg-gray-700/20  text-gray-400 hover:text-white normal-case h-8 px-3 relative"
+            className="  transition-all duration-300 ease-in-out font-medium rounded-md   text-gray-500 hover:text-gray-400 normal-case py-2 px-2 relative"
             onClick={handleCopy}
           >
             <TbCopy className="text-lg" />

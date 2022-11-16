@@ -7,7 +7,7 @@ import {
 import { Box } from "@mui/material";
 import { Routes, Route, HashRouter } from "react-router-dom";
 // icons
-
+import SideBar from "./components/SideBar";
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
@@ -18,6 +18,9 @@ import ScrollTopWidget from "./components/ScrollTopWidget";
 import NavScrollContext from "./context/NavScrollContext";
 import useMousePosition from "./hooks/useMousePosition";
 import LoadingFallback from "./components/LoadingFallback";
+import {PageScrollableProvider} from "./context/PageScrollableContext";
+import PageScrollableContext from "./context/PageScrollableContext";
+
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -25,7 +28,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const queryClient = new QueryClient();
 
 const App = () => {
-  const font = "'Poppins', sans-serif";
+  const font = "'Plus Jakarta Sans', sans-serif";
   const theme = createTheme({
     typography: {
       fontFamily: [font].join(","),
@@ -38,7 +41,10 @@ const App = () => {
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
+           <PageScrollableProvider>
+
             <Main />
+           </PageScrollableProvider>
           </ThemeProvider>
         </StyledEngineProvider>
       </HashRouter>
@@ -46,10 +52,10 @@ const App = () => {
   );
 };
 const Main = () => {
-  const { handleScroll,scrollPosition } = useContext(NavScrollContext);
+  const { handleScroll, scrollPosition } = useContext(NavScrollContext);
   const scrollRef = useRef(null);
   const { pathname } = useLocation();
-  
+  const {setScrolRefState} = useContext(PageScrollableContext)
   // this code will run every page changes to scroll to top immediately
   useEffect(() => {
     scrollRef.current.scrollTo({
@@ -62,32 +68,34 @@ const Main = () => {
   // this code  will get the scrolling position of element
   useEffect(() => {
     handleScroll(scrollRef);
+    setScrolRefState(scrollRef)
   }, [scrollPosition]);
-  
-  const {x,y} = useMousePosition()
+
+
+  // mouse posiiton hook
  
+
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800 font-poppins text-[#131918]  box-border flex items-start justify-start bg-[#121418] relative">
+          <Box className="h-screen w-full text-gray-800 text-black  box-border flex   items-center justify-start bg-[#fcfbfd] ">
             {/* navbar */}
 
-            {/* <SideBar /> */}
-
+            <Navbar></Navbar>
+           
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
-              <Navbar />
               <Box
                 component="main"
-                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#121418]  w-full relative"
+                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#fcfbfd]  w-full relative"
               >
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}
-                  className="h-full scroll-smooth overflow-x-hidden w-full  flex pt-[4.2rem] items-start justify-center box-border "
+                  className="h-full scroll-smooth  w-full   flex flex-col  box-border scrollbar-hide "
                 >
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>
@@ -105,16 +113,13 @@ const Main = () => {
           </Box>
         }
       ></Route>
-      <Route
-        path="/login"
-        element={<div className="h-full bg-blue-100">s</div>}
-      />
     </Routes>
   );
 };
+
 export default App;
 
-// https://demos.creative-tim.com/soft-ui-dashboard-pro-react/marketplace/#/ecommerce/overview
+//https://products.ls.graphics/qubus/
 
 // code blocks with copy btn (https://www.npmjs.com/package/react-code-blocks)
 // html playground (https://www.npmjs.com/package/playground-elements)

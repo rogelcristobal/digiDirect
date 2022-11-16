@@ -1,89 +1,73 @@
-import React from "react";
-import { Box, Divider, Typography, List, Paper } from "@mui/material";
+  import React from "react";
+  import { Box, Typography } from "@mui/material";
+  import { useContext } from "react";
+  import TemplateSectionContext from "../context/TemplateSectionContext";
+  import Link from "@mui/material/Link";
+  import LinkBtn from "./LinkBtn";
+  import Templates from "../pages/Templates";
+  import { useNavigate, useLocation } from "react-router-dom";
+  import { AiOutlineFileSync } from "react-icons/ai";
+  // components
+  // icon
 
-// components
-import ListItemBtnComponent from "./ListItemBtnComponent";
-import ListItemBtnExpandable from "./ListItemBtnExpandable";
-import DigiLogoInJs from "./DigiLogoInJs";
-// icon
-import {
-  AiTwotoneTags,
-  AiFillFileImage,
-  AiFillExperiment,
-} from "react-icons/ai";
-import { HiChevronDown, HiChevronRight } from "react-icons/hi";
+  const SideBar = () => {
+  
+    const { templateSections, pageCategoryRef } = useContext(
+      TemplateSectionContext
+    );
+    const handleViewSection = async (id) => {
+      await pageCategoryRef?.current[id].scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    };
 
-import { IoShapes } from "react-icons/io5";
+    return (
+      <Box className="px-2  w-[26rem] z-20 h-fit bg-inherit sticky top-0 box-border  flex flex-col justify-start pb-8 pt-12  items-center ">
+        <Box
+          className="h-fit w-full  mt-14 box-border py-2 px-2 border-thiner  flex flex-col items-end justify-start   space-y-0
 
-const SideBar = () => {
-  // f7f8fa
-  return (
-    <Box className="h-screen w-[22rem]   bg-[#e6eded]  z-10 box-border relative ">
-      {/* <Divider
-        orientation="vertical"
-        className="absolute right-0 top-0"
-        variant="fullWidth"
-        light
-      ></Divider> */}
-      {/* sidebar bg-[#111827] */}
-      <Box className="h-20    w-full flex flex-col items-start  justify-center  px-8   box-border ">
-        <DigiLogoInJs   dark color="text-gray-400 font-medium  text-md" />
-      </Box>
-      <Box className="w-full  box-border h-auto    ">
-        <Paper
-          square
-          variant="contained"
-          className="w-full bg-inherit  rounded-xl h-auto max-h-full  py-4    box-border scrollbar-hide hover:scrollbar-default mt-0 space-y-0"
+          "
         >
-          {/* dashboard */}
-          <List>
-            <ListItemBtnComponent
-              path="/"
-              title="dashboard"
-              icon={<IoShapes />}
-              parentBtn
-            />
-            <ListItemBtnExpandable
-              textColor="text-gray-700"
-              bgColor="bg-gray-100/80"
-              title="product listing"
-              initialState={true}
-              icon={<AiTwotoneTags className="text-xs " />}
-              enableIcon={<HiChevronDown className="text-gray-800  text-lg" />}
-              disableIcon={<HiChevronRight className="text-gray-800 text-lg" />}
+          {[
+            {
+              title: "on this page",
+              path: "/templates",
+              child: { node: templateSections, state: true },
+            },
+            // { title: "converters", path: "/converters" },
+            // { title: "tools", path: "/tools" },
+          ].map((item, idx) => (
+            <LinkBtn
+              navigationBtn
+              key={idx}
+              title={item.title}
+              initialState={item?.child?.state}
+              path={item.path}
             >
-              {[
-                { title: "quick create", path: "/xyz" },
-                { title: "templates", path: "/templates" },
-              ].map((item, idx) => (
-                <ListItemBtnComponent
-                  path={item.path}
-                  activeStyle="   no-underline "
-                  title={item.title}
-                  key={idx}
-                />
+              {item?.child?.node.map((childItem, id) => (
+                <Link
+                  key={id}
+                  underline="none"
+                  onClick={() => {
+                    handleViewSection(id);
+                  }}
+                  className={` text-[0.9rem] relative box-border   pl-8 font-ukraine-medium py-1.5 cursor-pointer transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
+                    ${childItem?.isInView ? "text-[#1c1c1d] " : "text-neutral-400/80 "}
+                    `}
+                >
+                  {/* <div className={`${childItem?.isInView? 'bg-[#3b72ff]':'bg-gray-200/70'} h-full w-[0.275rem] absolute top-0 left-0 rounded-r-lg`}></div> */}
+
+                  <span className="text-left box-border w-full overflow-x-hidden truncate">
+                    {childItem.category}
+                  </span>
+                </Link>
               ))}
-            </ListItemBtnExpandable>
-            <ListItemBtnComponent
-              path="/experimental"
-              title="experimental"
-              icon={<AiFillExperiment className="text-xs text-neutral-50" />}
-              parentBtn
-              activeStyle="text-neutral-50  no-underline "
-            />
-
-            <ListItemBtnComponent
-              parentBtn
-              path="/converter"
-              activeStyle=" text-neutral-50  no-underline "
-              title="Converter"
-              icon={<AiFillFileImage className="text-xs text-neutral-50" />}
-            />
-          </List>
-        </Paper>
+            </LinkBtn>
+          ))}
+        </Box>
       </Box>
-    </Box>
-  );
-};
+    );
+  };
 
-export default SideBar;
+  export default SideBar;

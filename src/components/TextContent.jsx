@@ -1,19 +1,19 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
-const TextContent = ({ category, title, subTitle }) => {
+const TextContent = ({ category, title, subTitle,sx }) => {
  
     return (
-      <Box className=" normal-case">
-        <Typography
-          variant="h6"
-          className="font-medium text-base   text-gray-600 capitalize	 mb-4"
+      <Box className={` normal-case box-border  ${sx}`}>
+       {category? <Typography
+          variant="body1"
+          className="font-ukraine-light text-[0.8rem] relative text-neutral-400/70 capitalize	 "
         >
           {category}
-        </Typography>
+        </Typography>:null}
 
         {title}
 
-        <Box className=" mt-2 max-w-[80%] ">{subTitle}</Box>
+       {subTitle? <Box className="  max-w-[80%] ">{subTitle}</Box>:null}
       </Box>
     );
   
