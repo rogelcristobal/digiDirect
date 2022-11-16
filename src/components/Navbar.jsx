@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <Box
       component="nav"
-      className={`  h-fit py-2 border-thiner  bg-transparent fixed top-0 right-0 transition-all duration-300 ease-in-out  z-30 w-full  box-border 
+      className={`  h-fit py-2   bg-transparent fixed top-0 right-0 transition-all duration-300 ease-in-out pt-4  z-30 w-full  box-border 
     `}
     >
       <div

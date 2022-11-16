@@ -48,17 +48,17 @@
     scroll-margin-top: 5rem;
   }
   /* style to remove btn in number field */
-  input::-webkit-outer-spin-button,
+  /* input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  /* Firefox */
+  Firefox
   input[type="number"] {
     -moz-appearance: textfield;
-  }
-}
+  }*/
+} 
 ::selection {
   color: white;
   background: black;

@@ -5,6 +5,7 @@ import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { BsCheckCircle } from "react-icons/bs";
 import { useInView } from "react-intersection-observer";
+
 const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
   const [open, setOpen] = React.useState(false);
 
@@ -53,7 +54,7 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
             title={
               <Typography
                 variant="subtitle1"
-                className={`font-ukraine-regular  uppercase flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1c1c1d]`}
+                className={`font-ukraine-medium tracking-tighter  capitalize flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1c1c1d]`}
               >
                 {/* <Typography variant="overline w-fit text-lg text-gray-400">{id}</Typography> */}
                 {article.title}.

@@ -1,9 +1,9 @@
 import { useRef, lazy } from "react";
-import { Box, Typography, Divider } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import TextContent from "../components/TextContent";
 import template from "../template/template";
 import { useInView } from "react-intersection-observer";
-
+import Divider from "@mui/material/divider";
 import { motion } from "framer-motion";
 import Card from "../components/Card";
 import { useContext } from "react";
@@ -22,12 +22,12 @@ const Templates = () => {
     <>
     {/* title container */}
       <Box className=" w-full h-96 box-border px-14 relative pt-20 pb-16   flex flex-col  justify-center items-end bg-inherit   border-thiner">
-        <Box className=" box-border  absolute top-8 right-8">
+        <Box className=" box-border  absolute top-12 right-12">
           <TextContent
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-regular tracking-tight text-[5rem] uppercase  box-border leading-[5.8rem] text-[#1c1c1d] pointer-events-none text-right"
+                className=" font-ukraine-regular  text-[4.6rem] uppercase  box-border leading-[5.8rem] text-[#1c1c1d] pointer-events-none text-right"
               >
                 product
                 Listing 
@@ -47,7 +47,8 @@ const Templates = () => {
       <Box className="flex items-start justify-center w-full h-fit pt-24">
         <SideBar></SideBar>
         {/* main content */}
-        <Box className="w-full h-auto box-border px-0  pb-36 space-y-16 ">
+        <Box className="w-full h-auto box-border px-0  pb-36  ">
+          <Divider variant='fullWidth' className="h-[1.5px] bg-[#1c1c1d] w-full "></Divider>
           <Box className="space-y-20 w-full box-border border-thiner px-14 pt-20 ">
             {/* space-y-12 between siblings */}
             {templateSections.map((item, id) => (
@@ -76,7 +77,7 @@ const Templates = () => {
                     </Box>
                   ))}
                 </ArticleBlock>
-                <Divider variant='middle' className="h-4 bg-black"></Divider>
+                
               </Box>
             
             ))}
