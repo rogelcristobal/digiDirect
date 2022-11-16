@@ -85,7 +85,7 @@ const Main = () => {
             {/* navbar */}
 
             <Navbar></Navbar>
-            <SideBar></SideBar>
+           
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Box
@@ -95,7 +95,7 @@ const Main = () => {
                 {/* element that scrolling */}
                 <Box
                   ref={scrollRef}
-                  className="h-full scroll-smooth overflow-x-hidden w-full  flex  items-start justify-center box-border scrollbar-hide "
+                  className="h-full scroll-smooth  w-full   flex flex-col  box-border scrollbar-hide "
                 >
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>
@@ -107,7 +107,7 @@ const Main = () => {
                 </Box>
 
                 {/* widget (scroll top) */}
-                {/* <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget> */}
+                <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget>
               </Box>
             </Box>
           </Box>

@@ -59,6 +59,14 @@
     -moz-appearance: textfield;
   }
 }
+
+.stroke-text {
+  -webkit-text-stroke: 1.5px black;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* e-Ukraine */
 @font-face {
   font-family: "ukraine-thin";
   src: url("./fonts/eUkraineThin.otf");

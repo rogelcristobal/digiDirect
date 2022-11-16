@@ -23,11 +23,11 @@ const {scrollPosition} = useContext(NavScrollContext)
         
     },
     hover:{
-      //  backgroundColor:'rgb(156 163 175 / 0.7)'
+       scale:1.3
     }
   }
   return (
-    <motion.div  variants={anim} animate="animate" whileHover="hover" initial="initial"  onClick={handleClick} className="w-fit   rounded-lg bg-gray-500/10  z-10 cursor-pointer fixed right-8 bottom-6 flex flex-col  items-center justify-center p-3.5  overflow-hidden  box-border text-lg  text-gray-300 space-y-12">
+    <motion.div  variants={anim} animate="animate" whileHover="hover" initial="initial"  onClick={handleClick} className="w-fit   rounded-full border-[1.5px] border-solid border-black  z-30 cursor-pointer fixed right-8 bottom-6 flex flex-col  items-center justify-center p-3.5  overflow-hidden  box-border text-lg  text-black">
       <HiOutlineArrowUp></HiOutlineArrowUp>
     
     </motion.div>
