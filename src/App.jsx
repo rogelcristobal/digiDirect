@@ -6,8 +6,7 @@ import {
 
 import { Box } from "@mui/material";
 import { Routes, Route, HashRouter } from "react-router-dom";
-// icons
-import SideBar from "./components/SideBar";
+
 // tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
@@ -16,7 +15,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useRef, useContext, lazy, Suspense } from "react";
 import ScrollTopWidget from "./components/ScrollTopWidget";
 import NavScrollContext from "./context/NavScrollContext";
-import useMousePosition from "./hooks/useMousePosition";
+import Cursor from "./components/Cursor";
 import LoadingFallback from "./components/LoadingFallback";
 import {PageScrollableProvider} from "./context/PageScrollableContext";
 import PageScrollableContext from "./context/PageScrollableContext";
@@ -74,18 +73,18 @@ const Main = () => {
 
   // mouse posiiton hook
  
-
+ 
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
-          <Box className="h-screen w-full text-gray-800 text-black  box-border flex   items-center justify-start bg-[#fcfbfd] ">
+          <Box className="h-fit w-full  cursor-none text-gray-800 text-[#1c1c1d]  box-border flex   items-center justify-start bg-[#fcfbfd] relative">
             {/* navbar */}
 
             <Navbar></Navbar>
-           
+            <Cursor/>
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
               <Box
@@ -97,6 +96,7 @@ const Main = () => {
                   ref={scrollRef}
                   className="h-full scroll-smooth  w-full   flex flex-col  box-border scrollbar-hide "
                 >
+                   <Cursor/>
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>
                       <Route index element={<Dashboard />} />

@@ -53,7 +53,7 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
             title={
               <Typography
                 variant="subtitle1"
-                className={`font-ukraine-regular  flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1c1c1d]`}
+                className={`font-ukraine-regular  uppercase flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1c1c1d]`}
               >
                 {/* <Typography variant="overline w-fit text-lg text-gray-400">{id}</Typography> */}
                 {article.title}.
@@ -62,7 +62,7 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
             subTitle={
               <Typography
                 variant="subtitle1"
-                className={`text-neutral-400/80 font-ukraine-regular  text-[1rem] `}
+                className={`text-neutral-400/80 font-ukraine-light  text-[1rem] `}
               >
                 {article.content}
               </Typography>

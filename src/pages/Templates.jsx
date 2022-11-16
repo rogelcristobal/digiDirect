@@ -1,5 +1,5 @@
 import { useRef, lazy } from "react";
-import { Box, Typography, Link } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 import TextContent from "../components/TextContent";
 import template from "../template/template";
 import { useInView } from "react-intersection-observer";
@@ -21,24 +21,30 @@ const Templates = () => {
   return (
     <>
     {/* title container */}
-      <Box className=" w-full h-fit box-border px-14  pt-16 pb-8 cursor-default  flex flex-col  justify-center items-end bg-inherit   border-thiner">
-        <Box className=" box-border  ">
+      <Box className=" w-full h-96 box-border px-14 relative pt-20 pb-16   flex flex-col  justify-center items-end bg-inherit   border-thiner">
+        <Box className=" box-border  absolute top-8 right-8">
           <TextContent
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-light text-[5.3rem] uppercase box-border leading-[5.9rem] text-[#1c1c1d]"
+                className=" font-ukraine-regular tracking-tight text-[5rem] uppercase  box-border leading-[5.8rem] text-[#1c1c1d] pointer-events-none text-right"
               >
-                Product <br />
-                Listing Templates
-                {/* <span className="text-5xl">&#8599;</span> */}
+                product
+                Listing 
+                 <br />
+                <span className=""> templates
+
+                <motion.span></motion.span>
+                </span>
+
+                {/* <span className="text-[5.5rem] ml-8">&#8599;</span> */}
               </Typography>
             }
           />
         </Box>
       </Box>
       {/* main content and sidebar */}
-      <Box className="flex items-start justify-center w-full h-fit pt-20">
+      <Box className="flex items-start justify-center w-full h-fit pt-24">
         <SideBar></SideBar>
         {/* main content */}
         <Box className="w-full h-auto box-border px-0  pb-36 space-y-16 ">
@@ -46,15 +52,16 @@ const Templates = () => {
             {/* space-y-12 between siblings */}
             {templateSections.map((item, id) => (
               // divided per category
+            
               <Box
-                className="box-border w-full scrollMargin flex items-center  justify-start "
+                className="box-border w-full scrollMargin flex flex-col items-center  justify-start "
                 key={id}
                 data-id={id}
                 ref={storeRef}
               >
                 <ArticleBlock
                   article={item}
-                  titleFontSize="text-[1.7rem]"
+                  titleFontSize="text-[1.5rem]"
                   view={item?.refView}
                   id={id}
                 >
@@ -64,12 +71,14 @@ const Templates = () => {
                       {/* my-12 between each child nodes */}
                       <ArticleBlock
                         article={childNode}
-                        titleFontSize="text-[1.2rem]"
+                        titleFontSize="text-[1.1rem]"
                       />
                     </Box>
                   ))}
                 </ArticleBlock>
+                <Divider variant='middle' className="h-4 bg-black"></Divider>
               </Box>
+            
             ))}
           </Box>
           {/* main content here */}

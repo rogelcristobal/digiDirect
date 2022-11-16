@@ -40,15 +40,15 @@ const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
         onClick={handleClick}
         className={`flex  justify-between  
           ${navigationBtn?(pathname === path? 'text-black': 'text-neutral-400/80 '):('text-black')} 
-            items-center  box-border  py-3 bg-inherit border-thiner w-full px-4 transition-all duration-300 ease-in-out space-x-2 ${sx}`}
+            items-center   box-border  py-3 bg-inherit border-thiner w-full px-4 transition-all duration-300 ease-in-out space-x-2 ${sx}`}
       >
        
 
         {/* title */}
-        <Box className="flex h-full w-full justify-start">
+        <Box className="flex h-full w-full justify-end">
           <Typography
             variant="body2"
-            className=" text-[0.9rem]  font-ukraine-medium capitalize"
+            className=" text-[0.9rem]  font-ukraine-medium "
           >
             {title}
           </Typography>
@@ -68,8 +68,8 @@ const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
 
       {/* children */}
       {children ? (
-        <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full box-border">
-          <List component="div" className="px-0 py-0  box-border">
+        <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full box-border ">
+          <List component="div" className="px-4 py-0 mt-4 box-border">
             {children}
           </List>
         </Collapse>

@@ -39,6 +39,7 @@
             // { title: "tools", path: "/tools" },
           ].map((item, idx) => (
             <LinkBtn
+             sx="uppercase"
               navigationBtn
               key={idx}
               title={item.title}
@@ -52,13 +53,13 @@
                   onClick={() => {
                     handleViewSection(id);
                   }}
-                  className={` text-[0.9rem] relative box-border   pl-8 font-ukraine-medium py-1.5 cursor-pointer transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
+                  className={` text-[0.9rem] relative box-border    font-ukraine-medium py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
                     ${childItem?.isInView ? "text-[#1c1c1d] " : "text-neutral-400/80 "}
                     `}
                 >
                   {/* <div className={`${childItem?.isInView? 'bg-[#3b72ff]':'bg-gray-200/70'} h-full w-[0.275rem] absolute top-0 left-0 rounded-r-lg`}></div> */}
 
-                  <span className="text-left box-border w-full overflow-x-hidden truncate">
+                  <span className="text-right box-border w-full overflow-x-hidden truncate">
                     {childItem.category}
                   </span>
                 </Link>
