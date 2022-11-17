@@ -1,22 +1,23 @@
 import { Box, Typography } from "@mui/material";
 import TextContent from "./TextContent";
-// import NavScrollContext from "../context/ScrollContext";
-import DigiLogoInJs from "./DigiLogoInJs";
+import NavScrollContext from "../context/NavScrollContext";
+import PageScrollableContext from "../context/PageScrollableContext";
+import {useContext,useEffect} from 'react'
 
-const Navbar = () => {
-  // const { scrollPosition } = useContext(NavScrollContext);
-  // console.log('scroll state change')
+const Navbar = ({scrollPosition}) => {
+  // const {scrollRefState}= useContext(PageScrollableContext)
+  
   return (
     <Box
       component="nav"
-      className={`  h-fit py-2   bg-transparent fixed top-0 right-0 transition-all duration-300 ease-in-out pt-4  z-30 w-full  box-border 
+      className={`  h-fit py-2 border-thiner  bg-inherit fixed top-0 right-0 transition-all duration-300 ease-in-out pt-4  z-30 w-full  box-border 
     `}
     >
       <div
         className={`box-border container    h-full  flex items-center justify-end    transition-all ease-in-out duration-500 `}
       >
         <TextContent title={
-          <Typography variant="body1" className="font-ukraine-regular text-[0.8rem] ">rogel.c</Typography>
+          <Typography variant="body1" className="font-ukraine-regular text-[0.8rem] ">{scrollPosition}</Typography>
         }></TextContent>
 
         

@@ -4,24 +4,21 @@ const NavScrollContext = createContext();
 
 export const NavScrollProvider = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [transparency,setTransparency] = useState(false)
-  // scroll function
-  const handleScroll=(ref)=>{
-    const element = ref?.current;
-    const scroll = () => {
-      let x = element.scrollTop;
-      setScrollPosition(x);
-    };
-    element.addEventListener("scroll", scroll);
+
+  const handleScroll = (e) => {
+    const pos = window.pageYOffset
+    setScrollPosition(pos);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      element.removeEventListener("scroll", scroll);
-      setScrollPosition(0);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }
+  }, []);
  
 
   return (
-    <NavScrollContext.Provider value={{scrollPosition,setScrollPosition,transparency,setTransparency,handleScroll}}>
+    <NavScrollContext.Provider value={{scrollPosition}}>
       {children}
     </NavScrollContext.Provider>
   );

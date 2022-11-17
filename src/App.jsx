@@ -12,13 +12,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
 import { useLocation } from "react-router-dom";
-import { useEffect, useRef, useContext, lazy, Suspense } from "react";
+import { useEffect, useRef, useContext, lazy, Suspense, useState } from "react";
 import ScrollTopWidget from "./components/ScrollTopWidget";
 import NavScrollContext from "./context/NavScrollContext";
 import Cursor from "./components/Cursor";
 import LoadingFallback from "./components/LoadingFallback";
-import {PageScrollableProvider} from "./context/PageScrollableContext";
+import { PageScrollableProvider } from "./context/PageScrollableContext";
 import PageScrollableContext from "./context/PageScrollableContext";
+import { MouseStateProvider } from "./context/MouseStateContext";
 
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
@@ -40,10 +41,11 @@ const App = () => {
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
-           <PageScrollableProvider>
-
-            <Main />
-           </PageScrollableProvider>
+            <PageScrollableProvider>
+              <MouseStateProvider>
+                <Main />
+              </MouseStateProvider>
+            </PageScrollableProvider>
           </ThemeProvider>
         </StyledEngineProvider>
       </HashRouter>
@@ -51,52 +53,47 @@ const App = () => {
   );
 };
 const Main = () => {
-  const { handleScroll, scrollPosition } = useContext(NavScrollContext);
+  // context
+  const {scrollPosition } = useContext(NavScrollContext);
+
+  // refs
   const scrollRef = useRef(null);
   const { pathname } = useLocation();
-  const {setScrolRefState} = useContext(PageScrollableContext)
+  // const {setScrolRefState} = useContext(PageScrollableContext)
   // this code will run every page changes to scroll to top immediately
-  useEffect(() => {
-    scrollRef.current.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
-  }, [pathname]);
+  // useEffect(() => {
+  //   scrollRef.current.scrollTo({
+  //     top: 0,
+  //     left: 0,
+  //     behavior: "instant",
+  //   });
+  // }, [pathname]);
 
   // this code  will get the scrolling position of element
-  useEffect(() => {
-    handleScroll(scrollRef);
-    setScrolRefState(scrollRef)
-  }, [scrollPosition]);
-
 
   // mouse posiiton hook
  
- 
+
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
-          <Box className="h-fit w-full  cursor-none text-gray-800 text-[#1c1c1d]  box-border flex   items-center justify-start bg-[#fcfbfd] relative">
+          <Box className="h-fit w-full  text-gray-800 text-[#1a1a1a]  box-border flex   items-center justify-start bg-[#fcfbfd] relative">
             {/* navbar */}
 
-            <Navbar></Navbar>
-            <Cursor/>
+            <Navbar scrollPosition={scrollPosition}></Navbar>
+            <Cursor />
             {/* content */}
-            <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start">
+            <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start ">
               <Box
                 component="main"
-                className="h-full box-border  flex items-start gap-3 rounded-lg  bg-[#fcfbfd]  w-full relative"
+                className="h-full box-border   flex items-start gap-3 rounded-lg  bg-[#fcfbfd]  w-full relative "
               >
                 {/* element that scrolling */}
-                <Box
-                  ref={scrollRef}
-                  className="h-full scroll-smooth  w-full   flex flex-col  box-border scrollbar-hide "
-                >
-                   <Cursor/>
+                <Cursor />
+                <Box className="h-fit   w-full  flex flex-col  box-border  ">
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>
                       <Route index element={<Dashboard />} />
@@ -107,7 +104,7 @@ const Main = () => {
                 </Box>
 
                 {/* widget (scroll top) */}
-                <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget>
+                {/* <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget> */}
               </Box>
             </Box>
           </Box>

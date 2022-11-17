@@ -1,17 +1,16 @@
-  import React from "react";
+  import React,{useContext} from "react";
+  import MouseStateContext from "../context/MouseStateContext";
   import { Box, Typography } from "@mui/material";
-  import { useContext } from "react";
+  
   import TemplateSectionContext from "../context/TemplateSectionContext";
   import Link from "@mui/material/Link";
   import LinkBtn from "./LinkBtn";
-  import Templates from "../pages/Templates";
-  import { useNavigate, useLocation } from "react-router-dom";
-  import { AiOutlineFileSync } from "react-icons/ai";
+  
   // components
   // icon
 
   const SideBar = () => {
-  
+    const {setMouseHoverState,mouseHoverState} = useContext(MouseStateContext)
     const { templateSections, pageCategoryRef } = useContext(
       TemplateSectionContext
     );
@@ -27,7 +26,8 @@
         <Box
           className="h-fit w-full  mt-14 box-border py-2 px-2 border-thiner  flex flex-col items-end justify-start   space-y-0
 
-          "
+          " onMouseEnter={()=>setMouseHoverState(true)}
+          
         >
           {[
             {
@@ -39,7 +39,7 @@
             // { title: "tools", path: "/tools" },
           ].map((item, idx) => (
             <LinkBtn
-             sx="uppercase"
+             sx="capitalize"
               navigationBtn
               key={idx}
               title={item.title}
@@ -50,6 +50,7 @@
                 <Link
                   key={id}
                   underline="none"
+                 
                   onClick={() => {
                     handleViewSection(id);
                   }}
