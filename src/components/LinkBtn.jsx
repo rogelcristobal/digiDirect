@@ -48,7 +48,7 @@ const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
         <Box className="flex h-full w-full justify-end">
           <Typography
             variant="body2"
-            className=" text-[0.9rem]  font-ukraine-light "
+            className=" text-[0.9rem]  font-ukraine-regular "
           >
             {title}
           </Typography>
@@ -69,7 +69,7 @@ const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
       {/* children */}
       {children ? (
         <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full box-border ">
-          <List component="div" className="px-4 py-0  box-border">
+          <List component="div" className="px-4 py-3  box-border">
             {children}
           </List>
         </Collapse>

@@ -26,13 +26,13 @@ const Templates = () => {
   return (
     <>
     {/* title container */}
-      <Box className=" w-full h-[16rem] box-border px-14 relative pt-20 pb-16   flex flex-col  justify-center items-end bg-inherit   border-thiner ">
-        <Box className=" box-border  absolute top-12 left-12">
+      <Box className=" w-full h-[16rem] box-border px-14 relative pt-72 pb-16   flex flex-col  justify-center items-end bg-inherit   border-thiner ">
+        <Box className=" box-border  absolute top-16 right-16">
           <TextContent
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-light  text-[4rem] uppercase  box-border leading-[5.8rem] text-[#1a1a1a] pointer-events-none text-right"
+                className=" font-ukraine-light  text-[4rem] uppercase  box-border leading-[5.4rem] text-[#1a1a1a] pointer-events-none text-right"
               >
                 product
                 Listing 
@@ -84,7 +84,7 @@ const Templates = () => {
                     </Box>
                   ))} */}
                 </ArticleBlock>
-                  <Divider variant='fullWidth' className="h-[2px] bg-[#1c1c1d] w-full "></Divider>
+                  <Divider variant='fullWidth' className="h-[2px] bg-[#1c1c1d] w-full mt-4"></Divider>
                 
               </Box>
             

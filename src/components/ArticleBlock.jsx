@@ -48,7 +48,7 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
       </Snackbar>
 
       <Box className={`w-full   ${children ? "py-8 px-0" : null}`} ref={view}>
-        <Box component="article" className="w-full box-border space-y-6 ">
+        <Box component="article" className="w-full box-border space-y-6 border-thiner">
           <TextContent
             // category={article?.category}
             title={
@@ -69,6 +69,7 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
             //   </Typography>
             // }
           />
+          
 
           {/* code block width */}
           {/* <Box className=" relative box-border h-fit    max-w-[48rem]">

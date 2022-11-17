@@ -50,7 +50,6 @@
                 <Link
                   key={id}
                   underline="none"
-                 
                   onClick={() => {
                     handleViewSection(id);
                   }}
@@ -60,7 +59,7 @@
                 >
                   {/* <div className={`${childItem?.isInView? 'bg-[#3b72ff]':'bg-gray-200/70'} h-full w-[0.275rem] absolute top-0 left-0 rounded-r-lg`}></div> */}
 
-                  <span className="text-right box-border w-full overflow-x-hidden truncate">
+                  <span className="text-right box-border w-full overflow-x-hidden truncate ">
                     {childItem.category}
                   </span>
                 </Link>
