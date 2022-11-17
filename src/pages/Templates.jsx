@@ -18,6 +18,11 @@ const Templates = () => {
     TemplateSectionContext
   );
 
+  const circle={
+    animate:{
+      rotate:180
+    }
+  }
   return (
     <>
     {/* title container */}
@@ -27,7 +32,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-light  text-[4.6rem] uppercase  box-border leading-[5.8rem] text-[#1a1a1a] pointer-events-none text-right"
+                className=" font-ukraine-light  text-[4rem] uppercase  box-border leading-[5.8rem] text-[#1a1a1a] pointer-events-none text-right"
               >
                 product
                 Listing 
@@ -41,42 +46,45 @@ const Templates = () => {
             }
           />
         </Box>
-            <span className="text-[5.5rem] absolute bottom-0 right-9 ml-8 ">&#x273A;</span>
+           
       </Box>
       {/* main content and sidebar */}
       <Box className="flex items-start justify-center w-full h-fit pt-24 ">
         <SideBar></SideBar>
         {/* main content */}
-        <Box className="w-full h-auto box-border px-0  pb-36 pt-[20rem] ">
-          {/* <Divider variant='fullWidth' className="h-[1.5px] bg-[#1c1c1d] w-full "></Divider> */}
-          <Box className="space-y-20 w-full box-border border-thiner px-14 pt-20 ">
+        <Box className="w-full h-auto box-border px-0  pb-[20rem]  ">
+          
+          <Box className="space-y-[40rem] w-full box-border  px-14 pt-20 ">
             {/* space-y-12 between siblings */}
             {templateSections.map((item, id) => (
               // divided per category
             
               <Box
-                className="box-border w-full scrollMargin flex flex-col items-center  justify-start  border-thiner"
+                className="box-border w-full scrollMargin flex flex-col items-center  justify-start  "
                 key={id}
                 data-id={id}
                 ref={storeRef}
               >
+              
                 <ArticleBlock
                   article={item}
                   titleFontSize="text-[1.5rem]"
                   view={item?.refView}
                   id={id}
                 >
+                  
                   {/* category */}
-                  {item.child?.map((childNode, idx) => (
+                  {/* {item.child?.map((childNode, idx) => (
                     <Box key={idx} className="box-border my-32 w-full ">
-                      {/* my-12 between each child nodes */}
+                      my-12 between each child nodes
                       <ArticleBlock
                         article={childNode}
                         titleFontSize="text-[1.1rem]"
                       />
                     </Box>
-                  ))}
+                  ))} */}
                 </ArticleBlock>
+                  <Divider variant='fullWidth' className="h-[2px] bg-[#1c1c1d] w-full "></Divider>
                 
               </Box>
             

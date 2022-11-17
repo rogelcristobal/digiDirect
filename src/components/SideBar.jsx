@@ -24,7 +24,7 @@
     return (
       <Box className="px-2  w-[26rem] z-20 h-fit bg-inherit sticky top-0 box-border  flex flex-col justify-start pb-8 pt-12  items-center ">
         <Box
-          className="h-fit w-full  mt-14 box-border py-2 px-2 border-thiner  flex flex-col items-end justify-start   space-y-0
+          className="h-fit w-full  mt-14 box-border py-2 px-2  flex flex-col items-end justify-start   space-y-0
 
           " onMouseEnter={()=>setMouseHoverState(true)}
           
@@ -54,7 +54,7 @@
                   onClick={() => {
                     handleViewSection(id);
                   }}
-                  className={` text-[0.9rem] relative box-border    font-ukraine-medium py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
+                  className={` text-[0.9rem] relative box-border    font-ukraine-light py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
                     ${childItem?.isInView ? "text-[#1c1c1d] " : "text-neutral-400/80 "}
                     `}
                 >
