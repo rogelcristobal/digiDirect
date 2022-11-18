@@ -80,16 +80,16 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-fit w-full  text-gray-800 text-[#1a1a1a]  box-border flex   items-center justify-start bg-[#fcfbfd] relative cursor-none">
+          <Box className="h-fit w-full  text-gray-800 text-[#1a1a1a]  box-border flex   items-center justify-start bg-[#ffffff] relative cursor-none">
             {/* navbar */}
 
             <Navbar scrollPosition={scrollPosition}></Navbar>
-            <Cursor />
+            
             {/* content */}
             <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start ">
               <Box
                 component="main"
-                className="h-full box-border   flex items-start gap-3 rounded-lg  bg-[#fcfbfd]  w-full relative "
+                className="h-full box-border   flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full relative "
               >
                 {/* element that scrolling */}
                 <Cursor />

@@ -59,6 +59,9 @@
     -moz-appearance: textfield;
   }*/
 } 
+.customCursor{
+  clip-path: polygon(0 0, 100% 51%, 54% 60%, 39% 100%)
+}
 ::selection {
   color: white;
   background: black;

@@ -48,13 +48,13 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
       </Snackbar>
 
       <Box className={`w-full   ${children ? "py-8 px-0" : null}`} ref={view}>
-        <Box component="article" className="w-full box-border space-y-6 border-thiner">
+        <Box component="article" className="w-full box-border space-y-6 ">
           <TextContent
             // category={article?.category}
             title={
               <Typography
                 variant="subtitle1"
-                className={`font-ukraine-light tracking-tight  capitalize flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1a1a1a]`}
+                className={`font-ukraine-regular tracking-tight  capitalize flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1a1a1a]`}
               >
                 {/* <Typography variant="overline w-fit text-lg text-gray-400">{id}</Typography> */}
                 {article.title}
