@@ -45,7 +45,7 @@ const LinkBtn = ({ children, initialState, title,path ,sxText,sxContainer,naviga
        
 
         {/* title */}
-        <Box className="flex h-full w-full justify-end">
+        <Box className="flex h-full w-full justify-start">
           <Typography
             variant="body2"
             className={`${sxText}  `}

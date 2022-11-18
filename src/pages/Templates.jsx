@@ -50,7 +50,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-light  text-[2.7rem] tracking-tighter normal-case indent-52 box-border leading-[3rem] text-black pointer-events-none text-left "
+                className=" font-ukraine-light  text-[3rem] tracking-tighter normal-case indent-48 box-border leading-[3.3rem] text-black pointer-events-none text-left "
               >
                 <motion.span variants={sentence} initial="hidden" animate="animate">
                  {text.split("").map((char,index)=>{
@@ -60,7 +60,7 @@ const Templates = () => {
                  })}
                 </motion.span>
                  <br />
-                <span className=""> <span className="font-medium  "></span> External content creator.
+                <span className=""> <span className="font-medium  "></span>for external content creators.
                 </span>
               </Typography>
             }
@@ -71,13 +71,15 @@ const Templates = () => {
       </Box>
       
       {/* main content and sidebar */}
-      <Box className="flex items-start justify-center w-full h-fit  mt-20">
+     
+ <Divider variant='middle' className="h-[1px] bg-[#1c1c1d] w-[95%] mx-auto mt-32"></Divider>
+      <Box className="flex items-start justify-center w-full h-fit  ">
         <SideBar></SideBar>
 
         {/* main content */}
-        <Box className="w-full h-auto min-h-screen  box-border px-0  pb-[20rem] border-thiner">
+        <Box className="w-full h-auto min-h-screen  box-border px-0  pb-[20rem] pt-[10rem] ">
           
-          <Box className="space-y-52 w-full box-border  px-12 py-20 border-thiner">
+          <Box className="space-y-2 w-full box-border  px-12 py-20">
             {/* space-y-12 between siblings */}
             {templateSections.map((item, id) => (
               // divided per category
@@ -95,7 +97,7 @@ const Templates = () => {
               
                 <ArticleBlock
                   article={item}
-                  titleFontSize="text-[1.3rem]"
+                  titleFontSize="text-[2rem]"
                   view={item?.refView}
                   id={id}
                 >
@@ -111,8 +113,7 @@ const Templates = () => {
                     </Box>
                   ))} 
                  </ArticleBlock>
-                  {/* <Divider variant='fullWidth' className="h-[1px] bg-[#1c1c1d] w-full mt-3"></Divider> */}
-                
+                 <Divider variant='fullWidth' className="h-[1px] bg-[#1c1c1d] w-full mx-auto mt-32"></Divider>
               </Box>
             
             ))}

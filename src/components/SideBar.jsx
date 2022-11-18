@@ -22,12 +22,10 @@
     };
 
     return (
-      <Box className="px-2  w-[29rem] z-20 h-fit bg-inherit sticky top-0 box-border  flex flex-col justify-start pb-8 pt-12  items-center ">
+      <Box className="px-4  w-[29rem] z-20 h-fit bg-inherit sticky top-16 box-border  flex flex-col justify-start pb-8 py-2  items-center ">
         <Box
-          className="h-fit w-full  mt-14  box-border py-2 px-2  flex flex-col items-end justify-start   space-y-0
-
+          className="h-fit w-full  box-border py-1.5 px-2  flex flex-col items-end justify-start   space-y-0
           " onMouseEnter={()=>setMouseHoverState(true)}
-          
         >
           {[
             {
@@ -35,15 +33,13 @@
               path: "/templates",
               child: { node: templateSections, state: true },
             },
-            // { title: "converters", path: "/converters" },
-            // { title: "tools", path: "/tools" },
           ].map((item, idx) => (
             <LinkBtn
               sxContainer=" "
-              sxText="font-ukraine-light text-[0.8rem] text-neutral-400 "
+              sxText="font-ukraine-thin tracking-tight text-[0.9rem] text-gray-400 "
               navigationBtn
               key={idx}
-              title={item.title}
+              // title={item.title}
               initialState={item?.child?.state}
               path={item.path}
               
@@ -59,10 +55,9 @@
                     ${childItem?.isInView ? "text-black " : "text-neutral-400/80 "}
                     `}
                 >
-                  {/* <div className={`${childItem?.isInView? 'bg-[#3b72ff]':'bg-gray-200/70'} h-full w-[0.275rem] absolute top-0 left-0 rounded-r-lg`}></div> */}
-
-                  <span className="text-right box-border w-full overflow-x-hidden truncate ">
-                    {childItem.category}{childItem?.isInView ?'.':null}
+               
+                  <span className="text-left box-border w-full overflow-x-hidden truncate ">
+                    {childItem.category}
                   </span>
                 </Link>
               ))}

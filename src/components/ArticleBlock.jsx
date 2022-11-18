@@ -52,10 +52,11 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
           <TextContent
             // category={article?.category}
             title={
+              
               <Typography
                 variant="subtitle1"
                 className={`font-ukraine-regular tracking-tight  capitalize flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1a1a1a]`}
-              >
+                >
                 {/* <Typography variant="overline w-fit text-lg text-gray-400">{id}</Typography> */}
                 {article.title}
               </Typography>

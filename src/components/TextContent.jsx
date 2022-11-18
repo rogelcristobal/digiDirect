@@ -3,10 +3,10 @@ import { Typography, Box } from "@mui/material";
 const TextContent = ({ category, title, subTitle,sx }) => {
  
     return (
-      <Box className={` normal-case box-border w-fit border-thiner ${sx}`}>
+      <Box className={` normal-case box-border  ${sx}`}>
        {category? <Typography
           variant="body1"
-          className="font-ukraine-light text-[0.8rem] relative text-neutral-400/70 capitalize	 "
+          className=" text-[0.8rem] relative text-neutral-400/70 capitalize	 "
         >
           {category}
         </Typography>:null}

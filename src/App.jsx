@@ -80,7 +80,7 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-fit w-full  text-gray-800 text-[#1a1a1a]  box-border flex   items-center justify-start bg-[#ffffff] relative cursor-none">
+          <Box className="h-fit w-full   text-[#131313]  box-border flex   items-center justify-start bg-[#ffffff] relative cursor-none">
             {/* navbar */}
 
             <Navbar scrollPosition={scrollPosition}></Navbar>
