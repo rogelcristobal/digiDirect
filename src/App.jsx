@@ -12,7 +12,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
 import { useLocation } from "react-router-dom";
-import { useContext, lazy, Suspense, useEffect, useRef } from "react";
+import { useContext, lazy, Suspense, useEffect, useRef ,useCallback} from "react";
 import NavScrollContext from "./context/NavScrollContext";
 import PageScrollableContext from "./context/PageScrollableContext";
 import { MouseStateProvider } from "./context/MouseStateContext";
@@ -22,7 +22,7 @@ import LoadingFallback from "./components/LoadingFallback";
 import ScrollTopWidget from "./components/ScrollTopWidget";
 import Cursor from "./components/Cursor";
 import Scrollbar from "smooth-scrollbar";
-
+import Scroll from "./components/Scroll";
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -59,37 +59,20 @@ const App = () => {
 const Main = () => {
   // sets ref on page load and passes to context to be accessed by all child
   const scrollableRef = useRef(null);
-  const { setScrollRefState,scrollRefState } = useContext(PageScrollableContext);
-  useEffect(() => {
-    setScrollRefState(scrollableRef);
-  }, []);
+//   const { setScrollRefState,scrollRefState } = useContext(PageScrollableContext);
+ 
+//  const scrollableRef=useCallback((node)=>{setScrollRefState(node)},[])
   
-  // context
-  const options = {
-    damping: 0.04,
-    renderByPixels: true,
-  };
-  
-  // const { scrollPosition } = useContext(NavScrollContext);
-  useEffect(() => {
-    if(!scrollRefState) return
-    Scrollbar.init(scrollRefState?.current, options);
-    // return () => {
-    //   if (Scrollbar) Scrollbar.init(,options);
-    // };
-     return () => {
-          if (Scrollbar) Scrollbar.destroy(scrollRefState?.current)
-        } 
-   
-  }, []);
-  
+ 
+
+  console.log(scrollableRef.current)
 return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
-          <Box className="h-full  w-full  text-[#131313]  box-border flex   items-center justify-start  relative ">
+          <Box ref={scrollableRef} onScroll={()=>console.log('asd')} className="h-screen overflow-auto   w-full  text-[#131313]  box-border flex   items-center justify-start  relative ">
             {/* navbar */}
             <Navbar></Navbar>
             {/* <Cursor /> */}
@@ -97,13 +80,15 @@ return (
             {/* set height to screen  */}
             <Box
               component="main"
-              className="h-screen overflow-auto w-full    box-border   flex  items-center justify-center     relative "
+              className=" w-full  h-full  box-border   flex  items-center justify-center     relative "
             >
               {/* element that scrolling */}
               <Box
-                ref={scrollableRef}
-                className=" w-full h-full overflow-auto box-border "
+                
+                className=" w-full h-full box-border "
               >
+              {/* <Scroll /> */}
+                
                 <Suspense fallback={<LoadingFallback />}>
                   <Routes>
                     <Route index element={<Dashboard />} />
@@ -113,8 +98,6 @@ return (
                 </Suspense>
               </Box>
 
-              {/* widget (scroll top) */}
-              {/* <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget> */}
             </Box>
           </Box>
         }

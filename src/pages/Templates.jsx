@@ -11,6 +11,7 @@ import LinkBtn from "../components/LinkBtn";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import { HiArrowUpRight } from "react-icons/hi2";
 import SideBar from "../components/SideBar";
+import PageScrollableContext from "../context/PageScrollableContext";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -34,43 +35,45 @@ const Templates = () => {
       opacity: 1,
     },
   };
+
   return (
     <>
       {/* title container */}
-     
 
       {/* main content and sidebar */}
-      <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border ">
-         <Box className=" w-full h-[28rem] box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit    ">
-        <Box className=" box-border h-fit w-fit    absolute top-[8rem]  left-[3rem]">
-          <TextContent
-            title={
-              <Typography
-                variant="subtitle1"
-                className=" font-ukraine-light  text-[3.3rem] tracking-tighter normal-case indent-48 box-border leading-[3.7rem] text-black pointer-events-none text-left "
-              >
-                {/* <motion.span variants={sentence} initial="hidden" animate="animate">
+      <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border space-y-[28rem]">
+        <Box className=" w-full h-[28rem] box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit  border-thiner  ">
+          <Box className=" box-border h-fit w-fit   border-thiner absolute top-[8rem]  left-[3rem]">
+            <TextContent
+              title={
+                <Typography
+                  variant="subtitle1"
+                  className=" font-ukraine-light  text-[3.3rem] tracking-tighter normal-case indent-48 box-border leading-[3.7rem] text-black pointer-events-none text-left "
+                >
+                  {/* <motion.span variants={sentence} initial="hidden" animate="animate">
                  {text.split("").map((char,index)=>{
                   return (
                     <motion.span key={char + "-" + index} variants={letter}>{char}</motion.span>
                   )
                  })}
                 </motion.span> */}
-                Product listing
-                <br />
-                templates
-                <span className="">
-                  {" "}
-                  <span className="font-medium  "></span>for external <br />
-                  content creators.
-                </span>
-              </Typography>
-            }
-          />
+                  Product listing
+                  <br />
+                  templates
+                  <span className="">
+                    {" "}
+                    <span className="font-medium  "></span>for external <br />
+                    content creators.
+                  </span>
+                </Typography>
+              }
+            />
 
-          <span className="font-ukraine-light capitalize text-neutral-400 text-xs absolute -top-[1rem] left-0 cursor-default">content</span>
+            <span className="font-ukraine-light capitalize text-neutral-400 text-xs absolute -top-[1rem] left-0 cursor-default">
+              content
+            </span>
+          </Box>
         </Box>
-      </Box>
         {/* <SideBar></SideBar> */}
 
         {/* main content */}
