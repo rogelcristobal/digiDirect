@@ -17,73 +17,69 @@ const Templates = () => {
   const { templateSections, pageCategoryRef, storeRef } = useContext(
     TemplateSectionContext
   );
-  const text= `Product listing templates`
+  const text = `Product listing templates`;
   const sentence = {
-    hidden:{opacity:1},
-    animate:{
-      
-      opacity:1,
-      transition:{
-        delay:0.5,
-        staggerChildren:0.08
-      }
-    }
-  }
-  const letter={
-    hidden:{opacity:0},
-    animate:{
-      opacity:1,
-      
-    }
-  }
+    hidden: { opacity: 1 },
+    animate: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        staggerChildren: 0.08,
+      },
+    },
+  };
+  const letter = {
+    hidden: { opacity: 0 },
+    animate: {
+      opacity: 1,
+    },
+  };
   return (
     <>
-    {/* title container */}
-      <Box className=" w-full h-[16rem]  box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit    ">
+      {/* title container */}
+     
 
-
-
-        
-
-        <Box className=" box-border h-fit w-fit   absolute top-[8rem]  left-[3rem]">
+      {/* main content and sidebar */}
+      <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border ">
+         <Box className=" w-full h-[28rem] box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit    ">
+        <Box className=" box-border h-fit w-fit    absolute top-[8rem]  left-[3rem]">
           <TextContent
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-light  text-[3rem] tracking-tighter normal-case indent-48 box-border leading-[3.3rem] text-black pointer-events-none text-left "
+                className=" font-ukraine-light  text-[3.3rem] tracking-tighter normal-case indent-48 box-border leading-[3.7rem] text-black pointer-events-none text-left "
               >
-                <motion.span variants={sentence} initial="hidden" animate="animate">
+                {/* <motion.span variants={sentence} initial="hidden" animate="animate">
                  {text.split("").map((char,index)=>{
                   return (
                     <motion.span key={char + "-" + index} variants={letter}>{char}</motion.span>
                   )
                  })}
-                </motion.span>
-                 <br />
-                <span className=""> <span className="font-medium  "></span>for external content creators.
+                </motion.span> */}
+                Product listing
+                <br />
+                templates
+                <span className="">
+                  {" "}
+                  <span className="font-medium  "></span>for external <br />
+                  content creators.
                 </span>
               </Typography>
             }
           />
+
+          <span className="font-ukraine-light capitalize text-neutral-400 text-xs absolute -top-[1rem] left-0 cursor-default">content</span>
         </Box>
-
-
       </Box>
-      
-      {/* main content and sidebar */}
-     
- <Divider variant='middle' className="h-[1px] bg-[#1c1c1d] w-[95%] mx-auto mt-32"></Divider>
-      <Box className="flex items-start justify-center w-full h-fit  ">
-        <SideBar></SideBar>
+        {/* <SideBar></SideBar> */}
 
         {/* main content */}
-        <Box className="w-full h-auto min-h-screen  box-border px-0  pb-[20rem] pt-[10rem] ">
-          
+        <Box className="w-full h-full  box-border px-0  pb-[20rem] pt-[10rem] ">
           <Box className="space-y-2 w-full box-border  px-12 py-20">
             {/* space-y-12 between siblings */}
             {templateSections.map((item, id) => (
               // divided per category
-            
+
               <Box
                 className="box-border w-full scrollMargin flex flex-col items-start  justify-start  "
                 key={id}
@@ -91,17 +87,15 @@ const Templates = () => {
                 ref={storeRef}
               >
                 {/* <TextContent title={
-                  <Typography variant="body1" className="font-ukraine-regular text-[1.3rem]">{item.title}</Typography>
+                  <Typography variant="body1" className="font-ukraine-light text-[1.3rem]">{item.title}</Typography>
                 }></TextContent> */}
-                
-              
+
                 <ArticleBlock
                   article={item}
                   titleFontSize="text-[2rem]"
                   view={item?.refView}
                   id={id}
                 >
-                  
                   {/* category */}
                   {item.child?.map((childNode, idx) => (
                     <Box key={idx} className="box-border my-32 w-full ">
@@ -111,11 +105,10 @@ const Templates = () => {
                         titleFontSize="text-[1.1rem]"
                       />
                     </Box>
-                  ))} 
-                 </ArticleBlock>
-                 <Divider variant='fullWidth' className="h-[1px] bg-[#1c1c1d] w-full mx-auto mt-32"></Divider>
+                  ))}
+                </ArticleBlock>
+                {/* <Divider variant='fullWidth' className="h-[1px] bg-[#1c1c1d] w-full mx-auto mt-32"></Divider> */}
               </Box>
-            
             ))}
           </Box>
           {/* main content here */}

@@ -10,14 +10,14 @@ const Navbar = ({scrollPosition}) => {
   return (
     <Box
       component="nav"
-      className={`  h-fit py-2  bg-inherit fixed top-0 right-0 transition-all duration-300 ease-in-out pt-4  z-30 w-full  box-border 
+      className={`  h-fit py-2  bg-inherit absolute top-0 right-0 transition-all duration-300 ease-in-out pt-4  z-30 w-full  box-border 
     `}
     >
       <div
         className={`box-border container mx-auto h-full  flex items-center justify-between    transition-all ease-in-out duration-500 tracking-tight`}
       >
         <TextContent title={
-          <Typography variant="body1" className="font-ukraine-regular text-[1rem] ">digiDirect</Typography>
+          <Typography variant="body1" className="font-ukraine-regular text-[1rem] ">digiDirect{scrollPosition}</Typography>
         }></TextContent>
 
         <TextContent title={

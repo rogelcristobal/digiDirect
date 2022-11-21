@@ -12,14 +12,16 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
 import { useLocation } from "react-router-dom";
-import { useEffect, useRef, useContext, lazy, Suspense, useState } from "react";
-import ScrollTopWidget from "./components/ScrollTopWidget";
+import { useContext, lazy, Suspense, useEffect, useRef } from "react";
 import NavScrollContext from "./context/NavScrollContext";
-import Cursor from "./components/Cursor";
-import LoadingFallback from "./components/LoadingFallback";
-import { PageScrollableProvider } from "./context/PageScrollableContext";
 import PageScrollableContext from "./context/PageScrollableContext";
 import { MouseStateProvider } from "./context/MouseStateContext";
+import { TemplateSectionProvider } from "./context/TemplateSectionContext";
+import { NavScrollProvider } from "./context/NavScrollContext";
+import LoadingFallback from "./components/LoadingFallback";
+import ScrollTopWidget from "./components/ScrollTopWidget";
+import Cursor from "./components/Cursor";
+import Scrollbar from "smooth-scrollbar";
 
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
@@ -41,11 +43,13 @@ const App = () => {
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
-            <PageScrollableProvider>
-              <MouseStateProvider>
-                <Main />
-              </MouseStateProvider>
-            </PageScrollableProvider>
+            <NavScrollProvider>
+              <TemplateSectionProvider>
+                <MouseStateProvider>
+                  <Main />
+                </MouseStateProvider>
+              </TemplateSectionProvider>
+            </NavScrollProvider>
           </ThemeProvider>
         </StyledEngineProvider>
       </HashRouter>
@@ -53,59 +57,64 @@ const App = () => {
   );
 };
 const Main = () => {
+  // sets ref on page load and passes to context to be accessed by all child
+  const scrollableRef = useRef(null);
+  const { setScrollRefState,scrollRefState } = useContext(PageScrollableContext);
+  useEffect(() => {
+    setScrollRefState(scrollableRef);
+  }, []);
+  
   // context
-  const {scrollPosition } = useContext(NavScrollContext);
-
-  // refs
-  const scrollRef = useRef(null);
-  const { pathname } = useLocation();
-  // const {setScrolRefState} = useContext(PageScrollableContext)
-  // this code will run every page changes to scroll to top immediately
-  // useEffect(() => {
-  //   scrollRef.current.scrollTo({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: "instant",
-  //   });
-  // }, [pathname]);
-
-  // this code  will get the scrolling position of element
-
-  // mouse posiiton hook
- 
-
-  return (
+  const options = {
+    damping: 0.04,
+    renderByPixels: true,
+  };
+  
+  // const { scrollPosition } = useContext(NavScrollContext);
+  useEffect(() => {
+    if(!scrollRefState) return
+    Scrollbar.init(scrollRefState?.current, options);
+    // return () => {
+    //   if (Scrollbar) Scrollbar.init(,options);
+    // };
+     return () => {
+          if (Scrollbar) Scrollbar.destroy(scrollRefState?.current)
+        } 
+   
+  }, []);
+  
+return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
-          <Box className="h-fit w-full   text-[#131313]  box-border flex   items-center justify-start bg-[#ffffff] relative cursor-none">
+          <Box className="h-full  w-full  text-[#131313]  box-border flex   items-center justify-start  relative ">
             {/* navbar */}
-
-            <Navbar scrollPosition={scrollPosition}></Navbar>
-            
-            {/* content */}
-            <Box className="h-full w-full  pt-0 box-border flex flex-col items-center justify-start ">
+            <Navbar></Navbar>
+            {/* <Cursor /> */}
+            {/*scrollable content content */}
+            {/* set height to screen  */}
+            <Box
+              component="main"
+              className="h-screen overflow-auto w-full    box-border   flex  items-center justify-center     relative "
+            >
+              {/* element that scrolling */}
               <Box
-                component="main"
-                className="h-full box-border   flex items-start gap-3 rounded-lg  bg-[#ffffff]  w-full relative "
+                ref={scrollableRef}
+                className=" w-full h-full overflow-auto box-border "
               >
-                {/* element that scrolling */}
-                <Cursor />
-                <Box className="h-fit   w-full  flex flex-col  box-border  ">
-                  <Suspense fallback={<LoadingFallback />}>
-                    <Routes>
-                      <Route index element={<Dashboard />} />
-                      <Route path="/templates" element={<Templates />} />
-                      <Route path="/converter" element={<Converter />} />
-                    </Routes>
-                  </Suspense>
-                </Box>
-
-                {/* widget (scroll top) */}
-                {/* <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget> */}
+                <Suspense fallback={<LoadingFallback />}>
+                  <Routes>
+                    <Route index element={<Dashboard />} />
+                    <Route path="/templates" element={<Templates />} />
+                    <Route path="/converter" element={<Converter />} />
+                  </Routes>
+                </Suspense>
               </Box>
+
+              {/* widget (scroll top) */}
+              {/* <ScrollTopWidget scrl={scrollRef}></ScrollTopWidget> */}
             </Box>
           </Box>
         }

@@ -47,7 +47,7 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
         </Alert>
       </Snackbar>
 
-      <Box className={`w-full   ${children ? "py-8 px-0" : null}`} ref={view}>
+      <Box className={`w-full border-thiner  ${children ? "py-8 px-0" : null}`} ref={view}>
         <Box component="article" className="w-full box-border space-y-6 ">
           <TextContent
             // category={article?.category}

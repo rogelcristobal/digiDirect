@@ -20,15 +20,16 @@ const Cursor = () => {
     hidden:{
         x: -12, y: -12
     },animate:{
-        x:x,
-        y:y,
-        transition:{
-            type: "tween", duration:0,stiffness:500
-        },
+        x:x-12,
+        y:y-12,
+        // transition:{
+        //     type: "tween", duration:0,stiffness:500
+        // },
         
     },
    
   }
+  
   return (
     <>
     {/* <motion.div
@@ -41,7 +42,7 @@ const Cursor = () => {
      </motion.div> */}
 
 
-    <motion.div variants={cursor} initial="hidden" animate="animate"  whileTap={{ scale: 0.9 }} className="z-50  fixed h-4 w-4 bg-white mix-blend-difference customCursor pointer-events-none"></motion.div>
+    <motion.div variants={cursor} initial="hidden" animate="animate"  className="z-50  fixed h-4 w-4 bg-white mix-blend-difference customCursor pointer-events-none"></motion.div>
       </>
   );
 };
