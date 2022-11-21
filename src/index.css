@@ -48,18 +48,24 @@
     scroll-margin-top: 5rem;
   }
   /* style to remove btn in number field */
-  input::-webkit-outer-spin-button,
+  /* input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  /* Firefox */
+  Firefox
   input[type="number"] {
     -moz-appearance: textfield;
-  }
+  }*/
+} 
+.customCursor{
+  clip-path: polygon(0 0, 100% 51%, 54% 60%, 39% 100%)
 }
-
+::selection {
+  color: white;
+  background: black;
+}
 .stroke-text {
   -webkit-text-stroke: 1.5px black;
   -webkit-text-fill-color: transparent;

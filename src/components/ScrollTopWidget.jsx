@@ -27,9 +27,9 @@ const {scrollPosition} = useContext(NavScrollContext)
     }
   }
   return (
-    <motion.div  variants={anim} animate="animate" whileHover="hover" initial="initial"  onClick={handleClick} className="w-fit   rounded-full border-[1.5px] border-solid border-black  z-30 cursor-pointer fixed right-8 bottom-6 flex flex-col  items-center justify-center p-3.5  overflow-hidden  box-border text-lg  text-black">
+    <motion.div  variants={anim} animate="animate" whileHover="hover" initial="initial"  onClick={handleClick} className="w-fit   rounded-full  z-50  fixed right-8 bottom-6 flex flex-col  items-center justify-center p-3.5   bg-black box-border text-lg  text-black">
       <HiOutlineArrowUp></HiOutlineArrowUp>
-    
+    a
     </motion.div>
   );
 }

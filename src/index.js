@@ -5,16 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { NavScrollProvider } from "./context/NavScrollContext";
 import { TemplateSectionProvider } from "./context/TemplateSectionContext";
+import { PageScrollableProvider } from "./context/PageScrollableContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   // <React.StrictMode>
-  <NavScrollProvider>
-    <TemplateSectionProvider>
-      <App />
-    </TemplateSectionProvider>
-  </NavScrollProvider>
+  <PageScrollableProvider>
+    <App />
+  </PageScrollableProvider>
   // </React.StrictMode>
 );
 

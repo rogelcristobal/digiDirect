@@ -14,7 +14,7 @@ import { BiCaretRight, BiCaretDown } from "react-icons/bi";
 
   import { useContext } from "react";
   import PageScrollableContext from "../context/PageScrollableContext";
-const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
+const LinkBtn = ({ children, initialState, title,path ,sxText,sxContainer,navigationBtn}) => {
   const [isOpen, setState] = useState(initialState);
   
   const {scrollRefState} = useContext(PageScrollableContext)
@@ -39,8 +39,8 @@ const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
         disableTouchRipple
         onClick={handleClick}
         className={`flex  justify-between  
-          ${navigationBtn?(pathname === path? 'text-black': 'text-neutral-400/80 '):('text-black')} 
-            items-center  box-border  py-3 bg-inherit border-thiner w-full px-4 transition-all duration-300 ease-in-out space-x-2 ${sx}`}
+          ${navigationBtn?(pathname === path? 'text-black': 'text-neutral-400/80 '):('text-neutral-400/80')} 
+            items-center   box-border  py-3 bg-inherit pointer-events-none w-full px-4 transition-all duration-300 ease-in-out space-x-2 ${sxContainer} `}
       >
        
 
@@ -48,7 +48,7 @@ const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
         <Box className="flex h-full w-full justify-start">
           <Typography
             variant="body2"
-            className=" text-[0.9rem]  font-ukraine-medium capitalize"
+            className={`${sxText}  `}
           >
             {title}
           </Typography>
@@ -68,8 +68,8 @@ const LinkBtn = ({ children, initialState, title,path ,sx,navigationBtn}) => {
 
       {/* children */}
       {children ? (
-        <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full box-border">
-          <List component="div" className="px-0 py-0  box-border">
+        <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full box-border ">
+          <List component="div" className="px-4   box-border">
             {children}
           </List>
         </Collapse>
