@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import TextContent from "./TextContent";
-import NavScrollContext from "../context/NavScrollContext";
+import ScrollContext from "../context/ScrollContext";
 import PageScrollableContext from "../context/PageScrollableContext";
 import {useContext,useEffect} from 'react'
 

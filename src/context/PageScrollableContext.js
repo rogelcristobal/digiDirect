@@ -4,9 +4,9 @@ const PageScrollableContext  = createContext()
 
 
 export const PageScrollableProvider = ({children}) => {
- const [scrollRefState,setScrollRefState] = useState(null)
+ const [scrollEl,setScrollEl] = useState(null)
   return (
-    <PageScrollableContext.Provider value={{scrollRefState,setScrollRefState}}>
+    <PageScrollableContext.Provider value={{scrollEl,setScrollEl}}>
       {children}
     </PageScrollableContext.Provider>
   );

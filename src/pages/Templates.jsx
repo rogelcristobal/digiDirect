@@ -37,46 +37,49 @@ const Templates = () => {
   };
 
   return (
-    
-     
-      <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border space-y-[28rem] ">
-        <Box className=" w-full h-[28rem] box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit  border-thiner  ">
-          <Box className=" box-border h-fit w-fit   border-thiner absolute top-[8rem]  left-[3rem]">
-            <TextContent
-              title={
-                <Typography
-                  variant="subtitle1"
-                  className=" font-ukraine-light  text-[3.3rem] tracking-tighter normal-case indent-48 box-border leading-[3.7rem] text-black pointer-events-none text-left "
-                >
-                  {/* <motion.span variants={sentence} initial="hidden" animate="animate">
+    <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border space-y-[22rem] ">
+      {/* title */}
+      <Box className=" w-full h-[28rem] box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit  border-thiner  ">
+        <Box className=" box-border h-fit w-fit   border-thiner absolute top-[8rem]  left-[3rem]">
+          <TextContent
+            title={
+              <Typography
+                variant="subtitle1"
+                className=" font-ukraine-light  text-[3.3rem] tracking-tighter normal-case indent-48 box-border leading-[3.7rem] text-black pointer-events-none text-left "
+              >
+                {/* <motion.span variants={sentence} initial="hidden" animate="animate">
                  {text.split("").map((char,index)=>{
                   return (
                     <motion.span key={char + "-" + index} variants={letter}>{char}</motion.span>
                   )
                  })}
                 </motion.span> */}
-                  Product listing
-                  <br />
-                  templates
-                  <span className="">
-                    {" "}
-                    <span className="font-medium  "></span>for external <br />
-                    content creators.
-                  </span>
-                </Typography>
-              }
-            />
+                Product listing
+                <br />
+                templates
+                <span className="">
+                  {" "}
+                  <span className="font-medium  "></span>for external <br />
+                  content creators.
+                </span>
+              </Typography>
+            }
+          />
 
-            <span className="font-ukraine-light capitalize text-neutral-400 text-xs absolute -top-[1rem] left-0 cursor-default">
-              content
-            </span>
-          </Box>
+          <span className="font-ukraine-light capitalize text-neutral-400 text-xs absolute -top-[2rem] left-0 cursor-default">
+            content
+          </span>
         </Box>
-        {/* <SideBar></SideBar> */}
+      </Box>
 
+      <Box className="flex  items-start justify-center w-full h-fit min-h-[100vh] ">
+      
+          <SideBar></SideBar>
+          
+       
         {/* main content */}
-        <Box className="w-full h-full  box-border px-0  pb-[20rem] pt-[10rem] ">
-          <Box className="space-y-2 w-full box-border  px-12 py-20">
+        <Box className="w-full h-full border-thiner box-border px-0  pb-[20rem]  ">
+          <Box className="space-y-2 w-full box-border  px-12 py-12">
             {/* space-y-12 between siblings */}
             {templateSections.map((item, id) => (
               // divided per category
@@ -93,7 +96,7 @@ const Templates = () => {
 
                 <ArticleBlock
                   article={item}
-                  titleFontSize="text-[2rem]"
+                  titleFontSize="text-[1.6rem]"
                   view={item?.refView}
                   id={id}
                 >
@@ -116,8 +119,7 @@ const Templates = () => {
           {/* space-y-12 between title and child */}
         </Box>
       </Box>
-    
-    
+    </Box>
   );
 };
 

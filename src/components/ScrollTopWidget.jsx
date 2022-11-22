@@ -2,10 +2,10 @@ import React,{useContext} from 'react';
 import { Box, Typography } from '@mui/material';
 import { HiOutlineArrowUp} from 'react-icons/hi'
 import {motion} from 'framer-motion'
-import NavScrollContext from '../context/NavScrollContext';
+import ScrollContext from '../context/ScrollContext';
 import { width } from '@mui/system';
 const ScrollTopWidget = ({scrl}) => {
-const {scrollPosition} = useContext(NavScrollContext)
+const {scrollPosition} = useContext(ScrollContext)
   const handleClick=()=>{
     scrl?.current.scrollTo({
       top: 0,

@@ -14,17 +14,17 @@
     const { templateSections, pageCategoryRef } = useContext(
       TemplateSectionContext
     );
-    const handleViewSection = async (id) => {
-      await pageCategoryRef?.current[id].scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    };
+    // const handleViewSection = async (id) => {
+    //   await pageCategoryRef?.current[id].scrollIntoView({
+    //     behavior: "smooth",
+    //     block: "start",
+    //   });
+    // };
 
     return (
-      <Box className="px-4  w-[29rem] z-20 h-fit bg-inherit sticky top-16 box-border  flex flex-col justify-start pb-8 py-2  items-center ">
+      <Box className="px-4 border-thiner w-[24rem] h-fit   box-border ">
         <Box
-          className="h-fit w-full  box-border py-1.5 px-2  flex flex-col items-end justify-start   space-y-0
+          className="h-full w-full border-thiner box-border py-1.5 px-2  flex flex-col items-end justify-start   space-y-0
           " onMouseEnter={()=>setMouseHoverState(true)}
         >
           {[
@@ -48,10 +48,10 @@
                 <Link
                   key={id}
                   underline="none"
-                  onClick={() => {
-                    handleViewSection(id);
-                  }}
-                  className={` text-[0.9rem] relative box-border cursor-none    font-ukraine-light py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
+                  // onClick={() => {
+                  //   handleViewSection(id);
+                  // }}
+                  className={` text-[0.8rem] relative box-border cursor-default tracking-tight  font-ukraine-light py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
                     ${childItem?.isInView ? "text-black " : "text-neutral-400/80 "}
                     `}
                 >
@@ -65,6 +65,7 @@
           ))}
         </Box>
       </Box>
+      
     );
   };
 

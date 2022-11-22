@@ -18,16 +18,15 @@ import {
   Suspense,
   useEffect,
   useRef,
-  useCallback,
+  useState,
 } from "react";
-import NavScrollContext from "./context/NavScrollContext";
 import PageScrollableContext from "./context/PageScrollableContext";
 import { MouseStateProvider } from "./context/MouseStateContext";
 import { TemplateSectionProvider } from "./context/TemplateSectionContext";
-import { NavScrollProvider } from "./context/NavScrollContext";
+import ScrollContext from "./context/ScrollContext";
+
 import LoadingFallback from "./components/LoadingFallback";
-import ScrollTopWidget from "./components/ScrollTopWidget";
-import Cursor from "./components/Cursor";
+import { ScrollProvider } from "./context/ScrollContext";
 import Scrollbar from "smooth-scrollbar";
 import Scroll from "./components/Scroll";
 const Templates = lazy(() => import("./pages/Templates"));
@@ -50,13 +49,13 @@ const App = () => {
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
-            <NavScrollProvider>
+            <ScrollProvider>
               <TemplateSectionProvider>
                 <MouseStateProvider>
                   <Main />
                 </MouseStateProvider>
               </TemplateSectionProvider>
-            </NavScrollProvider>
+            </ScrollProvider>
           </ThemeProvider>
         </StyledEngineProvider>
       </HashRouter>
@@ -65,35 +64,45 @@ const App = () => {
 };
 const Main = () => {
   // sets ref on page load and passes to context to be accessed by all child
+  
   const scrollableRef = useRef(null);
-  //   const { setScrollRefState,scrollRefState } = useContext(PageScrollableContext);
 
+  const {setScrollEl,scrollEl}= useContext(PageScrollableContext)
+  // const {scrollPosition} = useContext(ScrollContext)
+   const [scrollPosition, setScrollPosition] = useState(0);
   const options = {
     damping: 0.03,
     renderByPixels: true,
   };
   useEffect(() => {
-    console.log(scrollableRef.current);
     Scrollbar.init(scrollableRef.current, options);
+    setScrollEl(scrollableRef)
+
   }, [scrollableRef]);
+
+ 
+ 
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
-          <Box className="h-full    w-screen  text-[#131313]  box-border flex   items-center justify-start  relative ">
+          <Box
+        
+           className="h-screen    w-screen  text-[#131313]  box-border flex   items-center justify-start  relative ">
             <Navbar></Navbar>
 
             {/*scrollable content content */}
             {/* set height to screen  */}
             <Box
-              // onScroll={() => console.log("asd")}
               ref={scrollableRef}
               component="main"
               className=" w-screen  h-screen   box-border   flex  items-start justify-center     relative "
             >
-                <Box className=" w-screen h-full box-border ">
+                <Box
+                 className=" w-screen
+                 h-full box-border ">
                 {/* <Scroll /> */}
                 <Suspense fallback={<LoadingFallback />}>
                   <Routes>
