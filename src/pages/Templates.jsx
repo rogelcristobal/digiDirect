@@ -37,11 +37,9 @@ const Templates = () => {
   };
 
   return (
-    <>
-      {/* title container */}
-
-      {/* main content and sidebar */}
-      <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border space-y-[28rem]">
+    
+     
+      <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border space-y-[28rem] ">
         <Box className=" w-full h-[28rem] box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit  border-thiner  ">
           <Box className=" box-border h-fit w-fit   border-thiner absolute top-[8rem]  left-[3rem]">
             <TextContent
@@ -118,8 +116,8 @@ const Templates = () => {
           {/* space-y-12 between title and child */}
         </Box>
       </Box>
-      {/* page navigation */}
-    </>
+    
+    
   );
 };
 
