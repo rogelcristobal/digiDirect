@@ -12,7 +12,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // components
 import Navbar from "./components/Navbar";
 import { useLocation } from "react-router-dom";
-import { useContext, lazy, Suspense, useEffect, useRef ,useCallback} from "react";
+import {
+  useContext,
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+  useCallback,
+} from "react";
 import NavScrollContext from "./context/NavScrollContext";
 import PageScrollableContext from "./context/PageScrollableContext";
 import { MouseStateProvider } from "./context/MouseStateContext";
@@ -59,36 +66,35 @@ const App = () => {
 const Main = () => {
   // sets ref on page load and passes to context to be accessed by all child
   const scrollableRef = useRef(null);
-//   const { setScrollRefState,scrollRefState } = useContext(PageScrollableContext);
- 
-//  const scrollableRef=useCallback((node)=>{setScrollRefState(node)},[])
-  
- 
+  //   const { setScrollRefState,scrollRefState } = useContext(PageScrollableContext);
 
-  console.log(scrollableRef.current)
-return (
+  const options = {
+    damping: 0.03,
+    renderByPixels: true,
+  };
+  useEffect(() => {
+    console.log(scrollableRef.current);
+    Scrollbar.init(scrollableRef.current, options);
+  }, [scrollableRef]);
+  return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
-          <Box ref={scrollableRef} onScroll={()=>console.log('asd')} className="h-screen overflow-auto   w-full  text-[#131313]  box-border flex   items-center justify-start  relative ">
-            {/* navbar */}
+          <Box className="h-full    w-screen  text-[#131313]  box-border flex   items-center justify-start  relative ">
             <Navbar></Navbar>
-            {/* <Cursor /> */}
+
             {/*scrollable content content */}
             {/* set height to screen  */}
             <Box
+              // onScroll={() => console.log("asd")}
+              ref={scrollableRef}
               component="main"
-              className=" w-full  h-full  box-border   flex  items-center justify-center     relative "
+              className=" w-screen  h-screen   box-border   flex  items-start justify-center     relative "
             >
-              {/* element that scrolling */}
-              <Box
-                
-                className=" w-full h-full box-border "
-              >
-              {/* <Scroll /> */}
-                
+                <Box className=" w-screen h-full box-border ">
+                {/* <Scroll /> */}
                 <Suspense fallback={<LoadingFallback />}>
                   <Routes>
                     <Route index element={<Dashboard />} />
@@ -97,7 +103,6 @@ return (
                   </Routes>
                 </Suspense>
               </Box>
-
             </Box>
           </Box>
         }
