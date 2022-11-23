@@ -14,6 +14,7 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import SideBar from "../components/SideBar";
 import PageScrollableContext from "../context/PageScrollableContext";
  import Link from "@mui/material/Link";
+ import  Scrollbar  from "smooth-scrollbar";
  
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
@@ -38,9 +39,17 @@ const Templates = () => {
       opacity: 1,
     },
   };
+  const rf = useRef(null)
+  // useEffect(()=>{
+    
+
+  // },[])
+  // const scrollbar = Scrollbar.init(elem);
+
+  // console.log(Scrollbar.getSize())
 
   return (
-    <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border  ">
+    <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border   bg-[#ffffff]">
       {/* title */}
       <Box className=" w-full h-[28rem] box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit  border-thiner  ">
         <Box className=" box-border h-fit w-fit z-[8]  border-thiner absolute top-[8rem]  left-[3rem]">
@@ -48,7 +57,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-light  text-[3.7rem] tracking-tighter normal-case indent-48 box-border leading-[4.1rem] text-red-500 pointer-events-none text-left  mix-blend-difference"
+                className=" font-ukraine-light  text-[3.7rem] tracking-tighter normal-case indent-48 box-border leading-[4.1rem] text-black pointer-events-none text-left "
               >
                 {/* <motion.span variants={sentence} initial="hidden" animate="animate">
                  {text.split("").map((char,index)=>{
@@ -69,14 +78,14 @@ const Templates = () => {
             }
           />
 
-          <span className="font-ukraine-light capitalize text-neutral-500/70 tracking-tight text-xs absolute -top-[1.5rem] left-0 cursor-default">
+          <span className="font-ukraine-light capitalize text-neutral-500/70 tracking-tight text-xs absolute -top-[1.3rem] left-0 cursor-default">
             content
           </span>
         </Box>
         <Box className="absolute border-thiner  top-[30rem] left-12 w-fit h-fit ">
 
           <img src={img} alt="" className="object-cover z-[5]  h-[45rem] w-[40rem] box-border  " />
-           <span className="font-ukraine-light capitalize text-neutral-500/70 tracking-tight text-xs absolute -top-[1.5rem] right-0 cursor-default">
+           <span className="font-ukraine-light capitalize text-neutral-500/70 tracking-tight text-xs absolute -top-[1.3rem] -right-0 cursor-default">
             Brandon Erlinger-Ford
           </span>
           
@@ -130,6 +139,7 @@ const Templates = () => {
           {/* main content here */}
           {/* space-y-12 between title and child */}
         </Box>
+        <p ref={rf}>asd</p>
       </Box>
     </Box>
   );
