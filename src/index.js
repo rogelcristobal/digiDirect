@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { NavScrollProvider } from "./context/NavScrollContext";
+import { ScrollProvider } from "./context/ScrollContext";
 import { TemplateSectionProvider } from "./context/TemplateSectionContext";
 import { PageScrollableProvider } from "./context/PageScrollableContext";
 
