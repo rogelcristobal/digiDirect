@@ -68,18 +68,18 @@ const Main = () => {
   const scrollableRef = useRef(null);
 
   const {setScrollEl,scrollEl}= useContext(PageScrollableContext)
-  // const {scrollPosition} = useContext(ScrollContext)
-   const [scrollPosition, setScrollPosition] = useState(0);
+  const {scrollPosition} = useContext(ScrollContext)
+  //  const [scrollPosition, setScrollPosition] = useState(0);
   const options = {
-    damping: 0.03,
+    damping: 0.02,
     renderByPixels: true,
   };
   useEffect(() => {
     Scrollbar.init(scrollableRef.current, options);
     setScrollEl(scrollableRef)
-
   }, [scrollableRef]);
 
+ console.log(scrollPosition)
  
  
   return (
@@ -90,7 +90,7 @@ const Main = () => {
         element={
           <Box
         
-           className="h-screen    w-screen  text-[#131313]  box-border flex   items-center justify-start  relative ">
+           className="h-screen    w-full  text-[#131313]  box-border flex   items-center justify-start  relative ">
             <Navbar></Navbar>
 
             {/*scrollable content content */}
@@ -98,7 +98,7 @@ const Main = () => {
             <Box
               ref={scrollableRef}
               component="main"
-              className=" w-screen  h-screen   box-border   flex  items-start justify-center     relative "
+              className=" w-full  h-screen   box-border   flex  items-start justify-center     relative "
             >
                 <Box
                  className=" w-screen

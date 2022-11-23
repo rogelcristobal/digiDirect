@@ -1,4 +1,5 @@
 import { useRef, lazy } from "react";
+import img from '../img/unsplash/brandonErlingerFord.jpg'
 import { Box, Typography } from "@mui/material";
 import TextContent from "../components/TextContent";
 import template from "../template/template";
@@ -12,6 +13,8 @@ import TemplateSectionContext from "../context/TemplateSectionContext";
 import { HiArrowUpRight } from "react-icons/hi2";
 import SideBar from "../components/SideBar";
 import PageScrollableContext from "../context/PageScrollableContext";
+ import Link from "@mui/material/Link";
+ 
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -37,15 +40,15 @@ const Templates = () => {
   };
 
   return (
-    <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border space-y-[22rem] ">
+    <Box className="flex flex-col items-center justify-start w-full h-full border-thiner box-border  ">
       {/* title */}
       <Box className=" w-full h-[28rem] box-border  relative  pb-16   flex flex-col  justify-center items-end bg-inherit  border-thiner  ">
-        <Box className=" box-border h-fit w-fit   border-thiner absolute top-[8rem]  left-[3rem]">
+        <Box className=" box-border h-fit w-fit z-[8]  border-thiner absolute top-[8rem]  left-[3rem]">
           <TextContent
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-light  text-[3.3rem] tracking-tighter normal-case indent-48 box-border leading-[3.7rem] text-black pointer-events-none text-left "
+                className=" font-ukraine-light  text-[3.7rem] tracking-tighter normal-case indent-48 box-border leading-[4.1rem] text-red-500 pointer-events-none text-left  mix-blend-difference"
               >
                 {/* <motion.span variants={sentence} initial="hidden" animate="animate">
                  {text.split("").map((char,index)=>{
@@ -66,13 +69,22 @@ const Templates = () => {
             }
           />
 
-          <span className="font-ukraine-light capitalize text-neutral-400 text-xs absolute -top-[2rem] left-0 cursor-default">
+          <span className="font-ukraine-light capitalize text-neutral-500/70 tracking-tight text-xs absolute -top-[1.5rem] left-0 cursor-default">
             content
           </span>
         </Box>
+        <Box className="absolute border-thiner  top-[30rem] left-12 w-fit h-fit ">
+
+          <img src={img} alt="" className="object-cover z-[5]  h-[45rem] w-[40rem] box-border  " />
+           <span className="font-ukraine-light capitalize text-neutral-500/70 tracking-tight text-xs absolute -top-[1.5rem] right-0 cursor-default">
+            Brandon Erlinger-Ford
+          </span>
+          
+        </Box>
+
       </Box>
 
-      <Box className="flex  items-start justify-center w-full h-fit min-h-[100vh] ">
+      <Box className="flex  items-start justify-center w-full h-fit min-h-[100vh] mt-[60rem]">
       
           <SideBar></SideBar>
           

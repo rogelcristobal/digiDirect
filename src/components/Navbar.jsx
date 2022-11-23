@@ -10,18 +10,18 @@ const Navbar = ({scrollPosition}) => {
   return (
     <Box
       component="nav"
-      className={`  h-fit py-2  bg-inherit absolute top-0 right-0 transition-all duration-300 ease-in-out pt-4  z-30 w-full  box-border 
+      className={`  h-fit pt-5 py-2  bg-inherit absolute top-0 right-0 transition-all duration-300 ease-in-out   z-30 w-full  box-border flex  justify-center
     `}
     >
       <div
-        className={`box-border container mx-auto h-full  flex items-center justify-between    transition-all ease-in-out duration-500 tracking-tight`}
+        className={`box-border container mx-auto h-fit  flex items-center justify-between    transition-all ease-in-out duration-500 tracking-tighter`}
       >
         <TextContent title={
-          <Typography variant="body1" className="font-ukraine-regular text-[1rem] ">digiDirect{scrollPosition}</Typography>
+          <Typography variant="body1" className="font-ukraine-medium uppercase white text-[1rem] ">digiDirect{scrollPosition}</Typography>
         }></TextContent>
 
         <TextContent title={
-          <Typography variant="body1" className="font-ukraine-regular text-[0.8rem] ">rogel.c</Typography>
+          <Typography variant="body1" className="font-ukraine-medium uppercase text-[0.8rem] ">rogel.c</Typography>
         }></TextContent>
 
         

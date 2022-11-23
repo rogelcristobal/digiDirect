@@ -6,13 +6,13 @@ export const ScrollProvider = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const {scrollEl} = useContext(PageScrollableContext)
   const handleScroll = (e) => {
-    const pos = window.pageYOffset
+    const pos = scrollEl?.current?.pageYOffset
     setScrollPosition(pos);
   };
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    scrollEl?.current?.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      scrollEl?.current?.removeEventListener("scroll", handleScroll);
     };
   }, []);
  
