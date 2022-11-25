@@ -6,7 +6,7 @@ import CodeBlock from "./CodeBlock";
 import { BsCheckCircle } from "react-icons/bs";
 import { useInView } from "react-intersection-observer";
 
-const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
+const ArticleBlock = ({ article, children, titleStyle, view,}) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClose = (event, reason) => {
@@ -47,7 +47,7 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
         </Alert>
       </Snackbar>
 
-      <Box className={`w-full border-thiner  ${children ? "py-8 px-0" : null}`} ref={view}>
+      <Box className={`w-full  ${children ? "py-8 px-0" : null}`} ref={view}>
         <Box component="article" className="w-full box-border space-y-6 ">
           <TextContent
             // category={article?.category}
@@ -55,7 +55,7 @@ const ArticleBlock = ({ article, children, titleFontSize, view,}) => {
               
               <Typography
                 variant="subtitle1"
-                className={`font-ukraine-regular tracking-tight  uppercase flex flex-col gap-2 relative max-w-fit ${titleFontSize}  text-[#1a1a1a]`}
+                className={` tracking-tighter   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
                 >
                 {/* <Typography variant="overline w-fit text-lg text-gray-400">{id}</Typography> */}
                 {article.title}

@@ -51,7 +51,7 @@
                   // onClick={() => {
                   //   handleViewSection(id);
                   // }}
-                  className={` text-[0.8rem] relative box-border cursor-default tracking-tight  font-ukraine-light py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
+                  className={` text-[0.9rem] relative box-border cursor-default tracking-tight  font-ukraine-regular py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
                     ${childItem?.isInView ? "text-black " : "text-neutral-400/80 "}
                     `}
                 >
