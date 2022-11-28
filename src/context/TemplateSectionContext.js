@@ -50,7 +50,7 @@ export const TemplateSectionProvider = ({ children }) => {
       snippet: inTheBoxMarkup,
       child: [
         {
-          title: parseString("Included in the box&#x2015;bundle"),
+          title: parseString("Included in the box &#124; bundle"),
           content: "Displays the specification of the product via. table.",
           snippet: bundleInTheBox,
         },
@@ -60,14 +60,14 @@ export const TemplateSectionProvider = ({ children }) => {
     {
       refView: specsRef,
       isInView: specsState,
-      category: " Specification",
+      category: " Specifications",
       title: "Basic specifications",
       content:
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
       snippet: specsMarkup,
       child: [
         {
-          title:  parseString("Specification&#x2015;categorized"),
+          title:  parseString("Specification &#124; categorized"),
           content:
             "Applies when the product specification needed to be categorized, specification can hav multiple categories. In that instance you can just copy the tags and append it on the end.",
           snippet: specsMarkupCategorized,
@@ -108,7 +108,7 @@ export const TemplateSectionProvider = ({ children }) => {
       snippet: shortDescription,
       child: [
         {
-          title: parseString("Short Description&#x2015;bundle"),
+          title: parseString("Short Description &#124; bundle"),
           content:
             "Applies when a listing/product is a bundled, displays a short description of the product.",
           snippet: shortDescriptionKit,
@@ -119,7 +119,7 @@ export const TemplateSectionProvider = ({ children }) => {
     {
       refView: seoRef,
       isInView: seoState,
-      category: "SEO",
+      category: "Search engine optimizations",
       title: "Search engine optimization",
       content:
         "We need to keep an eye on this for every product to clean out incorrect Meta Titles. Use Default Value in digiDirect AU also needs to be ticked for these fields. Search Engine Optimization is crucial because it makes our products website more visible search engine results page.",

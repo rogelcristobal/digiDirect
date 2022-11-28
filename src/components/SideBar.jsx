@@ -22,9 +22,9 @@
     // };
 
     return (
-      <Box className="px-4 border-thiner w-[24rem] h-fit py-12  box-border ">
+      <Box className="px-4 border-thiner w-[27rem] h-fit py-12  box-border  flex items-start justify-end">
         <Box
-          className="h-full w-full border-thiner box-border py-1.5 px-2  flex flex-col items-end justify-start   space-y-0
+          className="h-full w-fit border-thiner box-border py-1.5 px-2  flex flex-col items-end justify-start   space-y-0
           " onMouseEnter={()=>setMouseHoverState(true)}
         >
           {[
@@ -51,7 +51,7 @@
                   // onClick={() => {
                   //   handleViewSection(id);
                   // }}
-                  className={` text-[0.8rem] relative box-border cursor-default tracking-tight  font-ukraine-light py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
+                  className={` text-[0.9rem] relative box-border cursor-default tracking-tight  font-ukraine-regular py-1.5  transition-all duration-500 ease-in-out flex items-center justify-start w-full  whitespace-nowrap 
                     ${childItem?.isInView ? "text-black " : "text-neutral-400/80 "}
                     `}
                 >

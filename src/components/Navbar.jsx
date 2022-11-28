@@ -10,18 +10,18 @@ const Navbar = ({scrollPosition}) => {
   return (
     <Box
       component="nav"
-      className={`  h-fit pt-5 py-2  bg-transparent absolute top-0 right-0 transition-all duration-300 ease-in-out   z-30 w-full  box-border flex  justify-center
+      className={`  h-fit pt-8 py-2 absolute top-0 z-10 left-0  w-full mix-blend-difference box-border flex  justify-center
     `}
     >
       <div
-        className={`box-border container mx-auto h-fit  flex items-center justify-between    transition-all ease-in-out duration-500 tracking-tighter`}
+        className={`box-border container mx-auto h-fit  flex items-center justify-between    transition-all ease-in-out z-10 duration-500 tracking-wide`}
       >
         <TextContent title={
-          <Typography variant="body1" className="font-ukraine-medium  normal-case white text-[1rem] ">digiDirect{scrollPosition}</Typography>
+          <Typography variant="body1" className="font-plus   text-neutral-100  text-[1rem] ">digiDirect{scrollPosition}</Typography>
         }></TextContent>
 
         <TextContent title={
-          <Typography variant="body1" className="font-ukraine-medium normal-case text-[0.8rem] ">rogel.c</Typography>
+          <Typography variant="body1" className="font-plus text-neutral-100  text-[0.8rem] ">rogel.c</Typography>
         }></TextContent>
 
         
@@ -68,7 +68,7 @@ const Navbar = ({scrollPosition}) => {
           {/* <Button
             variant="text"
             size="small"
-           className=" py-2 px-4 rounded-lg bg-[#3b72ff] text-white grid place-content-center "
+           className=" py-2 px-4 rounded-lg bg-[#3b72ff] text- grid place-content-center "
           >
             <Typography variant="overline" className="text-xs capitalize p-0 m-0">sign in</Typography>
             
