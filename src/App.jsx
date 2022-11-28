@@ -29,19 +29,19 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const queryClient = new QueryClient();
 
 const App = () => {
-  const font = "'Plus Jakarta Sans', sans-serif";
-  const theme = createTheme({
-    typography: {
-      fontFamily: [font].join(","),
-    },
-  });
+  // const font = "'Plus Jakarta Sans', sans-serif";
+  // const theme = createTheme({
+  //   typography: {
+  //     fontFamily: [font].join(","),
+  //   },
+  // });
 
   return (
     <QueryClientProvider client={queryClient}>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       <HashRouter>
         <StyledEngineProvider injectFirst>
-          <ThemeProvider theme={theme}>
+          {/* <ThemeProvider theme={theme}> */}
             <ScrollProvider>
               <TemplateSectionProvider>
                 <MouseStateProvider>
@@ -49,7 +49,7 @@ const App = () => {
                 </MouseStateProvider>
               </TemplateSectionProvider>
             </ScrollProvider>
-          </ThemeProvider>
+          {/* </ThemeProvider> */}
         </StyledEngineProvider>
       </HashRouter>
     </QueryClientProvider>

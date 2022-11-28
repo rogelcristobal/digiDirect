@@ -4,11 +4,11 @@ import TextContent from "./TextContent";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { BsCheckCircle } from "react-icons/bs";
-import { useInView } from "react-intersection-observer";
-
-const ArticleBlock = ({ article, children, titleStyle, view,}) => {
+import { motion,animate } from "framer-motion";
+import {HiOutlineArrowRight} from 'react-icons/hi'
+const ArticleBlock = ({ article, children, titleStyle, view ,sx}) => {
   const [open, setOpen] = React.useState(false);
-
+  const [show, setShow] = React.useState(false); 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -28,6 +28,17 @@ const ArticleBlock = ({ article, children, titleStyle, view,}) => {
     navigator.clipboard.writeText(mergeTagsAndStyles(article?.snippet));
     setOpen(true);
   };
+
+  const handleClick=()=>{
+    setShow((prev)=>prev=!show)
+  }
+  const clickAnimate={
+    animate:{
+      // height:40,
+      // width:"0rem",
+      
+    }
+  }
   return (
     <>
       <Snackbar
@@ -47,44 +58,36 @@ const ArticleBlock = ({ article, children, titleStyle, view,}) => {
         </Alert>
       </Snackbar>
 
-      <Box className={`w-full  ${children ? "py-8 px-0" : null}`} ref={view}>
-        <Box component="article" className="w-full box-border space-y-6 ">
+      <Box
+        className={`w-full ${sx} space-y-12  p-0`}
+        ref={view}
+      >
+        <Box component="article" className="w-full box-border mb-8  ">
           <TextContent
             // category={article?.category}
-            title={
-              
-              <Typography
-                variant="subtitle1"
-                className={` tracking-tighter   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
-                >
-                {/* <Typography variant="overline w-fit text-lg text-gray-400">{id}</Typography> */}
-                {article.title}
-              </Typography>
-            }
-            // subTitle={
+            // title={
+
             //   <Typography
             //     variant="subtitle1"
-            //     className={` font-ukraine-regular  text-[0.9rem] `}
-            //   >
-            //     {article.content}
+            //     className={` tracking-tighter   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
+            //     >
+            //     {article.title}
             //   </Typography>
             // }
+            subTitle={
+              <Typography
+                variant="subtitle1"
+                className={` font-ukraine-regular  text-[0.9rem] text-neutral-500`}
+              >
+                {article.content}
+              </Typography>
+            }
           />
           
-
-          {/* code block width */}
-          {/* <Box className=" relative box-border h-fit    max-w-[48rem]">
-          {article?.snippet && (
-            <CodeBlock
-              handleCopy={handleToggleCopyToggle}
-              copyState={open}
-              content={article}
-            />
-          )}
-        </Box> */}
         </Box>
-        {/* if nesteded nodes are present*/}
+       <Box className="box-border space-y-2">
         {children}
+       </Box>
       </Box>
     </>
   );

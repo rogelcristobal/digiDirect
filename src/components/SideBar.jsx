@@ -22,9 +22,9 @@
     // };
 
     return (
-      <Box className="px-4 border-thiner w-[24rem] h-fit py-12  box-border ">
+      <Box className="px-4 border-thiner w-[27rem] h-fit py-12  box-border  flex items-start justify-end">
         <Box
-          className="h-full w-full border-thiner box-border py-1.5 px-2  flex flex-col items-end justify-start   space-y-0
+          className="h-full w-fit border-thiner box-border py-1.5 px-2  flex flex-col items-end justify-start   space-y-0
           " onMouseEnter={()=>setMouseHoverState(true)}
         >
           {[
