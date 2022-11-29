@@ -10,7 +10,7 @@ const Navbar = ({scrollPosition}) => {
   return (
     <Box
       component="nav"
-      className={`  h-fit pt-8 py-2 absolute top-0 z-10 left-0  w-full mix-blend-difference box-border flex  justify-center
+      className={`  h-fit pt-6 py-2 absolute top-0 z-10 left-0  w-full mix-blend-difference box-border flex  justify-center
     `}
     >
       <div

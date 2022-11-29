@@ -59,12 +59,13 @@ const ArticleBlock = ({ article, children, titleStyle, view ,sx}) => {
       </Snackbar>
 
       <Box
-        className={`w-full ${sx} space-y-12  p-0`}
+        className={`w-full h-fit ${sx} space-y-8  p-0`}
         ref={view}
       >
         <Box component="article" className="w-full box-border mb-8  ">
           <TextContent
             // category={article?.category}
+            sx='space-y-4'
             // title={
 
             //   <Typography
@@ -77,7 +78,7 @@ const ArticleBlock = ({ article, children, titleStyle, view ,sx}) => {
             subTitle={
               <Typography
                 variant="subtitle1"
-                className={` font-ukraine-regular  text-[0.9rem] text-neutral-500`}
+                className={` font-ukraine-light  text-[0.8rem] text-neutral-500`}
               >
                 {article.content}
               </Typography>
