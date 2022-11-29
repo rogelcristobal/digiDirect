@@ -46,12 +46,14 @@ export const TemplateSectionProvider = ({ children }) => {
       isInView: inTheBoxState,
       category: "What's in the box",
       title: "Included in the box",
-      content: "Displays the accesories included in the product package.",
-      snippet: inTheBoxMarkup,
+      content: "Displays the accesories included in the product package. This will display the items in bullets.",
       child: [
         {
+          title:'Included in the box',
+          snippet:inTheBoxMarkup
+        },
+        {
           title: parseString("Included in the box &#124; bundle"),
-          content: "Displays the specification of the product via. table.",
           snippet: bundleInTheBox,
         },
       ],
@@ -61,15 +63,19 @@ export const TemplateSectionProvider = ({ children }) => {
       refView: specsRef,
       isInView: specsState,
       category: " Specifications",
-      title: "Basic specifications",
+      title: "Specifications",
       content:
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
-      snippet: specsMarkup,
-      child: [
+        child: [
+          {
+            title:'Specification',
+            snippet: specsMarkup,
+            
+        },
         {
           title:  parseString("Specification &#124; categorized"),
-          content:
-            "Applies when the product specification needed to be categorized, specification can hav multiple categories. In that instance you can just copy the tags and append it on the end.",
+          // content:
+          //   "Applies when the product specification needed to be categorized, specification can hav multiple categories. In that instance you can just copy the tags and append it on the end.",
           snippet: specsMarkupCategorized,
         },
       ],
@@ -79,20 +85,23 @@ export const TemplateSectionProvider = ({ children }) => {
       refView: descriptionRef,
       isInView: descriptionState,
       category: " Descriptions",
-      title: "Basic description",
+      title: "Description",
       content:
         " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
-      snippet: descriptionSimple,
-
-      child: [
+        
+        child: [
+          {
+            title:'Description',
+            snippet: descriptionSimple,
+        },
         {
           title: "Advanced description",
-          content: " Displays the description of the product.",
+          // content: " Displays the description of the product.",
           snippet: descriptionBest,
         },
         {
           title: "Bundled description ",
-          content: " Displays the description of the product.",
+          // content: " Displays the description of the product.",
           snippet: descriptionKit,
         },
       ],
@@ -102,15 +111,17 @@ export const TemplateSectionProvider = ({ children }) => {
       refView: shortDescriptionRef,
       isInView: shortDescriptionState,
       category: "Short descriptions",
-      title: " Basic short description",
+      title: "Short description",
       content:
         "A short description is text that briefly introduces and describes a topic. In DITA, short desciptions are tagged with",
-      snippet: shortDescription,
-      child: [
+        child: [
+          {title:'Short Description',
+        snippet: shortDescription,
+    },
         {
           title: parseString("Short Description &#124; bundle"),
-          content:
-            "Applies when a listing/product is a bundled, displays a short description of the product.",
+          // content:
+          //   "Applies when a listing/product is a bundled, displays a short description of the product.",
           snippet: shortDescriptionKit,
         },
       ],

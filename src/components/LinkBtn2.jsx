@@ -6,7 +6,8 @@ const LinkBtn2 = ({ title }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="text-[1rem]  py-3 inline-block relative font-ukraine-regular w-fit box-border cursor-pointer hover-underline-animation"
+      onClick={()=>alert('asd')}
+        className="text-[0.8rem]  cursor-none  py-2 inline-block relative font-ukraine-regular w-fit box-border hover-underline-animation whitespace-nowrap "
       >
         {title}
       </motion.div>
