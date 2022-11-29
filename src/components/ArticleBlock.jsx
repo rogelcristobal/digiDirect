@@ -4,11 +4,11 @@ import TextContent from "./TextContent";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { BsCheckCircle } from "react-icons/bs";
-import { motion,animate } from "framer-motion";
-import {HiOutlineArrowRight} from 'react-icons/hi'
-const ArticleBlock = ({ article, children, titleStyle, view ,sx}) => {
+import { motion, animate } from "framer-motion";
+import { HiOutlineArrowRight } from "react-icons/hi";
+const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
   const [open, setOpen] = React.useState(false);
-  const [show, setShow] = React.useState(false); 
+  const [show, setShow] = React.useState(false);
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -29,16 +29,15 @@ const ArticleBlock = ({ article, children, titleStyle, view ,sx}) => {
     setOpen(true);
   };
 
-  const handleClick=()=>{
-    setShow((prev)=>prev=!show)
-  }
-  const clickAnimate={
-    animate:{
+  const handleClick = () => {
+    setShow((prev) => (prev = !show));
+  };
+  const clickAnimate = {
+    animate: {
       // height:40,
       // width:"0rem",
-      
-    }
-  }
+    },
+  };
   return (
     <>
       <Snackbar
@@ -58,14 +57,11 @@ const ArticleBlock = ({ article, children, titleStyle, view ,sx}) => {
         </Alert>
       </Snackbar>
 
-      <Box
-        className={`w-full h-fit ${sx} space-y-8  p-0`}
-        ref={view}
-      >
-        <Box component="article" className="w-full box-border mb-8  ">
+      <Box className={`w-full h-full ${sx} max-w-[75%] space-y-6 flex flex-col justify-between p-0`} ref={view}>
+        <Box component="article" className="w-full box-border mb-8   ">
           <TextContent
             // category={article?.category}
-            sx='space-y-4'
+            sx="space-y-4"
             // title={
 
             //   <Typography
@@ -78,17 +74,15 @@ const ArticleBlock = ({ article, children, titleStyle, view ,sx}) => {
             subTitle={
               <Typography
                 variant="subtitle1"
-                className={` font-ukraine-light  text-[0.8rem] text-neutral-500`}
+                className={` font-ukraine-light border-thiner text-[0.8rem] text-neutral-400`}
               >
                 {article.content}
               </Typography>
             }
           />
-          
         </Box>
-       <Box className="box-border space-y-2">
-        {children}
-       </Box>
+        <Box className="box-border  flex border-thiner w-full items-center justify-start
+         space-x-20">{children}</Box>
       </Box>
     </>
   );

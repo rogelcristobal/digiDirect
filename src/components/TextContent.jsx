@@ -13,7 +13,7 @@ const TextContent = ({ category, title, subTitle,sx }) => {
 
         {title}
 
-       {subTitle? <Box className="  max-w-[80%] ">{subTitle}</Box>:null}
+       {subTitle}
       </Box>
     );
   

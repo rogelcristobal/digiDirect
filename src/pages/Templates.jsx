@@ -53,7 +53,7 @@ const Templates = () => {
   return (
     <Box className="flex flex-col items-center justify-start w-full container h-full  box-border  mx-auto ">
       {/* title */}
-      <Box className=" w-full h-[28rem] box-border 	  pb-16   flex flex-col  justify-center items-end   border-thiner">
+      <Box className=" w-full h-[28rem] box-border 	     flex flex-col  justify-center items-end   border-thiner">
         <Box className=" box-border h-fit w-fit z-[8]   absolute top-[8rem]  right-[4rem]">
           <TextContent
             title={
@@ -90,7 +90,7 @@ const Templates = () => {
 
 
         {/* main content */}
-      <Box className="flex  items-start justify-center w-full h-fit min-h-[100vh] mt-[8rem] mb-[30rem] box-border ">
+      <Box className="flex  items-start justify-center w-full h-fit min-h-[100vh] mt-[3rem] mb-[30rem] box-border ">
         <Box className="w-full h-full  box-border px-0 pb-[20rem] space-y-2 ">
           {/* number */}
           <Typography variant="body1" className="border-thiner text-[7rem] font-ukraine-regular tracking-tight">{addZeroToSingleDigit(templateSections.length)}</Typography>
@@ -103,16 +103,16 @@ const Templates = () => {
             {templateSections.map((item, id) => (
               // divided per category
               <Box
-                className="box-border w-full border-thiner min-h-[30rem] h-auto  grid grid-cols-11  relative"
+                className="box-border w-full border-thiner  h-auto min-h-[20rem]  grid grid-cols-11  relative"
                 key={id}
                 data-id={id}
                 ref={storeRef}
               >
 
                 {/* category / title */}
-                <Box className="box-border border-thiner pt-[0.9rem]  h-full border-thiner  -full col-span-5 overflow-y-auto ">
+                <Box className="box-border border-thiner py-[0.9rem]  h-full border-thiner  -full col-span-4 overflow-y-auto ">
                   <TextContent
-                    sx="border-thiner lg:max-w-[25rem]"
+                    sx="border-thiner"
                     title={
                       <div className="flex h-full items-center gap-2 ">
                         <Typography
@@ -134,16 +134,15 @@ const Templates = () => {
                 </Box>
                 
                 {/* content / snippet */}
-                <Box className="box-border  pt-[0.9rem]  h-full flex items-start  col-span-6 col-start-6 ">
+                <Box className="box-border  py-[0.9rem]  h-full flex items-start  col-span-6 col-start-5 ">
                   <ArticleBlock
                     article={item} 
                     view={item?.refView}
                     id={id}
                   >
                     {item.child?.map((childNode, idx) => (
-                      <Box key={idx} className="box-border w-full ">
-                        <LinkBtn2 title={childNode.title} />
-                      </Box>
+                        <LinkBtn2 key={idx} title={childNode.title} />
+                     
                     ))}
                   </ArticleBlock>
                 </Box>
