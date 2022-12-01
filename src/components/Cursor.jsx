@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import MouseStateContext from "../context/MouseStateContext";
 import { motion } from "framer-motion";
 const Cursor = () => {
@@ -6,14 +6,17 @@ const Cursor = () => {
   const {x,y} = mousepos
  
   const animation = {
-    hidden: { x: -56, y: -56 },
+    hidden: { x: -64, y: -64, },
     animate: {
-      x: x-12,
-      y: y -12,
+      x: x-64,
+      y: y -64,
+      
       transition:{
-        ease:[.51,.5,.41,.7],duration:0.3
+        type:'linear',
+        duration:0.2,
+        stiffness:0
       },
-      // ...(!mouseHoverState ? { backgroundColor: "white" } : { backgroundColor: "transparent" }),
+      ...(mouseHoverState ? { opacity:1 } : {opacity:0}),
     },
   };
   
@@ -33,15 +36,18 @@ const Cursor = () => {
 
     <motion.div
        variants={animation}
-       initial="hidden"
+      //  initial="hidden"
        animate="animate"
-       className={`fixed z-50 h-0  w-0 rounded-full flex items-center pointer-events-none mix-blend-difference bg-white`}
+       className={`fixed z-50 h-32  w-32 rounded-full flex items-center pointer-events-none  bg-white mix-blend-difference`}
        >
-    
-    
     </motion.div> 
-    <motion.div variants={cursor} initial="hidden" animate="animate"  className="z-50  fixed h-4 w-4 bg-white mix-blend-difference customCursor  pointer-events-none"></motion.div>
-       </>
+
+
+    {/* <motion.div variants={cursor} initial="hidden" animate="animate"  className="z-50  fixed h-4 w-4 bg-white mix-blend-difference customCursor  pointer-events-none">
+
+      
+    </motion.div> */}
+    </>
   );
 };
 

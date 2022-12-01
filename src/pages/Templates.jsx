@@ -53,7 +53,7 @@ const Templates = () => {
   return (
     <Box className="flex flex-col items-center justify-start w-full container h-full  box-border  mx-auto ">
       {/* title */}
-      <Box className=" w-full h-[28rem] box-border 	     flex flex-col  justify-center items-end   border-thiner">
+      <Box className=" w-full h-[25rem] box-border 	     flex flex-col  justify-center items-end   ">
         <Box className=" box-border h-fit w-fit z-[8]   absolute top-[8rem]  right-[4rem]">
           <TextContent
             title={
@@ -80,7 +80,7 @@ const Templates = () => {
             }
           />
 
-          <span className="font-ukraine-light capitalize text-neutral-500/70 tracking-tight text-xs absolute   -top-[1.3rem] left-0 cursor-default">
+          <span className="font-ukraine-regular capitalize text-neutral-900 tracking-tight text-[0.7rem] absolute   -top-[1.3rem] left-0 cursor-default">
             content
           </span>
         </Box>
@@ -93,8 +93,12 @@ const Templates = () => {
       <Box className="flex  items-start justify-center w-full h-fit min-h-[100vh] mt-[3rem] mb-[30rem] box-border ">
         <Box className="w-full h-full  box-border px-0 pb-[20rem] space-y-2 ">
           {/* number */}
-          <Typography variant="body1" className="border-thiner text-[7rem] font-ukraine-regular tracking-tight">{addZeroToSingleDigit(templateSections.length)}</Typography>
-          <Divider variant="fullWidth" className="bg-black h-[1px]"></Divider>
+          <Typography variant="body1" className=" text-[7rem] font-ukraine-regular tracking-tight">{addZeroToSingleDigit(templateSections.length)}</Typography>
+          <Divider variant="fullWidth" className="bg-black h-[1px] relative ">
+            <span className="font-ukraine-regular  text-neutral-900 tracking-tight text-[0.7rem] absolute right-52 -top-7">digiDirect</span>
+
+            <span className="font-ukraine-regular capitalize text-neutral-900 tracking-tight text-[0.7rem] absolute right-0 -top-7">templates</span>
+          </Divider>
          
          
          {/* items */}
@@ -103,28 +107,28 @@ const Templates = () => {
             {templateSections.map((item, id) => (
               // divided per category
               <Box
-                className="box-border w-full border-thiner  h-auto min-h-[20rem]  grid grid-cols-11  relative"
+                className="box-border w-full   h-auto min-h-[12rem]  grid grid-cols-11  relative"
                 key={id}
                 data-id={id}
                 ref={storeRef}
               >
 
                 {/* category / title */}
-                <Box className="box-border border-thiner py-[0.9rem]  h-full border-thiner  -full col-span-4 overflow-y-auto ">
+                <Box className="box-border  py-[0.9rem]  h-full   -full col-span-4 overflow-y-auto ">
                   <TextContent
-                    sx="border-thiner"
+                    sx=""
                     title={
                       <div className="flex h-full items-center gap-2 ">
                         <Typography
                           variant="body1"
-                          className="font-ukraine-light  border-thiner w-fit text-[0.9rem] tracking-tight h-full"
+                          className="font-ukraine-regular   w-fit text-[1.2rem] tracking-tight h-full"
                         >
                           {addZeroToSingleDigit(id)}.
                         </Typography>
 
                         <Typography
                           variant="body1"
-                          className="font-ukraine-light  leading-[3.2rem] w-full  text-[0.9rem] tracking-tight "
+                          className="font-ukraine-regular  leading-[3.2rem] w-full  text-[1.2rem] tracking-tight "
                         >
                           {item.title}.
                         </Typography>
