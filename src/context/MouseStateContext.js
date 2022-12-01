@@ -4,7 +4,7 @@ const MouseStateContext = createContext();
 
 export const MouseStateProvider = ({ children }) => {
   const [mousepos, setMousepos] = useState({ x: null, y: null });
-  const [mouseHoverState, setMouseHoverState] = useState(false);
+  const [mouseHoverState, setMouseHoverState] = useState(true);
 
   useEffect(() => {
     const updatePosition = (e) => {

@@ -67,7 +67,7 @@ const Main = () => {
         element={
           <>
             <Cursor></Cursor>
-            <Box className="h-screen cursor-none   w-full  text-[#131313]  box-border flex   items-center justify-start  relative bg-[#ffffff]">
+            <Box className="h-screen    w-full  text-[#131313]  box-border flex   items-center justify-start  relative bg-[#ffffff]">
               <Navbar></Navbar>
               {/*scrollable content content */}
               {/* set height to screen  */}

@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { motion, AnimatePresence,useAnimation } from "framer-motion";
 import {HiOutlineArrowUpRight} from 'react-icons/hi2'
+import MouseStateContext from "../context/MouseStateContext";
 const LinkBtn2 = ({ title }) => {
-  
-  const [hoverState,setHoverState] = useState(false)
+  const {setMouseHoverState,mouseHoverState} = useContext(MouseStateContext) 
+  // const [hoverState,setHoverState] = useState(false)
 
   const arrowAnimation = useAnimation()
   const handleHoverState =()=>{
-    setHoverState(!hoverState)
-    arrowAnimation.start({
-      y:!hoverState ? 0: 10,
-      opacity: !hoverState ? 1:0 ,
-      transition:{ease:'easeOut',duration:0.4}
-    })
+    setMouseHoverState(!mouseHoverState)
+    // arrowAnimation.start({
+    //   y:!mouseHoverState ? 0: 10,
+    //   opacity: !mouseHoverState ? 1:0 ,
+    //   transition:{ease:'easeOut',duration:0.4}
+    // })
   }
   
   return (
@@ -20,7 +21,7 @@ const LinkBtn2 = ({ title }) => {
       <motion.div
         onHoverEnd={handleHoverState}
         onHoverStart={handleHoverState}
-        className="text-[0.8rem]  cursor-none space-x-3 py-1 inline-block relative font-ukraine-regular flex items-center w-fit box-border hover-underline-animation whitespace-nowrap "
+        className="text-[0.8rem]  cursor-pointer space-x-3 py-1 inline-block relative font-ukraine-regular flex items-center w-fit box-border hover-underline-animation whitespace-nowrap "
       >
         <span>
 
