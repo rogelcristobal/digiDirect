@@ -74,14 +74,14 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
             subTitle={
               <Typography
                 variant="subtitle1"
-                className={` font-ukraine-light border-thiner text-[0.7rem] text-neutral-500`}
+                className={` font-ukraine-light  text-[0.7rem] text-neutral-500`}
               >
                 {article.content}
               </Typography>
             }
           />
         </Box>
-        <Box className="box-border  flex border-thiner w-full items-center justify-start
+        <Box className="box-border  flex  w-full items-center justify-start
          space-x-16">{children}</Box>
       </Box>
     </>

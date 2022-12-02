@@ -53,13 +53,13 @@ const Templates = () => {
   return (
     <Box className="flex flex-col items-center justify-start w-full container h-full  box-border  mx-auto ">
       {/* title */}
-      <Box className=" w-full h-[25rem] box-border 	     flex flex-col  justify-center items-end   ">
-        <Box className=" box-border h-fit w-fit z-[8]   absolute top-[8rem]  right-[4rem]">
+      <Box className=" w-full h-[25rem] box-border  flex flex-col  justify-center items-end   ">
+        <Box className=" box-border h-fit w-fit z-[8]   absolute top-[8rem]  left-[4rem]">
           <TextContent
             title={
               <Typography
                 variant="subtitle1"
-                className=" font-ukraine-light  text-[3.2rem] tracking-tighter normal-case indent-48 box-border leading-[3.7rem] text-black pointer-events-none text-left  "
+                className=" font-ukraine-light  text-[3.8rem] tracking-tighter uppercase  box-border leading-[4.7rem] text-black pointer-events-none text-left  "
               >
                 {/* <motion.span variants={sentence} initial="hidden" animate="animate">
                  {text.split("").map((char,index)=>{
@@ -69,13 +69,13 @@ const Templates = () => {
                  })}
                 </motion.span> */}
                 Product listing
-                <br />
+                {/* <br />
                 templates
                 <span className="">
                   {" "}
                   <span className="font-medium  "></span>for external <br />
                   content creators.
-                </span>
+                </span> */}
               </Typography>
             }
           />
@@ -90,10 +90,10 @@ const Templates = () => {
 
 
         {/* main content */}
-      <Box className="flex  items-start justify-center w-full h-fit min-h-[100vh] mt-[3rem] mb-[30rem] box-border ">
+      <Box className="flex  items-start justify-center w-full h-fit min-h-[100vh] mt-[10rem] mb-[30rem] box-border ">
         <Box className="w-full h-full  box-border px-0 pb-[20rem] space-y-2 ">
           {/* number */}
-          <Typography variant="body1" className=" text-[7rem] font-ukraine-regular tracking-tight">{addZeroToSingleDigit(templateSections.length)}</Typography>
+          {/* <Typography variant="body1" className=" text-[7rem] font-ukraine-regular tracking-tight">{addZeroToSingleDigit(templateSections.length)}</Typography> */}
           <Divider variant="fullWidth" className="bg-black h-[1px] relative ">
             <span className="font-ukraine-regular  text-neutral-900 tracking-tight text-[0.7rem] absolute right-52 -top-7">digiDirect</span>
 

@@ -39,7 +39,7 @@ const Main = () => {
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const options = {
-    damping: 0.02,
+    damping: 0.00,
     renderByPixels: true,
   };
   // setting the context state with ref.current
@@ -66,7 +66,7 @@ const Main = () => {
         path="/*"
         element={
           <>
-            <Cursor></Cursor>
+            {/* <Cursor></Cursor> */}
             <Box className="h-screen    w-full  text-[#131313]  box-border flex   items-center justify-start  relative bg-[#ffffff]">
               <Navbar></Navbar>
               {/*scrollable content content */}
