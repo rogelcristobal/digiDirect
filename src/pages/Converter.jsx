@@ -1,55 +1,45 @@
-import { useState, useRef, useContext } from "react";
 import { Box, Typography } from "@mui/material";
-import PageTitle from "../components/TextContent";
-import template from "../template/template";
-// import NavScrollContext from "../context/ScrollContext";
-import ArticleBlock from "../components/ArticleBlock";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import TextContent from "../components/TextContent";
-import { Link } from "@mui/material";
+
 const Converter = () => {
   // const { handleScroll } = useContext(NavScrollContext);
-  const scrollRef = useRef(null);
-  const importFile = useRef(null);
-  const [importedFiles, setImportedFiles] = useState();
+  // const scrollRef = useRef(null);
+  // const importFile = useRef(null);
+  // const [importedFiles, setImportedFiles] = useState();
 
-  const [URLInput, setURLInput] = useState([{ input: "" }]);
+  // const [URLInput, setURLInput] = useState([{ input: "" }]);
 
-  const handleAddURL = () => {
-    setURLInput([...URLInput, { input: "" }]);
-  };
-  const handleTextChange = (e, id) => {
-    console.log(e, id);
-  };
-  const handleChooseFile = () => {
-    importFile.current.click();
-  };
-  const inputFileOnChange = (e) => {
-    setImportedFiles(e.target.files);
-  };
+  // const handleAddURL = () => {
+  //   setURLInput([...URLInput, { input: "" }]);
+  // };
+  // const handleTextChange = (e, id) => {
+  //   console.log(e, id);
+  // };
+  // const handleChooseFile = () => {
+  //   importFile.current.click();
+  // };
+  // const inputFileOnChange = (e) => {
+  //   setImportedFiles(e.target.files);
+  // };
   // console.log(typeof importedFiles, importedFiles);
   // const { mutate, state } = useImportFromURL();
   // const { mutate: startConvert, state: convertStatus } = useConvert();
 
   // console.log("import", state);
   // console.log("convertStatus", convertStatus);
-  const [converterValue, setConverterValue] = useState(0);
-  const handleInputChange = (e) => {
-    setConverterValue((prev) => (prev = e.target.value));
-  };
-
-
+  // const [converterValue, setConverterValue] = useState(0);
+  // const handleInputChange = (e) => {
+  //   setConverterValue((prev) => (prev = e.target.value));
+  // };
 
   // inview hook / section refs
-  const pageRef = useRef([]); //setting pageref as an empty array for multiple refs 
-  pageRef.current = [];
+  // const pageRef = useRef([]); //setting pageref as an empty array for multiple refs
+  // pageRef.current = [];
 
-  const storeRefs=(el)=>{
-    if(el&& !pageRef.current.includes(el)){  // checks if pageRef does not have the current element 
-      pageRef.current.push(el) // pushing new element to the ref array 
-    }
-  }
+  // const storeRefs=(el)=>{
+  //   if(el&& !pageRef.current.includes(el)){  // checks if pageRef does not have the current element
+  //     pageRef.current.push(el) // pushing new element to the ref array
+  //   }
+  // }
 
   // const [unitConverterRef,unitConverterInView] = useInView()
   // const [imageConverterRef,imageConverterInView] = useInView()
@@ -108,11 +98,8 @@ const Converter = () => {
       </Box> */}
 
       {/* maincontent */}
-      <Box className="w-full h-auto box-border px-14  pt-12 pb-36 space-y-32">
-       <Box className="space-y-32 w-full  box-border ">
-          
-          
-        </Box>
+      <Box className="flex flex-col items-start justify-start w-full  h-full  box-border p-3">
+        <Box className="h-full w-full   ">asd</Box>
       </Box>
     </>
   );
