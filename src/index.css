@@ -9,10 +9,10 @@
     @apply box-border;
   }
   ::-webkit-scrollbar {
-    @apply w-2 bg-neutral-300/50;
+    @apply w-2 bg-[#2b2b2b]/40;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-400/30 hover:bg-gray-400/50;
+    @apply bg-neutral-700/30 hover:bg-neutral-500/40 ;
   }
 
 .hover-underline-animation:after {

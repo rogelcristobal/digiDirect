@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Divider, Snackbar, Alert } from "@mui/material";
+import { Box, Typography, Divider, Snackbar, Alert, ListItem } from "@mui/material";
 import TextContent from "./TextContent";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
@@ -57,32 +57,40 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         </Alert>
       </Snackbar>
 
-      <Box className={`w-full h-full ${sx} max-w-[75%] space-y-6 flex flex-col justify-between p-0`} ref={view}>
-        <Box component="article" className="w-full box-border mb-8   ">
+      <Box className={`w-full h-fit ${sx}  space-y-4 flex flex-col justify-between `} ref={view}>
+        <Box component="article" className="w-full box-border mb-4   max-w-[50rem]">
           <TextContent
             // category={article?.category}
             sx="space-y-4"
-            // title={
+            title={
 
-            //   <Typography
-            //     variant="subtitle1"
-            //     className={` tracking-tighter   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
-            //     >
-            //     {article.title}
-            //   </Typography>
-            // }
+              <Typography
+                variant="subtitle1"
+                className={` font-general   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
+                >
+                {article.title}
+              </Typography>
+            }
             subTitle={
               <Typography
                 variant="subtitle1"
-                className={` font-ukraine-light  text-[0.7rem] text-neutral-500`}
+                className={` font-general text-[0.85rem] text-neutral-500 tracking-wide  `}
               >
                 {article.content}
               </Typography>
             }
           />
         </Box>
-        <Box className="box-border  flex  w-full items-center justify-start
-         space-x-16">{children}</Box>
+        <Box className="box-border  flex flex-col  w-full items-start justify-start
+         ">
+         {children}
+        </Box>
+         {article?.snippet && <Box className="max-w-[40rem]">
+            <CodeBlock content={article}></CodeBlock>
+         </Box>}
+        
+          
+        
       </Box>
     </>
   );
