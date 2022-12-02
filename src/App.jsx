@@ -9,8 +9,9 @@ import { MouseStateProvider } from "./context/MouseStateContext";
 import { TemplateSectionProvider } from "./context/TemplateSectionContext";
 import LoadingFallback from "./components/LoadingFallback";
 import { ScrollProvider } from "./context/ScrollContext";
-import Scrollbar from "smooth-scrollbar";
-import Cursor from "./components/Cursor";
+
+import SideBar from "./components/SideBar";
+
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -35,29 +36,29 @@ const App = () => {
 };
 const Main = () => {
   // sets ref on page load and passes to context to be accessed by all child
-  const scrollableRef = useRef(null);
-  const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const options = {
-    damping: 0.00,
-    renderByPixels: true,
-  };
+  // const scrollableRef = useRef(null);
+  // const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
+  // const [scrollPosition, setScrollPosition] = useState(0);
+  // const options = {
+  //   damping: 0.00,
+  //   renderByPixels: true,
+  // };
   // setting the context state with ref.current
   // the purpose of this is that we can use the scrollable el thoughtout DOM tree using context
-  useEffect(() => {
-    if (!scrollableRef.current) {
-      return;
-    }
-    setScrollEl(scrollableRef.current);
-  }, []);
+  // useEffect(() => {
+  //   if (!scrollableRef.current) {
+  //     return;
+  //   }
+  //   setScrollEl(scrollableRef.current);
+  // }, []);
 
-  useEffect(() => {
-    // checks whether context state has a val if(!val) return null
-    if (!scrollEl) return;
-    // initialize smooth scrolling using context
-    Scrollbar.init(scrollEl, options);
-    // this dependency run this effect if(!ref.current === null)
-  }, [scrollableRef.current]);
+  // useEffect(() => {
+  //   checks whether context state has a val if(!val) return null
+  //   if (!scrollEl) return;
+  //   initialize smooth scrolling using context
+  //   Scrollbar.init(scrollEl, options);
+  //   this dependency run this effect if(!ref.current === null)
+  // }, [scrollableRef.current]);
 
   return (
     <Routes>
@@ -65,22 +66,16 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <>
-            {/* <Cursor></Cursor> */}
-            <Box className="h-screen    w-full  text-[#131313]  box-border flex   items-center justify-start  relative bg-[#ffffff]">
+          
+            <Box className="h-screen  font-general  w-full  text-white  box-border flex   items-start justify-start w-full relative bg-[#111111]">
               <Navbar></Navbar>
+              <SideBar />
               {/*scrollable content content */}
               {/* set height to screen  */}
               <Box
-                ref={scrollableRef}
                 component="main"
-                className=" w-full  h-screen   box-border   flex  items-start justify-center     relative "
+                className=" box-border  h-full pt-14 w-full relative "
               >
-                <Box
-                  className=" w-screen
-                 h-full box-border "
-                >
-                  {/* <Scroll /> */}
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>
                       <Route index element={<Dashboard />} />
@@ -90,9 +85,6 @@ const Main = () => {
                   </Suspense>
                 </Box>
               </Box>
-            </Box>
-          </>
-
         }
       ></Route>
     </Routes>

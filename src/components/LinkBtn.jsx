@@ -1,87 +1,51 @@
-import React,{useEffect} from "react";
-import PropTypes from 'prop-types';
-import { useNavigate } from "react-router-dom";
-import {
-  ListItemButton,
-  Typography,
-  Collapse,
-  List,
-  Box,
-} from "@mui/material";
+import React, { useEffect } from "react";
+import { useNavigate,useLocation } from "react-router-dom";
+import { ListItemButton, Typography, Collapse, List, Box } from "@mui/material";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { BiCaretRight, BiCaretDown } from "react-icons/bi";
+import { useContext } from "react";
+import PageScrollableContext from "../context/PageScrollableContext";
+const LinkBtn = ({ title, sxText, sxContainer, children ,icon,path}) => {
+  const [isOpen, setState] = useState(true);
 
-  import { useContext } from "react";
-  import PageScrollableContext from "../context/PageScrollableContext";
-const LinkBtn = ({ children, initialState, title,path ,sxText,sxContainer,navigationBtn}) => {
-  const [isOpen, setState] = useState(initialState);
-  
-  const {scrollRefState} = useContext(PageScrollableContext)
-  const {pathname} = useLocation()
+  // const { scrollRefState } = useContext(PageScrollableContext);
   const navigate = useNavigate()
+  const {pathname} = useLocation()
   const handleClick = () => {
-      setState(true)
-      navigate(path)
-      scrollRefState?.current.scrollTo(0,0)
+    navigate(path)
+    // scrollRefState?.current.scrollTo(0, 0);
   };
   useEffect(() => {
     if(pathname !== path){
       setState(false);
+    }else{
+      setState(true);
     }
   }, [pathname]);
-  
+
   return (
-    // [#f5f4f5]
     <>
       <ListItemButton
-        disableGutters
+        disableRipple
         disableTouchRipple
         onClick={handleClick}
-        className={`flex  justify-between  
-          ${navigationBtn?(pathname === path? 'text-black': 'text-neutral-400/80 '):('text-neutral-400/80')} 
-            items-center   box-border  py-3 bg-inherit pointer-events-none w-full px-4 transition-all duration-300 ease-in-out space-x-2 ${sxContainer} `}
+        className={`${sxContainer} flex flex-col ${pathname === path&&'bg-[#2b2b2b]/40'}  w-full h-fit items-start  justify-start`}
       >
-       
+        <Box className="box-border w-full flex items-center justify-between">
 
-        {/* title */}
-        <Box className="flex h-full w-full justify-start">
-          <Typography
-            variant="body2"
-            className={`${sxText}  `}
-          >
+          <Typography variant="body1" className={sxText}>
             {title}
           </Typography>
+
+          {icon}
         </Box>
-       {/* {children ? (
-          <Box className=" flex items-center p-0.5    justify-center box-border">
-            {isOpen ? (
-              <BiCaretDown className="text-inherit" />
-            ) : (
-              <BiCaretRight className="text-inherit" />
-            )}
-          </Box>
-        ) : null} */}
       </ListItemButton>
-
-
-
-      {/* children */}
-      {children ? (
-        <Collapse in={isOpen} timeout="auto" unmountOnExit className="w-full box-border ">
-          <List component="div" className="px-4   box-border">
-            {children}
-          </List>
+      {children && (
+        <Collapse in={isOpen} unmountOnExit className="w-full">
+          {children}
         </Collapse>
-      ) : null}
+      )}
     </>
   );
 };
 
-
-LinkBtn.propTypes={
-  children: PropTypes.node,
-  path: PropTypes.string.isRequired 
-
-}
 export default LinkBtn;
