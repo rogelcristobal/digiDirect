@@ -12,9 +12,9 @@ const Cursor = () => {
       y: y -64,
       
       transition:{
-        type:'linear',
-        duration:0.2,
-        stiffness:0
+        // type:'tween',
+        duration:0.5,
+        stiffness:500
       },
       ...(mouseHoverState ? { opacity:1 } : {opacity:0}),
     },
