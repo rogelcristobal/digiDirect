@@ -14,11 +14,7 @@ export const TemplateSectionProvider = ({ children }) => {
       // console.log(element)
     }
   };
-  const parseString = (str) => {
-    const res = new DOMParser().parseFromString(str, "text/html").body
-      .textContent;
-    return res;
-  };
+  
    const {
     inTheBoxMarkup,
     specsMarkup,
@@ -33,6 +29,8 @@ export const TemplateSectionProvider = ({ children }) => {
     shortDescriptionKit,
     bundleInTheBox,
   } = template();
+
+  
   const [inTheBoxRef, inTheBoxState] = useInView({ threshold: 0.3 });
   const [specsRef, specsState] = useInView({ threshold: 0.3 });
   const [descriptionRef, descriptionState] = useInView({ threshold: 0.1 });

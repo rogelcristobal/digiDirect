@@ -66,7 +66,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
 
               <Typography
                 variant="subtitle1"
-                className={` font-inter   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
+                className={` font-plus   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
                 >
                 {article.title}
               </Typography>
@@ -74,7 +74,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
             subTitle={
               <Typography
                 variant="subtitle1"
-                className={` font-inter font-medium text-[0.825rem] text-gray-600/90   `}
+                className={` font-plus font-medium text-[0.825rem] text-gray-600/90   `}
               >
                 {article.content}
               </Typography>
@@ -83,7 +83,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         </Box>
         { children &&
         // spaces for each child
-          <Box className="space-y-8 pl-6 flex flex-col items-center justify-center box-border"> 
+          <Box className="space-y-2 pl-4 flex flex-col items-center justify-center box-border"> 
             {children} 
            
           </Box>

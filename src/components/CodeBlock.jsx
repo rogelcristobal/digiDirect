@@ -40,7 +40,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
       <SandpackLayout
         ref={container}
         // onClick={(e)=>alert( content?.title )}
-        className="box-border cursor-pointer rounded-lg border-thin-box  flex items-center justify-center w-full   relative "
+        className="box-border cursor-pointer rounded-lg flex items-center justify-center w-full   relative "
         >
         <SandpackCodeViewer
            // styles for the code
