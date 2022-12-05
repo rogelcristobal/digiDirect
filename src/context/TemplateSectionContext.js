@@ -49,11 +49,11 @@ export const TemplateSectionProvider = ({ children }) => {
       content: "Displays the accesories included in the product package. This will display the items in bullets.",
       child: [
         {
-          title:'Included in the box',
+          title:'Basic Template',
           snippet:inTheBoxMarkup
         },
         {
-          title: parseString("Included in the box &#124; bundle"),
+          title: 'Bundled template',
           snippet: bundleInTheBox,
         },
       ],
@@ -68,12 +68,12 @@ export const TemplateSectionProvider = ({ children }) => {
         "The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.",
         child: [
           {
-            title:'Specification',
+             title:'Basic Template',
             snippet: specsMarkup,
             
         },
         {
-          title:  parseString("Specification &#124; categorized"),
+           title:'Categorized Template',
           // content:
           //   "Applies when the product specification needed to be categorized, specification can hav multiple categories. In that instance you can just copy the tags and append it on the end.",
           snippet: specsMarkupCategorized,
@@ -91,16 +91,16 @@ export const TemplateSectionProvider = ({ children }) => {
         
         child: [
           {
-            title:'Description',
+             title:'Basic Template',
             snippet: descriptionSimple,
         },
         {
-          title: "Advanced description",
+           title:'Advanced Template',
           // content: " Displays the description of the product.",
           snippet: descriptionBest,
         },
         {
-          title: "Bundled description ",
+          title:'Bundled/Kit Template',
           // content: " Displays the description of the product.",
           snippet: descriptionKit,
         },
@@ -115,11 +115,12 @@ export const TemplateSectionProvider = ({ children }) => {
       content:
         "A short description is text that briefly introduces and describes a topic. In DITA, short desciptions are tagged with",
         child: [
-          {title:'Short Description',
+          {
+            title:'Basic Template',
         snippet: shortDescription,
     },
         {
-          title: parseString("Short Description &#124; bundle"),
+            title:'Bundled/Kit Template',
           // content:
           //   "Applies when a listing/product is a bundled, displays a short description of the product.",
           snippet: shortDescriptionKit,

@@ -13,6 +13,10 @@ module.exports = {
       "ukraine-medium":["ukraine-medium","sans-serif"],
       "ukraine-bold":["ukraine-bold","sans-serif"],
       
+
+
+      
+    inter: ["Inter", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
       supreme: ["Supreme", "sans-serif"],
       general:["General Sans", "sans-serif"],

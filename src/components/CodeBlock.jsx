@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import {oceanBlue} from '@codesandbox/sandpack-themes'
+import { nightOwl} from '@codesandbox/sandpack-themes'
 
 import {
   SandpackProvider,
@@ -16,7 +16,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
 
   return (
     <SandpackProvider
-      theme={oceanBlue}
+      theme={nightOwl}
       template="react"
       customSetup={{
         entry: "index.css",
@@ -40,7 +40,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
       <SandpackLayout
         ref={container}
         // onClick={(e)=>alert( content?.title )}
-        className="box-border cursor-pointer rounded-lg border-none  flex items-center justify-center w-full   relative "
+        className="box-border cursor-pointer rounded-lg border-thin-box  flex items-center justify-center w-full   relative "
         >
         <SandpackCodeViewer
            // styles for the code
