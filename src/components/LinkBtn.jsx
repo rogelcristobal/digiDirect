@@ -5,16 +5,16 @@ import { useState } from "react";
 import { useContext } from "react";
 import PageScrollableContext from "../context/PageScrollableContext";
 import TextContent from "./TextContent";
-const LinkBtn = ({ title, sxText, sxContainer, children ,rightIcon,leftIcon,path,active}) => {
+const LinkBtn = ({ title, sxText, sxContainer, children ,rightIcon,leftIcon,path,active,handleClick}) => {
   const [isOpen, setState] = useState(true);
 
   // const { scrollRefState } = useContext(PageScrollableContext);
-  const navigate = useNavigate()
+ 
   const {pathname} = useLocation()
-  const handleClick = () => {
-    navigate(path)
-    // scrollRefState?.current.scrollTo(0, 0);
-  };
+  // const handleClick = () => {
+  //   navigate(path)
+  //   scrollRefState?.current.scrollTo(0, 0);
+  // };
   useEffect(() => {
     if(pathname !== path){
       setState(false);
