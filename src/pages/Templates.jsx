@@ -1,10 +1,10 @@
-import { lazy, useContext, useRef,useEffect } from "react";
+import { lazy, useContext, useRef, useEffect } from "react";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import PageScrollableContext from "../context/PageScrollableContext";
 import { Box, Typography, Divider } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
-import Scrollbar from 'smooth-scrollbar'
+import Scrollbar from "smooth-scrollbar";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -12,25 +12,25 @@ const Templates = () => {
   const { templateSections, storeRef, pageCategoryRef } = useContext(
     TemplateSectionContext
   );
-  const {setScrollEl,scrollEl}=useContext(PageScrollableContext)
-  const options={
-    damping:0.02,
-    renderByPixels:true
-  }
+  const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
+  const options = {
+    damping: 0.03,
+    renderByPixels: true,
+  };
   useEffect(() => {
-   if(ref.current){
-     setScrollEl(ref.current)
-   }
-   Scrollbar.init(ref.current,options)
+    if (ref.current) {
+      setScrollEl(ref.current);
+    }
+    Scrollbar.init(ref.current, options);
   }, []);
- 
+
   return (
     <Box
       ref={ref}
-      className="flex flex-col items-start justify-start w-full pb-52 h-full box-border   relative "
+      className="flex overflow-y-auto flex-col items-start justify-start w-full pb-52 h-full box-border  relative "
     >
       {/* header */}
-      <Box className=" h-fit w-full  sticky left-0 top-0 pt-6 box-border">
+      <Box className=" h-fit w-full   pt-6 box-border">
         {/* wrapper */}
         <Box className="h-32 w-full flex flex-col items-start justify-start py-4 px-10 box-border">
           {/* title */}
@@ -39,9 +39,9 @@ const Templates = () => {
             title={
               <Typography
                 variant="body1"
-                className="capitalize  text-[1.5rem] font-medium font-general  "
+                className="capitalize  text-[1.7rem] font-semibold font-plus  "
               >
-                 listing templates
+                listing templates
               </Typography>
             }
           ></TextContent>
@@ -50,30 +50,32 @@ const Templates = () => {
       </Box>
 
       {/* content */}
-      <Box  className="h-auto w-full  px-10 box-border  mt-0">
-        <Box className="h-full w-full space-y-14 px-2 box-border">
+      <Box className="h-auto w-full  px-10 box-border  mt-0">
+        <Box className="h-full w-full space-y-36 px-2 box-border">
           {templateSections.map((item, id) => (
             <Box className="box-border flex flex-col " key={id} ref={storeRef}>
               <ArticleBlock
                 view={item.refView}
                 article={item}
-                titleStyle="text-[1.2rem] font-medium font-general"
+                titleStyle="text-[1.3rem] font-semibold font-plus"
               >
-                {/* {item.child.map((child, idx) => (
-                  <Box className="w-full pt-8 box-border " key={idx}>
+                {item.child.map((child, idx) => (
+                  // child renders here
+                  <Box className="w-full pt-12 box-border  pl-0" key={idx}>
                     <ArticleBlock
                       article={child}
-                      titleStyle="text-[1rem] font-medium font-general"
+                      titleStyle="text-[1rem] font-semibold font-plus"
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem]">
+                        <Box className="w-full max-w-[40rem] shadow-light relative">
                           <CodeBlock content={child}></CodeBlock>
+                          <div className="absolute -bottom-[3.5rem]  right-0 h-11 rounded-lg w-52 bg-white  shadow-light"></div>
                         </Box>
                       )}
                     </Box>
                   </Box>
-                ))} */}
+                ))}
               </ArticleBlock>
             </Box>
           ))}
