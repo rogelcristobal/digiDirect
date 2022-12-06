@@ -67,7 +67,7 @@ const Main = () => {
         path="/*"
         element={
           
-            <Box className="h-screen  font-inter  w-full  text-gray-900  box-border flex   items-start justify-start w-full relative bg-[#ffffff]">
+            <Box className="h-screen  font-inter  w-full  text-black  box-border flex   items-start justify-start w-full relative bg-[#ffffff]">
               <SideBar />
               <Navbar></Navbar>
               {/*scrollable content content */}
@@ -75,7 +75,7 @@ const Main = () => {
               <Box
                 // ref={}
                 component="main"
-                className=" box-border  flex h-screen pt-14 w-full relative "
+                className=" box-border  flex h-screen  w-full relative pt-14"
               >
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>

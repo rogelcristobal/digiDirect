@@ -22,7 +22,7 @@ const Templates = () => {
   return (
     <Box
       ref={ref}
-      className="flex flex-col items-start justify-start w-full pb-52 h-full box-border   relative"
+      className="flex flex-col items-start justify-start w-full pb-52 h-full box-border   relative "
     >
       {/* header */}
       <Box className=" h-fit w-full  sticky left-0 top-0 pt-6 box-border">
@@ -34,9 +34,9 @@ const Templates = () => {
             title={
               <Typography
                 variant="body1"
-                className="capitalize  text-[1.8rem] font-medium font-plus  "
+                className="capitalize  text-[1.5rem] font-medium font-general  "
               >
-                product listing templates
+                 listing templates
               </Typography>
             }
           ></TextContent>
@@ -52,23 +52,23 @@ const Templates = () => {
               <ArticleBlock
                 view={item.refView}
                 article={item}
-                titleStyle="text-[1.3rem] font-medium "
+                titleStyle="text-[1.2rem] font-medium font-general"
               >
-                {item.child.map((child, idx) => (
+                {/* {item.child.map((child, idx) => (
                   <Box className="w-full pt-8 box-border " key={idx}>
                     <ArticleBlock
                       article={child}
-                      titleStyle="text-[1.1rem] font-medium"
+                      titleStyle="text-[1rem] font-medium font-general"
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[45rem]">
+                        <Box className="w-full max-w-[40rem]">
                           <CodeBlock content={child}></CodeBlock>
                         </Box>
                       )}
                     </Box>
                   </Box>
-                ))}
+                ))} */}
               </ArticleBlock>
             </Box>
           ))}

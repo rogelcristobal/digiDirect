@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import PageScrollableContext from "../context/PageScrollableContext";
 import TextContent from "./TextContent";
-const LinkBtn = ({ title, sxText, sxContainer, children ,icon,path,active}) => {
+const LinkBtn = ({ title, sxText, sxContainer, children ,rightIcon,leftIcon,path,active}) => {
   const [isOpen, setState] = useState(true);
 
   // const { scrollRefState } = useContext(PageScrollableContext);
@@ -36,24 +36,25 @@ const LinkBtn = ({ title, sxText, sxContainer, children ,icon,path,active}) => {
             // category={article?.category}
             sx="space-y-4"
             title={
-
+              <Box className="box-border space-x-3 flex items-center justify-center ">
+              {leftIcon}
               <Typography
                 variant="subtitle1"
                 className={` font-inter capitalize  ${sxText}  `}
                 >
                 {title}
               </Typography>
+              </Box>
             }
             />
-          {/* // <Typography variant="body1" className={sxText}>
-          //   {title}
-          // </Typography> */}
+         
 
-          {icon}
+          {rightIcon}
         </Box>
       </ListItemButton>
       {children && (
-        <Collapse in={isOpen} unmountOnExit className="w-full ">
+        <Collapse in={isOpen} unmountOnExit className="w-full  relative ">
+         
           {children}
         </Collapse>
       )}

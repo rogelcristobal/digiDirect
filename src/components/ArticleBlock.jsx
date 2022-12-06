@@ -61,12 +61,12 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         <Box component="article" className="w-full  box-border  max-w-[50rem]">
           <TextContent
             // category={article?.category}
-            sx={`${article.snippet ? 'space-y-3':'space-y-2'}`}
+            sx={`${article.snippet ? 'space-y-3':'space-y-1'}`}
             title={
 
               <Typography
                 variant="subtitle1"
-                className={` font-plus   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
+                className={`    flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
                 >
                 {article.title}
               </Typography>
@@ -74,7 +74,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
             subTitle={
               <Typography
                 variant="subtitle1"
-                className={` font-plus font-medium text-[0.9rem] text-gray-600  `}
+                className={` font-poppins font-medium text-[0.8rem] text-gray-600  `}
               >
                 {article.content}
               </Typography>
