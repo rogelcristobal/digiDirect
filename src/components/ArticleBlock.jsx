@@ -57,16 +57,16 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         </Alert>
       </Snackbar>
 
-      <Box className={`w-full h-fit ${sx}  space-y-4 flex flex-col justify-between `} ref={view}>
-        <Box component="article" className="w-full box-border mb-4   max-w-[50rem]">
+      <Box className={`w-full h-fit ${sx}   flex flex-col justify-between `} ref={view}>
+        <Box component="article" className="w-full  box-border  max-w-[50rem]">
           <TextContent
             // category={article?.category}
-            sx="space-y-4"
+            sx={`${article.snippet ? 'space-y-3':'space-y-1'}`}
             title={
 
               <Typography
                 variant="subtitle1"
-                className={` font-general   flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
+                className={`    flex flex-col gap-2 relative max-w-fit ${titleStyle} `}
                 >
                 {article.title}
               </Typography>
@@ -74,23 +74,21 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
             subTitle={
               <Typography
                 variant="subtitle1"
-                className={` font-general text-[0.85rem] text-neutral-500 tracking-wide  `}
+                className={` font-poppins font-medium text-[0.8rem] text-gray-600  `}
               >
                 {article.content}
               </Typography>
             }
           />
         </Box>
-        <Box className="box-border  flex flex-col  w-full items-start justify-start
-         ">
-         {children}
-        </Box>
-         {article?.snippet && <Box className="max-w-[40rem]">
-            <CodeBlock content={article}></CodeBlock>
-         </Box>}
-        
-          
-        
+        { children &&
+        // spaces for each child
+          <Box className="space-y-2 pl-4 flex flex-col items-center justify-center box-border"> 
+            {children} 
+           
+          </Box>
+
+        }
       </Box>
     </>
   );

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import {oceanBlue} from '@codesandbox/sandpack-themes'
+import { nightOwl} from '@codesandbox/sandpack-themes'
 
 import {
   SandpackProvider,
@@ -14,9 +14,41 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
   const container = useRef(null);
   const { width, height } = useElementDimension(container);
 
+  const theme={
+    colors: {
+    surface1: "#f7f7f7",
+    surface2: "#F3F3F3",
+    surface3: "#f5f5f5",
+    clickable: "#959da5",
+    base: "#24292e",
+    disabled: "#d1d4d8",
+    hover: "#24292e",
+    accent: "#24292e"
+  },
+  syntax: {
+    keyword: "#d73a49",
+    property: "#005cc5",
+    plain: "#24292e",
+    static: "#032f62",
+    string: "#032f62",
+    definition: "#6f42c1",
+    punctuation: "#24292e",
+    tag: "#22863a",
+    comment: {
+      color: "#6a737d",
+      fontStyle: "normal"
+    }
+  },
+  font: {
+    body: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+    mono:"\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
+    size: "13px",
+    lineHeight: "20px"
+  }
+  }
   return (
     <SandpackProvider
-      theme={oceanBlue}
+      theme={theme}
       template="react"
       customSetup={{
         entry: "index.css",
@@ -40,11 +72,11 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
       <SandpackLayout
         ref={container}
         // onClick={(e)=>alert( content?.title )}
-        className="box-border cursor-pointer rounded-lg border-none  flex items-center justify-center w-full   relative "
+        className="box-border cursor-pointer  flex items-center justify-center w-full   relative rounded-none  border-none"
         >
         <SandpackCodeViewer
            // styles for the code
-           className="h-fit  min-h-[4.5rem] w-full  px-3 py-0  font-mono font-medium box-border text-[0.8rem]"
+           className="h-fit  min-h-[4.5rem] w-full px-3 py-0 font-medium  box-border text-[0.875rem]"
            wrapContent
            />
       </SandpackLayout>

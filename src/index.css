@@ -9,10 +9,10 @@
     @apply box-border;
   }
   ::-webkit-scrollbar {
-    @apply w-2 bg-[#2b2b2b]/40;
+    @apply w-2 bg-neutral-300/40;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-neutral-700/30 hover:bg-neutral-500/40 ;
+    @apply bg-neutral-400/30 hover:bg-neutral-500/40 ;
   }
 
 .hover-underline-animation:after {
@@ -38,32 +38,32 @@
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset 0px 0px 0px 1px rgba(29, 29, 29);
     -moz-box-shadow: inset 0px 0px 0px 1px rgba(29, 29, 29);
-    box-shadow: inset 0px 0px 0px 1px rgb(29, 29, 29);
+    box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
   }
   .border-thin-left {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset 1px 0px 0px 0px rgba(29, 29, 29);
     -moz-box-shadow: inset 1px 0px 0px 0px rgba(29, 29, 29);
-    box-shadow: inset 1px 0px 0px 0px rgb(29, 29, 29);
+    box-shadow: inset 1px 0px 0px 0px rgba(0, 0, 0, 0.06);
   }
   .border-thin-top {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset 0px 1px 0px 0px rgba(29, 29, 29);
     -moz-box-shadow: inset 0px 1px 0px 0px rgba(29, 29, 29);
-    box-shadow: inset 0px 1px 0px 0px rgb(29, 29, 29);
+    box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.06);
   }
   .border-thin-right {
   /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset -1px 0px 0px 0px rgba(29, 29, 29);
     -moz-box-shadow: inset -1px 0px 0px 0px rgba(29, 29, 29);
-    box-shadow: inset -1px 0px 0px 0px rgb(29, 29, 29);
+    box-shadow: inset -1px 0px 0px 0px rgba(0, 0, 0, 0.06);
   }
  
   .border-thin-bottom {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
       -webkit-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
       -moz-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
-      box-shadow: inset 0px -1px 0px 0px rgb(29, 29, 29);
+      box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.06);
   }
 
   /* scroll */
@@ -83,7 +83,7 @@
   -webkit-text-stroke: 1.5px black;
   -webkit-text-fill-color: transparent;
 }
-
+/* helvetica font */
 
 /* e-Ukraine font family*/
 @font-face {
