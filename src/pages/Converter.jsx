@@ -99,7 +99,7 @@ const Converter = () => {
 
       {/* maincontent */}
       <Box className="flex flex-col items-start justify-start w-full  h-full  box-border p-3">
-        <Box className="h-full w-full   ">asd</Box>
+        <Box className="h-full w-full"></Box>
       </Box>
     </>
   );

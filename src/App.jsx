@@ -9,7 +9,7 @@ import { MouseStateProvider } from "./context/MouseStateContext";
 import { TemplateSectionProvider } from "./context/TemplateSectionContext";
 import LoadingFallback from "./components/LoadingFallback";
 import { ScrollProvider } from "./context/ScrollContext";
-
+import Scrollbar from 'smooth-scrollbar'
 import SideBar from "./components/SideBar";
 
 const Templates = lazy(() => import("./pages/Templates"));
@@ -59,7 +59,16 @@ const Main = () => {
   //   Scrollbar.init(scrollEl, options);
   //   this dependency run this effect if(!ref.current === null)
   // }, [scrollableRef.current]);
-
+  const options = {
+    damping: 0.03,
+    renderByPixels: true,
+  };
+  useEffect(()=>{
+    Scrollbar.initAll(options)
+    
+    const x = Scrollbar.getAll()
+    console.log(x)
+  },[])
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
@@ -74,8 +83,9 @@ const Main = () => {
               {/* set height to screen  */}
               <Box
                 // ref={}
+                
                 component="main"
-                className=" box-border  flex h-screen  w-full relative pt-14"
+                className=" box-border  flex h-screen  w-full relative pt-14 "
               >
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>
