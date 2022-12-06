@@ -1,5 +1,6 @@
 import { lazy, useContext, useRef,useEffect } from "react";
 import TemplateSectionContext from "../context/TemplateSectionContext";
+import PageScrollableContext from "../context/PageScrollableContext";
 import { Box, Typography, Divider } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
@@ -11,14 +12,18 @@ const Templates = () => {
   const { templateSections, storeRef, pageCategoryRef } = useContext(
     TemplateSectionContext
   );
+  const {setScrollEl,scrollEl}=useContext(PageScrollableContext)
   const options={
     damping:0.02,
-    
+    renderByPixels:true
   }
-  // console.log(pageCategoryRef.current)
   useEffect(() => {
-    Scrollbar.init(ref.current,options)
+   if(ref.current){
+     setScrollEl(ref.current)
+   }
+   Scrollbar.init(ref.current,options)
   }, []);
+ 
   return (
     <Box
       ref={ref}
