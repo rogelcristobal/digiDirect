@@ -1,11 +1,7 @@
-import React from "react";
-import { Box, Typography, Divider, Snackbar, Alert, ListItem } from "@mui/material";
+import React,{lazy} from "react";
+import { Box, Typography, Divider, Snackbar, Alert,  } from "@mui/material";
 import TextContent from "./TextContent";
-import { useState } from "react";
-import CodeBlock from "./CodeBlock";
 import { BsCheckCircle } from "react-icons/bs";
-import { motion, animate } from "framer-motion";
-import { HiOutlineArrowRight } from "react-icons/hi";
 const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
   const [open, setOpen] = React.useState(false);
   const [show, setShow] = React.useState(false);
@@ -56,6 +52,8 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
           Copied to clipboard! <br />
         </Alert>
       </Snackbar>
+
+    
 
       <Box className={`w-full h-fit ${sx}   flex flex-col justify-between `} ref={view}>
         <Box component="article" className="w-full  box-border  max-w-[50rem]">

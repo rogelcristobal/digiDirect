@@ -7,6 +7,7 @@ import CodeBlock from "../components/CodeBlock";
 import Scrollbar from "smooth-scrollbar";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
+
 const Templates = () => {
   const ref = useRef(null);
   const { templateSections, storeRef, pageCategoryRef } = useContext(
@@ -46,7 +47,7 @@ const Templates = () => {
             }
           ></TextContent>
         </Box>
-        <Divider variant="fullWidth" light></Divider>
+        <Divider variant="middle" light></Divider>
       </Box>
 
       {/* content */}
@@ -68,7 +69,7 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem] shadow-light relative rounded-lg  overflow-hidden">
+                        <Box className="w-full max-w-[40rem] shadow-light  rounded-lg  overflow-hidden">
                           <CodeBlock content={child}></CodeBlock>
                           {/* <div className="absolute -bottom-[3.5rem]  right-0 h-11 rounded-lg w-52 bg-white  shadow-light"></div> */}
                         </Box>
