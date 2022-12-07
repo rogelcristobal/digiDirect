@@ -61,9 +61,9 @@ const SideBar = () => {
                     </Typography>
                   ) : null
                 }
-                active=" text-gray-800"
+                active=" text-gray-800 "
                 sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
-                sxContainer="py-2  px-5 hover:bg-inherit transition-all ease-in-out duration-300 rounded-md "
+                sxContainer="py-2  px-5  transition-all ease-in-out duration-300 rounded-md "
               >
                 {item?.nodes
                   ? item.nodes.map((child, id) => (

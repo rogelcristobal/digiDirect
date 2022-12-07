@@ -4,7 +4,7 @@ import {
   SandpackLayout,
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
-import { aquaBlue } from "@codesandbox/sandpack-themes";
+import { nightOwl } from "@codesandbox/sandpack-themes";
 import { useElementDimension } from "../hooks/useElementDimension";
 import CodeMenuContext from "../context/CodeMenuContext";
 const CodeBlock = ({ content, handleCopy, copyState }) => {
@@ -49,7 +49,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
   return (
     
       <SandpackProvider
-        theme={theme}
+        theme={nightOwl}
         template="react"
         customSetup={{
           entry: "index.css",

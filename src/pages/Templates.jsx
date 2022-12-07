@@ -1,10 +1,11 @@
 import { lazy, useContext, useRef, useEffect } from "react";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import PageScrollableContext from "../context/PageScrollableContext";
-import { Box, Typography, Divider } from "@mui/material";
+import { Box, Typography, Divider, IconButton } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import Scrollbar from "smooth-scrollbar";
+import {TbClipboard} from 'react-icons/tb'
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 
@@ -31,12 +32,12 @@ const Templates = () => {
       className="block w-full pb-52 h-full box-border  relative "
     >
       {/* header */}
-      <Box className=" h-auto w-full    pt-6 box-border">
+      <Box className=" h-52 w-full    pt-6 box-border">
         {/* wrapper */}
-        <Box className="h-32 w-full flex flex-col items-start justify-start py-4 px-10 box-border">
+        <Box className="h-52 w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
           {/* title */}
           <TextContent
-            sx=" w-full h-fit py-2 px-2"
+            sx=" w-fit h-fit py-2 px-2  border-thin-box"
             title={
               <Typography
                 variant="body1"
@@ -46,13 +47,14 @@ const Templates = () => {
               </Typography>
             }
           ></TextContent>
+          
         </Box>
-        <Divider variant="middle" light></Divider>
+        <Divider variant="fullWidth" light></Divider>
       </Box>
 
       {/* content */}
       <Box className="h-auto w-full  px-10 box-border  pt-20">
-        <Box className="h-full w-full space-y-36 px-2 box-border">
+        <Box className="h-full w-full space-y-28 px-2 box-border">
           {templateSections.map((item, id) => (
             <Box className="box-border flex flex-col " key={id} ref={storeRef}>
               <ArticleBlock
@@ -69,9 +71,13 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem]    relative ">
+                        <Box className="w-full max-w-[40rem]  h-full  p-4   relative rounded-xl">
                           <CodeBlock content={child}></CodeBlock>
-                          {/* <div className="absolute -bottom-[2.7rem]  right-0 h-11 rounded-b-lg w-52 bg-white  shadow-light"></div> */}
+                          {/* <div className="absolute bottom-2.5 border-thin-box box-border right-4 h-11  w-52 flex items-center rounded-lg justify-start p-2  ">
+                            <IconButton  variant="contained" size="small" className=" rounded-md text-gray-500/70   ">
+                              <TbClipboard></TbClipboard> 
+                            </IconButton>
+                          </div> */}
                         </Box>
                       )}
                     </Box>
