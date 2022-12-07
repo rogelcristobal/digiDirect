@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Box, Divider, Typography } from "@mui/material";
-import { FiFile } from "react-icons/fi";
-import { FiLayout } from "react-icons/fi";
+import { AiOutlineFileSync } from "react-icons/ai";
+import { AiOutlineFileText } from "react-icons/ai";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import { HiArrowUpRight } from "react-icons/hi2";
 import LinkBtn from "./LinkBtn";
@@ -32,25 +32,23 @@ const SideBar = () => {
   };
 
   return (
-    <Box  className=" w-[22rem] h-full z-10  pt-[3rem] box-border flex items-start justify-center border-thin-right">
+    <Box  className=" w-[22rem] h-full z-20 bg-inherit   pt-[3rem] box-border flex items-start justify-right border-thin-right">
       {/* links */}
-      <Box data-scrollbar className=" w-full h-full box-border pt-8 px-0  overflow-y-auto">
-        
-        <Box className=" box-border ">
-         
+      <Box data-scrollbar className=" w-full max-w-[22rem] h-full box-border pt-12 px-1  overflow-y-auto space-y-2">
+          <Box className="box-border ">
           {[
             {
               path: "/templates",
               title: " templates",
               nodes: templateSections,
-              leftIcon: <FiLayout className="text-xl " />,
+              leftIcon: <AiOutlineFileText className="text-[1.75rem] " />,
               rightIcon: templateSections.length,
             },
-            // {
-            //   path: "/converter",
-            //   title: "converters",
-            //   leftIcon: <FiFile className="text-xl " />,
-            // },
+            {
+              path: "/converter",
+              title: "converters",
+              leftIcon: <AiOutlineFileSync className="text-[1.75rem]" />,
+            },
           ].map((item, id) => (
             <div className="box-border" key={id}>
               <LinkBtn
@@ -62,15 +60,15 @@ const SideBar = () => {
                   item?.rightIcon ? (
                     <Typography
                       variant="body1"
-                      className=" h-5 w-5 rounded-full  text-[0.7rem] font-medium font-plus text-center text-gray-400 bg-gray-100"
+                      className="box-border h-4 w-4 rounded  text-[0.650rem] font-medium font-plus flex items-center justify-center text-gray-600 bg-gray-100"
                     >
                       {item?.rightIcon}
                     </Typography>
                   ) : null
                 }
-                active=" text-black"
-                sxText="   font-semibold font-plus capitalize  w-full text-[0.925rem] "
-                sxContainer="py-2  px-6 hover:bg-inherit transition-all ease-in-out duration-300 "
+                active=" text-gray-800"
+                sxText="   font-semibold font-plus capitalize  w-full text-[0.8rem] "
+                sxContainer="py-2  px-5 hover:bg-inherit transition-all ease-in-out duration-300 rounded-md "
               >
                 {item?.nodes
                   ? item.nodes.map((child, id) => (
@@ -79,8 +77,8 @@ const SideBar = () => {
                         title={child.title}
                         key={id}
                         sxText={` font-semibold  font-plus capitalize   w-full text-[0.825rem]`}
-                        sxContainer={`py-2 pl-12 relative   hover:bg-inherit  ${
-                          child.isInView ? "text-black " : "text-gray-500/70"
+                        sxContainer={`py-2 pl-14 relative   hover:bg-inherit  ${
+                          child.isInView ? "text-gray-800 " : "text-gray-500/70"
                         }`}
                       ></LinkBtn>
                     ))
@@ -88,62 +86,9 @@ const SideBar = () => {
               </LinkBtn>
             </div>
           ))}
-        </Box>
-       
-         <Box className=" box-border">
-          {/* <Typography
-            variant="body1"
-            className="text-xs px-4 text-gray-500/70 font-semibold font-general"
-          >
-            Api & Tools
-          </Typography> */}
-          {[
-            {
-              path: "/converter",
-              title: "converters",
-              leftIcon: <FiFile className="text-xl " />,
-            },
-            
-            
-          ].map((item, id) => (
-            <div className="box-border" key={id}>
-              <LinkBtn
-                handleClick={() => handleLinkClick(item)}
-                title={item.title}
-                path={item.path}
-                leftIcon={item?.leftIcon}
-                rightIcon={
-                  item?.rightIcon ? (
-                    <Typography
-                      variant="body1"
-                      className=" h-5 w-5 rounded-md  text-[0.755rem] font-semibold font-plus text-center text-gray-600/60"
-                    >
-                      {item?.rightIcon}
-                    </Typography>
-                  ) : null
-                }
-                active=" text-black"
-                sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
-                sxContainer="py-2 px-6 hover:bg-inherit rounded-lg transition-all ease-in-out duration-300 "
-              >
-                {/* {item?.nodes
-                  ? item.nodes.map((child, id) => (
-                      <LinkBtn
-                        handleClick={() => handleScrollTo(id)}
-                        title={child.title}
-                        key={id}
-                        sxText={` font-semibold  font-plus capitalize   w-full text-[0.8rem]`}
-                        sxContainer={`py-2 pl-0 relative   hover:bg-inherit  ${
-                          child.isInView ? "text-black " : "text-gray-500/60"
-                        }`}
-                      ></LinkBtn>
-                    ))
-                  : null} */}
-              </LinkBtn>
-            </div>
-          ))}
-        
-        </Box>
+          </Box>
+          <Divider variant="middle" light></Divider>
+
       </Box>
     </Box>
   );

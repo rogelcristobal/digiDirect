@@ -48,7 +48,7 @@ const LinkBtn = ({
             // category={article?.category}
             sx="space-y-4"
             title={
-              <Box className="box-border space-x-3 flex items-center justify-center ">
+              <Box className="box-border space-x-4 flex items-center justify-center ">
                 {leftIcon}
                 <Typography
                   variant="subtitle2"

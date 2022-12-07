@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { nightOwl} from '@codesandbox/sandpack-themes'
+import { aquaBlue} from '@codesandbox/sandpack-themes'
 
 import {
   SandpackProvider,
@@ -48,7 +48,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
   }
   return (
     <SandpackProvider
-      theme={theme}
+      // theme={aquaBlue}
       template="react"
       customSetup={{
         entry: "index.css",

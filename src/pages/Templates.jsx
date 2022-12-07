@@ -27,10 +27,10 @@ const Templates = () => {
   return (
     <Box
       ref={ref}
-      className="flex overflow-y-auto flex-col items-start justify-start w-full pb-52 h-full box-border  relative "
+      className="block w-full pb-52 h-full box-border  relative "
     >
       {/* header */}
-      <Box className=" h-fit w-full   pt-6 box-border">
+      <Box className=" h-auto w-full    pt-6 box-border">
         {/* wrapper */}
         <Box className="h-32 w-full flex flex-col items-start justify-start py-4 px-10 box-border">
           {/* title */}
@@ -46,11 +46,11 @@ const Templates = () => {
             }
           ></TextContent>
         </Box>
-        {/* <Divider variant="fullWidth" light></Divider> */}
+        <Divider variant="fullWidth" light></Divider>
       </Box>
 
       {/* content */}
-      <Box className="h-auto w-full  px-10 box-border  mt-0">
+      <Box className="h-auto w-full  px-10 box-border  pt-20">
         <Box className="h-full w-full space-y-36 px-2 box-border">
           {templateSections.map((item, id) => (
             <Box className="box-border flex flex-col " key={id} ref={storeRef}>
@@ -68,9 +68,9 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem] shadow-light relative">
+                        <Box className="w-full max-w-[40rem] shadow-light relative rounded-lg  overflow-hidden">
                           <CodeBlock content={child}></CodeBlock>
-                          <div className="absolute -bottom-[3.5rem]  right-0 h-11 rounded-lg w-52 bg-white  shadow-light"></div>
+                          {/* <div className="absolute -bottom-[3.5rem]  right-0 h-11 rounded-lg w-52 bg-white  shadow-light"></div> */}
                         </Box>
                       )}
                     </Box>

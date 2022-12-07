@@ -76,7 +76,7 @@ const Main = () => {
         path="/*"
         element={
           
-            <Box className="h-screen  font-inter  w-full  text-black  box-border flex   items-start justify-start w-full relative bg-[#ffffff]">
+            <Box className="h-screen  font-inter  w-full  text-gray-800  box-border flex   items-start justify-start w-full relative bg-[#ffffff]">
               <SideBar />
               <Navbar></Navbar>
               {/*scrollable content content */}
