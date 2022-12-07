@@ -5,9 +5,9 @@ import {styled} from '@mui/material/styles'
 
 const StyledLinearProgress = styled(LinearProgress)(({theme})=>({
     height:5,
-    backgroundColor:'#93c5fd',
+    backgroundColor:'rgb(148 163 184)',
     [`& .${linearProgressClasses.bar}`]:{
-        backgroundColor: '#3b82f6',
+        backgroundColor: ' rgb(71 85 105)',
     },
 }))
 const LoadingFallback = () => {
