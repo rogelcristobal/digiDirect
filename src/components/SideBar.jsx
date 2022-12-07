@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { Box, Divider, Typography } from "@mui/material";
-import { AiOutlineFileSync } from "react-icons/ai";
-import { AiOutlineFileText } from "react-icons/ai";
+import { Box, Divider, Typography, Button } from "@mui/material";
+import { TbLayoutBoard,TbFileImport } from "react-icons/tb";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import LinkBtn from "./LinkBtn";
 import { useNavigate } from "react-router-dom";
@@ -30,20 +29,20 @@ const SideBar = () => {
   return (
     <Box  className=" w-[22rem] h-full z-20 bg-inherit   pt-[3rem] box-border flex items-start justify-right border-thin-right">
       {/* links */}
-      <Box data-scrollbar className=" w-full max-w-[22rem] h-full box-border pt-12 px-1  overflow-y-auto space-y-2">
+      <Box data-scrollbar className=" w-full max-w-[22rem] h-full box-border pt-12 px-2.5  overflow-y-auto ">
           <Box className="box-border ">
           {[
             {
               path: "/templates",
               title: " templates",
               nodes: templateSections,
-              leftIcon: <AiOutlineFileText className="text-[1.75rem] " />,
+              leftIcon: <TbLayoutBoard className="text-[1.6rem] " />,
               rightIcon: templateSections.length,
             },
             {
               path: "/converter",
               title: "converters",
-              leftIcon: <AiOutlineFileSync className="text-[1.75rem]" />,
+              leftIcon: <TbFileImport className="text-[1.6rem]" />,
             },
           ].map((item, id) => (
             <div className="box-border" key={id}>
@@ -56,14 +55,14 @@ const SideBar = () => {
                   item?.rightIcon ? (
                     <Typography
                       variant="body1"
-                      className="box-border h-4 w-4 rounded  text-[0.650rem] font-semibold font-plus flex items-center justify-center text-gray-600 bg-gray-100"
+                      className="box-border  h-5 w-5 bg-neutral-100  text-[0.7rem] font-semibold font-plus flex items-center rounded-[0.325rem] justify-center text-gray-400/70 "
                     >
                       {item?.rightIcon}
                     </Typography>
                   ) : null
                 }
                 active=" text-gray-800"
-                sxText="   font-bold font-plus capitalize  w-full text-[0.8rem] "
+                sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
                 sxContainer="py-2  px-5 hover:bg-inherit transition-all ease-in-out duration-300 rounded-md "
               >
                 {item?.nodes
@@ -72,18 +71,20 @@ const SideBar = () => {
                         handleClick={() => handleScrollTo(id)}
                         title={child.title}
                         key={id}
-                        sxText={` font-bold  font-plus capitalize   w-full text-[0.825rem]`}
+                        sxText={` font-semibold  font-plus capitalize   w-full text-[0.8rem]`}
                         sxContainer={`py-2 pl-14 relative   hover:bg-inherit  ${
                           child.isInView ? "text-gray-800 " : "text-gray-500/70"
                         }`}
                       ></LinkBtn>
                     ))
                   : null}
+                 
+                  
               </LinkBtn>
             </div>
           ))}
           </Box>
-          <Divider variant="middle" light></Divider>
+          <Divider variant="middle" light className="my-2"></Divider>
 
       </Box>
     </Box>

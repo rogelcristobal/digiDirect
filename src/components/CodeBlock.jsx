@@ -4,6 +4,7 @@ import {
   SandpackLayout,
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
+import { aquaBlue } from "@codesandbox/sandpack-themes";
 import { useElementDimension } from "../hooks/useElementDimension";
 import CodeMenuContext from "../context/CodeMenuContext";
 const CodeBlock = ({ content, handleCopy, copyState }) => {
@@ -48,7 +49,7 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
   return (
     
       <SandpackProvider
-        // theme={aquaBlue}
+        theme={theme}
         template="react"
         customSetup={{
           entry: "index.css",
@@ -72,11 +73,11 @@ const CodeBlock = ({ content, handleCopy, copyState }) => {
         <SandpackLayout
           ref={container}
           onClick={handleclick}
-          className="box-border cursor-pointer  flex items-center justify-center w-full   relative "
+          className="box-border cursor-pointer  flex items-center justify-center w-full rounded-lg  relative "
           >
           <SandpackCodeViewer
             // styles for the code
-            className="h-fit  min-h-[4.5rem] w-full px-3 py-0 font-medium  box-border text-[0.825rem]"
+            className="h-fit  min-h-[4.5rem] w-full px-3 py-0 font-medium  box-border text-[0.840rem]"
             wrapContent
             />
         </SandpackLayout>

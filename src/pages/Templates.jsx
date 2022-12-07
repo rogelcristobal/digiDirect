@@ -69,9 +69,9 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem] shadow-light  rounded-lg  overflow-hidden">
+                        <Box className="w-full max-w-[40rem]    relative ">
                           <CodeBlock content={child}></CodeBlock>
-                          {/* <div className="absolute -bottom-[3.5rem]  right-0 h-11 rounded-lg w-52 bg-white  shadow-light"></div> */}
+                          {/* <div className="absolute -bottom-[2.7rem]  right-0 h-11 rounded-b-lg w-52 bg-white  shadow-light"></div> */}
                         </Box>
                       )}
                     </Box>
