@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_project=self.webpackChunkmy_project||[]).push([[569],{1569:function(e,l,s){s.r(l);var t=s(6015),r=s(184);l.default=function(){return(0,r.jsx)(r.Fragment,{children:(0,r.jsx)(t.Z,{className:"flex flex-col items-start justify-start w-full  h-full  box-border p-3",children:(0,r.jsx)(t.Z,{className:"h-full w-full"})})})}}}]);
+//# sourceMappingURL=569.2367affe.chunk.js.map
