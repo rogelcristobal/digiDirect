@@ -49,7 +49,7 @@ const Main = () => {
   useEffect(()=>{
     Scrollbar.initAll(options)
     
-    const x = Scrollbar.getAll()
+    // const x = Scrollbar.getAll()
     // console.log(x)
   },[])
 
