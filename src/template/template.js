@@ -333,13 +333,13 @@ const template = () => {
     `
   }
   const seoMetaTitle = {
-    text: `ProductName | Buy at digiDirect`,
+    tags: `ProductName | Buy at digiDirect`,
   };
   const seoMetaKeyword = {
-    text: `ProductName, ProductName Australia, Barcode1, Barcode2, buy, shop, digidirect, australia, price,`,
+    tags: `ProductName, ProductName Australia, Barcode1, Barcode2, buy, shop, digidirect, australia, price,`,
   };
   const seoMetaDescription={
-    text:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
+    tags:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
   }
 
 
