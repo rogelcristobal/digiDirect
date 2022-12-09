@@ -4,17 +4,19 @@ import CodeMenuContext from '../context/CodeMenuContext';
 import Backdrop from '../backdrop/Backdrop'
 import {Box} from '@mui/material'
 import {TbX} from 'react-icons/tb'
-const CodeBlockMenu = () => {
-const {setModalState} = useContext(CodeMenuContext)
+const CodeBlockMenu = ({children}) => {
+const {dispatch,state} = useContext(CodeMenuContext)
  //  close modal ? onclick modal component
- const handleClick=()=>{setModalState((prev)=>prev = false)}
+ const handleClick=()=>{dispatch({type: 'TOGGLE_MENU_OFF'})}
   return (
     <Backdrop handleClick={handleClick}>
         <motion.div initial={{
-            width:0
+            width:0,
+           
         }}
         animate={{
-            width:'35rem',
+            width:'26rem',
+           
             transition:{
                 duration:0.5,
                 delay:0.3
@@ -23,16 +25,15 @@ const {setModalState} = useContext(CodeMenuContext)
         exit={{
             width:0,
             transition:{
-                duration:0.5,         
+                duration:0.3,
+
             }
         }}
-        onClick={(e)=> e.stopPropagation()} className='h-full w-full bg-[#ffffff] box-border  fixed top-0 -right-5 z-40 shadow-light '>
-            <motion.div onClick={handleClick} className="absolute top-6 -left-[2.1rem] p-2.5 bg-[#ffffff] rounded-l-md grid place-content-center text-gray-400 shadow-light  hover:text-gray-800 cursor-pointer text-[0.875rem]">
-                <TbX />
-            </motion.div>
-        
+        onClick={(e)=> e.stopPropagation()} className='h-full bg-[#ffffff] box-border  fixed  z-40 shadow-light rounded-lg '>
+           
+        {state.ElementProperties.height}
         </motion.div>
-    </Backdrop>
+     </Backdrop>
   );
 }
 

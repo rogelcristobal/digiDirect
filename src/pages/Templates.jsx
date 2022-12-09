@@ -5,7 +5,7 @@ import { Box, Typography, Divider, IconButton } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import Scrollbar from "smooth-scrollbar";
-import {TbClipboard} from 'react-icons/tb'
+import CodeMenuContext from "../context/CodeMenuContext";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 
@@ -13,7 +13,7 @@ const Templates = () => {
   const ref = useRef(null);
   const { templateSections, storeRef, pageCategoryRef } = useContext(
     TemplateSectionContext
-  );
+  ); 
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   const options = {
     damping: 0.03,
@@ -25,6 +25,26 @@ const Templates = () => {
     }
     Scrollbar.init(ref.current, options);
   }, []);
+
+
+
+
+
+
+
+
+  const { dispatch } = useContext(CodeMenuContext);
+  const handleclick = (e) => {
+    const pos = e.currentTarget.getBoundingClientRect();
+    dispatch({
+      type: "TOGGLE_MENU_ON",
+      payload: { 
+        x: pos.x, // position on the clicked codeblock
+        y: pos.y, 
+        height: pos.height // height of clicked codeblock
+      },
+    });
+  };
 
   return (
     <Box
@@ -71,8 +91,12 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem]  h-full  p-4   relative rounded-xl">
+                        <Box onClick={handleclick} className="w-full max-w-[40rem]  h-full  p-4  relative rounded-xl">
+                          
+                          
                           <CodeBlock content={child}></CodeBlock>
+                          
+                          
                           {/* <div className="absolute bottom-2.5 border-thin-box box-border right-4 h-11  w-52 flex items-center rounded-lg justify-start p-2  ">
                             <IconButton  variant="contained" size="small" className=" rounded-md text-gray-500/70   ">
                               <TbClipboard></TbClipboard> 
@@ -97,3 +121,6 @@ export default Templates;
 //https://www.awwwards.com/sites/plastic
 //https://wearemotto.com/
 // https://framer.com/projects/The-Framer-book-Example-animations-copy--ec9MIc5L6HHUsnjJ4yf3-1i8sK?node=jJgfM9Jjy-page
+// https://dribbble.com/UI8
+// https://cdn.dribbble.com/users/1723105/screenshots/17358687/media/9d9146fb5dd679b892cecf8fdb0c9f1a.png
+// https://www.pinterest.ph/search/pins/?q=twitter%20ui&rs=typed

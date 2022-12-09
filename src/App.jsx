@@ -40,7 +40,7 @@ const App = () => {
 };
 const Main = () => {
   // context
-  const{modalState} = useContext(CodeMenuContext)
+  const{state} = useContext(CodeMenuContext)
   // scrollbar animation
   const options = {
     damping: 0.03,
@@ -50,7 +50,7 @@ const Main = () => {
     Scrollbar.initAll(options)
     
     const x = Scrollbar.getAll()
-    console.log(x)
+    // console.log(x)
   },[])
 
 
@@ -65,7 +65,7 @@ const Main = () => {
               <SideBar />
               <Navbar></Navbar>
               <AnimatePresence>
-                  {modalState&&  <CodeBlockMenu />}
+                  {state.menuState &&  <CodeBlockMenu />}
               </AnimatePresence>
               <Box
                 component="main"
