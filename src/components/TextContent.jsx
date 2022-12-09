@@ -6,7 +6,7 @@ const TextContent = ({ category, title, subTitle,sx }) => {
       <Box className={`  box-border  ${sx}`}>
        {category? <Typography
           variant="body1"
-          className=" text-[0.8rem] relative  text-neutral-400/70 capitalize	 "
+          className=" text-[0.8rem] relative font-plus text-gray-400/70 	mb-2 "
         >
           {category}
         </Typography>:null}

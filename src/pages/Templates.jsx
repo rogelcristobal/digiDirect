@@ -1,11 +1,12 @@
 import { lazy, useContext, useRef, useEffect } from "react";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import PageScrollableContext from "../context/PageScrollableContext";
-import { Box, Typography, Divider, IconButton } from "@mui/material";
+import { Box, Typography, Divider, IconButton, getChipUtilityClass } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import Scrollbar from "smooth-scrollbar";
 import CodeMenuContext from "../context/CodeMenuContext";
+import {TbClipboard,TbEdit} from 'react-icons/tb'
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 
@@ -27,25 +28,37 @@ const Templates = () => {
   }, []);
 
 
-
+  const mergeTagsAndStyles = ({ tags, styles }) => {
+    if (!styles) {
+      return tags;
+    } else {
+      return `<style>${styles}</style>` + tags;
+    }
+  };
+  const handleCopy = (data) => {
+    navigator.clipboard.writeText(mergeTagsAndStyles(data.snippet));
+  };
 
 
 
 
 
   const { dispatch } = useContext(CodeMenuContext);
-  const handleclick = (e) => {
-    const pos = e.currentTarget.getBoundingClientRect();
+
+  const handleEdit = (event,child) => {
+    const pos = event.currentTarget.getBoundingClientRect();
     dispatch({
       type: "TOGGLE_MENU_ON",
       payload: { 
-        x: pos.x, // position on the clicked codeblock
-        y: pos.y, 
-        height: pos.height // height of clicked codeblock
+        x: pos.left, // position on the clicked codeblock
+        y: pos.top, 
+        height: pos.height, // height of clicked codeblock
+        width: pos.width, 
       },
     });
+   
   };
-
+  
   return (
     <Box
       ref={ref}
@@ -57,7 +70,8 @@ const Templates = () => {
         <Box className="h-52 w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
           {/* title */}
           <TextContent
-            sx=" w-fit h-fit py-2 px-2  border-thin-box"
+          category="External content creator"
+            sx=" w-fit h-fit py-2 px-2 "
             title={
               <Typography
                 variant="body1"
@@ -91,17 +105,18 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box onClick={handleclick} className="w-full max-w-[40rem]  h-full  p-4  relative rounded-xl">
-                          
-                          
+                        <Box className="w-full max-w-[40rem]  h-full text-[0.850rem] p-4  relative">                          
                           <CodeBlock content={child}></CodeBlock>
-                          
-                          
-                          {/* <div className="absolute bottom-2.5 border-thin-box box-border right-4 h-11  w-52 flex items-center rounded-lg justify-start p-2  ">
-                            <IconButton  variant="contained" size="small" className=" rounded-md text-gray-500/70   ">
+
+                          {/* button container */}
+                          <Box className="absolute bottom-6 bg-gray-100/5 box-border right-6   w-fit flex items-center rounded-md justify-start p-1.5  ">
+                            <IconButton onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.925rem] hover:text-white">
                               <TbClipboard></TbClipboard> 
                             </IconButton>
-                          </div> */}
+                             <IconButton onClick={event=>handleEdit(event,child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.925rem] hover:text-white">
+                              <TbEdit></TbEdit> 
+                            </IconButton>
+                          </Box>
                         </Box>
                       )}
                     </Box>
