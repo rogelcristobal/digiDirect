@@ -59,7 +59,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         <Box component="article" className="w-full  box-border  max-w-[50rem]">
           <TextContent
             // category={article?.category}
-            sx={`${article.snippet ? 'space-y-4':'space-y-4'}`}
+            sx={`space-y-3`}
             title={
 
               <Typography
@@ -81,7 +81,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         </Box>
         { children &&
         // spaces for each child
-          <Box className="space-y-6  flex flex-col items-center justify-center box-border"> 
+          <Box className="space-y-2  flex flex-col items-center justify-center box-border"> 
             {children} 
            
           </Box>

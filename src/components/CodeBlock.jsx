@@ -4,7 +4,7 @@ import {
   SandpackLayout,
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
-import { nightOwl, oceanBlue } from "@codesandbox/sandpack-themes";
+import { theme, nightOwl, oceanBlue } from "@codesandbox/sandpack-themes";
 import { useElementDimension } from "../hooks/useElementDimension";
 import CodeMenuContext from "../context/CodeMenuContext";
 const CodeBlock = ({ content, handleCopy, copyState, id }) => {
@@ -12,40 +12,44 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
 
   const theme = {
     colors: {
-      surface1: "#f7f7f7",
-      surface2: "#F3F3F3",
-      surface3: "#f5f5f5",
-      clickable: "#959da5",
-      base: "#24292e",
-      disabled: "#d1d4d8",
-      hover: "#24292e",
-      accent: "#24292e",
+    surface1: "#1b2632",
+    surface2: "#44475a",
+    surface3: "#44475a",
+    clickable: "#6272a4",
+    base: "#f8f8f2",
+    disabled: "#6272a4",
+    hover: "#f8f8f2",
+    accent: "#bd93f9",
+    error: "#f8f8f2",
+    errorSurface: "#44475a"
+  },
+  syntax: {
+    plain: "#f8f8f2",
+    comment: {
+      color: "#6272a4",
+      fontStyle: "italic"
     },
-    syntax: {
-      keyword: "#d73a49",
-      property: "#005cc5",
-      plain: "#24292e",
-      static: "#032f62",
-      string: "#032f62",
-      definition: "#6f42c1",
-      punctuation: "#24292e",
-      tag: "#22863a",
-      comment: {
-        color: "#6a737d",
-        fontStyle: "normal",
-      },
-    },
+    keyword: "#ff79c6",
+    tag: "#6197d6",
+    punctuation: "#6197d6",
+    definition: "#f8f8f2",
+    property: "#D1D1D1",
+    static: "#bd93f9",
+    string: "#6eb9df"
+  },
     font: {
-      body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-      mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
-      size: "13px",
-      lineHeight: "20px",
+      body:  "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+
+      mono: "\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
+ 
+      size: "12.5px",
+      lineHeight: "21px",
     },
   };
- 
+
   return (
     <SandpackProvider
-      theme={nightOwl}
+      theme={theme}
       template="react"
       customSetup={{
         entry: "index.css",
@@ -68,14 +72,15 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     >
       <SandpackLayout
         ref={container}
-        className="box-border   flex items-center justify-center w-full rounded-lg  relative p-0"
+        className="box-border flex items-center justify-center w-full rounded-lg  relative p-0 border-none"
       >
         <SandpackCodeViewer
-        // showLineNumbers
-          className="h-fit  min-h-[5rem] w-full px-3 py-0 font-medium  box-border "
+          // showLineNumbers
+          className="h-fit  min-h-[5rem] w-full px-3 py-0   text-[0.875rem] box-border "
           wrapContent
         />
       </SandpackLayout>
+      
     </SandpackProvider>
   );
 };
