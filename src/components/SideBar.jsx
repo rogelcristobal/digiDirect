@@ -1,6 +1,7 @@
 import React, { useContext ,useState} from "react";
 import { Box, Divider, Typography, IconButton } from "@mui/material";
-import { TbLayoutBoard, TbFileImport,TbChevronLeft,TbChevronRight } from "react-icons/tb";
+import { TbFile, TbRepeat,TbChevronLeft,TbChevronRight } from "react-icons/tb";
+import{FiFileText, FiRefreshCcw} from'react-icons/fi'
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import LinkBtn from "./LinkBtn";
 import { useNavigate } from "react-router-dom";
@@ -43,13 +44,13 @@ const SideBar = () => {
               path: "/templates",
               title: " templates",
               nodes: templateSections,
-              leftIcon:<Box className="border-thin-box box-border p-1 grid place-content-center rounded-md "> <TbLayoutBoard className="text-[1.3rem] " /></Box>,
+              leftIcon: <Box className="  grid place-content-center rounded-lg"><TbFile className="text-[1.1rem] " /></Box>,
               rightIcon: templateSections.length,
             },
             {
               path: "/converter",
               title: "converters",
-              leftIcon:<Box className="border-thin-box box-border p-1 grid place-content-center rounded-md "> <TbFileImport className="text-[1.3rem]" /></Box>,
+              leftIcon: <TbRepeat className="text-[1.4rem]" />,
             },
           ].map((item, id) => (
             <div className="box-border" key={id}>

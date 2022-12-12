@@ -33,19 +33,19 @@ const LinkBtn = ({
   }, [pathname]);
 
   return (
-    <Box className="relative box-border ">
+    <Box className="relative box-border px-1 rounded-lg">
       <ListItemButton
         disableRipple
         disableTouchRipple
         onClick={handleClick}
-        className={`${sxContainer} flex flex-col  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
+        className={`${sxContainer}flex flex-col ${pathname === path&&'bg-[#f3f5f9]/50'}  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
       >
         <Box
-          className={`box-border w-full flex items-center justify-between h-full`}
+          className={`box-border w-full flex items-center justify-between h-full `}
         >
           <TextContent
             title={
-              <Box className="box-border space-x-3 flex items-center justify-center ">
+              <Box className="box-border space-x-4 flex items-center justify-center ">
                 {leftIcon}
                 {state.status && (
                   <Typography
@@ -69,7 +69,7 @@ const LinkBtn = ({
         </Box>
       </ListItemButton>
       {children && (
-        <Collapse in={dropDownState} unmountOnExit className="w-full pl-10 ">
+        <Collapse in={dropDownState} unmountOnExit className="w-full pl-8 ">
           {children}
         </Collapse>
       )}

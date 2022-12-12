@@ -26,12 +26,12 @@ const LinkBtnChild = ({
     scrollbar.scrollIntoView(scrollreference.current[id], scrollingOptions);
   };
   return (
-    <Box className="relative box-border ">
+    <Box className="relative box-border my-1">
       <ListItemButton
         disableRipple
         disableTouchRipple
         onClick={handleScrollTo}
-        className={`${sxContainer} ${active} flex flex-col  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
+        className={`${sxContainer}  flex flex-col  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
       >
         <Box
           className={`box-border w-full flex items-center 

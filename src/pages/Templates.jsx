@@ -6,7 +6,7 @@ import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import Scrollbar from "smooth-scrollbar";
 import CodeMenuContext from "../context/CodeMenuContext";
-import {TbClipboard,TbEdit} from 'react-icons/tb'
+import {TbClipboard,TbPencil} from 'react-icons/tb'
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 
@@ -98,7 +98,7 @@ const Templates = () => {
               >
                 {item.child.map((child, idx) => (
                   // child renders here
-                  <Box className="w-full pt-12 box-border  pl-0" key={idx}>
+                  <Box className="w-full pt-10 box-border  pl-0" key={idx}>
                     <ArticleBlock
                       article={child}
                       titleStyle="text-[1rem] font-semibold font-plus"
@@ -109,12 +109,12 @@ const Templates = () => {
                           <CodeBlock content={child}></CodeBlock>
 
                           {/* button container */}
-                          <Box className="absolute top-3 bg-gray-100/5 box-border right-3   w-fit flex items-center rounded-md justify-start p-1.5  ">
-                            <IconButton onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.925rem] hover:text-white">
+                          <Box className="absolute top-2  box-border right-2   w-fit flex items-center rounded-md justify-start p-1  ">
+                            <IconButton onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.975rem] hover:text-white">
                               <TbClipboard></TbClipboard> 
                             </IconButton>
-                             <IconButton onClick={event=>handleEdit(event,child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.925rem] hover:text-white">
-                              <TbEdit></TbEdit> 
+                             <IconButton onClick={event=>handleEdit(event,child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.975rem] hover:text-white">
+                              <TbPencil></TbPencil> 
                             </IconButton>
                           </Box>
 

@@ -76,7 +76,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
       >
         <SandpackCodeViewer
           // showLineNumbers
-          className="h-fit py-2  min-h-[5rem] w-full px-3 py-0   text-[0.875rem] box-border "
+          className="h-fit   min-h-[5rem] w-full px-3 py-0   text-[0.875rem] box-border "
           wrapContent
         />
       </SandpackLayout>
