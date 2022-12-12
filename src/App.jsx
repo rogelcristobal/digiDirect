@@ -10,7 +10,8 @@ import LoadingFallback from "./components/LoadingFallback";
 import { ScrollProvider } from "./context/ScrollContext";
 import CodeMenuContext from "./context/CodeMenuContext";
 import { CodeMenuProvider } from "./context/CodeMenuContext";
-import Scrollbar from 'smooth-scrollbar'
+import { SidebarStateProvider } from "./context/SidebarStateContext";
+import Scrollbar from "smooth-scrollbar";
 import SideBar from "./components/SideBar";
 import { AnimatePresence } from "framer-motion";
 import CodeBlockMenu from "./components/CodeBlockMenu";
@@ -26,11 +27,13 @@ const App = () => {
         <StyledEngineProvider injectFirst>
           <CodeMenuProvider>
             <ScrollProvider>
-              <TemplateSectionProvider>
-                <MouseStateProvider>
-                  <Main />
-                </MouseStateProvider>
-              </TemplateSectionProvider>
+              <SidebarStateProvider>
+                <TemplateSectionProvider>
+                  <MouseStateProvider>
+                    <Main />
+                  </MouseStateProvider>
+                </TemplateSectionProvider>
+              </SidebarStateProvider>
             </ScrollProvider>
           </CodeMenuProvider>
         </StyledEngineProvider>
@@ -40,19 +43,18 @@ const App = () => {
 };
 const Main = () => {
   // context
-  const{state} = useContext(CodeMenuContext)
+  const { state } = useContext(CodeMenuContext);
   // scrollbar animation
   const options = {
     damping: 0.03,
     renderByPixels: true,
   };
-  useEffect(()=>{
-    Scrollbar.initAll(options)
-    
+  useEffect(() => {
+    Scrollbar.initAll(options);
+
     // const x = Scrollbar.getAll()
     // console.log(x)
-  },[])
-
+  }, []);
 
   return (
     <Routes>
@@ -60,26 +62,26 @@ const Main = () => {
       <Route
         path="/*"
         element={
+          <Box className="h-screen  font-inter  w-full  text-gray-800  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+            <SideBar />
+            {/* <Navbar></Navbar> */}
+            <AnimatePresence>
+              {state.menuState && <CodeBlockMenu />}
+            </AnimatePresence>
+            <Box
+              component="main"
+              className=" box-border  flex h-screen  w-full relative  "
+            >
+              <Suspense fallback={<LoadingFallback />}>
+                <Routes>
+                  <Route index element={<Dashboard />} />
+                  <Route path="/templates" element={<Templates />} />
+                  <Route path="/converter" element={<Converter />} />
+                </Routes>
+              </Suspense>
+            </Box>
+          </Box>
           
-            <Box className="h-screen  font-inter  w-full  text-gray-800  box-border flex   items-start justify-start  relative bg-[#ffffff]">
-              <SideBar />
-              {/* <Navbar></Navbar> */}
-              <AnimatePresence>
-                  {state.menuState &&  <CodeBlockMenu />}
-              </AnimatePresence>
-              <Box
-                component="main"
-                className=" box-border  flex h-screen  w-full relative  "
-              >
-                  <Suspense fallback={<LoadingFallback />}>
-                    <Routes>
-                      <Route index element={<Dashboard />} />
-                      <Route path="/templates" element={<Templates />} />
-                      <Route path="/converter" element={<Converter />} />
-                    </Routes>
-                  </Suspense>
-                </Box>
-              </Box>
         }
       ></Route>
     </Routes>

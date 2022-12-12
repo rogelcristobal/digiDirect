@@ -75,7 +75,7 @@ const Templates = () => {
             title={
               <Typography
                 variant="body1"
-                className="capitalize  text-[1.7rem] font-semibold font-plus  "
+                className="capitalize  text-[1.750rem] font-semibold font-plus  "
               >
                 listing templates
               </Typography>
@@ -94,7 +94,7 @@ const Templates = () => {
               <ArticleBlock
                 view={item.refView}
                 article={item}
-                titleStyle="text-[1.4rem] font-semibold font-plus"
+                titleStyle="text-[1.325rem] font-semibold font-plus"
               >
                 {item.child.map((child, idx) => (
                   // child renders here
@@ -105,11 +105,11 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem]  h-full  pt-2  relative">                          
+                        <Box className="w-full max-w-[40rem] rounded-lg overflow-y-hidden  relative">                          
                           <CodeBlock content={child}></CodeBlock>
 
                           {/* button container */}
-                          <Box className="absolute bottom-3 bg-gray-100/5 box-border right-3   w-fit flex items-center rounded-md justify-start p-1.5  ">
+                          <Box className="absolute top-3 bg-gray-100/5 box-border right-3   w-fit flex items-center rounded-md justify-start p-1.5  ">
                             <IconButton onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.925rem] hover:text-white">
                               <TbClipboard></TbClipboard> 
                             </IconButton>
@@ -117,6 +117,7 @@ const Templates = () => {
                               <TbEdit></TbEdit> 
                             </IconButton>
                           </Box>
+
                         </Box>
                       )}
                     </Box>
