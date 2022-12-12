@@ -109,7 +109,7 @@ const Templates = () => {
                           <CodeBlock content={child}></CodeBlock>
 
                           {/* button container */}
-                          <Box className="absolute bottom-6 bg-gray-100/5 box-border right-6   w-fit flex items-center rounded-md justify-start p-1.5  ">
+                          <Box className="absolute bottom-3 bg-gray-100/5 box-border right-3   w-fit flex items-center rounded-md justify-start p-1.5  ">
                             <IconButton onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.925rem] hover:text-white">
                               <TbClipboard></TbClipboard> 
                             </IconButton>
