@@ -63,13 +63,13 @@ const Main = () => {
           
             <Box className="h-screen  font-inter  w-full  text-gray-800  box-border flex   items-start justify-start  relative bg-[#ffffff]">
               <SideBar />
-              <Navbar></Navbar>
+              {/* <Navbar></Navbar> */}
               <AnimatePresence>
                   {state.menuState &&  <CodeBlockMenu />}
               </AnimatePresence>
               <Box
                 component="main"
-                className=" box-border  flex h-screen  w-full relative pt-14 "
+                className=" box-border  flex h-screen  w-full relative  "
               >
                   <Suspense fallback={<LoadingFallback />}>
                     <Routes>

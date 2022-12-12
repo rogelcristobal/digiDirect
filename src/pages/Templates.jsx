@@ -62,12 +62,12 @@ const Templates = () => {
   return (
     <Box
       ref={ref}
-      className="block w-full pb-52 h-full box-border  relative "
+      className="block w-full pb-52 h-full box-border pt-14  relative "
     >
       {/* header */}
-      <Box className=" h-52 w-full    pt-6 box-border">
+      <Box className=" h-40 w-full    pt-6 box-border">
         {/* wrapper */}
-        <Box className="h-52 w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
+        <Box className="h-full w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
           {/* title */}
           <TextContent
           category="External content creator"
@@ -88,13 +88,13 @@ const Templates = () => {
 
       {/* content */}
       <Box className="h-auto w-full  px-10 box-border  pt-20">
-        <Box className="h-full w-full space-y-28 px-2 box-border">
+        <Box className="h-full w-full space-y-20  px-2 box-border">
           {templateSections.map((item, id) => (
             <Box className="box-border flex flex-col " key={id} ref={storeRef}>
               <ArticleBlock
                 view={item.refView}
                 article={item}
-                titleStyle="text-[1.3rem] font-semibold font-plus"
+                titleStyle="text-[1.4rem] font-semibold font-plus"
               >
                 {item.child.map((child, idx) => (
                   // child renders here
@@ -105,11 +105,11 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem]  h-full text-[0.850rem] p-4  relative">                          
+                        <Box className="w-full max-w-[40rem]  h-full  pt-2  relative">                          
                           <CodeBlock content={child}></CodeBlock>
 
                           {/* button container */}
-                          <Box className="absolute bottom-6 bg-gray-100/5 box-border right-6   w-fit flex items-center rounded-md justify-start p-1.5  ">
+                          <Box className="absolute bottom-3 bg-gray-100/5 box-border right-3   w-fit flex items-center rounded-md justify-start p-1.5  ">
                             <IconButton onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.925rem] hover:text-white">
                               <TbClipboard></TbClipboard> 
                             </IconButton>

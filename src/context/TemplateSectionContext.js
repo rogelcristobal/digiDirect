@@ -31,10 +31,10 @@ export const TemplateSectionProvider = ({ children }) => {
   } = template();
 
   
-  const [inTheBoxRef, inTheBoxState] = useInView({ threshold: 0.2 });
-  const [specsRef, specsState] = useInView({ threshold: 0.2 });
+  const [inTheBoxRef, inTheBoxState] = useInView({ threshold: 0.3 });
+  const [specsRef, specsState] = useInView({ threshold: 0.3 });
   const [descriptionRef, descriptionState] = useInView({ threshold: 0.1 });
-  const [shortDescriptionRef, shortDescriptionState] = useInView({threshold: 0.2,});
+  const [shortDescriptionRef, shortDescriptionState] = useInView({threshold: 0.3,});
   const [seoRef, seoState] = useInView({ threshold: 0.4 });
 
   const templateSections=[

@@ -19,7 +19,7 @@ const SideBar = () => {
   };
   const scrollingOptions = {
     alignToTop: true,
-    offsetTop: 30,
+    offsetTop: 100,
   };
   const handleScrollTo = (id) => {
     const scrollbar = Scrollbar.init(scrollEl);
@@ -58,7 +58,7 @@ const SideBar = () => {
                     <Box className="flex items-center justify-between space-x-3">
                       <Typography
                         variant="body1"
-                        className="box-border  h-[1.10rem] w-[1.10rem] bg-gray-200/70 text-[0.7rem] font-semibold font-plus flex items-center rounded-[0.325rem] justify-center text-gray-500 "
+                        className="box-border  h-[1.10rem] w-[1.10rem] bg-gray-200/70 text-[0.7rem] font-semibold font-plus flex items-center rounded-[0.325rem] justify-center text-gray-400 "
                       >
                         {item?.rightIcon}
                       </Typography>
@@ -66,7 +66,7 @@ const SideBar = () => {
                     </Box>
                   ) : null
                 }
-                active=" text-gray-700 bg-gray-100/50"
+                active=" text-sky-600 bg-gray-100/50"
                 sxText="   font-semibold font-plus capitalize  w-full text-[0.825rem] "
                 sxContainer="py-2  px-4   transition-all ease-in-out duration-300 rounded-md "
               >
@@ -78,9 +78,11 @@ const SideBar = () => {
                         key={id}
                         sxText={` font-semibold  font-plus capitalize   w-full text-[0.8rem]`}
                         sxContainer={`py-2 pl-12 relative   hover:bg-inherit  ${
-                          child.isInView ? "text-gray-800 " : "text-gray-500/70"
+                          child.isInView ? "text-[#6197D6] " : "text-gray-500/70"
                         }`}
-                      ></LinkBtn>
+                      >
+                        
+                      </LinkBtn>
                     ))
                   : null}
               </LinkBtn>
