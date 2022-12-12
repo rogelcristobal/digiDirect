@@ -29,12 +29,9 @@ const SideBar = () => {
   };
 
  
-  const{dispatch,state}=useContext(SidebarStateContext)
-  const handleSidebarBtn=()=>{
-    dispatch({type:'TOGGLE_SIDEBAR'})
-  }
+ 
   return (
-    <Box className={`${state.status?' w-[22rem]':'w-[4rem]'} h-full z-30 bg-inherit   pt-[3rem] box-border flex items-start justify-right border-thin-right relative `}>
+    <Box className={`w-[22rem] h-full z-30 bg-inherit   pt-[3rem] box-border flex items-start justify-right border-thin-right relative `}>
       {/* links */}
       <Box
         // data-scrollbar
@@ -46,13 +43,13 @@ const SideBar = () => {
               path: "/templates",
               title: " templates",
               nodes: templateSections,
-              leftIcon:<Box className="border-thin-box box-border p-1 grid place-content-center rounded-md text-sky-600"> <TbLayoutBoard className="text-[1.1rem] " /></Box>,
+              leftIcon:<Box className="border-thin-box box-border p-1 grid place-content-center rounded-md "> <TbLayoutBoard className="text-[1.3rem] " /></Box>,
               rightIcon: templateSections.length,
             },
             {
               path: "/converter",
               title: "converters",
-              leftIcon:<Box className="border-thin-box box-border p-1 grid place-content-center rounded-md"> <TbFileImport className="text-[1.1rem]" /></Box>,
+              leftIcon:<Box className="border-thin-box box-border p-1 grid place-content-center rounded-md "> <TbFileImport className="text-[1.3rem]" /></Box>,
             },
           ].map((item, id) => (
             <div className="box-border" key={id}>
@@ -60,9 +57,7 @@ const SideBar = () => {
                 handleClick={() => handleLinkClick(item)}
                 title={item.title}
                 path={item.path}
-                leftIcon={item?.leftIcon}
-             
-                
+                leftIcon={item?.leftIcon} 
                 sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
                 sxContainer="py-2.5  px-4  hover:bg-slate-100/40 transition-all ease-in-out duration-300 rounded-md relative"
               >
@@ -88,11 +83,11 @@ const SideBar = () => {
         <Divider variant="middle" light className="my-2"></Divider>
       </Box>
 
-     <IconButton aria-label="sidebar-toggler" size="small" onClick={handleSidebarBtn} className="absolute top-[3.25rem] -right-3 border-thin-box bg-inherit text-inherit">
+     {/* <IconButton aria-label="sidebar-toggler" size="small" onClick={handleSidebarBtn} className="absolute top-[3.25rem] -right-3 border-thin-box bg-inherit text-inherit">
        {
         state.status? <TbChevronLeft />: <TbChevronRight />
        }
-      </IconButton>
+      </IconButton> */}
     </Box>
   );
 };

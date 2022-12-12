@@ -1,15 +1,22 @@
 import React, { useContext } from "react";
-import { useNavigate,  } from "react-router-dom";
-import { ListItemButton, Typography,  Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { ListItemButton, Typography, Box } from "@mui/material";
 
 import PageScrollableContext from "../context/PageScrollableContext";
 import TextContent from "./TextContent";
 import SidebarStateContext from "../context/SidebarStateContext";
-import Scrollbar from 'smooth-scrollbar'
+import Scrollbar from "smooth-scrollbar";
 
-const LinkBtnChild = ({ title, sxText, sxContainer, active,id ,scrollreference}) => {
+const LinkBtnChild = ({
+  title,
+  sxText,
+  sxContainer,
+  active,
+  id,
+  scrollreference,
+}) => {
   const { state } = useContext(SidebarStateContext);
-  const {scrollEl}= useContext(PageScrollableContext)
+  const { scrollEl } = useContext(PageScrollableContext);
   const scrollingOptions = {
     alignToTop: true,
     offsetTop: 100,
