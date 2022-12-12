@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
-import { Box, Divider, Typography, Button } from "@mui/material";
-import { TbLayoutBoard, TbFileImport } from "react-icons/tb";
+import React, { useContext ,useState} from "react";
+import { Box, Divider, Typography, IconButton } from "@mui/material";
+import { TbLayoutBoard, TbFileImport,TbChevronLeft,TbChevronRight } from "react-icons/tb";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import LinkBtn from "./LinkBtn";
 import { useNavigate } from "react-router-dom";
 import Scrollbar from "smooth-scrollbar";
+import SidebarStateContext from '../context/SidebarStateContext'
 
 import PageScrollableContext from "../context/PageScrollableContext";
+import LinkBtnChild from "./LinkBtnChild";
 
 const SideBar = () => {
   const { scrollEl } = useContext(PageScrollableContext);
@@ -25,12 +27,18 @@ const SideBar = () => {
     const scrollbar = Scrollbar.init(scrollEl);
     scrollbar.scrollIntoView(pageCategoryRef.current[id], scrollingOptions);
   };
+
+ 
+  const{dispatch,state}=useContext(SidebarStateContext)
+  const handleSidebarBtn=()=>{
+    dispatch({type:'TOGGLE_SIDEBAR'})
+  }
   return (
-    <Box className=" w-[22rem] h-full z-20 bg-inherit   pt-[3rem] box-border flex items-start justify-right border-thin-right">
+    <Box className={`${state.status?' w-[22rem]':'w-[4rem]'} h-full z-30 bg-inherit   pt-[3rem] box-border flex items-start justify-right border-thin-right relative `}>
       {/* links */}
       <Box
-        data-scrollbar
-        className=" w-full max-w-[22rem] h-full box-border pt-12 px-2.5  overflow-y-auto "
+        // data-scrollbar
+        className=" w-full max-w-[22rem] h-full box-border pt-12 px-2.5  relative  "
       >
         <Box className="box-border space-y-1.5">
           {[
@@ -38,13 +46,13 @@ const SideBar = () => {
               path: "/templates",
               title: " templates",
               nodes: templateSections,
-              leftIcon: <TbLayoutBoard className="text-[1.6rem] " />,
+              leftIcon:<Box className="border-thin-box box-border p-1 grid place-content-center rounded-md text-sky-600"> <TbLayoutBoard className="text-[1.1rem] " /></Box>,
               rightIcon: templateSections.length,
             },
             {
               path: "/converter",
               title: "converters",
-              leftIcon: <TbFileImport className="text-[1.6rem]" />,
+              leftIcon:<Box className="border-thin-box box-border p-1 grid place-content-center rounded-md"> <TbFileImport className="text-[1.1rem]" /></Box>,
             },
           ].map((item, id) => (
             <div className="box-border" key={id}>
@@ -53,36 +61,24 @@ const SideBar = () => {
                 title={item.title}
                 path={item.path}
                 leftIcon={item?.leftIcon}
-                rightIcon={
-                  item?.rightIcon ? (
-                    <Box className="flex items-center justify-between space-x-3">
-                      <Typography
-                        variant="body1"
-                        className="box-border  h-[1.10rem] w-[1.10rem] bg-gray-200/70 text-[0.7rem] font-semibold font-plus flex items-center rounded-[0.325rem] justify-center text-gray-400 "
-                      >
-                        {item?.rightIcon}
-                      </Typography>
-                     
-                    </Box>
-                  ) : null
-                }
-                active=" text-sky-600 bg-gray-100/50"
-                sxText="   font-semibold font-plus capitalize  w-full text-[0.825rem] "
-                sxContainer="py-2  px-4   transition-all ease-in-out duration-300 rounded-md "
+             
+                
+                sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
+                sxContainer="py-2.5  px-4  hover:bg-slate-100/40 transition-all ease-in-out duration-300 rounded-md relative"
               >
                 {item?.nodes
                   ? item.nodes.map((child, id) => (
-                      <LinkBtn
-                        handleClick={() => handleScrollTo(id)}
-                        title={child.title}
-                        key={id}
-                        sxText={` font-semibold  font-plus capitalize   w-full text-[0.8rem]`}
-                        sxContainer={`py-2 pl-12 relative   hover:bg-inherit  ${
-                          child.isInView ? "text-[#6197D6] " : "text-gray-500/70"
-                        }`}
-                      >
-                        
-                      </LinkBtn>
+                     <LinkBtnChild 
+                     key={id}
+                     id={id}
+                     scrollreference={pageCategoryRef}
+                     sxText={` font-semibold  font-plus capitalize   w-full text-[0.8rem]`}
+                     sxContainer={`py-2  relative   hover:bg-inherit  ${
+                           child.isInView ? " " : "text-gray-500/70"
+                      }`}
+                     title={child.title}>
+                     </LinkBtnChild>
+                     
                     ))
                   : null}
               </LinkBtn>
@@ -91,6 +87,12 @@ const SideBar = () => {
         </Box>
         <Divider variant="middle" light className="my-2"></Divider>
       </Box>
+
+     <IconButton aria-label="sidebar-toggler" size="small" onClick={handleSidebarBtn} className="absolute top-[3.25rem] -right-3 border-thin-box bg-inherit text-inherit">
+       {
+        state.status? <TbChevronLeft />: <TbChevronRight />
+       }
+      </IconButton>
     </Box>
   );
 };

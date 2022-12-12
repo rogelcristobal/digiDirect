@@ -72,7 +72,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     >
       <SandpackLayout
         ref={container}
-        className="box-border flex items-center justify-center w-full rounded-lg  relative p-0 border-none"
+        className="box-border flex items-center justify-center w-full  relative p-0 border-none"
       >
         <SandpackCodeViewer
           // showLineNumbers
