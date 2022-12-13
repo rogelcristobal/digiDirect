@@ -61,15 +61,15 @@ const LinkBtn = ({
 
           {children && state.status ? (
             pathname === path ? (
-              <TbChevronDown />
+              <TbChevronDown className="text-gray-500"/>
             ) : (
-              <TbChevronRight />
+              <TbChevronRight className="text-gray-500"/>
             )
           ) : null}
         </Box>
       </ListItemButton>
       {children && (
-        <Collapse in={dropDownState} unmountOnExit className="w-full pl-10 ">
+        <Collapse in={dropDownState} unmountOnExit className="w-full  ">
           {children}
         </Collapse>
       )}

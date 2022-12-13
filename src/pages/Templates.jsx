@@ -87,7 +87,7 @@ const Templates = () => {
       </Box>
 
       {/* content */}
-      <Box className="h-auto w-full  px-10 box-border  pt-20">
+      <Box className="h-auto w-full  px-10 box-border  pt-16">
         <Box className="h-full w-full space-y-20  px-2 box-border">
           {templateSections.map((item, id) => (
             <Box className="box-border flex flex-col " key={id} ref={storeRef}>
@@ -98,7 +98,7 @@ const Templates = () => {
               >
                 {item.child.map((child, idx) => (
                   // child renders here
-                  <Box className="w-full pt-10 box-border  pl-0" key={idx}>
+                  <Box className="w-full pt-8 box-border  pl-0" key={idx}>
                     <ArticleBlock
                       article={child}
                       titleStyle="text-[1rem] font-semibold font-plus"
