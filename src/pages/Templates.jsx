@@ -70,12 +70,12 @@ const Templates = () => {
         <Box className="h-full w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
           {/* title */}
           <TextContent
-          category="External content creator"
+          category="Documentation"
             sx=" w-fit h-fit py-2 px-2 "
             title={
               <Typography
                 variant="body1"
-                className="capitalize  text-[1.750rem] font-semibold font-plus  "
+                className="capitalize  text-[1.725rem] font-semibold font-plus  "
               >
                 listing templates
               </Typography>
@@ -83,11 +83,11 @@ const Templates = () => {
           ></TextContent>
           
         </Box>
-        <Divider variant="fullWidth" light></Divider>
+        {/* <Divider variant="fullWidth" light></Divider> */}
       </Box>
 
       {/* content */}
-      <Box className="h-auto w-full  px-10 box-border  pt-16">
+      <Box className="h-auto w-full  px-10 box-border  pt-12">
         <Box className="h-full w-full space-y-20  px-2 box-border">
           {templateSections.map((item, id) => (
             <Box className="box-border flex flex-col " key={id} ref={storeRef}>

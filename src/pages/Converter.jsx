@@ -3,6 +3,7 @@ import TextContent from "../components/TextContent";
 import { useState, useRef, useContext, useEffect } from "react";
 import PageScrollableContext from "../context/PageScrollableContext";
 import Scrollbar from "smooth-scrollbar";
+import FileInput from '../components/FileInput'
 const Converter = () => {
   const ref = useRef(null);
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
@@ -39,20 +40,26 @@ const Converter = () => {
             title={
               <Typography
                 variant="body1"
-                className="capitalize  text-[1.750rem] font-semibold font-plus  "
+                className="capitalize  text-[1.725rem] font-semibold font-plus  "
               >
                 Converters
               </Typography>
             }
           ></TextContent>
         </Box>
-        <Divider variant="fullWidth" light></Divider>
+        {/* <Divider variant="fullWidth" light></Divider> */}
       </Box>
 
       {/* content */}
-      <Box className="h-auto w-full  px-10 box-border  pt-20">
+      <Box className="h-auto w-full  px-10 box-border  pt-0">
+        <Box className="h-48  w-full box-border flex items-center justify-start">
+          <Box className="h-full w-96 box-border"> 
+
+            <FileInput />
+          </Box>
+        </Box>
         <Box className="h-full w-full space-y-20  px-2 box-border">
-          
+          {/*  */}
         </Box>
       </Box>
     </Box>
