@@ -15,6 +15,7 @@ import Scrollbar from "smooth-scrollbar";
 import SideBar from "./components/SideBar";
 import { AnimatePresence } from "framer-motion";
 import CodeBlockMenu from "./components/CodeBlockMenu";
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -23,6 +24,7 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools/>
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <CodeMenuProvider>
@@ -38,6 +40,7 @@ const App = () => {
           </CodeMenuProvider>
         </StyledEngineProvider>
       </HashRouter>
+      
     </QueryClientProvider>
   );
 };
@@ -62,7 +65,7 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen  font-inter  w-full  text-black  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+          <Box className="h-screen  font-inter  w-full  text-[#101626]  box-border flex   items-start justify-start  relative bg-[#ffffff]">
             <SideBar />
             {/* <Navbar></Navbar> */}
             <AnimatePresence>
@@ -94,3 +97,4 @@ export default App;
 
 // code blocks with copy btn (https://www.npmjs.com/package/react-code-blocks)
 // html playground (https://www.npmjs.com/package/playground-elements)
+// https://dribbble.com/shots/19338372-Three-tier-sidebar-navigation-Untitled-UI

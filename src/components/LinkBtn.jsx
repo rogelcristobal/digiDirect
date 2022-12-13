@@ -38,7 +38,7 @@ const LinkBtn = ({
         disableRipple
         disableTouchRipple
         onClick={handleClick}
-        className={`${sxContainer}flex flex-col ${pathname === path&&'bg-[#f3f5f9]/50'}  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
+        className={`${sxContainer}flex flex-col ${pathname === path&&'bg-[#f3f5f7]'}  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
       >
         <Box
           className={`box-border w-full flex items-center justify-between h-full `}
@@ -69,7 +69,7 @@ const LinkBtn = ({
         </Box>
       </ListItemButton>
       {children && (
-        <Collapse in={dropDownState} unmountOnExit className="w-full pl-8 ">
+        <Collapse in={dropDownState} unmountOnExit className="w-full pl-7 ">
           {children}
         </Collapse>
       )}

@@ -12,21 +12,21 @@ const Navbar = ({ scrollPosition }) => {
     `}
     >
       <div
-        className={`box-border container mx-auto h-full pt-2 px-2 flex items-center justify-end relative   transition-all ease-in-out z-10 duration-500 tracking-wide`}
+        className={`box-border container mx-auto h-full pt-2.5 px-2 flex items-center justify-end relative   transition-all ease-in-out z-10 duration-500 tracking-wide`}
         >
       <p className="text-black">
        
       </p>
         
-        <Box className=" flex items-center box-border  gap-3.5 ">
-          <IconButton disableRipple className="p-2 flex items-center justify-center box-border text-inherit text-lg hover:text-sky-600">
+        {/* <Box className=" flex items-center box-border  gap-3.5 ">
+          <IconButton disableRipple className="p-1.5 flex items-center justify-center box-border text-inherit rounded-lg text-lg hover:text-sky-600 border-medium-box">
             <TbMoon />
           </IconButton>
 
-          <IconButton disableRipple className="p-2 flex items-center justify-center box-border text-inherit text-lg hover:text-sky-600">
+          <IconButton disableRipple className="p-1.5 flex items-center justify-center box-border text-inherit  rounded-lg text-lg hover:text-sky-600 border-medium-box">
             <TbBrandGithub/>
           </IconButton>
-        </Box>
+        </Box> */}
        
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useContext ,useState} from "react";
 import { Box, Divider, Typography, IconButton } from "@mui/material";
-import { TbFile, TbRepeat,TbChevronLeft,TbChevronRight } from "react-icons/tb";
+import { TbLayersSubtract, TbRepeat,TbChevronLeft,TbChevronRight } from "react-icons/tb";
 import{FiFileText, FiRefreshCcw} from'react-icons/fi'
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import LinkBtn from "./LinkBtn";
@@ -42,9 +42,9 @@ const SideBar = () => {
           {[
             {
               path: "/templates",
-              title: " templates",
+              title: "listing templates",
               nodes: templateSections,
-              leftIcon: <Box className="  grid place-content-center rounded-lg"><TbFile className="text-[1.1rem] " /></Box>,
+              leftIcon: <Box className="  grid place-content-center rounded-lg"><TbLayersSubtract className="text-[1.1rem] " /></Box>,
               rightIcon: templateSections.length,
             },
             {
@@ -60,7 +60,7 @@ const SideBar = () => {
                 path={item.path}
                 leftIcon={item?.leftIcon} 
                 sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
-                sxContainer="py-2.5  px-4  hover:bg-slate-100/40 transition-all ease-in-out duration-300 rounded-md relative"
+                sxContainer="py-3  px-3.5  transition-all ease-in-out duration-300 rounded-md relative"
               >
                 {item?.nodes
                   ? item.nodes.map((child, id) => (
@@ -68,9 +68,9 @@ const SideBar = () => {
                      key={id}
                      id={id}
                      scrollreference={pageCategoryRef}
-                     sxText={` font-semibold  font-plus capitalize   w-full text-[0.8rem]`}
+                     sxText={` font-semibold  font-plus capitalize   w-full text-[0.825rem]`}
                      sxContainer={`py-2  relative   hover:bg-inherit  ${
-                           child.isInView ? " " : "text-gray-500/70"
+                           child.isInView ? "text-[#101626] " : "text-gray-500/70"
                       }`}
                      title={child.title}>
                      </LinkBtnChild>
