@@ -31,7 +31,7 @@ const LinkBtnChild = ({
         disableRipple
         disableTouchRipple
         onClick={handleScrollTo}
-        className={`${sxContainer}  flex flex-col  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
+        className={`${sxContainer}  flex flex-col pl-14  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
       >
         <Box
           className={`box-border w-full flex items-center 

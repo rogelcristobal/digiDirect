@@ -81,7 +81,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         </Box>
         { children &&
         // spaces for each child
-          <Box className="space-y-2  flex flex-col items-center justify-center box-border"> 
+          <Box className="  flex flex-col items-center justify-start box-border"> 
             {children} 
            
           </Box>
