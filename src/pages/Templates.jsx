@@ -107,25 +107,14 @@ const Templates = () => {
                       {child?.snippet && (
                         <Box className="w-full max-w-[40rem]  mt-2 relative space-y-2.5 ">                          
                           <CodeBlock content={child}></CodeBlock>
-
-                          {/* button container */}
-                          {/* <Box className="absolute top-2  box-border right-2   w-fit flex items-center rounded-md justify-start p-1  ">
-                            <IconButton onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.975rem] hover:text-white">
-                              <TbClipboard></TbClipboard> 
-                            </IconButton>
-                             <IconButton onClick={event=>handleEdit(event,child)} variant="contained" size="small" className=" rounded-md text-gray-500/70  text-[0.975rem] hover:text-white">
-                              <TbPencil></TbPencil> 
-                            </IconButton>
-                          </Box> */}
-
                           <Box className="h-fit w-full flex items-center justify-end  box-border gap-3">
                              <Button disableElevation  startIcon={<TbPencil className="text-sm"/>} onClick={event=>handleEdit(event,child)} variant="contained" size="small" className=" rounded-md  p-2 px-4 text-[#101626]/80 border-medium-box hover:border-medium-box bg-inherit flex items-center hover:text-[#101626]">
-                              <Typography variant="body1" className="text-[0.725rem] font-plus normal-case font-bold tracking-wide">
+                              <Typography variant="body1" className="text-[0.7rem] font-plus normal-case font-bold tracking-wide">
                                 Edit
                               </Typography>
                             </Button>
-                            <Button startIcon={<TbClipboard className="text-sm"/>} onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md bg-[#101626] p-2 px-4 shadow-none  flex items-center">
-                              <Typography variant="body1" className="text-[0.725rem] font-plus normal-case tracking-wide">
+                            <Button startIcon={<TbClipboard className="text-sm"/>} onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md bg-[#0b70df] p-2 px-4 shadow-none  flex items-center">
+                              <Typography variant="body1" className="text-[0.7rem] font-plus normal-case tracking-wide">
                                 Copy
                               </Typography>
                             </Button>

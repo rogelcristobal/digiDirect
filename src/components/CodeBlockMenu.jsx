@@ -18,9 +18,9 @@ const CodeBlockMenu = () => {
             y: 0,
         }}
         animate={{
-          x:'calc(100vw - 32rem)',
+          x:'calc(100vw - 60vw)',
           y: 0,
-          width: "32rem",
+          width: "60vw",
           transition: {
             duration: 0.5,
             delay: 0.3,

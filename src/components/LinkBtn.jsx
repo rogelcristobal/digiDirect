@@ -69,7 +69,7 @@ const LinkBtn = ({
         </Box>
       </ListItemButton>
       {children && (
-        <Collapse in={dropDownState} unmountOnExit className="w-full pl-7 ">
+        <Collapse in={dropDownState} unmountOnExit className="w-full pl-10 ">
           {children}
         </Collapse>
       )}
