@@ -12,7 +12,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
 
   const theme = {
     colors: {
-    surface1: "#1b2632",
+    surface1: "#101626",
     surface2: "#44475a",
     surface3: "#44475a",
     clickable: "#6272a4",
@@ -72,11 +72,11 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     >
       <SandpackLayout
         ref={container}
-        className="box-border flex items-center justify-center w-full  relative  border-none"
+        className="box-border flex items-center justify-center w-full  relative  border-none rounded-md"
       >
         <SandpackCodeViewer
           // showLineNumbers
-          className="h-fit   min-h-[5rem] w-full px-3 py-0   text-[0.875rem] box-border "
+          className="h-fit   min-h-[5rem] w-full px-3    text-[0.875rem] box-border "
           wrapContent
         />
       </SandpackLayout>
