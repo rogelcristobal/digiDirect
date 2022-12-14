@@ -8,7 +8,7 @@ const Navbar = ({ scrollPosition }) => {
   return (
     <Box
       component="nav"
-      className={` border-thin-bottom  h-fit  py-2 absolute top-0 z-40 left-0  w-full  box-border   bg-inherit 
+      className={` border-thin-bottom  h-fit  py-2 absolute top-0 z-10 left-0  w-full  box-border   bg-inherit 
     `}
     >
       <div

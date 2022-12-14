@@ -40,20 +40,20 @@ const Converter = () => {
             title={
               <Typography
                 variant="body1"
-                className="capitalize  text-[1.725rem] font-semibold font-plus  "
+                className="capitalize  text-[1.6rem] font-medium font-plus  "
               >
                 Converters
               </Typography>
             }
           ></TextContent>
         </Box>
-        {/* <Divider variant="fullWidth" light></Divider> */}
+        <Divider variant="fullWidth" light></Divider>
       </Box>
 
       {/* content */}
       <Box className="h-auto w-full  px-10 box-border  pt-0">
         <Box className="h-48  w-full box-border flex items-center justify-start">
-          <Box className="h-full w-full max-w-[35rem] box-border"> 
+          <Box className="h-full w-full max-w-[25rem] box-border"> 
             <FileInput />
           </Box>
         </Box>

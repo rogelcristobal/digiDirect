@@ -4,7 +4,7 @@ import {
   SandpackLayout,
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
-import { theme, nightOwl, oceanBlue } from "@codesandbox/sandpack-themes";
+import { theme, nightOwl, oceanBlue, githubLight } from "@codesandbox/sandpack-themes";
 import { useElementDimension } from "../hooks/useElementDimension";
 import CodeMenuContext from "../context/CodeMenuContext";
 const CodeBlock = ({ content, handleCopy, copyState, id }) => {
@@ -42,14 +42,14 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
 
       mono: "\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
  
-      size: "12.5px",
+      size: "12px",
       lineHeight: "21px",
     },
   };
 
   return (
     <SandpackProvider
-      theme={theme}
+      // theme={theme}
       template="react"
       customSetup={{
         entry: "index.css",
@@ -72,11 +72,11 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     >
       <SandpackLayout
         ref={container}
-        className="box-border flex items-center justify-center w-full  relative  border-none rounded-md"
+        className="box-border flex items-center justify-center w-full  relative  border-thin-box rounded-none "
       >
         <SandpackCodeViewer
-          // showLineNumbers
-          className="h-fit   min-h-[5rem] w-full px-3    text-[0.875rem] box-border "
+          showLineNumbers
+          className="h-fit   min-h-[4.3rem] w-full px-2    text-[0.875rem] box-border "
           wrapContent
         />
       </SandpackLayout>

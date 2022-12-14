@@ -38,18 +38,19 @@ const LinkBtn = ({
         disableRipple
         disableTouchRipple
         onClick={handleClick}
-        className={`${sxContainer}flex flex-col ${pathname === path&&'bg-[#f3f5f7]'}  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
+        // ${pathname === path&&'bg-[#f3f5f7]'}
+        className={`${sxContainer}flex flex-col   w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out hover:bg-[#f3f5f7]`}
       >
         <Box
           className={`box-border w-full flex items-center justify-between h-full `}
         >
           <TextContent
             title={
-              <Box className="box-border space-x-4 flex items-center justify-center ">
+              <Box className="box-border space-x-3 flex items-center justify-center ">
                 {leftIcon}
                 {state.status && (
                   <Typography
-                    variant="subtitle2"
+                    variant="h6"
                     className={`  capitalize  ${sxText}  `}
                   >
                     {title}
