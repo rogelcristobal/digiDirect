@@ -19,6 +19,7 @@ import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Sample = lazy(()=>(import("./pages/Sample")))
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -80,6 +81,8 @@ const Main = () => {
                   <Route index element={<Dashboard />} />
                   <Route path="/templates" element={<Templates />} />
                   <Route path="/converter" element={<Converter />} />
+                  
+                  <Route path="/sample" element={<Sample />} />
                 </Routes>
               </Suspense>
             </Box>
