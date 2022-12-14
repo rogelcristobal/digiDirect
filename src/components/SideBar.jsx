@@ -34,9 +34,9 @@ const SideBar = () => {
       {/* links */}
       <Box
         // data-scrollbar
-        className=" w-full max-w-[24rem] h-full box-border pt-12 px-2.5  relative  "
+        className=" w-full max-w-[22rem] h-full box-border pt-8 px-2.5  relative  "
       >
-        <Box className="box-border space-y-1.5">
+        <Box className="box-border space-y-1">
           {[
             {
               path: "/templates",
@@ -44,8 +44,8 @@ const SideBar = () => {
               category: "Documentation",
               nodes: templateSections,
               leftIcon: (
-                <Box className=" border-thin-box p-1.5 grid place-content-center rounded-md">
-                  <TbLayersSubtract className="text-[1.1rem] " />
+                <Box className=" border-thin-box p-1.5 text-md grid place-content-center rounded-lg">
+                  <TbLayersSubtract/>
                 </Box>
               ),
               rightIcon: templateSections.length,
@@ -55,31 +55,31 @@ const SideBar = () => {
               title: "converters",
               category: "API & Tools",
               leftIcon: (
-                <Box className=" border-thin-box p-1.5 grid place-content-center rounded-md">
-                  {" "}
-                  <TbRepeat className="text-[1.1rem]" />
+                <Box className="border-thin-box p-1.5 text-md grid place-content-center rounded-lg">
+                  
+                  <TbRepeat/>
                 </Box>
               ),
             },
           ].map((item, id) => (
             <div className="box-border" key={id}>
-              {item.category && (
-                <Box className=" px-3">
+              {/* {item.category && (
+                <Box className=" px-4">
                   <Typography
-                    variant="body1"
-                    className="text-[0.7rem] tracking-wide font-plus text-gray-500/60 font-bold mb-2"
+                    variant="subtitle2"
+                    className="text-[0.725rem] tracking-wide font-plus text-gray-500/60 font-semibold mb-2"
                   >
                     {item.category}
                   </Typography>
                 </Box>
-              )}
+              )} */}
               <LinkBtn
                 handleClick={() => handleLinkClick(item)}
                 title={item.title}
                 path={item.path}
                 leftIcon={item?.leftIcon}
-                sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
-                sxContainer="py-2.5  px-3.5  transition-all ease-in-out duration-300 rounded-md relative"
+                sxText="   font-semibold font-plus capitalize  w-full text-[0.825rem] "
+                sxContainer="py-2  px-2  transition-all ease-in-out duration-300 rounded-md relative"
               >
                 {item?.nodes
                   ? item.nodes.map((child, id) => (
@@ -100,7 +100,7 @@ const SideBar = () => {
               </LinkBtn>
 
 
-              {item.category&&<Divider variant="middle" className="mt-2" light></Divider>}
+              {/* {item.category&&<Divider variant="middle" className="mt-2" light></Divider>} */}
             </div>
           ))}
         </Box>

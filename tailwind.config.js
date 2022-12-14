@@ -16,11 +16,10 @@ module.exports = {
 
 
       
-    inter: ["Inter", "sans-serif"],
+      inter: ["Inter", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
-      supreme: ["Supreme", "sans-serif"],
-      general:["General Sans", "sans-serif"],
-      excon:["Excon", "sans-serif"],
+     
+      dm:['DM Sans',"sans-serif"],
       plus:["Plus Jakarta Sans", "sans-serif"]
      
      

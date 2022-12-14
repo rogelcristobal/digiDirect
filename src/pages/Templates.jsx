@@ -74,8 +74,8 @@ const Templates = () => {
             sx=" w-fit h-fit py-2 px-2 "
             title={
               <Typography
-                variant="body1"
-                className="capitalize  text-[1.725rem] font-semibold font-plus  "
+                variant="body2"
+                className="capitalize  text-[1.6rem] font-semibold font-plus  "
               >
                 listing templates
               </Typography>
@@ -83,7 +83,7 @@ const Templates = () => {
           ></TextContent>
           
         </Box>
-        {/* <Divider variant="fullWidth" light></Divider> */}
+        <Divider variant="fullWidth" light></Divider>
       </Box>
 
       {/* content */}
@@ -94,7 +94,7 @@ const Templates = () => {
               <ArticleBlock
                 view={item.refView}
                 article={item}
-                titleStyle="text-[1.325rem] font-semibold font-plus"
+                titleStyle="text-[1.2rem] font-semibold font-plus"
               >
                 {item.child.map((child, idx) => (
                   // child renders here
@@ -105,15 +105,17 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem]  mt-2 relative space-y-2.5 ">                          
+                        <Box className="w-full max-w-[40rem] px-4 mt-2 relative space-y-2.5 ">                          
                           <CodeBlock content={child}></CodeBlock>
+
+                          {/* group btn container */}
                           <Box className="h-fit w-full flex items-center justify-end  box-border gap-3">
                              <Button disableElevation  startIcon={<TbPencil className="text-sm"/>} onClick={event=>handleEdit(event,child)} variant="contained" size="small" className=" rounded-md  p-2 px-4 text-[#101626]/80 border-medium-box hover:border-medium-box bg-inherit flex items-center hover:text-[#101626]">
                               <Typography variant="body1" className="text-[0.7rem] font-plus normal-case font-bold tracking-wide">
                                 Edit
                               </Typography>
                             </Button>
-                            <Button startIcon={<TbClipboard className="text-sm"/>} onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md bg-[#0b70df] p-2 px-4 shadow-none  flex items-center">
+                            <Button startIcon={<TbClipboard className="text-sm"/>} onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md bg-[#101626] p-2 px-4 shadow-none  flex items-center">
                               <Typography variant="body1" className="text-[0.7rem] font-plus normal-case tracking-wide">
                                 Copy
                               </Typography>
