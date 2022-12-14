@@ -49,7 +49,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
 
   return (
     <SandpackProvider
-      // theme={theme}
+      theme={theme}
       template="react"
       customSetup={{
         entry: "index.css",
@@ -76,7 +76,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
       >
         <SandpackCodeViewer
           showLineNumbers
-          className="h-fit   min-h-[4.3rem] w-full px-2    text-[0.875rem] box-border "
+          className="h-fit   min-h-[4.3rem] w-full px-2     box-border "
           wrapContent
         />
       </SandpackLayout>

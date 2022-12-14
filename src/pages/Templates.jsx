@@ -101,11 +101,12 @@ const Templates = () => {
         <Box className="h-full w-full space-y-20   box-border">
           {templateSections.map((item, id) => (
             <Box
-              className="box-border rounded-lg flex flex-col border-thin-box px-10 py-10"
+              className="box-border rounded-lg flex items-start justify-start gap-12 border-thin-box px-10 py-10"
               key={id}
               ref={storeRef}
             >
               <ArticleBlock
+               
                 view={item.refView}
                 article={item}
                 titleStyle="text-[1.3rem] font-semibold font-plus"
@@ -114,12 +115,15 @@ const Templates = () => {
                   // child renders here
                   <Box className="w-full pt-8 box-border  pl-0" key={idx}>
                     <ArticleBlock
+                     
                       article={child}
                       titleStyle="text-[1rem] font-semibold font-plus"
                     ></ArticleBlock>
+
+                    {/* code snippet and btn group */}
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem] px-0 mt-2 relative space-y-2.5 ">
+                        <Box className="w-full  px-0 mt-2 max-w-[40rem] relative space-y-2.5 ">
                           <CodeBlock content={child}></CodeBlock>
 
                           {/* group btn container */}

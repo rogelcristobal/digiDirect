@@ -56,7 +56,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
     
 
       <Box className={`w-full h-fit ${sx}   flex flex-col justify-between `} ref={view}>
-        <Box component="article" className="w-full  box-border  max-w-[50rem]">
+        <Box component="article" className="w-full  box-border  ">
           <TextContent
             // category={article?.category}
             sx={`space-y-2`}
@@ -79,7 +79,8 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
             }
           />
         </Box>
-        { children &&
+       
+       { children &&
         // spaces for each child
           <Box className="  flex flex-col items-center justify-start box-border"> 
             {children} 

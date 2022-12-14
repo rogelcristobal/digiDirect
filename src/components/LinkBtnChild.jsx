@@ -19,7 +19,7 @@ const LinkBtnChild = ({
   const { scrollEl } = useContext(PageScrollableContext);
   const scrollingOptions = {
     alignToTop: true,
-    offsetTop: 100,
+    offsetTop: 80,
   };
   const handleScrollTo = () => {
     const scrollbar = Scrollbar.init(scrollEl);
