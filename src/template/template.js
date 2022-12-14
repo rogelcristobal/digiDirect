@@ -339,7 +339,7 @@ const template = () => {
     tags: `ProductName, ProductName Australia, Barcode1, Barcode2, buy, shop, digidirect, australia, price,`,
   };
   const seoMetaDescription={
-    tags:`Buy the ProductumNameum, - at digiDirect, your one-stop-shop for all your photo, video, and digital imaging needs. Learn more...`
+    tags:`The is ProductName an excellent choice because it is known for its productFeatures, productFeatures. Not only will you enjoy these impressive features, but you'll also be making a smart investment in a high-quality product that will last for years to come. Don't miss out on this opportunity to own the - buy now at digiDirect and experience the difference!`
   }
 
 

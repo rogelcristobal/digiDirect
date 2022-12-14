@@ -5,15 +5,14 @@ function reducer(state, action) {
     case 'TOGGLE_MENU_ON':{
       return{
         menuState: true,
-        // node:,
-        elementProperties: {...action.payload},
+       
       
       }
     }
     case 'TOGGLE_MENU_OFF':{
       return{
         menuState: false,
-        elementProperties: {x:0,y:0,height:0,width:0,node:[]}
+      
       }
     }
    
@@ -25,7 +24,6 @@ function reducer(state, action) {
 export const CodeMenuProvider = ({children}) => {
     const [state,dispatch] = useReducer(reducer,{
       menuState:false,
-      elementProperties: {x:0,y:0,height:0,width:0,node:[]}
     })
 
   return (
