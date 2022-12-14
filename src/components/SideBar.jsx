@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Box, Divider, Typography, IconButton } from "@mui/material";
+import { Box, Divider, Typography, Button } from "@mui/material";
 import {
   TbLayersSubtract,
   TbRepeat,
@@ -37,6 +37,7 @@ const SideBar = () => {
         className=" w-full max-w-[22rem] h-full box-border pt-8 px-2.5  relative  "
       >
         <Box className="box-border space-y-1">
+          
           {[
             {
               path: "/templates",
@@ -63,7 +64,7 @@ const SideBar = () => {
             },
           ].map((item, id) => (
             <div className="box-border" key={id}>
-              {/* {item.category && (
+              {item.category && (
                 <Box className=" px-4">
                   <Typography
                     variant="subtitle2"
@@ -72,7 +73,7 @@ const SideBar = () => {
                     {item.category}
                   </Typography>
                 </Box>
-              )} */}
+              )}
               <LinkBtn
                 handleClick={() => handleLinkClick(item)}
                 title={item.title}

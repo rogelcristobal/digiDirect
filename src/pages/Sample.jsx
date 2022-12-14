@@ -49,6 +49,12 @@ const Sample = () => {
     alert('copied')
   };
 
+
+  
+const [state,setState]=useState('')
+const lines = state?.split('\n')
+
+
   return (
     <Box
       ref={ref}
@@ -77,6 +83,9 @@ const Sample = () => {
 
       {/* content */}
       <Box className="h-auto w-full  px-10 box-border  pt-0">
+
+
+
         <div>
           {productNameInput}
           <button onClick={addKeyFeature}>Add Key Feature</button>
@@ -96,6 +105,28 @@ const Sample = () => {
             Copy
           </Typography>
         </Button>
+
+         <textarea id="myTextarea" onChange={e=>setState(e.target.value)}></textarea>
+          <Button
+        //   startIcon={<TbClipboard className="text-sm" />}
+          onClick={()=>{
+            const lines = state?.split('\n')
+            console.log(lines)
+          }}
+          variant="contained"
+          size="small"
+          className=" rounded-md bg-[#101626] p-2 px-4 shadow-none  flex items-center"
+        >
+          <Typography
+            variant="body1"
+            className="text-[0.7rem] font-plus normal-case tracking-wide"
+          >
+            Generate
+          </Typography>
+        </Button>
+        
+        
+
       </Box>
     </Box>
   );

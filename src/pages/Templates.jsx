@@ -1,20 +1,19 @@
 import { lazy, useContext, useRef, useEffect } from "react";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import PageScrollableContext from "../context/PageScrollableContext";
-import { Box, Typography, Divider, IconButton, Button } from "@mui/material";
+import { Box, Typography, Divider, Button } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import Scrollbar from "smooth-scrollbar";
 import CodeMenuContext from "../context/CodeMenuContext";
-import {TbClipboard,TbPencil} from 'react-icons/tb'
+import { TbClipboard, TbPlus } from "react-icons/tb";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
-
 
 const Templates = () => {
   const ref = useRef(null);
   const { templateSections, storeRef, pageCategoryRef } = useContext(
     TemplateSectionContext
-  ); 
+  );
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   const options = {
     damping: 0.03,
@@ -27,7 +26,6 @@ const Templates = () => {
     Scrollbar.init(ref.current, options);
   }, []);
 
-
   const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
       return tags;
@@ -39,26 +37,21 @@ const Templates = () => {
     navigator.clipboard.writeText(mergeTagsAndStyles(data.snippet));
   };
 
-
-
-
-
   const { dispatch } = useContext(CodeMenuContext);
 
-  const handleEdit = (event,child) => {
-    const pos = event.currentTarget.getBoundingClientRect();
+  const handleEdit = ( ) => {
+    // const pos = event.currentTarget.getBoundingClientRect();
     dispatch({
       type: "TOGGLE_MENU_ON",
-      payload: { 
-        x: pos.left, // position on the clicked codeblock
-        y: pos.top, 
-        height: pos.height, // height of clicked codeblock
-        width: pos.width, 
-      },
+      // payload: {
+      //   x: pos.left, // position on the clicked codeblock
+      //   y: pos.top,
+      //   height: pos.height, // height of clicked codeblock
+      //   width: pos.width,
+      // },
     });
-   
   };
-  
+
   return (
     <Box
       ref={ref}
@@ -70,7 +63,7 @@ const Templates = () => {
         <Box className="h-full w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
           {/* title */}
           <TextContent
-          category="Documentation"
+            category="Documentation"
             sx=" w-fit h-fit py-2 px-2 "
             title={
               <Typography
@@ -81,20 +74,41 @@ const Templates = () => {
               </Typography>
             }
           ></TextContent>
-          
         </Box>
         <Divider variant="fullWidth" light></Divider>
       </Box>
 
       {/* content */}
-      <Box className="h-auto w-full  px-10 box-border  pt-12">
-        <Box className="h-full w-full space-y-20  px-2 box-border">
+      <Box className="h-auto w-full  px-6 box-border  ">
+        {/* btn group */}
+        <Box className="w-full px-6 py-2 h-fit  my-2 flex items-center justify-end">
+          <Button
+            startIcon={<TbPlus className="text-sm" />}
+            onClick={handleEdit}
+            variant="contained"
+            size="small"
+            className=" rounded-md bg-[#175ef1] p-3 px-4 shadow-none  flex items-center"
+          >
+            <Typography
+              variant="body1"
+              className="text-[0.725rem] font-plus normal-case tracking-wide"
+            >
+              Create listing
+            </Typography>
+          </Button>
+        </Box>
+        {/* articles */}
+        <Box className="h-full w-full space-y-20   box-border">
           {templateSections.map((item, id) => (
-            <Box className="box-border flex flex-col " key={id} ref={storeRef}>
+            <Box
+              className="box-border rounded-lg flex flex-col border-thin-box px-10 py-10"
+              key={id}
+              ref={storeRef}
+            >
               <ArticleBlock
                 view={item.refView}
                 article={item}
-                titleStyle="text-[1.2rem] font-semibold font-plus"
+                titleStyle="text-[1.3rem] font-semibold font-plus"
               >
                 {item.child.map((child, idx) => (
                   // child renders here
@@ -105,24 +119,26 @@ const Templates = () => {
                     ></ArticleBlock>
                     <Box className="box-border  flex flex-col w-full   items-start justify-start">
                       {child?.snippet && (
-                        <Box className="w-full max-w-[40rem] px-4 mt-2 relative space-y-2.5 ">                          
+                        <Box className="w-full max-w-[40rem] px-0 mt-2 relative space-y-2.5 ">
                           <CodeBlock content={child}></CodeBlock>
 
                           {/* group btn container */}
                           <Box className="h-fit w-full flex items-center justify-end  box-border gap-3">
-                             <Button disableElevation  startIcon={<TbPencil className="text-sm"/>} onClick={event=>handleEdit(event,child)} variant="contained" size="small" className=" rounded-md  p-2 px-4 text-[#101626]/80 border-medium-box hover:border-medium-box bg-inherit flex items-center hover:text-[#101626]">
-                              <Typography variant="body1" className="text-[0.7rem] font-plus normal-case font-bold tracking-wide">
-                                Edit
-                              </Typography>
-                            </Button>
-                            <Button startIcon={<TbClipboard className="text-sm"/>} onClick={()=>handleCopy(child)} variant="contained" size="small" className=" rounded-md bg-[#101626] p-2 px-4 shadow-none  flex items-center">
-                              <Typography variant="body1" className="text-[0.7rem] font-plus normal-case tracking-wide">
+                            <Button
+                              startIcon={<TbClipboard className="text-sm" />}
+                              onClick={() => handleCopy(child)}
+                              variant="contained"
+                              size="small"
+                              className=" rounded-md bg-[#101626] p-2 px-4 shadow-none  flex items-center"
+                            >
+                              <Typography
+                                variant="body1"
+                                className="text-[0.7rem] font-plus normal-case tracking-wide"
+                              >
                                 Copy
                               </Typography>
                             </Button>
-                           
                           </Box>
-
                         </Box>
                       )}
                     </Box>
