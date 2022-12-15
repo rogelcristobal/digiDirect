@@ -19,7 +19,7 @@ const LinkBtnChild = ({
   const { scrollEl } = useContext(PageScrollableContext);
   const scrollingOptions = {
     alignToTop: true,
-    offsetTop: 100,
+    offsetTop: 80,
   };
   const handleScrollTo = () => {
     const scrollbar = Scrollbar.init(scrollEl);
@@ -31,7 +31,9 @@ const LinkBtnChild = ({
         disableRipple
         disableTouchRipple
         onClick={handleScrollTo}
-        className={`${sxContainer}  flex flex-col pl-12  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
+        className={`${sxContainer} ${
+          active ? " " : "text-gray-500/70"
+        }  flex flex-col pl-12  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out`}
       >
         <Box
           className={`box-border w-full flex items-center 

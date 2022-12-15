@@ -1,18 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Box, Divider, Typography, Button } from "@mui/material";
-import {
-  TbLayersSubtract,
-  TbRepeat,
-  TbChevronLeft,
-  TbChevronRight,
-} from "react-icons/tb";
-import { FiFileText, FiRefreshCcw } from "react-icons/fi";
+
+import { MdOutlineDescription,MdRepeat } from "react-icons/md";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import LinkBtn from "./LinkBtn";
 import { useNavigate } from "react-router-dom";
 import Scrollbar from "smooth-scrollbar";
 import SidebarStateContext from "../context/SidebarStateContext";
-
+import {TbFileCode2,TbRepeat,TbFlask} from 'react-icons/tb'
 import PageScrollableContext from "../context/PageScrollableContext";
 import LinkBtnChild from "./LinkBtnChild";
 
@@ -45,8 +40,8 @@ const SideBar = () => {
               category: "Documentation",
               nodes: templateSections,
               leftIcon: (
-                <Box className=" border-thin-box p-1.5 text-md grid place-content-center rounded-lg">
-                  <TbLayersSubtract/>
+                <Box className="p-1.5 text-lg grid place-content-center rounded-lg">
+                  <TbFileCode2/>
                 </Box>
               ),
               rightIcon: templateSections.length,
@@ -54,11 +49,21 @@ const SideBar = () => {
             {
               path: "/converter",
               title: "converters",
-              category: "API & Tools",
+              // category: "API & Tools",
               leftIcon: (
-                <Box className="border-thin-box p-1.5 text-md grid place-content-center rounded-lg">
+                <Box className="p-1.5 text-lg grid place-content-center rounded-lg">
                   
                   <TbRepeat/>
+                </Box>
+              ),
+            },{
+              path: "/sample",
+              title: "meta description sample",
+              // category: "API & Tools",
+              leftIcon: (
+                <Box className="p-1.5 text-lg grid place-content-center rounded-lg">
+                  
+                  <TbFlask/>
                 </Box>
               ),
             },
@@ -68,7 +73,7 @@ const SideBar = () => {
                 <Box className=" px-4">
                   <Typography
                     variant="subtitle2"
-                    className="text-[0.725rem] tracking-wide font-plus text-gray-500/60 font-semibold mb-2"
+                    className="text-[0.725rem] tracking-wide font-plus text-gray-500/50 font-bold mb-2"
                   >
                     {item.category}
                   </Typography>
@@ -79,23 +84,22 @@ const SideBar = () => {
                 title={item.title}
                 path={item.path}
                 leftIcon={item?.leftIcon}
-                sxText="   font-semibold font-plus capitalize  w-full text-[0.825rem] "
-                sxContainer="py-2  px-2  transition-all ease-in-out duration-300 rounded-md relative"
+                sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
+                sxContainer="py-2  px-2.5  transition-all ease-in-out duration-300 rounded-md relative"
               >
                 {item?.nodes
                   ? item.nodes.map((child, id) => (
                       <LinkBtnChild
                         key={id}
                         id={id}
+                        active={child.isInView}
                         scrollreference={pageCategoryRef}
                         sxText={` font-semibold  font-plus capitalize   w-full text-[0.825rem]`}
-                        sxContainer={`py-2  relative   hover:bg-inherit  ${
-                          child.isInView
-                            ? "text-[#101626] "
-                            : "text-gray-500/70"
-                        }`}
+                        sxContainer={`py-1.5  relative   hover:bg-inherit 
+                         
+                        `}
                         title={child.title}
-                      ></LinkBtnChild>
+                      ><p>as</p></LinkBtnChild>
                     ))
                   : null}
               </LinkBtn>

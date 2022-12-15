@@ -39,7 +39,7 @@ const LinkBtn = ({
         disableTouchRipple
         onClick={handleClick}
         // ${pathname === path&&'bg-[#f3f5f7]'}
-        className={`${sxContainer}flex flex-col   w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out hover:bg-[#f3f5f7]`}
+        className={`${sxContainer}flex flex-col ${pathname !== path&&' '}  w-full h-fit items-start  justify-start transition-all duration-300 ease-in-out hover:bg-[#f3f5f7]`}
       >
         <Box
           className={`box-border w-full flex items-center justify-between h-full `}
