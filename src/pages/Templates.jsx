@@ -16,7 +16,7 @@ const Templates = () => {
   );
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   const options = {
-    damping: 0.03,
+    damping: 0.04,
     renderByPixels: true,
   };
   useEffect(() => {
@@ -53,107 +53,109 @@ const Templates = () => {
   };
 
   return (
-    <Box
+    <>
+      <Box
       ref={ref}
-      className="block w-full pb-52 h-full box-border pt-14  relative "
-    >
-      {/* header */}
-      <Box className=" h-40 w-full    pt-6 box-border">
-        {/* wrapper */}
-        <Box className="h-full w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
-          {/* title */}
-          <TextContent
-            category="Documentation"
-            sx=" w-fit h-fit py-2 px-2 "
-            title={
+      className="block w-full pb-52 h-full box-border pt-14  relative ">
+        {/* header */}
+        <Box className=" h-40 w-full    pt-6 box-border">
+          {/* wrapper */}
+          <Box className="h-full w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
+            {/* title */}
+            <TextContent
+              category="Documentation"
+              sx=" w-fit h-fit py-2 px-2 "
+              title={
+                <Typography
+                  variant="body2"
+                  className="capitalize  text-[1.8rem] font-semibold font-plus  "
+                >
+                  listing templates
+                </Typography>
+              }
+            ></TextContent>
+          </Box>
+          <Divider variant="fullWidth" light></Divider>
+        </Box>
+
+        {/* content */}
+        <Box className="h-auto w-full  px-6 box-border  ">
+          {/* btn group */}
+          {/* <Box className="w-full px-6 py-2 h-fit  my-2 flex items-center justify-end">
+            <Button
+              startIcon={<TbPlus className="text-sm" />}
+              // onClick={handleEdit}
+              variant="contained"
+              size="small"
+              className=" rounded-md bg-[#2a85ff] p-3 px-4 shadow-none  flex items-center"
+            >
               <Typography
-                variant="body2"
-                className="capitalize  text-[1.6rem] font-semibold font-plus  "
+                variant="body1"
+                className="text-[0.725rem] font-plus normal-case tracking-wide"
               >
-                listing templates
+                Create listing
               </Typography>
-            }
-          ></TextContent>
-        </Box>
-        <Divider variant="fullWidth" light></Divider>
-      </Box>
-
-      {/* content */}
-      <Box className="h-auto w-full  px-6 box-border  ">
-        {/* btn group */}
-        <Box className="w-full px-6 py-2 h-fit  my-2 flex items-center justify-end">
-          <Button
-            startIcon={<TbPlus className="text-sm" />}
-            onClick={handleEdit}
-            variant="contained"
-            size="small"
-            className=" rounded-md bg-[#175ef1] p-3 px-4 shadow-none  flex items-center"
-          >
-            <Typography
-              variant="body1"
-              className="text-[0.725rem] font-plus normal-case tracking-wide"
-            >
-              Create listing
-            </Typography>
-          </Button>
-        </Box>
-        {/* articles */}
-        <Box className="h-full w-full space-y-20   box-border">
-          {templateSections.map((item, id) => (
-            <Box
-              className="box-border rounded-lg flex items-start justify-start gap-12 border-thin-box px-10 py-10"
-              key={id}
-              ref={storeRef}
-            >
-              <ArticleBlock
-               
-                view={item.refView}
-                article={item}
-                titleStyle="text-[1.3rem] font-semibold font-plus"
+            </Button>
+          </Box> */}
+          {/* articles */}
+          <Box className="h-full w-full space-y-20  pt-6 box-border">
+            {templateSections.map((item, id) => (
+              <Box
+                className="box-border rounded-lg flex items-start justify-start gap-12  px-6 py-6"
+                key={id}
+                ref={storeRef}
               >
-                {item.child.map((child, idx) => (
-                  // child renders here
-                  <Box className="w-full pt-8 box-border  pl-0" key={idx}>
-                    <ArticleBlock
-                     
-                      article={child}
-                      titleStyle="text-[1rem] font-semibold font-plus"
-                    ></ArticleBlock>
+                <ArticleBlock
+                
+                  view={item.refView}
+                  article={item}
+                  titleStyle="text-[1.3rem] font-semibold font-plus"
+                >
+                  {item.child.map((child, idx) => (
+                    // child renders here
+                    <Box className="w-full pt-8 box-border  pl-0" key={idx}>
+                      <ArticleBlock
+                      
+                        article={child}
+                        titleStyle="text-[1rem] font-semibold font-plus"
+                      ></ArticleBlock>
 
-                    {/* code snippet and btn group */}
-                    <Box className="box-border  flex flex-col w-full   items-start justify-start">
-                      {child?.snippet && (
-                        <Box className="w-full  px-0 mt-2 max-w-[40rem] relative space-y-2.5 ">
-                          <CodeBlock content={child}></CodeBlock>
+                      {/* code snippet and btn group */}
+                      <Box className="box-border  flex flex-col w-full   items-start justify-start">
+                        {child?.snippet && (
+                          <Box className="w-full  px-0 mt-2 max-w-[40rem] relative space-y-2.5 ">
+                            <CodeBlock content={child}></CodeBlock>
 
-                          {/* group btn container */}
-                          <Box className="h-fit w-full flex items-center justify-end  box-border gap-3">
-                            <Button
-                              startIcon={<TbClipboard className="text-sm" />}
-                              onClick={() => handleCopy(child)}
-                              variant="contained"
-                              size="small"
-                              className=" rounded-md bg-[#101626] p-2 px-4 shadow-none  flex items-center"
-                            >
-                              <Typography
-                                variant="body1"
-                                className="text-[0.7rem] font-plus normal-case tracking-wide"
+                            {/* group btn container */}
+                            <Box className="h-fit w-full flex items-center justify-end  box-border gap-3">
+                              <Button
+                                startIcon={<TbClipboard className="text-sm" />}
+                                onClick={() => handleCopy(child)}
+                                variant="contained"
+                                size="small"
+                                className=" rounded-md bg-[#101626] p-2 px-4 shadow-none  flex items-center"
                               >
-                                Copy
-                              </Typography>
-                            </Button>
+                                <Typography
+                                  variant="body1"
+                                  className="text-[0.7rem] font-plus normal-case tracking-wide"
+                                >
+                                  Copy
+                                </Typography>
+                              </Button>
+                            </Box>
                           </Box>
-                        </Box>
-                      )}
+                        )}
+                      </Box>
                     </Box>
-                  </Box>
-                ))}
-              </ArticleBlock>
-            </Box>
-          ))}
+                  ))}
+                </ArticleBlock>
+              </Box>
+            ))}
+          </Box>
         </Box>
       </Box>
-    </Box>
+      {/* <Box className="border-thin-box w-[30rem] box-border h-full sticky top-0"></Box> */}
+    </>
   );
 };
 

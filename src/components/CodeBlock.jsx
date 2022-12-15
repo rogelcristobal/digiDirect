@@ -12,7 +12,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
 
   const theme = {
     colors: {
-    surface1: "#101626",
+    surface1: "#1e293b",
     surface2: "#44475a",
     surface3: "#44475a",
     clickable: "#6272a4",
@@ -24,7 +24,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     errorSurface: "#44475a"
   },
   syntax: {
-    plain: "#f8f8f2",
+    plain: " rgb(229 231 235)",
     comment: {
       color: "#6272a4",
       fontStyle: "italic"
@@ -42,7 +42,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
 
       mono: "\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
  
-      size: "12px",
+      size: "13.5px",
       lineHeight: "21px",
     },
   };
@@ -72,11 +72,11 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     >
       <SandpackLayout
         ref={container}
-        className="box-border flex items-center justify-center w-full  relative  border-thin-box rounded-none "
+        className="box-border flex items-center justify-center w-full  relative  border-thin-box rounded-md "
       >
         <SandpackCodeViewer
-          showLineNumbers
-          className="h-fit   min-h-[4.3rem] w-full px-2     box-border "
+          // showLineNumbers
+          className="h-fit   min-h-[4.3rem] w-full px-3   py-2  box-border "
           wrapContent
         />
       </SandpackLayout>

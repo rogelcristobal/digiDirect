@@ -47,13 +47,13 @@ const Converter = () => {
             }
           ></TextContent>
         </Box>
-        <Divider variant="fullWidth" light></Divider>
+        {/* <Divider variant="fullWidth" light></Divider> */}
       </Box>
 
       {/* content */}
       <Box className="h-auto w-full  px-10 box-border  pt-0">
-        <Box className="h-48  w-full box-border flex items-center justify-start">
-          <Box className="h-full w-full max-w-[25rem] box-border"> 
+        <Box className="h-36  w-full box-border flex items-center justify-start">
+          <Box className="h-full w-full max-w-[20rem] box-border"> 
             <FileInput />
           </Box>
         </Box>

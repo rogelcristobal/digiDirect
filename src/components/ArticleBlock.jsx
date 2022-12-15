@@ -59,7 +59,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         <Box component="article" className="w-full  box-border  ">
           <TextContent
             // category={article?.category}
-            sx={`space-y-2`}
+            sx={`space-y-1.5`}
             title={
 
               <Typography
@@ -72,7 +72,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
             subTitle={
               <Typography
                 variant="subtitle2"
-                className={`max-w-[45rem] font-plus font-medium text-[0.850rem] text-gray-500  `}
+                className={`max-w-[45rem] font-plus font-medium text-[0.875rem] text-gray-500  `}
               >
                 {article.content}
               </Typography>
