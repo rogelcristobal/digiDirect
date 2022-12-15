@@ -12,7 +12,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
 
   const theme = {
     colors: {
-    surface1: "#1e293b",
+    surface1: "#f9f9f9",
     surface2: "#44475a",
     surface3: "#44475a",
     clickable: "#6272a4",
@@ -47,9 +47,44 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     },
   };
 
+  const theme2={
+     colors: {
+    surface1: "#f9f9f9",
+    surface2: "#F3F3F3",
+    surface3: "#f5f5f5",
+    clickable: "#959da5",
+    base: "#24292e",
+    disabled: "#d1d4d8",
+    hover: "#24292e",
+    accent: "#24292e"
+  },
+  syntax: {
+    keyword: "#d73a49",
+    property: "#005cc5",
+    plain: "#24292e",
+    static: "#032f62",
+    string: "#032f62",
+    definition: "#6f42c1",
+    punctuation: "#24292e",
+    tag: "#22863a",
+    comment: {
+      color: "#6a737d",
+      fontStyle: "normal"
+    }
+  },
+    font: {
+      body:  "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+
+      mono: "\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
+ 
+      size: "13px",
+      lineHeight: "21px",
+    },
+  }
+
   return (
     <SandpackProvider
-      theme={theme}
+      theme={theme2}
       template="react"
       customSetup={{
         entry: "index.css",
@@ -72,11 +107,11 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     >
       <SandpackLayout
         ref={container}
-        className="box-border flex items-center justify-center w-full  relative  border-thin-box rounded-md "
+        className="box-border flex items-center justify-center w-full  relative  border-none shadow-sm rounded-md "
       >
         <SandpackCodeViewer
           // showLineNumbers
-          className="h-fit   min-h-[4.3rem] w-full px-3   py-2  box-border "
+          className="h-fit border-none  min-h-[4.3rem] w-full px-4    box-border "
           wrapContent
         />
       </SandpackLayout>

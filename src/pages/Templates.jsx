@@ -68,7 +68,7 @@ const Templates = () => {
               title={
                 <Typography
                   variant="body2"
-                  className="capitalize  text-[1.8rem] font-semibold font-plus  "
+                  className="capitalize  text-[1.7em] font-semibold font-plus  "
                 >
                   listing templates
                 </Typography>
@@ -79,7 +79,7 @@ const Templates = () => {
         </Box>
 
         {/* content */}
-        <Box className="h-auto w-full  px-6 box-border  ">
+        <Box className="h-auto w-full  px-6 box-border  pt-12">
           {/* btn group */}
           {/* <Box className="w-full px-6 py-2 h-fit  my-2 flex items-center justify-end">
             <Button
@@ -121,7 +121,7 @@ const Templates = () => {
                       ></ArticleBlock>
 
                       {/* code snippet and btn group */}
-                      <Box className="box-border  flex flex-col w-full   items-start justify-start">
+                      <Box className="box-border  flex flex-col w-full pt-4 px-4 items-start justify-start">
                         {child?.snippet && (
                           <Box className="w-full  px-0 mt-2 max-w-[40rem] relative space-y-2.5 ">
                             <CodeBlock content={child}></CodeBlock>
@@ -133,11 +133,11 @@ const Templates = () => {
                                 onClick={() => handleCopy(child)}
                                 variant="contained"
                                 size="small"
-                                className=" rounded-md bg-[#101626] p-2 px-4 shadow-none  flex items-center"
+                                className=" rounded bg-[#2a85ff] p-2 px-4 shadow-none  flex items-center"
                               >
                                 <Typography
                                   variant="body1"
-                                  className="text-[0.7rem] font-plus normal-case tracking-wide"
+                                  className="text-[0.7rem] font-plus normal-case "
                                 >
                                   Copy
                                 </Typography>

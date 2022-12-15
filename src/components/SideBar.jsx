@@ -56,17 +56,18 @@ const SideBar = () => {
                   <TbRepeat/>
                 </Box>
               ),
-            },{
-              path: "/sample",
-              title: "meta description sample",
-              // category: "API & Tools",
-              leftIcon: (
-                <Box className="p-1.5 text-lg grid place-content-center rounded-lg">
-                  
-                  <TbFlask/>
-                </Box>
-              ),
             },
+            // {
+            //   path: "/sample",
+            //   title: "meta description sample",
+            //   category: "API & Tools",
+            //   leftIcon: (
+            //     <Box className="p-1.5 text-lg grid place-content-center rounded-lg">
+                  
+            //       <TbFlask/>
+            //     </Box>
+            //   ),
+            // },
           ].map((item, id) => (
             <div className="box-border" key={id}>
               {item.category && (
@@ -99,7 +100,7 @@ const SideBar = () => {
                          
                         `}
                         title={child.title}
-                      ><p>as</p></LinkBtnChild>
+                      ></LinkBtnChild>
                     ))
                   : null}
               </LinkBtn>
