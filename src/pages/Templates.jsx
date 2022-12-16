@@ -6,7 +6,7 @@ import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import Scrollbar from "smooth-scrollbar";
 import CodeMenuContext from "../context/CodeMenuContext";
-import { TbClipboard, TbPlus } from "react-icons/tb";
+import { RxArrowLeft } from "react-icons/rx";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -16,7 +16,7 @@ const Templates = () => {
   );
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   const options = {
-    damping: 0.04,
+    damping: 0.03,
     renderByPixels: true,
   };
   useEffect(() => {
@@ -39,7 +39,7 @@ const Templates = () => {
 
   const { dispatch } = useContext(CodeMenuContext);
 
-  const handleEdit = ( ) => {
+  const handleEdit = () => {
     // const pos = event.currentTarget.getBoundingClientRect();
     dispatch({
       type: "TOGGLE_MENU_ON",
@@ -55,78 +55,73 @@ const Templates = () => {
   return (
     <>
       <Box
-      ref={ref}
-      className="block w-full pb-52 h-full box-border pt-14  relative ">
+        // ref={ref}
+        className="block w-full  h-full  box-border pt-0  relative "
+      >
         {/* header */}
-        <Box className=" h-40 w-full    pt-6 box-border">
-          {/* wrapper */}
-          <Box className="h-full w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
-            {/* title */}
-            <TextContent
-              category="Documentation"
-              sx=" w-fit h-fit py-2 px-2 "
-              title={
-                <Typography
-                  variant="body2"
-                  className="capitalize  text-[1.7em] font-semibold font-plus  "
-                >
-                  listing templates
-                </Typography>
-              }
-            ></TextContent>
-          </Box>
-          <Divider variant="fullWidth" light></Divider>
-        </Box>
-
         {/* content */}
-        <Box className="h-auto w-full  px-6 box-border  pt-12">
-          {/* btn group */}
-          {/* <Box className="w-full px-6 py-2 h-fit  my-2 flex items-center justify-end">
-            <Button
-              startIcon={<TbPlus className="text-sm" />}
-              // onClick={handleEdit}
-              variant="contained"
-              size="small"
-              className=" rounded-md bg-[#2a85ff] p-3 px-4 shadow-none  flex items-center"
+        <Box className="flex h-full w-full  box-border">
+          <Box className="h-screen sticky top-0 w-[30rem] flex justify-end">
+            <Box className=" h-full flex items-start justify-end w-full  cursor-default  pt-6 box-border">
+              {/* wrapper */}
+              {/* <Box className="h-full mt-8 ml-4 mr-2 grid place-content-center text-[1.6rem] ">
+                 <RxArrowLeft></RxArrowLeft>
+              </Box> */}
+              <Box className="h-full w-full flex flex-col items-start justify-start p-4  box-border relative">
+                {/* title */}
+                <TextContent
+                  category="Documentation"
+                  sx=" w-full h-fit py-2 px-4 "
+                  title={
+                    <Typography
+                      variant="body2"
+                      className="normal-case tracking-tight text-[1.6em] font-ukraine-regular  leading-8"
+                    >
+                      Product listing
+                      <br /> templates
+                    </Typography>
+                  }
+                ></TextContent>
+              </Box>
+            </Box>
+            <Divider
+              variant="middle"
+              textAlign="center"
+              orientation="vertical"
+              className="absolute h-[95%]  top-1/2 -translate-y-1/2"
             >
-              <Typography
-                variant="body1"
-                className="text-[0.725rem] font-plus normal-case tracking-wide"
-              >
-                Create listing
-              </Typography>
-            </Button>
-          </Box> */}
+              {/* <Typography variant="subtitle2" className="font-ukraine-regular text-[1.4rem]" light>01</Typography> */}
+            </Divider>
+          </Box>
+
           {/* articles */}
-          <Box className="h-full w-full space-y-20  pt-6 box-border">
+          <Box ref={ref} className="h-screen w-full  py-60 box-border">
             {templateSections.map((item, id) => (
               <Box
-                className="box-border rounded-lg flex items-start justify-start gap-12  px-6 py-6"
+                className="box-border  flex items-start justify-start gap-12  px-16 pb-72  "
                 key={id}
                 ref={storeRef}
               >
                 <ArticleBlock
-                
                   view={item.refView}
                   article={item}
-                  titleStyle="text-[1.3rem] font-semibold font-plus"
+                  titleStyle="text-[1.3rem]  font-ukraine-regular"
                 >
                   {item.child.map((child, idx) => (
                     // child renders here
                     <Box className="w-full pt-8 box-border  pl-0" key={idx}>
                       <ArticleBlock
-                      
                         article={child}
-                        titleStyle="text-[1rem] font-semibold font-plus"
+                        titleStyle="text-[1rem]  font-ukraine-regular"
                       ></ArticleBlock>
 
                       {/* code snippet and btn group */}
-                      <Box className="box-border  flex flex-col w-full pt-4 px-4 items-start justify-start">
+                      {/* <Box className="box-border  flex flex-col w-full pt-4 px-4 items-start justify-start">
                         {child?.snippet && (
                           <Box className="w-full  px-0 mt-2 max-w-[40rem] relative space-y-2.5 ">
                             <CodeBlock content={child}></CodeBlock>
 
-                            {/* group btn container */}
+                          
                             <Box className="h-fit w-full flex items-center justify-end  box-border gap-3">
                               <Button
                                 startIcon={<TbClipboard className="text-sm" />}
@@ -137,7 +132,7 @@ const Templates = () => {
                               >
                                 <Typography
                                   variant="body1"
-                                  className="text-[0.7rem] font-plus normal-case "
+                                  className="text-[0.7rem] font-ukraine-medium normal-case "
                                 >
                                   Copy
                                 </Typography>
@@ -145,7 +140,7 @@ const Templates = () => {
                             </Box>
                           </Box>
                         )}
-                      </Box>
+                      </Box> */}
                     </Box>
                   ))}
                 </ArticleBlock>
@@ -154,7 +149,6 @@ const Templates = () => {
           </Box>
         </Box>
       </Box>
-      {/* <Box className="border-thin-box w-[30rem] box-border h-full sticky top-0"></Box> */}
     </>
   );
 };
