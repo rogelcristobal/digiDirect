@@ -7,6 +7,7 @@ import CodeBlock from "../components/CodeBlock";
 import Scrollbar from "smooth-scrollbar";
 import CodeMenuContext from "../context/CodeMenuContext";
 import { RxArrowLeft } from "react-icons/rx";
+import { motion } from "framer-motion";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -55,94 +56,28 @@ const Templates = () => {
   return (
     <>
       <Box
-        // ref={ref}
         className="block w-full  h-full  box-border pt-0  relative "
       >
         {/* header */}
         {/* content */}
-        <Box className="flex h-full w-full  box-border">
-          <Box className="h-screen sticky top-0 w-[30rem] flex justify-end">
-            <Box className=" h-full flex items-start justify-end w-full  cursor-default  pt-6 box-border">
-              {/* wrapper */}
-              {/* <Box className="h-full mt-8 ml-4 mr-2 grid place-content-center text-[1.6rem] ">
-                 <RxArrowLeft></RxArrowLeft>
-              </Box> */}
-              <Box className="h-full w-full flex flex-col items-start justify-start p-4  box-border relative">
-                {/* title */}
-                <TextContent
-                  category="Documentation"
-                  sx=" w-full h-fit py-2 px-4 "
-                  title={
-                    <Typography
-                      variant="body2"
-                      className="normal-case tracking-tight text-[1.6em] font-ukraine-regular  leading-8"
-                    >
-                      Product listing
-                      <br /> templates
-                    </Typography>
-                  }
-                ></TextContent>
-              </Box>
-            </Box>
-            <Divider
-              variant="middle"
-              textAlign="center"
-              orientation="vertical"
-              className="absolute h-[95%]  top-1/2 -translate-y-1/2"
-            >
-              {/* <Typography variant="subtitle2" className="font-ukraine-regular text-[1.4rem]" light>01</Typography> */}
-            </Divider>
-          </Box>
-
+        <Box className="flex h-full w-full  box-border ">
+         
           {/* articles */}
-          <Box ref={ref} className="h-screen w-full  py-60 box-border">
+          <Box ref={ref} className="h-screen w-full  pb-32 box-border">
+            <Box className="h-96  w-full box-border mb-0"></Box>
             {templateSections.map((item, id) => (
               <Box
-                className="box-border  flex items-start justify-start gap-12  px-16 pb-72  "
+                className="box-border  py-6 flex items-start justify-start gap-12  px-16 pb-0  overflow-y-hidden"
                 key={id}
                 ref={storeRef}
               >
                 <ArticleBlock
                   view={item.refView}
                   article={item}
-                  titleStyle="text-[1.3rem]  font-ukraine-regular"
+                  id={id}
+                  titleStyle="text-2xl  font-ukraine-regular"
                 >
-                  {item.child.map((child, idx) => (
-                    // child renders here
-                    <Box className="w-full pt-8 box-border  pl-0" key={idx}>
-                      <ArticleBlock
-                        article={child}
-                        titleStyle="text-[1rem]  font-ukraine-regular"
-                      ></ArticleBlock>
-
-                      {/* code snippet and btn group */}
-                      {/* <Box className="box-border  flex flex-col w-full pt-4 px-4 items-start justify-start">
-                        {child?.snippet && (
-                          <Box className="w-full  px-0 mt-2 max-w-[40rem] relative space-y-2.5 ">
-                            <CodeBlock content={child}></CodeBlock>
-
-                          
-                            <Box className="h-fit w-full flex items-center justify-end  box-border gap-3">
-                              <Button
-                                startIcon={<TbClipboard className="text-sm" />}
-                                onClick={() => handleCopy(child)}
-                                variant="contained"
-                                size="small"
-                                className=" rounded bg-[#2a85ff] p-2 px-4 shadow-none  flex items-center"
-                              >
-                                <Typography
-                                  variant="body1"
-                                  className="text-[0.7rem] font-ukraine-medium normal-case "
-                                >
-                                  Copy
-                                </Typography>
-                              </Button>
-                            </Box>
-                          </Box>
-                        )}
-                      </Box> */}
-                    </Box>
-                  ))}
+                
                 </ArticleBlock>
               </Box>
             ))}

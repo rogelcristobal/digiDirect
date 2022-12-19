@@ -13,6 +13,7 @@ import { CodeMenuProvider } from "./context/CodeMenuContext";
 import { SidebarStateProvider } from "./context/SidebarStateContext";
 import SideBar from "./components/SideBar";
 import Scrollbar from "smooth-scrollbar";
+import Cursor from './components/Cursor'
 import { AnimatePresence } from "framer-motion";
 import CodeBlockMenu from "./components/CodeBlockMenu";
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
@@ -34,6 +35,7 @@ const App = () => {
               <SidebarStateProvider>
                 <TemplateSectionProvider>
                   <MouseStateProvider>
+                    <Cursor></Cursor>
                     <Main />
                   </MouseStateProvider>
                 </TemplateSectionProvider>
@@ -52,7 +54,7 @@ const Main = () => {
   // scrollbar animation
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   const options = {
-    damping: 0.03,
+    damping: 0.02,
     renderByPixels: true,
   };
  const ref = useRef(null)
@@ -70,14 +72,13 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-full   w-full  text-[#000000]  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+          <Box className="h-full cursor-none  w-full  text-[#000000]  box-border flex   items-start justify-start  relative bg-[#ffffff]">
             {/* <SideBar /> */}
-            {/* <Navbar></Navbar> */}
+            <Navbar></Navbar>
             <AnimatePresence>
               {state.menuState && <CodeBlockMenu />}
             </AnimatePresence>
             <Box
-              
               component="main"
               className=" box-border  flex h-full  w-full relative  "
             >
