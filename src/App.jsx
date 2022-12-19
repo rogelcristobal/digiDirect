@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Navbar from "./components/Navbar";
-import { useContext, lazy, Suspense, useEffect, useState } from "react";
+import { useContext, lazy, Suspense, useEffect, useRef } from "react";
 import { MouseStateProvider } from "./context/MouseStateContext";
 import { TemplateSectionProvider } from "./context/TemplateSectionContext";
 import LoadingFallback from "./components/LoadingFallback";
@@ -11,11 +11,13 @@ import { ScrollProvider } from "./context/ScrollContext";
 import CodeMenuContext from "./context/CodeMenuContext";
 import { CodeMenuProvider } from "./context/CodeMenuContext";
 import { SidebarStateProvider } from "./context/SidebarStateContext";
-import Scrollbar from "smooth-scrollbar";
 import SideBar from "./components/SideBar";
+import Scrollbar from "smooth-scrollbar";
+import Cursor from './components/Cursor'
 import { AnimatePresence } from "framer-motion";
 import CodeBlockMenu from "./components/CodeBlockMenu";
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
+import PageScrollableContext from './context/PageScrollableContext'
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -33,6 +35,7 @@ const App = () => {
               <SidebarStateProvider>
                 <TemplateSectionProvider>
                   <MouseStateProvider>
+                    <Cursor></Cursor>
                     <Main />
                   </MouseStateProvider>
                 </TemplateSectionProvider>
@@ -49,16 +52,19 @@ const Main = () => {
   // context
   const { state } = useContext(CodeMenuContext);
   // scrollbar animation
+  const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   const options = {
-    damping: 0.03,
+    damping: 0.02,
     renderByPixels: true,
   };
-  useEffect(() => {
-    Scrollbar.initAll(options);
+ const ref = useRef(null)
 
-    // const x = Scrollbar.getAll()
-    // console.log(x)
-  }, []);
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     setScrollEl(ref.current);
+  //   }
+  //   Scrollbar.init(ref.current, options);
+  // }, []);
 
   return (
     <Routes>
@@ -66,15 +72,15 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen  font-inter  w-full  text-[#101626]  box-border flex   items-start justify-start  relative bg-[#ffffff]">
-            <SideBar />
+          <Box className="h-full cursor-none  w-full  text-[#000000]  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+            {/* <SideBar /> */}
             <Navbar></Navbar>
             <AnimatePresence>
               {state.menuState && <CodeBlockMenu />}
             </AnimatePresence>
             <Box
               component="main"
-              className=" box-border  flex h-screen  w-full relative  "
+              className=" box-border  flex h-full  w-full relative  "
             >
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
