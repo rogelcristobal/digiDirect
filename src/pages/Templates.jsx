@@ -58,9 +58,9 @@ const Templates = () => {
       ref={ref}
       className="block w-full pb-52 h-full box-border pt-14  relative ">
         {/* header */}
-        <Box className=" h-40 w-full    pt-6 box-border">
+        <Box className=" h-52 w-full  flex flex-col  pt-0 box-border">
           {/* wrapper */}
-          <Box className="h-full w-full flex flex-col items-start justify-start py-4 px-10 box-border relative">
+          <Box className="h-full w-full  flex flex-col items-start justify-start py-4  px-10 box-border relative ">
             {/* title */}
             <TextContent
               category="Documentation"
@@ -133,11 +133,12 @@ const Templates = () => {
                                 onClick={() => handleCopy(child)}
                                 variant="contained"
                                 size="small"
-                                className=" rounded bg-[#2a85ff] p-2 px-4 shadow-none  flex items-center"
+                                className=" rounded-lg hover:bg-[#0066ff] bg-[#1a75ff] py-2.5 px-5 shadow-none  flex items-center"
                               >
+                                {/* [#2a85ff] */}
                                 <Typography
                                   variant="body1"
-                                  className="text-[0.7rem] font-plus normal-case "
+                                  className="text-[0.775rem] font-plus normal-case "
                                 >
                                   Copy
                                 </Typography>
@@ -167,3 +168,10 @@ export default Templates;
 // https://dribbble.com/UI8
 // https://cdn.dribbble.com/users/1723105/screenshots/17358687/media/9d9146fb5dd679b892cecf8fdb0c9f1a.png
 // https://www.pinterest.ph/search/pins/?q=twitter%20ui&rs=typed
+
+
+
+// https://coolors.co/696d7d-6f9283-8d9f87-cdc6a5-f0dcca
+// 000000-2f4550-586f7c-b8dbd9-f4f4f9
+
+// twitter like 071013-23b5d3-75abbc-a2aebb-dfe0e2

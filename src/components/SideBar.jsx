@@ -7,7 +7,7 @@ import LinkBtn from "./LinkBtn";
 import { useNavigate } from "react-router-dom";
 import Scrollbar from "smooth-scrollbar";
 import SidebarStateContext from "../context/SidebarStateContext";
-import {TbFileCode2,TbRepeat,TbFlask} from 'react-icons/tb'
+import {TbBrowser,TbRotate,TbFlask} from 'react-icons/tb'
 import PageScrollableContext from "../context/PageScrollableContext";
 import LinkBtnChild from "./LinkBtnChild";
 
@@ -41,7 +41,7 @@ const SideBar = () => {
               nodes: templateSections,
               leftIcon: (
                 <Box className="p-1.5 text-lg grid place-content-center rounded-lg">
-                  <TbFileCode2/>
+                  <TbBrowser/>
                 </Box>
               ),
               rightIcon: templateSections.length,
@@ -53,7 +53,7 @@ const SideBar = () => {
               leftIcon: (
                 <Box className="p-1.5 text-lg grid place-content-center rounded-lg">
                   
-                  <TbRepeat/>
+                  <TbRotate/>
                 </Box>
               ),
             },
@@ -69,26 +69,28 @@ const SideBar = () => {
             //   ),
             // },
           ].map((item, id) => (
-            <div className="box-border" key={id}>
+            <div className="box-border " key={id}>
+              {/* category */}
               {item.category && (
-                <Box className=" px-4">
+                <Box className=" px-4  w-fit">
                   <Typography
                     variant="subtitle2"
-                    className="text-[0.725rem] tracking-wide font-plus text-gray-500/50 font-bold mb-2"
+                    className="text-[0.775rem] tracking-wide font-inter text-gray-500/70 font-medium mb-2"
                   >
                     {item.category}
                   </Typography>
                 </Box>
               )}
+              {/* button */}
               <LinkBtn
                 handleClick={() => handleLinkClick(item)}
                 title={item.title}
                 path={item.path}
                 leftIcon={item?.leftIcon}
-                sxText="   font-semibold font-plus capitalize  w-full text-[0.850rem] "
-                sxContainer="py-2  px-2.5  transition-all ease-in-out duration-300 rounded-md relative"
+                sxText="   font-medium font-inter capitalize  w-full text-[0.875rem] "
+                sxContainer=" py-2  px-2.5 border-medium-box transition-all ease-in-out duration-300 rounded-md relative"
               >
-                {item?.nodes
+                {/* {item?.nodes
                   ? item.nodes.map((child, id) => (
                       <LinkBtnChild
                         key={id}
@@ -102,13 +104,14 @@ const SideBar = () => {
                         title={child.title}
                       ></LinkBtnChild>
                     ))
-                  : null}
+                  : null} */}
               </LinkBtn>
 
 
               {/* {item.category&&<Divider variant="middle" className="mt-2" light></Divider>} */}
             </div>
           ))}
+          <Divider variant="middle" className="mt-2" light></Divider>
         </Box>
       </Box>
 
