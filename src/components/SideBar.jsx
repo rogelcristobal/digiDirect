@@ -88,7 +88,7 @@ const SideBar = () => {
                 path={item.path}
                 leftIcon={item?.leftIcon}
                 sxText="   font-medium font-inter capitalize  w-full text-[0.875rem] "
-                sxContainer=" py-2  px-2.5 border-medium-box transition-all ease-in-out duration-300 rounded-md relative"
+                sxContainer=" py-2  px-2.5 transition-all ease-in-out duration-300 rounded-md relative"
               >
                 {/* {item?.nodes
                   ? item.nodes.map((child, id) => (
@@ -111,7 +111,7 @@ const SideBar = () => {
               {/* {item.category&&<Divider variant="middle" className="mt-2" light></Divider>} */}
             </div>
           ))}
-          <Divider variant="middle" className="mt-2" light></Divider>
+          <Divider variant="middle" className="" light></Divider>
         </Box>
       </Box>
 

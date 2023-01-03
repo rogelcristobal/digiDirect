@@ -66,8 +66,8 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen  font-plus  w-full  text-gray-900  box-border flex   items-start justify-start  relative bg-[#ffffff]">
-            <SideBar />
+          <Box className="h-screen  font-plus  w-full  text-black  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+            {/* <SideBar /> */}
             {/* <Navbar></Navbar> */}
             <AnimatePresence>
               {state.menuState && <CodeBlockMenu />}

@@ -58,17 +58,17 @@ const Templates = () => {
       ref={ref}
       className="block w-full pb-52 h-full box-border pt-14  relative ">
         {/* header */}
-        <Box className=" h-52 w-full  flex flex-col  pt-0 box-border">
+        <Box className=" h-52 w-full  flex flex-col  pt-8 box-border">
           {/* wrapper */}
           <Box className="h-full w-full  flex flex-col items-start justify-start py-4  px-10 box-border relative ">
             {/* title */}
             <TextContent
-              category="Documentation"
+              // category="Documentation"
               sx=" w-fit h-fit py-2 px-2 "
               title={
                 <Typography
                   variant="body2"
-                  className="capitalize  text-[1.7em] font-semibold font-plus  "
+                  className="capitalize  text-[2.3rem] font-semibold font-inter  "
                 >
                   listing templates
                 </Typography>
@@ -91,7 +91,7 @@ const Templates = () => {
             >
               <Typography
                 variant="body1"
-                className="text-[0.725rem] font-plus normal-case tracking-wide"
+                className="text-[0.725rem] font-inter normal-case tracking-wide"
               >
                 Create listing
               </Typography>
@@ -109,7 +109,7 @@ const Templates = () => {
                 
                   view={item.refView}
                   article={item}
-                  titleStyle="text-[1.3rem] font-semibold font-plus"
+                  titleStyle="text-[1.3rem] font-medium font-inter"
                 >
                   {item.child.map((child, idx) => (
                     // child renders here
@@ -117,7 +117,7 @@ const Templates = () => {
                       <ArticleBlock
                       
                         article={child}
-                        titleStyle="text-[1rem] font-semibold font-plus"
+                        titleStyle="text-[1rem] font-medium font-inter"
                       ></ArticleBlock>
 
                       {/* code snippet and btn group */}
@@ -133,12 +133,12 @@ const Templates = () => {
                                 onClick={() => handleCopy(child)}
                                 variant="contained"
                                 size="small"
-                                className=" rounded-lg hover:bg-[#0066ff] bg-[#1a75ff] py-2.5 px-5 shadow-none  flex items-center"
+                                className=" rounded-lg hover:bg-[#0066ff] bg-[#1a75ff] py-2 px-4 shadow-none  flex items-center"
                               >
                                 {/* [#2a85ff] */}
                                 <Typography
                                   variant="body1"
-                                  className="text-[0.775rem] font-plus normal-case "
+                                  className="text-[0.775rem] font-inter normal-case "
                                 >
                                   Copy
                                 </Typography>
