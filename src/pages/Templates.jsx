@@ -1,30 +1,17 @@
-import { lazy, useContext, useRef, useEffect } from "react";
+import { lazy, useContext  } from "react";
 import TemplateSectionContext from "../context/TemplateSectionContext";
 import PageScrollableContext from "../context/PageScrollableContext";
 import { Box, Typography, Divider, Button } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
-import Scrollbar from "smooth-scrollbar";
 import CodeMenuContext from "../context/CodeMenuContext";
 import { TbClipboard, TbPlus } from "react-icons/tb";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
-  const ref = useRef(null);
   const { templateSections, storeRef, pageCategoryRef } = useContext(
     TemplateSectionContext
   );
-  const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
-  const options = {
-    damping: 0.04,
-    renderByPixels: true,
-  };
-  useEffect(() => {
-    if (ref.current) {
-      setScrollEl(ref.current);
-    }
-    Scrollbar.init(ref.current, options);
-  }, []);
 
   const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
@@ -39,7 +26,7 @@ const Templates = () => {
 
   const { dispatch } = useContext(CodeMenuContext);
 
-  const handleEdit = ( ) => {
+  const handleEdit = () => {
     // const pos = event.currentTarget.getBoundingClientRect();
     dispatch({
       type: "TOGGLE_MENU_ON",
@@ -54,11 +41,9 @@ const Templates = () => {
 
   return (
     <>
-      <Box
-      ref={ref}
-      className="block w-full pb-52 h-full box-border pt-14  relative ">
+      <Box className="block border-thin-box  mx-auto w-screen pb-52 h-full box-border pt-20 px-14 relative ">
         {/* header */}
-        <Box className=" h-52 w-full  flex flex-col  pt-8 box-border">
+        <Box className=" h-52 w-full  flex flex-col border-thin-box pt-8 box-border">
           {/* wrapper */}
           <Box className="h-full w-full  flex flex-col items-start justify-start py-4  px-10 box-border relative ">
             {/* title */}
@@ -70,7 +55,7 @@ const Templates = () => {
                   variant="body2"
                   className="capitalize  text-[2.3rem] font-semibold font-inter  "
                 >
-                  listing templates
+                  {/* listing templates */}
                 </Typography>
               }
             ></TextContent>
@@ -106,7 +91,6 @@ const Templates = () => {
                 ref={storeRef}
               >
                 <ArticleBlock
-                
                   view={item.refView}
                   article={item}
                   titleStyle="text-[1.3rem] font-medium font-inter"
@@ -115,7 +99,6 @@ const Templates = () => {
                     // child renders here
                     <Box className="w-full pt-8 box-border  pl-0" key={idx}>
                       <ArticleBlock
-                      
                         article={child}
                         titleStyle="text-[1rem] font-medium font-inter"
                       ></ArticleBlock>
@@ -168,8 +151,6 @@ export default Templates;
 // https://dribbble.com/UI8
 // https://cdn.dribbble.com/users/1723105/screenshots/17358687/media/9d9146fb5dd679b892cecf8fdb0c9f1a.png
 // https://www.pinterest.ph/search/pins/?q=twitter%20ui&rs=typed
-
-
 
 // https://coolors.co/696d7d-6f9283-8d9f87-cdc6a5-f0dcca
 // 000000-2f4550-586f7c-b8dbd9-f4f4f9
