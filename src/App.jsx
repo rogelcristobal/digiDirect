@@ -68,16 +68,16 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen  font-inter  w-full  text-black  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+          <Box  ref={ref} className="h-screen  font-inter  w-full  text-black  box-border flex   items-start justify-start  relative bg-[#ffffff]">
             {/* <SideBar /> */}
             <Navbar></Navbar>
             <AnimatePresence>
               {state.menuState && <CodeBlockMenu />}
             </AnimatePresence>
             <Box
-              ref={ref}
+             
               component="main"
-              className=" box-border mt-16 flex h-screen  w-screen relative  "
+              className=" box-border mt-16 flex h-full  w-screen relative  "
             >
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
