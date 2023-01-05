@@ -72,7 +72,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
             subTitle={
               <Typography
                 variant="subtitle2"
-                className={`max-w-[45rem] font-inter font-normal  text-[0.950rem] text-black  `}
+                className={`max-w-[45rem] font-ukraine-light  text-[0.8rem] text-black  `}
               >
                 {article.content}
               </Typography>

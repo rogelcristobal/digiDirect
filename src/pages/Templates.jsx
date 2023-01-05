@@ -64,7 +64,7 @@ const Templates = () => {
         </Box>
 
         {/* content */}
-        <Box className="h-auto w-full flex items-start justify-center px-20 box-border  pt-12">
+        <Box className=" h-auto w-full flex items-start justify-center px-16 box-border gap-8  pt-12">
           {/* btn group */}
           {/* <Box className="w-full px-6 py-2 h-fit  my-2 flex items-center justify-end">
             <Button
@@ -76,7 +76,7 @@ const Templates = () => {
             >
               <Typography
                 variant="body1"
-                className="text-[0.725rem] font-inter normal-case tracking-wide"
+                className="text-16.725rem] font-inter normal-case tracking-wide"
               >
                 Create listing
               </Typography>
@@ -86,14 +86,14 @@ const Templates = () => {
           <Box className="h-full w-full space-y-6  pt-6 box-border">
             {templateSections.map((item, id) => (
               <Box
-                className="box-border border-medium-box rounded-xl flex items-start justify-start gap-12  px-7 py-7"
+                className="box-border border-thin-box  flex items-start justify-start gap-12  px-7 py-7"
                 key={id}
                 ref={storeRef}
               >
                 <ArticleBlock
                   view={item.refView}
                   article={item}
-                  titleStyle="text-[1.4rem] font-semibold font-inter"
+                  titleStyle="text-[1.275rem]  font-ukraine-medium"
                 >
                   {/* {item.child.map((child, idx) => (
                     child renders here
@@ -116,7 +116,7 @@ const Templates = () => {
                                 onClick={() => handleCopy(child)}
                                 variant="contained"
                                 size="small"
-                                className=" rounded-lg hover:bg-[#0066ff] bg-[#1a75ff] py-2 px-4 shadow-none  flex items-center"
+                                className=" rounded-lg hover:bg-[#0066ff] bg-[#3454D1] py-2 px-4 shadow-none  flex items-center"
                               >
                                 
                                 <Typography
