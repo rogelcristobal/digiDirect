@@ -93,7 +93,7 @@ const Templates = () => {
                 <ArticleBlock
                   view={item.refView}
                   article={item}
-                  titleStyle="text-[1.275rem]  font-ukraine-medium"
+                  titleStyle="text-[1.275rem]  font-ukraine-light"
                 >
                   {/* {item.child.map((child, idx) => (
                     child renders here
