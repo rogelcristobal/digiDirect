@@ -12,13 +12,16 @@ module.exports = {
       "ukraine-regular":["ukraine-regular","sans-serif"],
       "ukraine-medium":["ukraine-medium","sans-serif"],
       "ukraine-bold":["ukraine-bold","sans-serif"],
-      
 
+      "ukraineHead-bold":["ukraineHead-bold","sans-serif"],
+      "ukraineHead-light":["ukraineHead-light","sans-serif"],
+      "ukraineHead-title":["ukraineHead-title","sans-serif"],
+      "ukraineHead-medium":["ukraineHead-medium","sans-serif"],
+      "ukraineHead-regular":["ukraineHead-regular","sans-serif"],
+      "ukraineHead-thin":["ukraineHead-thin","sans-serif"],
 
-      
       inter: ["Inter", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
-     
       dm:['DM Sans',"sans-serif"],
       plus:["Plus Jakarta Sans", "sans-serif"]
      

@@ -43,9 +43,9 @@ const Templates = () => {
     <>
       <Box className="block   mx-auto container pb-52 h-full box-border pt-12  relative ">
         {/* header */}
-        <Box className=" h-52 w-full  flex flex-col   box-border">
+        <Box className=" h-80 w-full  flex flex-col   box-border">
           {/* wrapper */}
-          <Box className="h-full w-full  flex flex-col items-start justify-start py-4  px-10 box-border relative ">
+          <Box className="h-full w-full  flex flex-col items-start justify-center py-4  px-10 box-border relative ">
             {/* title */}
             <TextContent
               // category="Documentation"
@@ -53,9 +53,9 @@ const Templates = () => {
               title={
                 <Typography
                   variant="body2"
-                  className="capitalize  text-[2.3rem] font-semibold font-inter  "
+                  className="capitalize  text-[2.8rem]  font-ukraineHead-regular leading-[3rem] "
                 >
-                  {/* listing templates */}
+                  product listing <br /> templates
                 </Typography>
               }
             ></TextContent>
@@ -64,7 +64,7 @@ const Templates = () => {
         </Box>
 
         {/* content */}
-        <Box className=" h-auto w-full flex items-start justify-center px-16 box-border gap-8  pt-12">
+        <Box className="bg-[#f6f6fa] h-auto w-full flex items-start justify-center px-16 box-border gap-8  pt-12">
           {/* btn group */}
           {/* <Box className="w-full px-6 py-2 h-fit  my-2 flex items-center justify-end">
             <Button
@@ -83,7 +83,7 @@ const Templates = () => {
             </Button>
           </Box> */}
           {/* articles */}
-          <Box className="h-full w-full space-y-6  pt-6 box-border">
+          <Box className="h-full  w-full space-y-6  pt-6 box-border">
             {templateSections.map((item, id) => (
               <Box
                 className="box-border border-thin-box  flex items-start justify-start gap-12  px-7 py-7"

@@ -115,5 +115,30 @@
   font-family: "ukraine-bold";
   src: url("./fonts/eUkraineBold.otf");
 }
+/* header fonts */
+@font-face {
+  font-family: "ukraineHead-bold";
+  src: url("./fonts/header/eUkraineHeadBold.otf");
+}
+@font-face {
+  font-family: "ukraineHead-light";
+  src: url("./fonts/header/eUkraineHeadLight.otf");
+}
+@font-face {
+  font-family: "ukraineHead-title";
+  src: url("./fonts/header/eUkraineHeadLOGO.otf");
+}
+@font-face {
+  font-family: "ukraineHead-medium";
+  src: url("./fonts/header/eUkraineHeadMedium.otf");
+}
+@font-face {
+  font-family: "ukraineHead-regular";
+  src: url("./fonts/header/eUkraineHeadRegular.otf");
+}
+@font-face {
+  font-family: "ukraineHead-thin";
+  src: url("./fonts/header/eUkraineHeadThin.otf");
+}
 /* https://getcssscan.com/css-box-shadow-examples */
 }
