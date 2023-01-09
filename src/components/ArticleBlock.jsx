@@ -2,7 +2,7 @@ import React,{lazy} from "react";
 import { Box, Typography, Divider, Snackbar, Alert,  } from "@mui/material";
 import TextContent from "./TextContent";
 import { BsCheckCircle } from "react-icons/bs";
-const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
+const ArticleBlock = ({ article, children, titleStyle, view, sx,id }) => {
   const [open, setOpen] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const handleClose = (event, reason) => {
@@ -59,20 +59,20 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
         <Box component="article" className="w-full  box-border  ">
           <TextContent
             // category={article?.category}
-            sx={`space-y-2`}
+            sx={`space-y-4`}
             title={
 
               <Typography
                 variant="subtitle2"
                 className={`    flex flex-col relative max-w-fit ${titleStyle} `}
                 >
-                {article.title}
+                {id}. {article.title}
               </Typography>
             }
             subTitle={
               <Typography
                 variant="subtitle2"
-                className={`max-w-[45rem] font-ukraine-light  text-[0.8rem] text-black  `}
+                className={`max-w-[45rem] font-ukraine-light  text-[1.1rem] text-black  `}
               >
                 {article.content}
               </Typography>

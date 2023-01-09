@@ -64,7 +64,7 @@ const Templates = () => {
         </Box>
 
         {/* content */}
-        <Box className="bg-[#f6f6fa] h-auto w-full flex items-start justify-center px-16 box-border gap-8  pt-12">
+        <Box className=" h-auto w-full flex items-start justify-center px-16 box-border gap-8  pt-12">
           {/* btn group */}
           {/* <Box className="w-full px-6 py-2 h-fit  my-2 flex items-center justify-end">
             <Button
@@ -91,9 +91,10 @@ const Templates = () => {
                 ref={storeRef}
               >
                 <ArticleBlock
+                 id={id}
                   view={item.refView}
                   article={item}
-                  titleStyle="text-[1.275rem]  font-ukraine-light"
+                  titleStyle="text-[1.1rem]  font-ukraine-light text-[#aa9f98]"
                 >
                   {/* {item.child.map((child, idx) => (
                     child renders here
