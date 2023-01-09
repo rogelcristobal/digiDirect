@@ -8,11 +8,13 @@ const Navbar = ({ scrollPosition }) => {
   return (
     <Box
       component="nav"
-      className={`   h-fit  py-2 absolute top-0 z-10 left-0  w-full  box-border   bg-transparent 
+
+      className={` border-thin-bottom  h-fit  py-2 absolute top-0 z-30 left-0  w-full  box-border   bg-inherit 
     `}
     >
       <div
-        className={`box-border container mx-auto h-full flex items-center justify-end relative   transition-all ease-in-out pt-2 z-10 duration-500 tracking-wide`}
+        className={`box-border container mx-auto h-full pt-4 px-2 flex items-center justify-end relative   transition-all ease-in-out z-10 duration-500 tracking-wide`}
+
         >
         <Typography variant="body1" className="font-ukraine-regular">DIGIDIRECT</Typography>
         

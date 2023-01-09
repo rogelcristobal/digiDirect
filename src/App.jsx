@@ -2,7 +2,6 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Navbar from "./components/Navbar";
 import { useContext, lazy, Suspense, useEffect, useRef } from "react";
 import { MouseStateProvider } from "./context/MouseStateContext";
 import { TemplateSectionProvider } from "./context/TemplateSectionContext";
@@ -11,23 +10,23 @@ import { ScrollProvider } from "./context/ScrollContext";
 import CodeMenuContext from "./context/CodeMenuContext";
 import { CodeMenuProvider } from "./context/CodeMenuContext";
 import { SidebarStateProvider } from "./context/SidebarStateContext";
-import SideBar from "./components/SideBar";
+
 import Scrollbar from "smooth-scrollbar";
-import Cursor from './components/Cursor'
 import { AnimatePresence } from "framer-motion";
 import CodeBlockMenu from "./components/CodeBlockMenu";
-import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
-import PageScrollableContext from './context/PageScrollableContext'
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import PageScrollableContext from "./context/PageScrollableContext";
+import Navbar from "./components/Navbar";
 const Templates = lazy(() => import("./pages/Templates"));
 const Converter = lazy(() => import("./pages/Converter"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-const Sample = lazy(()=>(import("./pages/Sample")))
+const Sample = lazy(() => import("./pages/Sample"));
 const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools/>
+      <ReactQueryDevtools />
       <HashRouter>
         <StyledEngineProvider injectFirst>
           <CodeMenuProvider>
@@ -44,27 +43,29 @@ const App = () => {
           </CodeMenuProvider>
         </StyledEngineProvider>
       </HashRouter>
-      
     </QueryClientProvider>
   );
 };
 const Main = () => {
   // context
   const { state } = useContext(CodeMenuContext);
+  const ref = useRef(null);
+
+  const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   // scrollbar animation
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   const options = {
-    damping: 0.02,
+
+    damping: 0.04,
     renderByPixels: true,
   };
- const ref = useRef(null)
+  useEffect(() => {
+    if (ref.current) {
+      setScrollEl(ref.current);
+    }
+    Scrollbar.init(ref.current, options);
+  }, []);
 
-  // useEffect(() => {
-  //   if (ref.current) {
-  //     setScrollEl(ref.current);
-  //   }
-  //   Scrollbar.init(ref.current, options);
-  // }, []);
 
   return (
     <Routes>
@@ -72,28 +73,34 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-full cursor-none  w-full  text-[#000000]  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+
+          <Box className="h-screen  font-inter  w-screen  text-black  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+
             {/* <SideBar /> */}
             <Navbar></Navbar>
             <AnimatePresence>
               {state.menuState && <CodeBlockMenu />}
             </AnimatePresence>
             <Box
+              ref={ref}
               component="main"
-              className=" box-border  flex h-full  w-full relative  "
+
+              className=" box-border  flex h-screen  w-screen relative  "
+
             >
-              <Suspense fallback={<LoadingFallback />}>
-                <Routes>
-                  <Route index element={<Dashboard />} />
-                  <Route path="/templates" element={<Templates />} />
-                  <Route path="/converter" element={<Converter />} />
-                  
-                  <Route path="/sample" element={<Sample />} />
-                </Routes>
-              </Suspense>
+              <Box className="h-screen w-screen   box-border">
+                <Suspense fallback={<LoadingFallback />}>
+                  <Routes>
+                    <Route index element={<Dashboard />} />
+                    <Route path="/templates" element={<Templates />} />
+                    <Route path="/converter" element={<Converter />} />
+
+                    <Route path="/sample" element={<Sample />} />
+                  </Routes>
+                </Suspense>
+              </Box>
             </Box>
           </Box>
-          
         }
       ></Route>
     </Routes>

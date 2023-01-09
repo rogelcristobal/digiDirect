@@ -66,9 +66,13 @@
     -moz-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
     box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.06);
   }
-  .border-medium-box {
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+  .border-medium-box{
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(27, 31, 35, 0.10) 0px 0px 0px 1px;
+  }
+  .border-medium-top{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 0px 0px, rgba(27, 31, 35, 0.10) 0px 0px 0px 1px;
+
   }
   /* scroll */
   .scrollMargin {
@@ -113,3 +117,32 @@
   }
   /* https://getcssscan.com/css-box-shadow-examples */
 }
+
+/* header fonts */
+@font-face {
+  font-family: "ukraineHead-bold";
+  src: url("./fonts/header/eUkraineHeadBold.otf");
+}
+@font-face {
+  font-family: "ukraineHead-light";
+  src: url("./fonts/header/eUkraineHeadLight.otf");
+}
+@font-face {
+  font-family: "ukraineHead-title";
+  src: url("./fonts/header/eUkraineHeadLOGO.otf");
+}
+@font-face {
+  font-family: "ukraineHead-medium";
+  src: url("./fonts/header/eUkraineHeadMedium.otf");
+}
+@font-face {
+  font-family: "ukraineHead-regular";
+  src: url("./fonts/header/eUkraineHeadRegular.otf");
+}
+@font-face {
+  font-family: "ukraineHead-thin";
+  src: url("./fonts/header/eUkraineHeadThin.otf");
+}
+/* https://getcssscan.com/css-box-shadow-examples */
+}
+
