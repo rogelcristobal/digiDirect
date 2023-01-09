@@ -5,13 +5,15 @@ import { Box, Typography, Divider, Button } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import CodeMenuContext from "../context/CodeMenuContext";
-import { TbClipboard, TbPlus } from "react-icons/tb";
+import { RxArrowLeft } from "react-icons/rx";
+import { motion } from "framer-motion";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
   const { templateSections, storeRef, pageCategoryRef } = useContext(
     TemplateSectionContext
   );
+
 
   const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
@@ -41,6 +43,7 @@ const Templates = () => {
 
   return (
     <>
+
       <Box className="block   mx-auto container pb-52 h-full box-border pt-12  relative ">
         {/* header */}
         <Box className=" h-80 w-full  flex flex-col   box-border">
@@ -87,12 +90,14 @@ const Templates = () => {
             {templateSections.map((item, id) => (
               <Box
                 className="box-border border-thin-box  flex items-start justify-start gap-12  px-7 py-7"
+
                 key={id}
                 ref={storeRef}
               >
                 <ArticleBlock
                   view={item.refView}
                   article={item}
+
                   titleStyle="text-[1.275rem]  font-ukraine-light"
                 >
                   {/* {item.child.map((child, idx) => (
@@ -132,6 +137,7 @@ const Templates = () => {
                       </Box>
                     </Box>
                   ))} */}
+
                 </ArticleBlock>
               </Box>
             ))}

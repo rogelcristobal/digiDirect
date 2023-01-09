@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
- 
   * {
     @apply box-border;
   }
@@ -12,30 +10,30 @@
     @apply w-2 bg-neutral-300/40;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-neutral-400/30 hover:bg-neutral-500/40 ;
+    @apply bg-neutral-400/30 hover:bg-neutral-500/40;
+  }
+  .linkHover {
+    display: inline-block;
+    padding-bottom: 2px;
+    background-image: linear-gradient(#000 0 0);
+    background-position: 0 100%;
+    /*OR bottom left*/
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s, background-position 0s 0.5s;
+    /*change after the size immediately*/
   }
 
-.hover-underline-animation:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: -0.2rem;
-  left: 0;
-  background-color: black;
-  transform-origin: bottom right;
-  transition: transform 0.5s ease-out;
-}
+  .linkHover:hover {
+    background-position: 100% 100%;
+    /*OR bottom right*/
+    background-size: 100% 2px;
+  }
 
-.hover-underline-animation:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-  /* shadows */  
-  .shadow-light{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  /* shadows */
+  .shadow-light {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+      rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   }
   .border-thin-box {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
@@ -56,65 +54,70 @@
     box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.06);
   }
   .border-thin-right {
-  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset -1px 0px 0px 0px rgba(29, 29, 29);
     -moz-box-shadow: inset -1px 0px 0px 0px rgba(29, 29, 29);
     box-shadow: inset -1px 0px 0px 0px rgba(0, 0, 0, 0.06);
   }
- 
+
   .border-thin-bottom {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
-      -webkit-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
-      -moz-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
-      box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.06);
+    -webkit-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
+    -moz-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
+    box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.06);
   }
+
   .border-medium-box{
   box-shadow: rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(27, 31, 35, 0.10) 0px 0px 0px 1px;
   }
   .border-medium-top{
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 0px 0px, rgba(27, 31, 35, 0.10) 0px 0px 0px 1px;
+
   }
   /* scroll */
   .scrollMargin {
     scroll-margin-top: 5rem;
   }
- 
+
   /* cursor */
-.customCursor{
-  clip-path: polygon(0 0, 100% 51%, 54% 60%, 39% 100%)
-}
-::selection {
-  color: white;
-  background: black;
-}
-.stroke-text {
-  -webkit-text-stroke: 1.5px black;
-  -webkit-text-fill-color: transparent;
-}
-/* helvetica font */
+  .customCursor {
+    clip-path: polygon(0 0, 100% 51%, 54% 60%, 39% 100%);
+  }
+  ::selection {
+    color: white;
+    background: black;
+  }
+  .stroke-text {
+    -webkit-text-stroke: 1.5px black;
+    -webkit-text-fill-color: transparent;
+  }
+  /* helvetica font */
 
-/* e-Ukraine font family*/
-@font-face {
-  font-family: "ukraine-thin";
-  src: url("./fonts/eUkraineThin.otf");
-}
-@font-face {
-  font-family: "ukraine-light";
-  src: url("./fonts/eUkraineLight.otf");
-}
-@font-face {
-  font-family: "ukraine-regular";
-  src: url("./fonts/eUkraineRegular.otf");
+  /* e-Ukraine font family*/
+  @font-face {
+    font-family: "ukraine-thin";
+    src: url("./fonts/eUkraineThin.otf");
+  }
+  @font-face {
+    font-family: "ukraine-light";
+    src: url("./fonts/eUkraineLight.otf");
+  }
+  @font-face {
+    font-family: "ukraine-regular";
+    src: url("./fonts/eUkraineRegular.otf");
+  }
+
+  @font-face {
+    font-family: "ukraine-medium";
+    src: url("./fonts/eUkraineMedium.otf");
+  }
+  @font-face {
+    font-family: "ukraine-bold";
+    src: url("./fonts/eUkraineBold.otf");
+  }
+  /* https://getcssscan.com/css-box-shadow-examples */
 }
 
-@font-face {
-  font-family: "ukraine-medium";
-  src: url("./fonts/eUkraineMedium.otf");
-}
-@font-face {
-  font-family: "ukraine-bold";
-  src: url("./fonts/eUkraineBold.otf");
-}
 /* header fonts */
 @font-face {
   font-family: "ukraineHead-bold";
@@ -142,3 +145,4 @@
 }
 /* https://getcssscan.com/css-box-shadow-examples */
 }
+

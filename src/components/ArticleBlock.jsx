@@ -1,18 +1,12 @@
-import React,{lazy} from "react";
-import { Box, Typography, Divider, Snackbar, Alert,  } from "@mui/material";
+import React, { lazy } from "react";
+import { Box, Typography, Divider, Snackbar, Alert } from "@mui/material";
 import TextContent from "./TextContent";
-import { BsCheckCircle } from "react-icons/bs";
-const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
+import { motion, AnimatePresence } from "framer-motion";
+import { RxArrowRight } from "react-icons/rx";
+const ArticleBlock = ({ article, children, titleStyle, view, sx, id }) => {
   const [open, setOpen] = React.useState(false);
   const [show, setShow] = React.useState(false);
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
-  };
-
+  const [hoverLink, setHoverLink] = React.useState(false);
   const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
       return tags;
@@ -28,20 +22,33 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
   const handleClick = () => {
     setShow((prev) => (prev = !show));
   };
+  const handleHoverLink = () => {
+    setHoverLink((prev) => (prev = !hoverLink));
+  };
   const clickAnimate = {
     animate: {
       // height:40,
       // width:"0rem",
     },
   };
+  const getID = () => {
+    if (id < 10) {
+      return `0${id + 1}`;
+    } else {
+      return id + 1;
+    }
+  };
   return (
-    <>
-      <Snackbar
-        open={open}
-        autoHideDuration={2500}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+    <Box
+      onClick={handleClick}
+      className={`w-full h-full ${sx}  box-border  flex flex-col justify-between `}
+      ref={view}
+    >
+      <Box
+        component="article"
+        className="w-full flex relative items-start justify-between  box-border mb-16 h-16"
       >
+
         {/* .MuiAlert-icon */}
         <Alert
           onClick={handleClose}
@@ -60,12 +67,18 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
           <TextContent
             // category={article?.category}
             sx={`space-y-2`}
-            title={
+            title={=======
 
-              <Typography
-                variant="subtitle2"
-                className={`    flex flex-col relative max-w-fit ${titleStyle} `}
+
+                  {/* <RxArrowRight className="text-[1.5rem] " /> */}
+                </Typography>
+              }
+              subTitle={
+                <Typography
+                  variant="subtitle2"
+                  className={`max-w-[45rem] font-ukraine-light text-[0.850rem] text-gray-500  `}
                 >
+
                 {article.title}
               </Typography>
             }
@@ -85,11 +98,13 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx }) => {
           <Box className="  flex flex-col items-center justify-start box-border"> 
             {children} 
            
-          </Box>
 
-        }
+          </Box>
+        ))}
       </Box>
-    </>
+
+      <Divider variant="fullWidth" className="h-[1px]  bg-black"></Divider>
+    </Box>
   );
 };
 

@@ -24,8 +24,8 @@ const Cursor = () => {
     hidden:{
         x: -12, y: -12
     },animate:{
-        x:x-8,
-        y:y-8,
+        x:x,
+        y:y,
         transition:{
             type: "linear", duration:0,stiffness:0
         },      
@@ -34,19 +34,16 @@ const Cursor = () => {
   return (
     <>
 
-    <motion.div
-       variants={animation}
-      //  initial="hidden"
-       animate="animate"
-       className={`fixed z-50 h-32  w-32 rounded-full flex items-center pointer-events-none  bg-white mix-blend-difference`}
-       >
-    </motion.div> 
-
-
-    {/* <motion.div variants={cursor} initial="hidden" animate="animate"  className="z-50  fixed h-4 w-4 bg-white mix-blend-difference customCursor  pointer-events-none">
+     <motion.div variants={cursor} initial="hidden" animate="animate"  className="z-50  fixed h-1 w-1 bg-white mix-blend-difference   pointer-events-none">
 
       
-    </motion.div> */}
+    </motion.div>
+
+
+    <motion.div variants={cursor} initial="hidden" animate="animate"  className="z-50  fixed h-4 w-4 bg-white mix-blend-difference customCursor  pointer-events-none">
+
+      
+    </motion.div>
     </>
   );
 };

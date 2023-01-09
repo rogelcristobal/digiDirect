@@ -24,7 +24,7 @@ const SideBar = () => {
 
   return (
     <Box
-      className={`w-[24rem] h-full z-30 bg-inherit   pt-[3rem] box-border flex items-start justify-right border-thin-right relative `}
+      className={`w-[32rem] h-full z-30 bg-inherit   pt-[3rem] box-border flex items-start justify-right border-thin-right relative `}
     >
       {/* links */}
       <Box
@@ -33,7 +33,7 @@ const SideBar = () => {
       >
         <Box className="box-border space-y-1">
           
-          {[
+          {/* {[
             {
               path: "/templates",
               title: "listing templates",
@@ -108,10 +108,12 @@ const SideBar = () => {
               </LinkBtn>
 
 
-              {/* {item.category&&<Divider variant="middle" className="mt-2" light></Divider>} */}
+            
             </div>
+
           ))}
           <Divider variant="middle" className="" light></Divider>
+
         </Box>
       </Box>
 
