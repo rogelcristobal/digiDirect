@@ -41,14 +41,14 @@ const Templates = () => {
 
   return (
     <>
-    <Box className=" h-[200vh] box-border   w-screen flex items-start justify-center">
-      <Box className="bg-blue-100  box-border h-20 w-80 sticky top-0">a</Box>
-      <Box className="w-full box-border h-full pt-20">
-        <Box className="w-full h-full bg-blue-200">b</Box>
+    <Box className=" h-[300vh] box-border  pt-20 container mx-auto flex items-start justify-center">
+      <Box className="border-thin-box  box-border h-screen w-80 sticky top-20 flex flex-col justify-start items-center">a</Box>
+      <Box className="w-full box-border h-full ">
+        <Box className="w-full h-full border-thin-box">b</Box>
       </Box>
     
     </Box>
-    <Box className="h-52 w-full box-border bg-blue-300">
+    <Box className="h-80 w-full box-border border-thin-box">
       f
     </Box>  
     </>
