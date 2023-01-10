@@ -70,7 +70,7 @@ const Main = () => {
         element={
           <Box className="h-screen    w-screen  text-black  box-border flex   items-start justify-start   bg-[#ffffff]">
             {/* <SideBar /> */}
-            <Navbar></Navbar>
+            {/* <Navbar></Navbar> */}
             <AnimatePresence>
               {state.menuState && <CodeBlockMenu />}
             </AnimatePresence>
