@@ -5,7 +5,7 @@ import { Box, Typography, Divider, Button } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import CodeMenuContext from "../context/CodeMenuContext";
-import { TbClipboard, TbPlus } from "react-icons/tb";
+import { TbArrowLeft } from "react-icons/tb";
 import Scrollbar from "smooth-scrollbar";
 
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
@@ -58,17 +58,20 @@ const Templates = () => {
 
   return (
     <>
-      <Box className="h-16 w-full box-border  "></Box>
-      <Box className=" min-h-[150vh] h-auto box-border  pt-3  w-full flex items-start justify-center gap-3 ">
-        <Box className="thin-box-divider  box-border h-screen w-[19rem] sticky top-6 flex flex-col justify-start items-start p-3">
+      <Box className="h-0 w-full box-border  "></Box>
+      <Box className=" min-h-[150vh] h-auto box-border    w-full flex items-start justify-center gap-3 ">
+        <Box className="box-border h-[90vh]  w-[20rem] sticky top-4 flex flex-col justify-start items-start p-3 space-y-3">
+          <Box className="h-10 cursor-pointer w-10 box-border text-black text-xl grid place-content-center">
+           <TbArrowLeft />
+          </Box>
           
-          <Box className="h-fit  w-full  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative thin-box-divider">
-
+          <Box className="h-fit  w-full  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative ">
+          
           </Box>
         </Box>
-        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40">
+        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-20">
           {/* title */}
-          <Box className="p-7 h-32 w-full ">
+          <Box className="p-7 h-28 w-full ">
             <TextContent title={
               <Typography variant="body1" className="text-[32px] leading-[36px] font-plus font-bold">Product listing templates</Typography>
             }></TextContent>  
@@ -85,7 +88,7 @@ const Templates = () => {
                 id={id}
                 view={item.refView}
                 article={item}
-                titleStyle="text-[20px] font-semibold leading-[24px]  font-plus "
+                titleStyle="text-[20px] font-bold leading-[24px]  font-plus "
               ></ArticleBlock>
             </Box>
           ))}
