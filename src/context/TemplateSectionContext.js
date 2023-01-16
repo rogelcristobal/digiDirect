@@ -85,7 +85,9 @@ export const TemplateSectionProvider = ({ children }) => {
       category: " Descriptions",
       title: "Description",
       content:
-        " It Explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy.",
+        ` A product description in a product listing is a written summary of the key features and benefits of a product. It is designed to inform potential customers about the product and persuade them to make a purchase. The product description should include information such as the product's name, a brief overview of its features, and its key benefits. Additionally, the product description should also include information about the product's dimensions, weight, and any other relevant technical specifications. 
+        \n
+        The product description should be written in a clear, concise, and easy-to-understand manner, and should be presented in a way that is visually appealing and easy to read. The goal of the product description is to provide customers with all the information they need to make an informed decision about whether to purchase the product. This will help customers to understand the product and its capabilities. Additionally, it will also help customers to troubleshoot any issues they may have with the product, by providing information about common problems and solutions.`,
         
         child: [
           {

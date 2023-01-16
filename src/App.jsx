@@ -79,7 +79,7 @@ const Main = () => {
               component="main"
               className=" box-border   h-screen  w-screen   "
             >
-              <Box className="h-screen w-screen  overflow-x-hidden box-border">
+              <Box className="h-screen w-screen  overflow-x-hidden box-border  font-ukraine-light tracking-tight text-[13px] leading-[18px]">
                 <Suspense fallback={<LoadingFallback />}>
                   <Routes>
                     <Route index element={<Dashboard />} />
