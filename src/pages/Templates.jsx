@@ -58,29 +58,30 @@ const Templates = () => {
 
   return (
     <>
-      <Box className="h-0 w-full box-border  "></Box>
+      <Box className="h-16 w-full box-border thin-bottom-divider "></Box>
       <Box className=" min-h-[150vh] h-auto box-border    w-full flex items-start justify-center gap-3 ">
-        <Box className="box-border h-[90vh]  w-[20rem] sticky top-4 flex flex-col justify-start items-start p-3 space-y-3">
-          <Box className="h-10 cursor-pointer w-10 box-border text-black text-xl grid place-content-center">
-           <TbArrowLeft />
-          </Box>
+        {/* side nav */}
+        <Box className="box-border h-[90vh] thin-box-divider w-[20rem] sticky top-4 flex mt-3 flex-col justify-start items-start p-3 space-y-3">
+          {/* <Box className="h-8 cursor-pointer w-8 box-border text-black rounded-md text-xl grid place-content-center thin-box-divider">
+           &#8592;
+          </Box> */}
           
           <Box className="h-fit  w-full  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative ">
           
           </Box>
         </Box>
-        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-20">
+        <Box className=" w-full box-border h-full space-y-3 p-3 pb-40 pt-3">
           {/* title */}
-          <Box className="p-7 h-28 w-full ">
+          <Box className="p-7 h-28  w-full ">
             <TextContent title={
-              <Typography variant="body1" className="text-[32px] leading-[36px] font-plus font-bold">Product listing templates</Typography>
+              <Typography variant="body1" className="text-[28px] leading-[32px] font-plus font-bold capitalize">Product listing  templates</Typography>
             }></TextContent>  
           </Box>
           
           {/* content */}
           {templateSections.map((item, id) => (
             <Box
-              className="box-border   flex items-start justify-start gap-12  px-7 py-7"
+              className="box-border  flex items-start justify-start gap-12  px-7 py-5"
               key={id}
               ref={storeRef}
             >
@@ -88,13 +89,14 @@ const Templates = () => {
                 id={id}
                 view={item.refView}
                 article={item}
-                titleStyle="text-[20px] font-bold leading-[24px]  font-plus "
+                titleStyle="text-[20px]  leading-[24px]  font-plus font-bold
+                 "
               ></ArticleBlock>
             </Box>
           ))}
         </Box>
       </Box>
-      <Box className="h-80 w-full box-border  thin-box-divider mt-3"></Box>
+      <Box className="h-80 w-full box-border thin-top-divider thin-box-divider mt-3"></Box>
       {/* <Box className="h-10 w-full box-border  bg-black"></Box> */}
     </>
   );
@@ -118,7 +120,7 @@ export default Templates;
 
 // <Box className="flex   mx-auto container pb-52 h-screen box-border pt-12  relative ">
 //         {/* header */}
-//         <Box className=" h-full w-80 medium-box-divider flex flex-col   box-border">
+//         <Box className=" h-full w-80 thin-box-divider flex flex-col   box-border">
 //           {/* wrapper */}
 //           <Box className="h-full w-full  flex flex-col items-start justify-center py-4  px-10 box-border relative ">
 //             {/* title */}
@@ -142,7 +144,7 @@ export default Templates;
 //         <Box className="bg-blue-100 h-full w-full flex items-start justify-center px-16 box-border gap-8  pt-12">
 
 //           {/* articles */}
-//           <Box className="h-full medium-box-divider w-full space-y-6  pt-6 box-border">
+//           <Box className="h-full thin-box-divider w-full space-y-6  pt-6 box-border">
 
 // //           </Box>
 // //           <Box className=" w-[30rem] pt-6 box-border h-full sticky top-0">a</Box>
