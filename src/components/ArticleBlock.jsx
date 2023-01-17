@@ -1,9 +1,10 @@
 import React, { lazy } from "react";
 import { Box, Typography, Divider, Snackbar, Alert } from "@mui/material";
 import TextContent from "./TextContent";
-import { motion, AnimatePresence } from "framer-motion";
-import { RxArrowRight } from "react-icons/rx";
-const ArticleBlock = ({ article, children, titleStyle, view, sx, id }) => {
+
+import { BsCheckCircle } from "react-icons/bs";
+const ArticleBlock = ({ article, children, titleStyle, view, sx,id }) => {
+
   const [open, setOpen] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const [hoverLink, setHoverLink] = React.useState(false);
@@ -66,8 +67,10 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx, id }) => {
         <Box component="article" className="w-full  box-border  ">
           <TextContent
             // category={article?.category}
-            sx={`space-y-2`}
-            title={=======
+
+            sx={`space-y-3`}
+            title={
+
 
 
                   {/* <RxArrowRight className="text-[1.5rem] " /> */}
@@ -79,15 +82,18 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx, id }) => {
                   className={`max-w-[45rem] font-ukraine-light text-[0.850rem] text-gray-500  `}
                 >
 
-                {article.title}
+                 {article.title}
+
               </Typography>
             }
             subTitle={
               <Typography
                 variant="subtitle2"
-                className={`max-w-[45rem] font-ukraine-light  text-[0.8rem] text-black  `}
+                className={`max-w-[47rem] font-dm text-gray-800  text-[16px] leading-[24px] font-normal  `}
               >
                 {article.content}
+
+                
               </Typography>
             }
           />

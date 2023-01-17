@@ -11,23 +11,26 @@
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-neutral-400/30 hover:bg-neutral-500/40;
-  }
-  .linkHover {
-    display: inline-block;
-    padding-bottom: 2px;
-    background-image: linear-gradient(#000 0 0);
-    background-position: 0 100%;
-    /*OR bottom left*/
-    background-size: 0% 2px;
-    background-repeat: no-repeat;
-    transition: background-size 0.5s, background-position 0s 0.5s;
-    /*change after the size immediately*/
+
   }
 
-  .linkHover:hover {
-    background-position: 100% 100%;
-    /*OR bottom right*/
-    background-size: 100% 2px;
+  .hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -0.2rem;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+  }
+
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+
   }
 
   /* shadows */
@@ -35,45 +38,69 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
       rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   }
-  .border-thin-box {
+  .thin-box-divider {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset 0px 0px 0px 1px rgba(29, 29, 29);
     -moz-box-shadow: inset 0px 0px 0px 1px rgba(29, 29, 29);
     box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
   }
-  .border-thin-left {
+  .thin-left-divider {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset 1px 0px 0px 0px rgba(29, 29, 29);
     -moz-box-shadow: inset 1px 0px 0px 0px rgba(29, 29, 29);
     box-shadow: inset 1px 0px 0px 0px rgba(0, 0, 0, 0.06);
   }
-  .border-thin-top {
+  .thin-top-divider {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset 0px 1px 0px 0px rgba(29, 29, 29);
     -moz-box-shadow: inset 0px 1px 0px 0px rgba(29, 29, 29);
     box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.06);
   }
-  .border-thin-right {
+
+  .thin-right-divider {
+
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset -1px 0px 0px 0px rgba(29, 29, 29);
     -moz-box-shadow: inset -1px 0px 0px 0px rgba(29, 29, 29);
     box-shadow: inset -1px 0px 0px 0px rgba(0, 0, 0, 0.06);
   }
 
-  .border-thin-bottom {
+
+  .thin-bottom-divider {
+
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
     -webkit-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
     -moz-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
     box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.06);
-  }
-
-  .border-medium-box{
-  box-shadow: rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(27, 31, 35, 0.10) 0px 0px 0px 1px;
-  }
-  .border-medium-top{
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 0px 0px, rgba(27, 31, 35, 0.10) 0px 0px 0px 1px;
 
   }
+  .medium-box-divider {
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 1px 1px 0px,
+      rgba(27, 31, 35, 0.1) 0px 0px 0px 1px;
+  }
+  /* Medium top divider */
+  .medium-top-divider {
+    border-top: 1px solid rgba(27, 31, 35, 0.1);
+    /* width, style, color */
+  }
+    .medium-bottom-divider {
+      border-bottom: 1px solid rgba(27, 31, 35, 0.1);
+      /* width, style, color */
+    }
+
+  /* Medium right divider */
+  .medium-right-divider {
+    border-right: 1px solid rgba(27, 31, 35, 0.1);
+    /* width, style, color */
+  }
+
+  /* Medium left divider */
+  .medium-left-divider {
+    border-left: 1px solid rgba(27, 31, 35, 0.1);
+    /* width, style, color */
+
+  }
+
   /* scroll */
   .scrollMargin {
     scroll-margin-top: 5rem;
@@ -115,34 +142,32 @@
     font-family: "ukraine-bold";
     src: url("./fonts/eUkraineBold.otf");
   }
-  /* https://getcssscan.com/css-box-shadow-examples */
-}
 
-/* header fonts */
-@font-face {
-  font-family: "ukraineHead-bold";
-  src: url("./fonts/header/eUkraineHeadBold.otf");
-}
-@font-face {
-  font-family: "ukraineHead-light";
-  src: url("./fonts/header/eUkraineHeadLight.otf");
-}
-@font-face {
-  font-family: "ukraineHead-title";
-  src: url("./fonts/header/eUkraineHeadLOGO.otf");
-}
-@font-face {
-  font-family: "ukraineHead-medium";
-  src: url("./fonts/header/eUkraineHeadMedium.otf");
-}
-@font-face {
-  font-family: "ukraineHead-regular";
-  src: url("./fonts/header/eUkraineHeadRegular.otf");
-}
-@font-face {
-  font-family: "ukraineHead-thin";
-  src: url("./fonts/header/eUkraineHeadThin.otf");
-}
-/* https://getcssscan.com/css-box-shadow-examples */
+  /* header fonts */
+  @font-face {
+    font-family: "ukraineHead-bold";
+    src: url("./fonts/header/eUkraineHeadBold.otf");
+  }
+  @font-face {
+    font-family: "ukraineHead-light";
+    src: url("./fonts/header/eUkraineHeadLight.otf");
+  }
+  @font-face {
+    font-family: "ukraineHead-title";
+    src: url("./fonts/header/eUkraineHeadLOGO.otf");
+  }
+  @font-face {
+    font-family: "ukraineHead-medium";
+    src: url("./fonts/header/eUkraineHeadMedium.otf");
+  }
+  @font-face {
+    font-family: "ukraineHead-regular";
+    src: url("./fonts/header/eUkraineHeadRegular.otf");
+  }
+  @font-face {
+    font-family: "ukraineHead-thin";
+    src: url("./fonts/header/eUkraineHeadThin.otf");
+  }
+  /* https://getcssscan.com/css-box-shadow-examples */
 }
 

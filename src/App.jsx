@@ -53,18 +53,18 @@ const Main = () => {
 
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   // scrollbar animation
-  const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
-  const options = {
 
-    damping: 0.04,
-    renderByPixels: true,
-  };
-  useEffect(() => {
-    if (ref.current) {
-      setScrollEl(ref.current);
-    }
-    Scrollbar.init(ref.current, options);
-  }, []);
+  // const options = {
+  //   damping: 0.04,
+  //   renderByPixels: true,
+  // };
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     setScrollEl(ref.current);
+  //   }
+  //   Scrollbar.init(ref.current, options);
+  // }, []);
+
 
 
   return (
@@ -74,21 +74,21 @@ const Main = () => {
         path="/*"
         element={
 
-          <Box className="h-screen  font-inter  w-screen  text-black  box-border flex   items-start justify-start  relative bg-[#ffffff]">
+          <Box className="h-screen    w-screen  text-gray-900  box-border flex   items-start justify-start   bg-[#ffffff]">
 
             {/* <SideBar /> */}
-            <Navbar></Navbar>
+            {/* <Navbar></Navbar> */}
             <AnimatePresence>
               {state.menuState && <CodeBlockMenu />}
             </AnimatePresence>
             <Box
-              ref={ref}
+              // ref={ref}
               component="main"
 
-              className=" box-border  flex h-screen  w-screen relative  "
+              className=" box-border   h-screen  w-screen   "
 
             >
-              <Box className="h-screen w-screen   box-border">
+              <Box className="h-screen w-screen  overflow-x-hidden box-border  font-ukraine-light tracking-tight text-[13px] leading-[18px]">
                 <Suspense fallback={<LoadingFallback />}>
                   <Routes>
                     <Route index element={<Dashboard />} />
