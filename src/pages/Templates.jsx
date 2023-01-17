@@ -5,8 +5,10 @@ import { Box, Typography, Divider, Button } from "@mui/material";
 import TextContent from "../components/TextContent";
 import CodeBlock from "../components/CodeBlock";
 import CodeMenuContext from "../context/CodeMenuContext";
+
 import { TbArrowLeft } from "react-icons/tb";
 import Scrollbar from "smooth-scrollbar";
+
 
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
@@ -14,6 +16,7 @@ const Templates = () => {
   const { templateSections, storeRef, pageCategoryRef } = useContext(
     TemplateSectionContext
   );
+
 
   const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
@@ -58,6 +61,7 @@ const Templates = () => {
 
   return (
     <>
+
       <Box className="h-16 w-full box-border thin-bottom-divider "></Box>
       <Box className=" min-h-[150vh] h-auto box-border    w-full flex items-start justify-center gap-3 ">
         {/* side nav */}
@@ -68,14 +72,17 @@ const Templates = () => {
           
           <Box className="h-fit  w-full  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative ">
           
+
           </Box>
         </Box>
+
         <Box className=" w-full box-border h-full space-y-3 p-3 pb-40 pt-3">
           {/* title */}
           <Box className="p-7 h-28  w-full ">
             <TextContent title={
               <Typography variant="body1" className="text-[28px] leading-[32px] font-plus font-bold capitalize">Product listing  templates</Typography>
             }></TextContent>  
+
           </Box>
           
           {/* content */}
