@@ -1,6 +1,8 @@
 import { createContext, useState,useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import template from "../template/template";
+import CodeBlock from "../components/CodeBlock";
+import {Box} from '@mui/material'
 
 const TemplateSectionContext = createContext();
 
@@ -45,7 +47,11 @@ export const TemplateSectionProvider = ({ children }) => {
       category: "What's in the box",
       title: `Included in the box`,
       content: <>
-      Displays the accesories included in the product package. This will display the items in bullets.
+      Displays the accesories included in the product package. <br />
+      This will display the items in bullets.
+        <Box className=" py-4">
+          <CodeBlock content={inTheBoxMarkup}/>
+        </Box>
       </>,
       child: [
         {
@@ -65,7 +71,8 @@ export const TemplateSectionProvider = ({ children }) => {
       category: " Specifications",
       title: "Specifications",
       content:
-        <>The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.</>,
+        <>The purpose of a specification template is to provide a description and statement of the requirements of a product, components of a product, the capability or performance of a product, and/or the service or work to be performed to create a product.
+        </>,
         child: [
           {
              title:'Basic Template',

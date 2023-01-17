@@ -84,16 +84,16 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
 
   return (
     <SandpackProvider
-      theme={theme2}
+      theme={nightOwl}
       template="react"
       customSetup={{
         entry: "index.css",
       }}
       files={{
         "/index.html": {
-          code: content?.snippet?.tags
-            ? content?.snippet?.tags
-            : content?.snippet?.text,
+          code: content?.tags
+            ? content?.tags
+            : content?.text,
           active: true,
           // readOnly: true,
         },
@@ -107,7 +107,7 @@ const CodeBlock = ({ content, handleCopy, copyState, id }) => {
     >
       <SandpackLayout
         ref={container}
-        className="box-border flex items-center justify-center w-full  relative  border-none shadow-sm rounded-md "
+        className="box-border flex items-center justify-center w-full  relative  border-none shadow-sm rounded-lg "
       >
         <SandpackCodeViewer
           // showLineNumbers
