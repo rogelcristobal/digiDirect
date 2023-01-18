@@ -70,9 +70,9 @@ const Templates = () => {
           
           </Box>
         </Box>
-        <Box className=" w-full box-border h-full space-y-3 p-3 pb-40 pt-6">
+        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-6">
           {/* title */}
-          <Box className="px-7  py-5   w-full ">
+          <Box className="px-7  py-4   w-full ">
             <TextContent title={
               <Typography variant="body1" className="text-3xl font-plus font-bold capitalize">Product listing templates</Typography>
             }></TextContent>  
@@ -89,7 +89,7 @@ const Templates = () => {
                 id={id}
                 view={item.refView}
                 article={item}
-                titleStyle="text-[20px]  leading-[24px]  font-plus font-bold
+                titleStyle="text-[1.35rem] leading-[1.85rem] font-plus font-bold
                  "
               ></ArticleBlock>
             </Box>
