@@ -22,6 +22,8 @@ module.exports = {
 
       inter: ["Inter", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
+      roboto: ["Roboto", "sans-serif"],
+      robotoMono: ["Roboto Mono", "monospace"],
       dm:['DM Sans',"sans-serif"],
       plus:["Plus Jakarta Sans", "sans-serif"]
      
