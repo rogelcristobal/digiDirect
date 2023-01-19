@@ -159,13 +159,6 @@
     font-family: "ukraineHead-thin";
     src: url("./fonts/header/eUkraineHeadThin.otf");
   }
-    @font-face {
-      font-family: "product-regular";
-      src: url("./fonts/ProductSansRegular.otf");
-    }
-        @font-face {
-          font-family: "product-bold";
-          src: url("./fonts/ProductSansBold.ttf");
-        }
+   
   /* https://getcssscan.com/css-box-shadow-examples */
 }

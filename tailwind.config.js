@@ -20,7 +20,7 @@ module.exports = {
       "ukraineHead-regular":["ukraineHead-regular","sans-serif"],
       "ukraineHead-thin":["ukraineHead-thin","sans-serif"],
       
-      "product-regular":["product-regular","sans-serif"],
+     
 
       inter: ["Inter", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],

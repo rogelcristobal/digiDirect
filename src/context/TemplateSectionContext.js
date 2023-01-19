@@ -44,10 +44,10 @@ export const TemplateSectionProvider = ({ children }) => {
     {
       refView: inTheBoxRef,
       isInView: inTheBoxState,
-      category: "What's in the box",
       title: `Included in the box`,
       content: (
-        <TextContent>
+       <>
+         <TextContent>
           Refers to the items that are included with a product when it is
           purchased. This information is often listed in the product description
           or specifications on a website or in a catalog. It is important to
@@ -61,6 +61,8 @@ export const TemplateSectionProvider = ({ children }) => {
           <CodeBlock text="Usage" content={inTheBoxMarkup} />
           This template will display the included items in bullets.
         </TextContent>
+        <TextContent title="What's in the box (kit/bundle)"></TextContent>
+       </>
       ),
       child: [
         {
@@ -276,20 +278,6 @@ export const TemplateSectionProvider = ({ children }) => {
           </TextContent>
         </>
       ),
-      child: [
-        {
-          title: " Meta Title",
-          snippet: seoMetaTitle,
-        },
-        {
-          title: "Meta Keywords",
-          snippet: seoMetaKeyword,
-        },
-        {
-          title: "Meta Description",
-          snippet: seoMetaDescription,
-        },
-      ],
     },
   ];
   return (
