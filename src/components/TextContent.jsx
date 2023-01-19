@@ -1,22 +1,20 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
-const TextContent = ({ category, title, subTitle,sx }) => {
- 
-    return (
-      <Box className={`  box-border  ${sx}`}>
-       {category? <Typography
+const TextContent = ({ category, title, children, sx }) => {
+  return (
+    <Box className={`  box-border  ${sx}`}>
+      {title ? (
+        <Typography
           variant="body1"
-          className=" text-[0.8rem] relative font-inter text-gray-900 font-medium	mb-1.5 "
+          className="text-lg font-bold text-gray-800 font-plus mb-3"
         >
-          {category}
-        </Typography>:null}
+          {title}
+        </Typography>
+      ) : null}
 
-        {title}
-
-       {subTitle}
-      </Box>
-    );
-  
+      {children}
+    </Box>
+  );
 };
 
 export default TextContent;

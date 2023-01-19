@@ -74,14 +74,14 @@ const Templates = () => {
           {/* title */}
           <Box className="px-7  py-4   w-full ">
             <TextContent title={
-              <Typography variant="body1" className="text-3xl font-plus font-bold capitalize">Product listing templates</Typography>
+              <Typography variant="body1" className="text-3xl font-plus font-semibold capitalize">Product listing templates</Typography>
             }></TextContent>  
           </Box>
           
           {/* content */}
           {templateSections.map((item, id) => (
             <Box
-              className="box-border  flex items-start justify-start gap-12  px-7 py-3.5"
+              className="box-border  flex items-start justify-start   px-7 py-7 "
               key={id}
               ref={storeRef}
             >
@@ -89,7 +89,7 @@ const Templates = () => {
                 id={id}
                 view={item.refView}
                 article={item}
-                titleStyle="text-[1.35rem] leading-[1.85rem] font-plus font-bold
+                titleStyle="text-[1.45rem] leading-[1.95rem] font-plus font-bold 
                  "
               ></ArticleBlock>
             </Box>

@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import template from "../template/template";
 import CodeBlock from "../components/CodeBlock";
 import { Box, Typography } from "@mui/material";
+import TextContent from "../components/TextContent";
 
 const TemplateSectionContext = createContext();
 
@@ -46,7 +47,7 @@ export const TemplateSectionProvider = ({ children }) => {
       category: "What's in the box",
       title: `Included in the box`,
       content: (
-        <>
+        <TextContent>
           Refers to the items that are included with a product when it is
           purchased. This information is often listed in the product description
           or specifications on a website or in a catalog. It is important to
@@ -57,12 +58,9 @@ export const TemplateSectionProvider = ({ children }) => {
           This information can include items such as accessories, manuals, and
           any other components that are necessary for the product to function
           properly.
-          <Box className="space-y-6 py-6">
-            <Typography variant="body1" className="text-xl font-bold font-plus">Usage</Typography>
-            <CodeBlock content={inTheBoxMarkup} />
-          </Box>
+          <CodeBlock text="Usage" content={inTheBoxMarkup} />
           This template will display the included items in bullets.
-        </>
+        </TextContent>
       ),
       child: [
         {
@@ -82,7 +80,7 @@ export const TemplateSectionProvider = ({ children }) => {
       category: " Specifications",
       title: "Specifications",
       content: (
-        <>
+        <TextContent>
           Product specifications, also known as product specs, are a set of
           details that describe the technical characteristics and features of a
           product. They are typically listed in the product description or
@@ -96,11 +94,8 @@ export const TemplateSectionProvider = ({ children }) => {
           detailed product specifications is important in order to help
           customers make informed purchasing decisions and to ensure that the
           product meets their needs and expectations.
-          <Box className="space-y-6 py-8">
-            <Typography variant="body1" className="text-xl font-bold font-plus">Usage</Typography>
-            <CodeBlock content={specsMarkup} />
-          </Box>
-        </>
+          <CodeBlock text="Usage" content={specsMarkup} />
+        </TextContent>
       ),
       child: [
         {
@@ -122,7 +117,7 @@ export const TemplateSectionProvider = ({ children }) => {
       category: " Descriptions",
       title: "Description",
       content: (
-        <>
+        <TextContent>
           A product description in a product listing is a written summary of the
           key features and benefits of a product. It is designed to inform
           potential customers about the product and persuade them to make a
@@ -142,14 +137,11 @@ export const TemplateSectionProvider = ({ children }) => {
           capabilities. Additionally, it will also help customers to
           troubleshoot any issues they may have with the product, by providing
           information about common problems and solutions.
-          <Box className="space-y-6 py-8">
-            <Typography variant="body1" className="text-xl font-bold font-plus">Usage</Typography>
-            <CodeBlock content={descriptionSimple} />
-          </Box>
+          <CodeBlock text="Usage" content={descriptionSimple} />
           As demonstrated by the examples provided, the product description
           includes the product name, its key features, the Global Trade Item
           Number (GTIN) and the Manufacturer Part Number (MPIN).
-        </>
+        </TextContent>
       ),
 
       child: [
@@ -176,21 +168,18 @@ export const TemplateSectionProvider = ({ children }) => {
       category: "Short descriptions",
       title: "Short description",
       content: (
-        <>
+        <TextContent>
           Short description shows key information about a product in a concise
           and easy-to-read manner. It typically includes a list of the most
           important features and benefits of a product, presented in bullet
           point form.
-          <Box className="space-y-6 py-8">
-            <Typography variant="body1" className="text-xl font-bold font-plus">Usage</Typography>
-            <CodeBlock content={shortDescription} />
-          </Box>
+          <CodeBlock text="Usage" content={shortDescription} />
           This format allows for quick and easy scanning of the information,
           making it easy for potential customers to understand the product's key
           selling points. It is an efficient way to present information on a
           product listing or documentation website, as it provides a clear and
           organized overview of the product's features and benefits.
-        </>
+        </TextContent>
       ),
       child: [
         {
@@ -213,25 +202,78 @@ export const TemplateSectionProvider = ({ children }) => {
       title: "Search engine optimization",
       content: (
         <>
-          A meta title is a short text that appears at the top of a web page,
-          typically in the browser tab. It is used to describe the content of
-          the page and it helps search engines understand what the page is
-          about. In the context of a product listing, the meta title is the
-          title that is used to represent the product in search engine results
-          pages, when people search for products similar to the one you are
-          selling. It is an important element of search engine optimization
-          (SEO) as it helps to increase the visibility and click-through rate of
-          the product listing.
-          <br />
-          <br />A good meta title should be brief and easy to understand, it
-          should also include relevant keywords that are relevant to the
-          product, this way it helps people to find the product easily and it
-          also helps search engines to understand what the page is about.
-          <Box className="space-y-6 py-8">
-            <Typography variant="body1" className="text-xl font-bold font-plus">Usage</Typography>
-            <CodeBlock content={seoMetaTitle} />
-          </Box>
-          It's important to make sure that the meta title is unique to each product page and avoid duplication across different pages on the website.
+          <TextContent title="Meta title">
+            A meta title is a short text that appears at the top of a web page,
+            typically in the browser tab. It is used to describe the content of
+            the page and it helps search engines understand what the page is
+            about. In the context of a product listing, the meta title is the
+            title that is used to represent the product in search engine results
+            pages, when people search for products similar to the one you are
+            selling. It is an important element of search engine optimization
+            (SEO) as it helps to increase the visibility and click-through rate
+            of the product listing.
+            <CodeBlock text="Usage" content={seoMetaTitle} />
+            It's important to make sure that the meta title is unique to each
+            product page and avoid duplication across different pages on the
+            website.
+          </TextContent>
+          <TextContent title="Meta keywords">
+            Meta keywords are a type of meta tag that can be included in the
+            HTML code of a webpage. When creating a product listing, these
+            keywords can be used to provide a list of words or phrases that
+            describe the product.
+            <CodeBlock text="Usage" content={seoMetaKeyword} />
+            These keywords can help search engines determine the relevance of
+            the product listing to a user's search query. In a Content
+            Management System (CMS), meta keywords can typically be added to a
+            product page by editing the HTML code or by using a plugin or
+            module. It is important to choose relevant and specific keywords
+            that accurately describe the product.
+          </TextContent>
+          <TextContent title="Meta description">
+            A meta description is a summary of a webpage's content that appears
+            in search results. In a product listing, it should provide key
+            features, benefits, and relevant information about the product. Keep
+            it under 155 characters.
+            <br />
+            <CodeBlock text="Sample meta description" content={seoMetaDescription} />
+            <br />
+            <TextContent title="Meta description guidelines">
+              <ul>
+              <li>ProductTitle should always be present, </li>
+              <li>digiDirect should always be present, </li>
+              <li>
+                it is preferable that the wording "buy" or "purchase" is present
+                (this is primary ecommerce Call to Action CTA).
+              </li>
+              <li>
+                Gaming and tech should be more simplified for a less "tech-savy"
+                audience and focused more on urgency (today, available)
+              </li>
+              <li>
+                For cameras and other traditional photo categories, features
+                tend to be more important and these customers are more tech-savy
+              </li>
+              <li>
+                Targeting the Meta Description for a use-case the product is
+                particularly suited for is a good excuse to mention a key
+                feature (or three) about the product that you believe searches
+                may look for (Google auto-suggestions commonly tell you this if
+                you enter the Product Title into search){" "}
+              </li>
+              <li>
+                A way of thinking about which features to include is "what would
+                the customer be searching for" ie. do they wonder how many
+                megapixel X camera has?
+              </li>
+              <li>
+                Meta Descriptions should not be too long. What is considered
+                long is relative but 150 characters is long and 170 would be too
+                long. Less is more!
+              </li>
+            </ul>
+            </TextContent>
+          </TextContent>
         </>
       ),
       child: [

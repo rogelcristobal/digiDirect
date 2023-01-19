@@ -68,7 +68,7 @@ const Main = () => {
       <Route
         path="/*"
         element={
-          <Box className="h-screen    w-screen  text-black  box-border flex   items-start justify-start   bg-[#ffffff]">
+          <Box className="h-screen    w-screen  text-gray-800  box-border flex   items-start justify-start   bg-[#ffffff]">
             {/* <SideBar /> */}
             {/* <Navbar></Navbar> */}
             <AnimatePresence>
