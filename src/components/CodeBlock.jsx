@@ -6,6 +6,7 @@ import {
 } from "@codesandbox/sandpack-react";
 import { FiClipboard } from "react-icons/fi";
 import { Box, IconButton, Typography } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
 const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
   const container = useRef(null);
   const theme2 = {
@@ -96,7 +97,11 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
   };
   const handleToggleCopyToggle = () => {
     navigator.clipboard.writeText(mergeTagsAndStyles(content));
-  }
+  };
+  const [hover, setHoverState] = useState(false);
+  const hoverBlock = () => {
+    setHoverState((prev) => (prev = !hover));
+  };
   return (
     <Box className="space-y-4   box-border">
       {text && (
@@ -126,6 +131,8 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
       >
         <SandpackLayout
           ref={container}
+          onMouseEnter={hoverBlock}
+          onMouseLeave={hoverBlock}
           className="box-border flex items-center justify-center w-full  relative  rounded-md   relative"
         >
           <SandpackCodeViewer
@@ -133,9 +140,23 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
             className="h-fit border-none font-ukraine-regular min-h-[4.3rem] w-full px-2     box-border "
             wrapContent
           />
-          <IconButton onClick={handleToggleCopyToggle} className="absolute top-2 w-fit h-fit right-2 box-border cursor-pointer p-2 rounded-md grid place-content-center text-[1.05rem] bg-gray-400/10 text-gray-400">
-            <FiClipboard />
-          </IconButton>
+          <AnimatePresence>
+           <motion.div
+              className="absolute top-2 right-2 box-border w-fit h-fit"
+              animate={{opacity:hover? 1 : 0}}
+              transition={{ ease: "easeInOut", duration: 0.2 }}
+            >
+              <IconButton
+              
+              onClick={handleToggleCopyToggle}
+              className={` 
+              } w-fit h-fit  box-border cursor-pointer p-2 rounded-md grid place-content-center text-[1.05rem] bg-gray-400/10 text-gray-400 `}
+            >
+              <FiClipboard />
+            </IconButton>
+              
+            </motion.div>
+          </AnimatePresence>
         </SandpackLayout>
       </SandpackProvider>
     </Box>
