@@ -16,6 +16,48 @@ import CodeMenuContext from "../context/CodeMenuContext";
 import { Box,Typography } from "@mui/material";
 const CodeBlock = ({text, content, handleCopy, copyState, id }) => {
   const container = useRef(null);
+const theme2 = {
+    colors: {
+      surface1: "#1C1A27",
+      surface2: "#243b4c",
+    surface3: "#112331",
+    clickable: "#6988a1",
+    base: "#808080",
+    disabled: "#4D4D4D",
+    hover: "#c5e4fd",
+    accent: "#c5e4fd",
+    error: "#ffcdca",
+    errorSurface: "#811e18"
+    },
+    syntax: {
+    plain: "#d6deeb",
+    comment: {
+      color: "#999999",
+      fontStyle: "italic"
+    },
+    keyword: {
+      color: "#c792ea",
+      fontStyle: "italic"
+    },
+    tag: "#7fdbca",
+    punctuation: "#7fdbca",
+    definition: "#82aaff",
+    property: {
+      color: "#addb67",
+      fontStyle: "italic"
+    },
+    static: "#f78c6c",
+    string: "#ecc48d"
+  },
+    font: {
+      body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+
+      mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
+
+      size: "13.25px",
+      lineHeight: "19px",
+    },
+  };
 
   const theme = {
     colors: {
@@ -49,19 +91,19 @@ const CodeBlock = ({text, content, handleCopy, copyState, id }) => {
 
       mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
 
-      size: "13.25px",
+      size: "13.40px",
       lineHeight: "19px",
     },
   };
 
   return (
     <Box className="space-y-4   box-border">
-      <Typography
+      {text &&  <Typography
         variant="body1"
         className="text-lg font-bold text-gray-800 font-plus"
       >
         {text}
-      </Typography>
+      </Typography>}
       <SandpackProvider
         theme={theme}
         template="react"

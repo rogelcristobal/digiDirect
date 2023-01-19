@@ -82,7 +82,7 @@ export const TemplateSectionProvider = ({ children }) => {
       category: " Specifications",
       title: "Specifications",
       content: (
-        <Box className="box-border space-y-12">
+        <Box className="box-border space-y-8">
           <TextContent>
             Product specifications, also known as product specs, are a set of
             details that describe the technical characteristics and features of
@@ -152,28 +152,21 @@ export const TemplateSectionProvider = ({ children }) => {
             kit or bundle, which includes two or more products within the
             package.
             <Box className="py-6">
+              <CodeBlock content={descriptionBest}></CodeBlock>
+            </Box>
+          </TextContent>
+          <TextContent title="Descriptions (kit/bundle)">
+            This template can be utilized when the product listing pertains to a
+            kit or bundle, which includes two or more products within the
+            package.
+            <Box className="py-6">
               <CodeBlock content={descriptionKit}></CodeBlock>
             </Box>
           </TextContent>
         </Box>
       ),
 
-      child: [
-        {
-          title: "Basic Template",
-          snippet: descriptionSimple,
-        },
-        {
-          title: "Advanced Template",
-          // content: " Displays the description of the product.",
-          snippet: descriptionBest,
-        },
-        {
-          title: "Bundled/Kit Template",
-          // content: " Displays the description of the product.",
-          snippet: descriptionKit,
-        },
-      ],
+      
     },
 
     {
@@ -182,7 +175,8 @@ export const TemplateSectionProvider = ({ children }) => {
       category: "Short descriptions",
       title: "Short description",
       content: (
-        <TextContent>
+        <Box className="box-border space-y-6">
+          <TextContent>
           Short description shows key information about a product in a concise
           and easy-to-read manner. It typically includes a list of the most
           important features and benefits of a product, presented in bullet
@@ -196,6 +190,7 @@ export const TemplateSectionProvider = ({ children }) => {
           product listing or documentation website, as it provides a clear and
           organized overview of the product's features and benefits.
         </TextContent>
+        </Box>
       ),
       child: [
         {
@@ -256,13 +251,12 @@ export const TemplateSectionProvider = ({ children }) => {
             features, benefits, and relevant information about the product. Keep
             it under 155 characters.
             <br />
-            <Box className="py-6">
-
-            <CodeBlock
-              text="Sample meta description"
-              content={seoMetaDescription}
+            <Box class8ame="py-6">
+              <CodeBlock
+                text="Sample meta description"
+                content={seoMetaDescription}
               />
-              </Box>
+            </Box>
             <br />
             <TextContent title="Meta description guidelines">
               <ul>
