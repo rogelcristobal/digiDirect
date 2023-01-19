@@ -16,6 +16,7 @@ export const TemplateSectionProvider = ({ children }) => {
       // console.log(element)
     }
   };
+  
 
   const {
     inTheBoxMarkup,
@@ -129,8 +130,15 @@ export const TemplateSectionProvider = ({ children }) => {
             benefits. Additionally, the product description should also include
             information about the product's dimensions, weight, and any other
             relevant technical specifications.
-            <br />
-            <br />
+            
+            
+            <Box className="py-6">
+              <CodeBlock text="Usage" content={descriptionSimple} />
+            </Box>
+            As demonstrated by the examples provided, the product description
+            includes the product name, its key features, the Global Trade Item
+            Number (GTIN) and the Manufacturer Part Number (MPIN).
+            <br /><br />
             The product description should be written in a clear, concise, and
             easy-to-understand manner, and should be presented in a way that is
             visually appealing and easy to read. The goal of the product
@@ -140,12 +148,6 @@ export const TemplateSectionProvider = ({ children }) => {
             capabilities. Additionally, it will also help customers to
             troubleshoot any issues they may have with the product, by providing
             information about common problems and solutions.
-            <Box className="py-6">
-              <CodeBlock text="Usage" content={descriptionSimple} />
-            </Box>
-            As demonstrated by the examples provided, the product description
-            includes the product name, its key features, the Global Trade Item
-            Number (GTIN) and the Manufacturer Part Number (MPIN).
           </TextContent>
           <TextContent title="Descriptions (kit/bundle)">
             This template can be utilized when the product listing pertains to a
@@ -164,11 +166,8 @@ export const TemplateSectionProvider = ({ children }) => {
             </Box>
           </TextContent>
         </Box>
-      ),
-
-      
+      ),    
     },
-
     {
       refView: shortDescriptionRef,
       isInView: shortDescriptionState,
@@ -192,27 +191,14 @@ export const TemplateSectionProvider = ({ children }) => {
         </TextContent>
         </Box>
       ),
-      child: [
-        {
-          title: "Basic Template",
-          snippet: shortDescription,
-        },
-        {
-          title: "Bundled/Kit Template",
-          // content:
-          //   "Applies when a listing/product is a bundled, displays a short description of the product.",
-          snippet: shortDescriptionKit,
-        },
-      ],
     },
-
     {
       refView: seoRef,
       isInView: seoState,
       category: "Search engine optimizations",
       title: "Search engine optimization",
       content: (
-        <Box className="box-border space-y-6">
+        <Box className="box-border space-y-12">
           <TextContent title="Meta title">
             A meta title is a short text that appears at the top of a web page,
             typically in the browser tab. It is used to describe the content of
@@ -251,7 +237,7 @@ export const TemplateSectionProvider = ({ children }) => {
             features, benefits, and relevant information about the product. Keep
             it under 155 characters.
             <br />
-            <Box class8ame="py-6">
+            <Box className="py-6">
               <CodeBlock
                 text="Sample meta description"
                 content={seoMetaDescription}

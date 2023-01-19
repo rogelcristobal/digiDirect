@@ -1,60 +1,52 @@
-import React, { useRef, useContext, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   SandpackProvider,
   SandpackLayout,
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
-import {
-  theme,
-  nightOwl,
-  oceanBlue,
-  aquaBlue,
-  levelUp,
-} from "@codesandbox/sandpack-themes";
-import { useElementDimension } from "../hooks/useElementDimension";
-import CodeMenuContext from "../context/CodeMenuContext";
-import { Box,Typography } from "@mui/material";
-const CodeBlock = ({text, content, handleCopy, copyState, id }) => {
+import { FiClipboard } from "react-icons/fi";
+import { Box, IconButton, Typography } from "@mui/material";
+const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
   const container = useRef(null);
-const theme2 = {
+  const theme2 = {
     colors: {
       surface1: "#1C1A27",
       surface2: "#243b4c",
-    surface3: "#112331",
-    clickable: "#6988a1",
-    base: "#808080",
-    disabled: "#4D4D4D",
-    hover: "#c5e4fd",
-    accent: "#c5e4fd",
-    error: "#ffcdca",
-    errorSurface: "#811e18"
+      surface3: "#112331",
+      clickable: "#6988a1",
+      base: "#808080",
+      disabled: "#4D4D4D",
+      hover: "#c5e4fd",
+      accent: "#c5e4fd",
+      error: "#ffcdca",
+      errorSurface: "#811e18",
     },
     syntax: {
-    plain: "#d6deeb",
-    comment: {
-      color: "#999999",
-      fontStyle: "italic"
+      plain: "#d6deeb",
+      comment: {
+        color: "#999999",
+        fontStyle: "italic",
+      },
+      keyword: {
+        color: "#c792ea",
+        fontStyle: "italic",
+      },
+      tag: "#7fdbca",
+      punctuation: "#7fdbca",
+      definition: "#82aaff",
+      property: {
+        color: "#addb67",
+        fontStyle: "italic",
+      },
+      static: "#f78c6c",
+      string: "#ecc48d",
     },
-    keyword: {
-      color: "#c792ea",
-      fontStyle: "italic"
-    },
-    tag: "#7fdbca",
-    punctuation: "#7fdbca",
-    definition: "#82aaff",
-    property: {
-      color: "#addb67",
-      fontStyle: "italic"
-    },
-    static: "#f78c6c",
-    string: "#ecc48d"
-  },
     font: {
       body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 
       mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
 
-      size: "13.25px",
+      size: "13px",
       lineHeight: "19px",
     },
   };
@@ -95,17 +87,25 @@ const theme2 = {
       lineHeight: "19px",
     },
   };
-
+  const mergeTagsAndStyles = ({ tags, styles }) => {
+    if (!styles) {
+      return tags;
+    } else {
+      return `<style>${styles}</style>` + tags;
+    }
+  };
+  const handleToggleCopyToggle = () => {
+    navigator.clipboard.writeText(mergeTagsAndStyles(content));
+  }
   return (
     <Box className="space-y-4   box-border">
-      {text &&  <Typography
-        variant="body1"
-        className="text-lg font-bold text-gray-800 font-plus"
-      >
-        {text}
-      </Typography>}
+      {text && (
+        <Typography variant="body1" className="text-lg font-bold  font-plus">
+          {text}
+        </Typography>
+      )}
       <SandpackProvider
-        theme={theme}
+        theme={theme2}
         template="react"
         customSetup={{
           entry: "index.css",
@@ -126,13 +126,16 @@ const theme2 = {
       >
         <SandpackLayout
           ref={container}
-          className="box-border flex items-center justify-center w-full  relative  rounded-lg   "
+          className="box-border flex items-center justify-center w-full  relative  rounded-md   relative"
         >
           <SandpackCodeViewer
             // showLineNumbers
             className="h-fit border-none font-ukraine-regular min-h-[4.3rem] w-full px-2     box-border "
             wrapContent
           />
+          <IconButton onClick={handleToggleCopyToggle} className="absolute top-2 w-fit h-fit right-2 box-border cursor-pointer p-2 rounded-md grid place-content-center text-[1.05rem] bg-gray-400/10 text-gray-400">
+            <FiClipboard />
+          </IconButton>
         </SandpackLayout>
       </SandpackProvider>
     </Box>

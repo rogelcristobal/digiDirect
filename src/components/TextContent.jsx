@@ -6,7 +6,7 @@ const TextContent = ({ category, title, children, sx }) => {
       {title ? (
         <Typography
           variant="body1"
-          className="text-lg font-bold text-gray-800 font-plus mb-3"
+          className="text-lg font-bold  font-plus mb-3"
         >
           {title}
         </Typography>
