@@ -44,36 +44,36 @@ export const TemplateSectionProvider = ({ children }) => {
     {
       refView: inTheBoxRef,
       isInView: inTheBoxState,
-      title: `Included in the box`,
+      title: `What's in the box`,
       content: (
-       <>
-         <TextContent>
-          Refers to the items that are included with a product when it is
-          purchased. This information is often listed in the product description
-          or specifications on a website or in a catalog. It is important to
-          provide accurate and detailed information about what is included with
-          the product in order to avoid confusion and customer dissatisfaction.
-          <br />
-          <br />
-          This information can include items such as accessories, manuals, and
-          any other components that are necessary for the product to function
-          properly.
-          <CodeBlock text="Usage" content={inTheBoxMarkup} />
-          This template will display the included items in bullets.
-        </TextContent>
-        <TextContent title="What's in the box (kit/bundle)"></TextContent>
-       </>
+        <Box className="box-border space-y-12">
+          <TextContent>
+            Refers to the items that are included with a product when it is
+            purchased. This information is often listed in the product
+            description or specifications on a website or in a catalog. It is
+            important to provide accurate and detailed information about what is
+            included with the product in order to avoid confusion and customer
+            dissatisfaction.
+            <br />
+            <br />
+            This information can include items such as accessories, manuals, and
+            any other components that are necessary for the product to function
+            properly.
+            <Box className="py-6">
+              <CodeBlock text="Usage" content={inTheBoxMarkup} />
+            </Box>
+            This template will display the included items in bullets.
+          </TextContent>
+          <TextContent title="What's in the box (kit/bundle)">
+            This template can be utilized when the product listing pertains to a
+            kit or bundle, which includes two or more products within the
+            package.
+            <Box className="py-6">
+              <CodeBlock content={bundleInTheBox}></CodeBlock>
+            </Box>
+          </TextContent>
+        </Box>
       ),
-      child: [
-        {
-          title: "Basic Template",
-          snippet: inTheBoxMarkup,
-        },
-        {
-          title: "Bundled template",
-          snippet: bundleInTheBox,
-        },
-      ],
     },
 
     {
@@ -82,35 +82,35 @@ export const TemplateSectionProvider = ({ children }) => {
       category: " Specifications",
       title: "Specifications",
       content: (
-        <TextContent>
-          Product specifications, also known as product specs, are a set of
-          details that describe the technical characteristics and features of a
-          product. They are typically listed in the product description or
-          specifications section of a website or catalog. Product specifications
-          can include information such as dimensions, weight, materials, power
-          requirements, and any other technical details that are relevant to the
-          product.
-          <br /> <br />
-          They can also include information about the product's performance,
-          such as its capacity, speed, or efficiency. Providing accurate and
-          detailed product specifications is important in order to help
-          customers make informed purchasing decisions and to ensure that the
-          product meets their needs and expectations.
-          <CodeBlock text="Usage" content={specsMarkup} />
-        </TextContent>
+        <Box className="box-border space-y-12">
+          <TextContent>
+            Product specifications, also known as product specs, are a set of
+            details that describe the technical characteristics and features of
+            a product. They are typically listed in the product description or
+            specifications section of a website or catalog. Product
+            specifications can include information such as dimensions, weight,
+            materials, power requirements, and any other technical details that
+            are relevant to the product.
+            <br /> <br />
+            They can also include information about the product's performance,
+            such as its capacity, speed, or efficiency. Providing accurate and
+            detailed product specifications is important in order to help
+            customers make informed purchasing decisions and to ensure that the
+            product meets their needs and expectations.
+            <Box className="py-6">
+              <CodeBlock text="Usage" content={specsMarkup} />
+            </Box>
+          </TextContent>
+          <TextContent title="Specifications (kit/bundle)">
+            This template can be utilized when the product listing pertains to a
+            kit or bundle, which includes two or more products within the
+            package.
+            <Box className="py-6">
+              <CodeBlock content={specsMarkupCategorized}></CodeBlock>
+            </Box>
+          </TextContent>
+        </Box>
       ),
-      child: [
-        {
-          title: "Basic Template",
-          snippet: specsMarkup,
-        },
-        {
-          title: "Categorized Template",
-          // content:
-          //   "Applies when the product specification needed to be categorized, specification can hav multiple categories. In that instance you can just copy the tags and append it on the end.",
-          snippet: specsMarkupCategorized,
-        },
-      ],
     },
 
     {
@@ -119,31 +119,43 @@ export const TemplateSectionProvider = ({ children }) => {
       category: " Descriptions",
       title: "Description",
       content: (
-        <TextContent>
-          A product description in a product listing is a written summary of the
-          key features and benefits of a product. It is designed to inform
-          potential customers about the product and persuade them to make a
-          purchase. The product description should include information such as
-          the product's name, a brief overview of its features, and its key
-          benefits. Additionally, the product description should also include
-          information about the product's dimensions, weight, and any other
-          relevant technical specifications.
-          <br />
-          <br />
-          The product description should be written in a clear, concise, and
-          easy-to-understand manner, and should be presented in a way that is
-          visually appealing and easy to read. The goal of the product
-          description is to provide customers with all the information they need
-          to make an informed decision about whether to purchase the product.
-          This will help customers to understand the product and its
-          capabilities. Additionally, it will also help customers to
-          troubleshoot any issues they may have with the product, by providing
-          information about common problems and solutions.
-          <CodeBlock text="Usage" content={descriptionSimple} />
-          As demonstrated by the examples provided, the product description
-          includes the product name, its key features, the Global Trade Item
-          Number (GTIN) and the Manufacturer Part Number (MPIN).
-        </TextContent>
+        <Box className="box-border space-y-12">
+          <TextContent>
+            A product description in a product listing is a written summary of
+            the key features and benefits of a product. It is designed to inform
+            potential customers about the product and persuade them to make a
+            purchase. The product description should include information such as
+            the product's name, a brief overview of its features, and its key
+            benefits. Additionally, the product description should also include
+            information about the product's dimensions, weight, and any other
+            relevant technical specifications.
+            <br />
+            <br />
+            The product description should be written in a clear, concise, and
+            easy-to-understand manner, and should be presented in a way that is
+            visually appealing and easy to read. The goal of the product
+            description is to provide customers with all the information they
+            need to make an informed decision about whether to purchase the
+            product. This will help customers to understand the product and its
+            capabilities. Additionally, it will also help customers to
+            troubleshoot any issues they may have with the product, by providing
+            information about common problems and solutions.
+            <Box className="py-6">
+              <CodeBlock text="Usage" content={descriptionSimple} />
+            </Box>
+            As demonstrated by the examples provided, the product description
+            includes the product name, its key features, the Global Trade Item
+            Number (GTIN) and the Manufacturer Part Number (MPIN).
+          </TextContent>
+          <TextContent title="Descriptions (kit/bundle)">
+            This template can be utilized when the product listing pertains to a
+            kit or bundle, which includes two or more products within the
+            package.
+            <Box className="py-6">
+              <CodeBlock content={descriptionKit}></CodeBlock>
+            </Box>
+          </TextContent>
+        </Box>
       ),
 
       child: [
@@ -175,7 +187,9 @@ export const TemplateSectionProvider = ({ children }) => {
           and easy-to-read manner. It typically includes a list of the most
           important features and benefits of a product, presented in bullet
           point form.
-          <CodeBlock text="Usage" content={shortDescription} />
+          <Box className="py-6">
+            <CodeBlock text="Usage" content={shortDescription} />
+          </Box>
           This format allows for quick and easy scanning of the information,
           making it easy for potential customers to understand the product's key
           selling points. It is an efficient way to present information on a
@@ -203,7 +217,7 @@ export const TemplateSectionProvider = ({ children }) => {
       category: "Search engine optimizations",
       title: "Search engine optimization",
       content: (
-        <>
+        <Box className="box-border space-y-6">
           <TextContent title="Meta title">
             A meta title is a short text that appears at the top of a web page,
             typically in the browser tab. It is used to describe the content of
@@ -214,7 +228,9 @@ export const TemplateSectionProvider = ({ children }) => {
             selling. It is an important element of search engine optimization
             (SEO) as it helps to increase the visibility and click-through rate
             of the product listing.
-            <CodeBlock text="Usage" content={seoMetaTitle} />
+            <Box className="py-6">
+              <CodeBlock text="Usage" content={seoMetaTitle} />
+            </Box>
             It's important to make sure that the meta title is unique to each
             product page and avoid duplication across different pages on the
             website.
@@ -224,7 +240,9 @@ export const TemplateSectionProvider = ({ children }) => {
             HTML code of a webpage. When creating a product listing, these
             keywords can be used to provide a list of words or phrases that
             describe the product.
-            <CodeBlock text="Usage" content={seoMetaKeyword} />
+            <Box className="py-6">
+              <CodeBlock text="Usage" content={seoMetaKeyword} />
+            </Box>
             These keywords can help search engines determine the relevance of
             the product listing to a user's search query. In a Content
             Management System (CMS), meta keywords can typically be added to a
@@ -238,45 +256,53 @@ export const TemplateSectionProvider = ({ children }) => {
             features, benefits, and relevant information about the product. Keep
             it under 155 characters.
             <br />
-            <CodeBlock text="Sample meta description" content={seoMetaDescription} />
+            <Box className="py-6">
+
+            <CodeBlock
+              text="Sample meta description"
+              content={seoMetaDescription}
+              />
+              </Box>
             <br />
             <TextContent title="Meta description guidelines">
               <ul>
-              <li>ProductTitle should always be present, </li>
-              <li>digiDirect should always be present, </li>
-              <li>
-                it is preferable that the wording "buy" or "purchase" is present
-                (this is primary ecommerce Call to Action CTA).
-              </li>
-              <li>
-                Gaming and tech should be more simplified for a less "tech-savy"
-                audience and focused more on urgency (today, available)
-              </li>
-              <li>
-                For cameras and other traditional photo categories, features
-                tend to be more important and these customers are more tech-savy
-              </li>
-              <li>
-                Targeting the Meta Description for a use-case the product is
-                particularly suited for is a good excuse to mention a key
-                feature (or three) about the product that you believe searches
-                may look for (Google auto-suggestions commonly tell you this if
-                you enter the Product Title into search){" "}
-              </li>
-              <li>
-                A way of thinking about which features to include is "what would
-                the customer be searching for" ie. do they wonder how many
-                megapixel X camera has?
-              </li>
-              <li>
-                Meta Descriptions should not be too long. What is considered
-                long is relative but 150 characters is long and 170 would be too
-                long. Less is more!
-              </li>
-            </ul>
+                <li>ProductTitle should always be present, </li>
+                <li>digiDirect should always be present, </li>
+                <li>
+                  it is preferable that the wording "buy" or "purchase" is
+                  present (this is primary ecommerce Call to Action CTA).
+                </li>
+                <li>
+                  Gaming and tech should be more simplified for a less
+                  "tech-savy" audience and focused more on urgency (today,
+                  available)
+                </li>
+                <li>
+                  For cameras and other traditional photo categories, features
+                  tend to be more important and these customers are more
+                  tech-savy
+                </li>
+                <li>
+                  Targeting the Meta Description for a use-case the product is
+                  particularly suited for is a good excuse to mention a key
+                  feature (or three) about the product that you believe searches
+                  may look for (Google auto-suggestions commonly tell you this
+                  if you enter the Product Title into search){" "}
+                </li>
+                <li>
+                  A way of thinking about which features to include is "what
+                  would the customer be searching for" ie. do they wonder how
+                  many megapixel X camera has?
+                </li>
+                <li>
+                  Meta Descriptions should not be too long. What is considered
+                  long is relative but 150 characters is long and 170 would be
+                  too long. Less is more!
+                </li>
+              </ul>
             </TextContent>
           </TextContent>
-        </>
+        </Box>
       ),
     },
   ];

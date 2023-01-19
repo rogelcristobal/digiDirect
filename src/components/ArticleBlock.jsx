@@ -54,7 +54,7 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx, id }) => {
         >
           <Typography
             variant="body2"
-            className={`max-w-[47rem] font-dm    text-base  text-neutral-800 space-y-12`}
+            className={`max-w-[47rem] font-dm    text-base  text-neutral-800`}
           >
             {article.content}
           </Typography>

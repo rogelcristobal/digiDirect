@@ -55,7 +55,7 @@ const CodeBlock = ({text, content, handleCopy, copyState, id }) => {
   };
 
   return (
-    <Box className="space-y-7 py-7  box-border">
+    <Box className="space-y-4   box-border">
       <Typography
         variant="body1"
         className="text-lg font-bold text-gray-800 font-plus"
@@ -84,7 +84,7 @@ const CodeBlock = ({text, content, handleCopy, copyState, id }) => {
       >
         <SandpackLayout
           ref={container}
-          className="box-border flex items-center justify-center w-full  relative     "
+          className="box-border flex items-center justify-center w-full  relative  rounded-lg   "
         >
           <SandpackCodeViewer
             // showLineNumbers
