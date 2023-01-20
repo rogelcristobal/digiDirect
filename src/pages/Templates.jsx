@@ -65,22 +65,22 @@ const Templates = () => {
       <Box className="h-16 w-full box-border thin-bottom-divider "></Box>
       <Box className=" min-h-[150vh] h-auto box-border    w-full flex items-start justify-center gap-3 ">
         {/* side nav */}
-        <Box className="box-border h-[90vh] thin-box-divider w-[20rem] sticky top-4 flex mt-3 flex-col justify-start items-start p-3 space-y-3">
+        <Box className="box-border h-[90vh]  w-72 sticky top-4 flex mt-3 flex-col justify-start items-start p-3 space-y-3 medium-right-divider">
           {/* <Box className="h-8 cursor-pointer w-8 box-border text-black rounded-md text-xl grid place-content-center thin-box-divider">
            &#8592;
           </Box> */}
-          
-          <Box className="h-fit  w-full  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative ">
-          
 
+          <p></p>
+          <Box className="h-fit  w-full  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative  ">
+            
           </Box>
         </Box>
+        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-6">
 
-        <Box className=" w-full box-border h-full space-y-3 p-3 pb-40 pt-3">
           {/* title */}
-          <Box className="p-7 h-28  w-full ">
+          <Box className="px-10  py-4   w-full ">
             <TextContent title={
-              <Typography variant="body1" className="text-[28px] leading-[32px] font-plus font-bold capitalize">Product listing  templates</Typography>
+              <Typography variant="body1" className="text-3xl font-plus font-semibold capitalize">Product listing templates</Typography>
             }></TextContent>  
 
           </Box>
@@ -88,7 +88,7 @@ const Templates = () => {
           {/* content */}
           {templateSections.map((item, id) => (
             <Box
-              className="box-border  flex items-start justify-start gap-12  px-7 py-5"
+              className="box-border  flex items-start justify-start   px-10 py-7 "
               key={id}
               ref={storeRef}
             >
@@ -96,7 +96,7 @@ const Templates = () => {
                 id={id}
                 view={item.refView}
                 article={item}
-                titleStyle="text-[20px]  leading-[24px]  font-plus font-bold
+                titleStyle="text-[1.25rem] leading-[1.85rem] font-plus font-bold 
                  "
               ></ArticleBlock>
             </Box>

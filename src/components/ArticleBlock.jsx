@@ -3,7 +3,8 @@ import { Box, Typography, Divider, Snackbar, Alert } from "@mui/material";
 import TextContent from "./TextContent";
 
 import { BsCheckCircle } from "react-icons/bs";
-const ArticleBlock = ({ article, children, titleStyle, view, sx,id }) => {
+
+const ArticleBlock = ({ article, children, titleStyle, view, sx, id }) => {
 
   const [open, setOpen] = React.useState(false);
   const [show, setShow] = React.useState(false);
@@ -41,75 +42,41 @@ const ArticleBlock = ({ article, children, titleStyle, view, sx,id }) => {
   };
   return (
     <Box
-      onClick={handleClick}
-      className={`w-full h-full ${sx}  box-border  flex flex-col justify-between `}
+
+      className={`w-full h-fit ${sx}   flex flex-col justify-between `}
       ref={view}
     >
-      <Box
-        component="article"
-        className="w-full flex relative items-start justify-between  box-border mb-16 h-16"
-      >
-
-        {/* .MuiAlert-icon */}
-        <Alert
-          onClick={handleClose}
-          icon={<BsCheckCircle className="text-white text-xl" />}
-          className="w-72 h-14 px-4 cursor-pointer bg-blue-500 text-white rounded-lg  flex items-center justify-start space-x-4"
-          color="info"
+      <Box component="article" className="w-full  box-border  ">
+        <TextContent
+          // category={article?.category}
+          sx={`space-y-6`}
+          title={
+            <Typography
+              variant="subtitle2"
+              className={`    flex flex-col relative max-w-fit ${titleStyle} `}
+            >
+              {article.title}
+            </Typography>
+          }
         >
-          Copied to clipboard! <br />
-        </Alert>
-      </Snackbar>
-
-    
-
-      <Box className={`w-full h-fit ${sx}   flex flex-col justify-between `} ref={view}>
-        <Box component="article" className="w-full  box-border  ">
-          <TextContent
-            // category={article?.category}
-
-            sx={`space-y-3`}
-            title={
-
-
-
-                  {/* <RxArrowRight className="text-[1.5rem] " /> */}
-                </Typography>
-              }
-              subTitle={
-                <Typography
-                  variant="subtitle2"
-                  className={`max-w-[45rem] font-ukraine-light text-[0.850rem] text-gray-500  `}
-                >
-
-                 {article.title}
-
-              </Typography>
-            }
-            subTitle={
-              <Typography
-                variant="subtitle2"
-                className={`max-w-[47rem] font-dm text-gray-800  text-[16px] leading-[24px] font-normal  `}
-              >
-                {article.content}
-
-                
-              </Typography>
-            }
-          />
-        </Box>
-       
-       { children &&
-        // spaces for each child
-          <Box className="  flex flex-col items-center justify-start box-border"> 
-            {children} 
-           
-
-          </Box>
-        ))}
+          <Typography
+            variant="h6"
+            className={`max-w-[47rem] font-plus     text-[0.875rem]   `}
+          >
+            {article.content}
+          </Typography>
+        </TextContent>
       </Box>
 
-      <Divider variant="fullWidth" className="h-[1px]  bg-black"></Divider>
+
+      {children && (
+        // spaces for each child
+
+        <Box className="  flex flex-col items-center justify-start box-border">
+          {children}
+        </Box>
+      )}
+
     </Box>
   );
 };

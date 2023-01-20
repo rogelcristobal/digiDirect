@@ -339,7 +339,7 @@ const template = () => {
     tags: `ProductName, ProductName Australia, Barcode1, Barcode2, buy, shop, digidirect, australia, price,`,
   };
   const seoMetaDescription={
-    tags:`The is ProductName an excellent choice because it is known for its productFeatures, productFeatures. Not only will you enjoy these impressive features, but you'll also be making a smart investment in a high-quality product that will last for years to come. Don't miss out on this opportunity to own the - buy now at digiDirect and experience the difference!`
+    tags:`Lock in your look and protect your phone with ultra-slim OtterBox Symmetry Series Graphics Case for Apple iPhone 13, Ant Enigma that's easy to install and fortified with drop protection`
   }
 
 
