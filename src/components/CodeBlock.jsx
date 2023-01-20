@@ -11,7 +11,7 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
   const container = useRef(null);
   const theme2 = {
     colors: {
-      surface1: "#1C1A27",
+      surface1: "#1f2937",
       surface2: "#243b4c",
       surface3: "#112331",
       clickable: "#6988a1",
@@ -47,8 +47,8 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
 
       mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
 
-      size: "13px",
-      lineHeight: "19px",
+      size: "13.25px",
+      lineHeight: "20px",
     },
   };
 
@@ -110,7 +110,7 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
         </Typography>
       )}
       <SandpackProvider
-        theme={theme2}
+        theme={theme}
         template="react"
         customSetup={{
           entry: "index.css",
@@ -133,11 +133,11 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
           ref={container}
           onMouseEnter={hoverBlock}
           onMouseLeave={hoverBlock}
-          className="box-border flex items-center justify-center w-full  relative  rounded-md   relative"
+          className="box-border flex items-center justify-center w-full  relative  rounded-md  "
         >
           <SandpackCodeViewer
-            // showLineNumbers
-            className="h-fit border-none font-ukraine-regular min-h-[4.3rem] w-full px-2     box-border "
+            showLineNumbers
+            className="h-fit border-none font-ukraine-regular min-h-[4.3rem] w-full px-2 py-2    box-border "
             wrapContent
           />
           <AnimatePresence>

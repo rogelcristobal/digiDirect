@@ -4,11 +4,13 @@ import { TbMoon, TbBrandGithub } from "react-icons/tb";
 
 const Navbar = ({ scrollPosition }) => {
   // const {scrollRefState}= useContext(PageScrollableContext)
-
+  // const handleClick=()=>{
+  //   dataset
+  // }
   return (
     <Box
       component="nav"
-
+      
       className={` border-thin-bottom  h-fit  py-2 absolute top-0 z-30 left-0  w-full  box-border   bg-inherit 
     `}
     >

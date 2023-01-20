@@ -10,7 +10,7 @@ import { ScrollProvider } from "./context/ScrollContext";
 import CodeMenuContext from "./context/CodeMenuContext";
 import { CodeMenuProvider } from "./context/CodeMenuContext";
 import { SidebarStateProvider } from "./context/SidebarStateContext";
-
+import { SampleContextProvider } from "./context/SampleContext";
 import Scrollbar from "smooth-scrollbar";
 import { AnimatePresence } from "framer-motion";
 import CodeBlockMenu from "./components/CodeBlockMenu";
@@ -34,8 +34,10 @@ const App = () => {
               <SidebarStateProvider>
                 <TemplateSectionProvider>
                   <MouseStateProvider>
-                    
+                    <SampleContextProvider>
+
                     <Main />
+                    </SampleContextProvider>
                   </MouseStateProvider>
                 </TemplateSectionProvider>
               </SidebarStateProvider>
