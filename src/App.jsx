@@ -10,6 +10,7 @@ import { ScrollProvider } from "./context/ScrollContext";
 import CodeMenuContext from "./context/CodeMenuContext";
 import { CodeMenuProvider } from "./context/CodeMenuContext";
 import { SidebarStateProvider } from "./context/SidebarStateContext";
+
 import Scrollbar from "smooth-scrollbar";
 import { AnimatePresence } from "framer-motion";
 import CodeBlockMenu from "./components/CodeBlockMenu";
@@ -33,6 +34,7 @@ const App = () => {
               <SidebarStateProvider>
                 <TemplateSectionProvider>
                   <MouseStateProvider>
+                    <Cursor></Cursor>
                     <Main />
                   </MouseStateProvider>
                 </TemplateSectionProvider>
@@ -51,6 +53,7 @@ const Main = () => {
 
   const { setScrollEl, scrollEl } = useContext(PageScrollableContext);
   // scrollbar animation
+
   // const options = {
   //   damping: 0.04,
   //   renderByPixels: true,
@@ -62,13 +65,17 @@ const Main = () => {
   //   Scrollbar.init(ref.current, options);
   // }, []);
 
+
+
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
       <Route
         path="/*"
         element={
+
           <Box className="h-screen    w-screen  text-neutral-800  box-border flex   items-start justify-start   bg-[#ffffff]">
+
             {/* <SideBar /> */}
             {/* <Navbar></Navbar> */}
             <AnimatePresence>
@@ -77,7 +84,9 @@ const Main = () => {
             <Box
               // ref={ref}
               component="main"
+
               className=" box-border   h-screen  w-screen   "
+
             >
               <Box className="h-screen w-screen  overflow-x-hidden box-border  font-ukraine-light tracking-tight text-[13px] leading-[18px]">
                 <Suspense fallback={<LoadingFallback />}>

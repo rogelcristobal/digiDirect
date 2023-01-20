@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
+
 const TextContent = ({ category, title, children, sx }) => {
   return (
     <Box className={`  box-border  ${sx}`}>
@@ -11,6 +12,7 @@ const TextContent = ({ category, title, children, sx }) => {
           {title}
         </Typography>
       ) : null}
+
 
       {children}
     </Box>
