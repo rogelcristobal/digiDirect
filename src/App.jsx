@@ -34,7 +34,7 @@ const App = () => {
               <SidebarStateProvider>
                 <TemplateSectionProvider>
                   <MouseStateProvider>
-                    <Cursor></Cursor>
+                    
                     <Main />
                   </MouseStateProvider>
                 </TemplateSectionProvider>
