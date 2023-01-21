@@ -184,7 +184,7 @@ const Templates = () => {
       title: "Search engine optimization",
       text: (
         <Box  className="box-border space-y-12">
-          <TextContent  title="Meta title">
+          <TextContent sx="tracking-tight"  title="Meta title">
             A meta title is a short text that appears at the top of a web page,
             typically in the browser tab. It is used to describe the content of
             the page and it helps search engines understand what the page is
@@ -201,7 +201,7 @@ const Templates = () => {
             product page and avoid duplication across different pages on the
             website.
           </TextContent>
-          <TextContent title="Meta keywords">
+          <TextContent sx="tracking-tight" title="Meta keywords">
             Meta keywords are a type of meta tag that can be included in the
             HTML code of a webpage. When creating a product listing, these
             keywords can be used to provide a list of words or phrases that
@@ -216,7 +216,7 @@ const Templates = () => {
             module. It is important to choose relevant and specific keywords
             that accurately describe the product.
           </TextContent>
-          <TextContent title="Meta description">
+          <TextContent sx="tracking-tight" title="Meta description">
             A meta description is a summary of a webpage's content that appears
             in search results. In a product listing, it should provide key
             features, benefits, and relevant information about the product. Keep
@@ -229,7 +229,7 @@ const Templates = () => {
               />
             </Box>
             <br />
-            <TextContent title="Meta description guidelines">
+            <TextContent sx="tracking-tight" title="Meta description guidelines">
               <ul>
                 <li>ProductTitle should always be present, </li>
                 <li>digiDirect should always be present, </li>
@@ -282,12 +282,12 @@ const Templates = () => {
         </Box>
         <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-12">
           {/* title */}
-          <Box className="px-10  w-full ">
+          <Box className="px-14  w-full ">
             <TextContent
               title={
                 <Typography
                   variant="body1"
-                  className="text-3xl font-plus  font-semibold capitalize"
+                  className="text-3xl tracking-tight font-plus   font-bold capitalize"
                 >
                   Product listing templates
                 </Typography>
@@ -301,7 +301,7 @@ const Templates = () => {
               <ArticleBlock
                 id={id}
                 title={item.title}
-                titleStyle="text-[1.40rem] leading-[1.85rem] font-plus font-semibold"
+                titleStyle="text-[1.30rem] leading-[1.85rem] font-plus  tracking-tight font-bold"
               >
                 {item.text}
               </ArticleBlock>

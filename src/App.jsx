@@ -76,7 +76,7 @@ const Main = () => {
         path="/*"
         element={
 
-          <Box className="h-screen    w-screen  text-neutral-800  box-border flex   items-start justify-start   bg-[#ffffff]">
+          <Box className="h-screen    w-screen  text-neutral-900  box-border flex   items-start justify-start   bg-[#ffffff]">
 
             {/* <SideBar /> */}
             {/* <Navbar></Navbar> */}

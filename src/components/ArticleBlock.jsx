@@ -23,7 +23,7 @@ const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
   return (
     <Box
 
-      className={`w-full h-fit ${sx}  px-10 py-7 flex flex-col justify-between `}
+      className={`w-full h-fit ${sx}  px-14 py-7 flex flex-col justify-between `}
       ref={view}
     >
       <Box component="article" className="w-full  box-border  ">
@@ -41,7 +41,7 @@ const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
         >
           <Typography
             variant="h6"
-            className={`max-w-[47rem] font-plus     text-[0.875rem]   `}
+            className={`max-w-[47rem] font-open      text-[0.875rem]  tracking-tight `}
           >
             {children}
           </Typography>
