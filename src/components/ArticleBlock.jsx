@@ -24,11 +24,11 @@ const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
       <Box component="article" className="w-full  box-border  ">
         <TextContent
           // category={article?.category}
-          sx={`space-y-5`}
+          sx={`space-y-7`}
           title={
             <Typography
               variant="body1"
-              className="text-3xl font-plus  pb-6 font-semibold capitalize"
+              className="text-3xl font-plus  pb-4 font-semibold capitalize"
             >
               {title}
             </Typography>

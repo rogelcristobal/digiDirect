@@ -4,7 +4,7 @@ import {
   SandpackLayout,
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
-import { FiClipboard, FiCode   } from "react-icons/fi";
+import { FiClipboard, FiCode } from "react-icons/fi";
 import { Box, IconButton, Typography } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
@@ -103,14 +103,14 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
     setHoverState((prev) => (prev = !hover));
   };
   return (
-    <Box className="space-y-4   box-border">
+    <Box className="space-y-4  py-7  box-border">
       {text && (
-        <Typography variant="body1" className="text-lg font-bold  font-plus">
+        <Typography variant="body1" className="text-lg font-semibold  font-plus">
           {text}
         </Typography>
       )}
       <SandpackProvider
-        theme={theme2}
+        theme={theme}
         template="react"
         customSetup={{
           entry: "index.css",
@@ -131,40 +131,37 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
       >
         <SandpackLayout
           ref={container}
-          onMouseEnter={hoverBlock}
-          onMouseLeave={hoverBlock}
-          className="box-border flex items-center justify-center w-full  relative  rounded-lg medium-box-divider"
+          className="box-border flex items-center justify-center w-full  relative  rounded-none "
         >
           <SandpackCodeViewer
             // showLineNumbers
-            className="h-fit border-none font-ukraine-regular min-h-[4.3rem] w-full px-3 py-3    box-border "
+            onMouseEnter={hoverBlock}
+            onMouseLeave={hoverBlock}
+            className="h-fit border-none  min-h-[4.3rem] w-full px-2 py-1    box-border "
             wrapContent
           />
           <AnimatePresence>
-           <motion.div
-              className="absolute top-2 right-2 p-2 box-border  w-fit h-fit bg-[#2c3643]    rounded-lg space-y-2 "
-              animate={{opacity:hover? 1 : 0}}
+            <motion.div
+              className="absolute top-1.5 right-1.5  box-border  w-fit h-fit      space-y-2 "
+              animate={{ opacity: hover ? 1 : 0 }}
               transition={{ ease: "easeInOut", duration: 0.2 }}
             >
-              
-               <IconButton
-              
-              onClick={handleToggleCopyToggle}
-              className={` 
-              } w-fit h-fit  box-border cursor-pointer p-2 rounded-md grid place-content-center text-[0.9rem] bg-gray-400/10 text-gray-400 hover:text-white hover:bg-neutral-200/20 `}
-            >
-              <FiClipboard />
-            </IconButton>
-            {content.styles?<IconButton
-              
-              onClick={handleToggleCopyToggle}
-              className={` 
-              } w-fit h-fit  box-border cursor-pointer p-2 rounded-md grid place-content-center text-[0.9rem] bg-gray-400/10 text-gray-400 hover:text-white hover:bg-neutral-200/20   `}
-            >
-              <FiCode />
-            </IconButton>:null}
-             
-              
+              <IconButton
+                onClick={handleToggleCopyToggle}
+                className={` 
+              } w-fit h-fit  box-border cursor-pointer p-2 rounded-md grid place-content-center text-[0.9rem]  text-neutral-500 hover:text-white bg-neutral-400/10 `}
+              >
+                <FiClipboard />
+              </IconButton>
+              {content.styles ? (
+                <IconButton
+                  onClick={handleToggleCopyToggle}
+                  className={` 
+              } w-fit h-fit  box-border cursor-pointer p-2 rounded-md grid place-content-center text-[0.9rem] bg-gray-400/10 text-neutral-500    `}
+                >
+                  <FiCode />
+                </IconButton>
+              ) : null}
             </motion.div>
           </AnimatePresence>
         </SandpackLayout>
