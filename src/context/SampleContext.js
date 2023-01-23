@@ -1,14 +1,11 @@
-import {createContext,useRef} from 'react'
+import {createContext,useState} from 'react'
 const SampleContext = createContext()
 
 
 export const SampleContextProvider=({children})=>{
-    const multipleRef=useRef([])
-    const storeElement=(el)=>{
-        console.log(el.current)
-    }
+    const [refState,setRefState]=useState([])  
     return(
-        <SampleContext.Provider value={{multipleRef,storeElement}}>{children}</SampleContext.Provider>
+        <SampleContext.Provider value={{refState,setRefState}}>{children}</SampleContext.Provider>
     )
 }
 export default SampleContext

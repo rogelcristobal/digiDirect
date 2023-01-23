@@ -59,12 +59,24 @@ const Templates = () => {
     const element = document.querySelector(`[data-scroll="${node}"]`);
     element.scrollIntoView({ block: "start" });
   };
+  const { refState, setRefState } = useContext(SampleContext);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (ref) {
+      const element = document.querySelectorAll("[data-scroll]");
+      setRefState(element);
+      // console.log(refState[0])
+    }
+  }, [ref]);
+  const  x = [...refState].map(item=>item.getAttribute('data-scroll'))
+  
+
   const content = (
     <>
       {/*  in the box */}
       <Box className="box-border space-y-12 mt-8">
         <TextContent
-          anchor="inTheBox"
+          anchor="inTheBoxAnchor"
           sx="text-2xl leading-[1.85rem]  "
           title="What's in the box"
         >
@@ -81,7 +93,11 @@ const Templates = () => {
           <CodeBlock text="Usage" content={inTheBoxMarkup} />
           This template will display the included items in bullets.
         </TextContent>
-        <TextContent sx="text-[1.20rem] " title="What's in the box (kit/bundle)">
+        <TextContent
+          anchor="inTheBoxBundleAnchor"
+          sx="text-[1.20rem] "
+          title="What's in the box (kit/bundle)"
+        >
           This template can be utilized when the product listing pertains to a
           kit or bundle, which includes two or more products within the package.
           <CodeBlock content={bundleInTheBox}></CodeBlock>
@@ -89,7 +105,11 @@ const Templates = () => {
       </Box>
       {/*  specs */}
       <Box className="box-border space-y-12 mt-14">
-        <TextContent sx="text-2xl " title="Specifications">
+        <TextContent
+          anchor="specificationAnchor"
+          sx="text-2xl "
+          title="Specifications"
+        >
           Product specifications, also known as product specs, are a set of
           details that describe the technical characteristics and features of a
           product. They are typically listed in the product description or
@@ -105,7 +125,11 @@ const Templates = () => {
           product meets their needs and expectations.
           <CodeBlock text="Usage" content={specsMarkup} />
         </TextContent>
-        <TextContent sx="text-xl " title="Specifications (kit/bundle)">
+        <TextContent
+          anchor="specificationAdvancedAnchor"
+          sx="text-xl "
+          title="Specifications (kit/bundle)"
+        >
           This template can be utilized when the product listing pertains to a
           kit or bundle, which includes two or more products within the package.
           <CodeBlock text="Usage" content={specsMarkupCategorized}></CodeBlock>
@@ -113,7 +137,7 @@ const Templates = () => {
       </Box>
       {/*  description */}
       <Box className="box-border space-y-12 mt-14 ">
-        <TextContent sx="text-2xl " title="Descriptions">
+        <TextContent anchor="descriptioin" sx="text-2xl " title="Descriptions">
           A product description in a product listing is a written summary of the
           key features and benefits of a product. It is designed to inform
           potential customers about the product and persuade them to make a
@@ -151,7 +175,11 @@ const Templates = () => {
       </Box>
       {/*  short desciprion */}
       <Box className="box-border space-y-12 mt-14">
-        <TextContent sx="text-2xl " title="Short Descriptions">
+        <TextContent
+          anchor="shortDescriptionAnchor"
+          sx="text-2xl "
+          title="Short Descriptions"
+        >
           Short description shows key information about a product in a concise
           and easy-to-read manner. It typically includes a list of the most
           important features and benefits of a product, presented in bullet
@@ -177,7 +205,11 @@ const Templates = () => {
           a variety of techniques, including the use of meta tags such as title,
           description, and keywords.
         </TextContent>
-        <TextContent anchor="metaTitle" sx="text-[1.20rem] " title="Meta title">
+        <TextContent
+          anchor="metaTitleAnchor"
+          sx="text-[1.20rem] "
+          title="Meta title"
+        >
           A meta title is a short text that appears at the top of a web page,
           typically in the browser tab. It is used to describe the content of
           the page and it helps search engines understand what the page is
@@ -193,7 +225,11 @@ const Templates = () => {
           website.
         </TextContent>
 
-        <TextContent anchor="metaKeywords" sx="text-[1.20rem] " title="Meta keywords">
+        <TextContent
+          anchor="metaKeywordsAnchor"
+          sx="text-[1.20rem] "
+          title="Meta keywords"
+        >
           Meta keywords are a type of meta tag that can be included in the HTML
           code of a webpage. When creating a product listing, these keywords can
           be used to provide a list of words or phrases that describe the
@@ -208,7 +244,7 @@ const Templates = () => {
         </TextContent>
 
         <TextContent
-          anchor="metaDescription"
+          anchor="metaDescriptionAnchor"
           sx="text-[1.20rem] "
           title="Meta description"
         >
@@ -261,20 +297,29 @@ const Templates = () => {
       </Box>
     </>
   );
-
   return (
     <Box className="min-h-[150vh] h-full inline-block box-border" ref={myRef}>
       <Box className="  h-auto box-border    w-full flex items-start justify-center gap-3 ">
         {/* side nav */}
         <Box className="box-border h-[90vh]  w-80 sticky top-4 flex mt-3 flex-col justify-start items-start p-3 space-y-3 thin-right-Boxider">
-          <Box
-            onClick={() => handleClickScroll("metaKeywords")}
-            className=" w-full thin-box-divider  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative cursor-pointer"
-          ></Box>
+
+              {x.map((item,id)=>(
+
+                 <Box     
+                onClick={() => handleClickScroll("metaKeywords")}
+                className=" w-full thin-box-divider  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative cursor-pointer"
+              ></Box>
+            
+              ))}
+             
+           
         </Box>
         <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-16">
           {/* content */}
-          <Box className="box-border  flex flex-col items-start justify-start">
+          <Box
+            ref={ref}
+            className="box-border  flex flex-col items-start justify-start"
+          >
             <ArticleBlock title="Product listing templates">
               {content}
             </ArticleBlock>
