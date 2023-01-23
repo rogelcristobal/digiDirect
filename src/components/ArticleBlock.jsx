@@ -5,14 +5,10 @@ import TextContent from "./TextContent";
 import { BsCheckCircle } from "react-icons/bs";
 
 const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
-
   const [open, setOpen] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const [hoverLink, setHoverLink] = React.useState(false);
-  
 
-  
-  
   const getID = () => {
     if (id < 10) {
       return `0${id + 1}`;
@@ -22,7 +18,6 @@ const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
   };
   return (
     <Box
-
       className={`w-full h-fit ${sx}  px-10 py-7 flex flex-col justify-between `}
       ref={view}
     >
@@ -32,8 +27,8 @@ const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
           sx={`space-y-5`}
           title={
             <Typography
-              variant="subtitle2"
-              className={` flex flex-col relative max-w-fit ${titleStyle} `}
+              variant="body1"
+              className="text-3xl font-plus  pb-6 font-semibold capitalize"
             >
               {title}
             </Typography>
@@ -47,7 +42,6 @@ const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
           </Typography>
         </TextContent>
       </Box>
-
     </Box>
   );
 };
