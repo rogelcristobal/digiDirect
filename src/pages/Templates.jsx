@@ -9,6 +9,7 @@ import template from "../template/template";
 import { TbArrowLeft } from "react-icons/tb";
 import Scrollbar from "smooth-scrollbar";
 import SampleContext from "../context/SampleContext";
+import SideBar from "../components/SideBar";
 const ArticleBlock = lazy(() => import("../components/ArticleBlock"));
 
 const Templates = () => {
@@ -68,16 +69,18 @@ const Templates = () => {
       // console.log(refState[0])
     }
   }, [ref]);
-  const  x = [...refState].map(item=>item.getAttribute('data-scroll'))
-  
-
+//   const x = [...refState].map((item) => item.getAttribute("data-scroll"));
+// console.log(x)
+  // const y = [...refState].map((item) => item.getAttribute("data-label"));
+//  console.log(refState)
   const content = (
     <>
       {/*  in the box */}
       <Box className="box-border space-y-12 mt-8">
         <TextContent
           anchor="inTheBoxAnchor"
-          sx="text-2xl leading-[1.85rem]  "
+          
+          sx="text-2xl   "
           title="What's in the box"
         >
           Refers to the items that are included with a product when it is
@@ -126,7 +129,7 @@ const Templates = () => {
           <CodeBlock text="Usage" content={specsMarkup} />
         </TextContent>
         <TextContent
-          anchor="specificationAdvancedAnchor"
+          anchor="specificationBundleAnchor"
           sx="text-xl "
           title="Specifications (kit/bundle)"
         >
@@ -137,7 +140,7 @@ const Templates = () => {
       </Box>
       {/*  description */}
       <Box className="box-border space-y-12 mt-14 ">
-        <TextContent anchor="descriptioin" sx="text-2xl " title="Descriptions">
+        <TextContent anchor="descriptionAnchor" sx="text-2xl " title="Descriptions">
           A product description in a product listing is a written summary of the
           key features and benefits of a product. It is designed to inform
           potential customers about the product and persuade them to make a
@@ -195,7 +198,7 @@ const Templates = () => {
       {/*  seo */}
       <Box className="box-border space-y-12 mt-16">
         <TextContent
-          anchor="metaTitle"
+          anchor="SearchOptimizationAnchor"
           sx="text-2xl "
           title="Search engine optimization"
         >
@@ -301,18 +304,8 @@ const Templates = () => {
     <Box className="min-h-[150vh] h-full inline-block box-border" ref={myRef}>
       <Box className="  h-auto box-border    w-full flex items-start justify-center gap-3 ">
         {/* side nav */}
-        <Box className="box-border h-[90vh]  w-80 sticky top-4 flex mt-3 flex-col justify-start items-start p-3 space-y-3 thin-right-Boxider">
-
-              {x.map((item,id)=>(
-
-                 <Box     
-                onClick={() => handleClickScroll("metaKeywords")}
-                className=" w-full thin-box-divider  flex flex-col items-start justify-start py-2 h-8 px-2 box-border relative cursor-pointer"
-              ></Box>
-            
-              ))}
-             
-           
+        <Box className="box-border h-[90vh]  w-80 sticky top-4 flex mt-3 flex-col justify-start items-start p-3 space-y-0 thin-right-Boxider">
+          <SideBar handleClickScroll={handleClickScroll}></SideBar>
         </Box>
         <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-16">
           {/* content */}

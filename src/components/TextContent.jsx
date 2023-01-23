@@ -3,7 +3,7 @@ import { Typography, Box } from "@mui/material";
 
 const TextContent = ({anchor,  title, children, sx }) => {
   return (
-    <div {...(anchor !== null && { 'data-scroll': anchor })} className={`  box-border  ${anchor&&'scroll-mt-16'}`}>
+    <div {...(anchor !== null && { 'data-scroll': anchor })} data-label={title} className={`  box-border  ${anchor&&'scroll-mt-16'}`}>
       
       {title ? (
         <Typography

@@ -65,28 +65,28 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
       error: "#ff453a",
       errorSurface: "#ffeceb",
     },
-    syntax: {
-      keyword: "#d73a49",
-      property: "#005cc5",
-      plain: "#24292e",
-      static: "#032f62",
-      string: "#032f62",
-      definition: "#6f42c1",
-      punctuation: "#24292e",
-      tag: "#22863a",
-      comment: {
-        color: "#6a737d",
-        fontStyle: "normal",
-      },
+     syntax: {
+    plain: "#151515",
+    comment: {
+      color: "#999999",
+      fontStyle: "italic"
     },
-    font: {
-      body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    keyword: "#121213",
+    tag: "#151515",
+    punctuation: "#3B3B3B",
+    definition: "#151515",
+    property: "#151515",
+    static: "#151515",
+    string: "#151515"
+  },
+    // font: {
+    //   body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 
-      mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
+    //   mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
 
-      size: "13.40px",
-      lineHeight: "19px",
-    },
+    //   size: "13.40px",
+    //   lineHeight: "19px",
+    // },
   };
   const mergeTagsAndStyles = ({ tags, styles }) => {
     if (!styles) {
