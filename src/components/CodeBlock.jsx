@@ -4,7 +4,7 @@ import {
   SandpackLayout,
   SandpackCodeViewer,
 } from "@codesandbox/sandpack-react";
-import { FiClipboard } from "react-icons/fi";
+import { FiClipboard, FiCode   } from "react-icons/fi";
 import { Box, IconButton, Typography } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
@@ -110,7 +110,7 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
         </Typography>
       )}
       <SandpackProvider
-        theme={theme}
+        theme={theme2}
         template="react"
         customSetup={{
           entry: "index.css",
@@ -133,27 +133,37 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
           ref={container}
           onMouseEnter={hoverBlock}
           onMouseLeave={hoverBlock}
-          className="box-border flex items-center justify-center w-full  relative  rounded-md  "
+          className="box-border flex items-center justify-center w-full  relative  rounded-lg medium-box-divider"
         >
           <SandpackCodeViewer
-            showLineNumbers
-            className="h-fit border-none font-ukraine-regular min-h-[4.3rem] w-full px-2 py-2    box-border "
+            // showLineNumbers
+            className="h-fit border-none font-ukraine-regular min-h-[4.3rem] w-full px-3 py-3    box-border "
             wrapContent
           />
           <AnimatePresence>
            <motion.div
-              className="absolute top-2 right-2 box-border w-fit h-fit"
+              className="absolute top-2 right-2 p-2 box-border  w-fit h-fit bg-[#2c3643]    rounded-lg space-y-2 "
               animate={{opacity:hover? 1 : 0}}
               transition={{ ease: "easeInOut", duration: 0.2 }}
             >
-              <IconButton
+              
+               <IconButton
               
               onClick={handleToggleCopyToggle}
               className={` 
-              } w-fit h-fit  box-border cursor-pointer p-2 rounded-md grid place-content-center text-[1.05rem] bg-gray-400/10 text-gray-400 `}
+              } w-fit h-fit  box-border cursor-pointer p-2 rounded-md grid place-content-center text-[0.9rem] bg-gray-400/10 text-gray-400 hover:text-white hover:bg-neutral-200/20 `}
             >
               <FiClipboard />
             </IconButton>
+            {content.styles?<IconButton
+              
+              onClick={handleToggleCopyToggle}
+              className={` 
+              } w-fit h-fit  box-border cursor-pointer p-2 rounded-md grid place-content-center text-[0.9rem] bg-gray-400/10 text-gray-400 hover:text-white hover:bg-neutral-200/20   `}
+            >
+              <FiCode />
+            </IconButton>:null}
+             
               
             </motion.div>
           </AnimatePresence>
