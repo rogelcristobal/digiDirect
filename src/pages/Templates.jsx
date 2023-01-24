@@ -69,17 +69,16 @@ const Templates = () => {
       // console.log(refState[0])
     }
   }, [ref]);
-//   const x = [...refState].map((item) => item.getAttribute("data-scroll"));
-// console.log(x)
+  //   const x = [...refState].map((item) => item.getAttribute("data-scroll"));
+  // console.log(x)
   // const y = [...refState].map((item) => item.getAttribute("data-label"));
-//  console.log(refState)
+  //  console.log(refState)
   const content = (
     <>
       {/*  in the box */}
       <Box className="box-border space-y-12 mt-8">
         <TextContent
           anchor="inTheBoxAnchor"
-          
           sx="text-2xl   "
           title="What's in the box"
         >
@@ -93,7 +92,7 @@ const Templates = () => {
           This information can include items such as accessories, manuals, and
           any other components that are necessary for the product to function
           properly.
-          <CodeBlock text="Usage" content={inTheBoxMarkup} />
+          <CodeBlock  content={inTheBoxMarkup} />
           This template will display the included items in bullets.
         </TextContent>
         <TextContent
@@ -126,7 +125,7 @@ const Templates = () => {
           detailed product specifications is important in order to help
           customers make informed purchasing decisions and to ensure that the
           product meets their needs and expectations.
-          <CodeBlock text="Usage" content={specsMarkup} />
+          <CodeBlock  content={specsMarkup} />
         </TextContent>
         <TextContent
           anchor="specificationBundleAnchor"
@@ -135,12 +134,16 @@ const Templates = () => {
         >
           This template can be utilized when the product listing pertains to a
           kit or bundle, which includes two or more products within the package.
-          <CodeBlock text="Usage" content={specsMarkupCategorized}></CodeBlock>
+          <CodeBlock  content={specsMarkupCategorized}></CodeBlock>
         </TextContent>
       </Box>
       {/*  description */}
       <Box className="box-border space-y-12 mt-14 ">
-        <TextContent anchor="descriptionAnchor" sx="text-2xl " title="Descriptions">
+        <TextContent
+          anchor="descriptionAnchor"
+          sx="text-2xl "
+          title="Descriptions"
+        >
           A product description in a product listing is a written summary of the
           key features and benefits of a product. It is designed to inform
           potential customers about the product and persuade them to make a
@@ -149,7 +152,7 @@ const Templates = () => {
           benefits. Additionally, the product description should also include
           information about the product's dimensions, weight, and any other
           relevant technical specifications.
-          <CodeBlock text="Usage" content={descriptionSimple} />
+          <CodeBlock content={descriptionSimple} />
           As demonstrated by the examples provided, the product description
           includes the product name, its key features, the Global Trade Item
           Number (GTIN) and the Manufacturer Part Number (MPIN).
@@ -165,15 +168,17 @@ const Templates = () => {
           troubleshoot any issues they may have with the product, by providing
           information about common problems and solutions.
         </TextContent>
-        <TextContent sx="text-xl " title="Descriptions (advanced)">
+        <TextContent anchor="descriptionAdvanceAnchor"
+          sx="text-[1.20rem] " title="Descriptions (advanced)">
           This template can be used to add more product features to a product
           listing.
-          <CodeBlock content={descriptionBest}></CodeBlock>
+          <CodeBlock  content={descriptionBest}></CodeBlock>
         </TextContent>
-        <TextContent sx="text-xl " title="Descriptions (kit/bundle)">
+        <TextContent anchor="descriptionKitAnchor"
+          sx="text-[1.20rem] " title="Descriptions (kit/bundle)">
           This template can be utilized when the product listing pertains to a
           kit or bundle, which includes two or more products within the package.
-          <CodeBlock content={descriptionKit}></CodeBlock>
+          <CodeBlock  content={descriptionKit}></CodeBlock>
         </TextContent>
       </Box>
       {/*  short desciprion */}
@@ -187,7 +192,7 @@ const Templates = () => {
           and easy-to-read manner. It typically includes a list of the most
           important features and benefits of a product, presented in bullet
           point form.
-          <CodeBlock text="Usage" content={shortDescription} />
+          <CodeBlock  content={shortDescription} />
           This format allows for quick and easy scanning of the information,
           making it easy for potential customers to understand the product's key
           selling points. It is an efficient way to present information on a
@@ -304,10 +309,10 @@ const Templates = () => {
     <Box className="min-h-[150vh] h-full inline-block box-border" ref={myRef}>
       <Box className="  h-auto box-border    w-full flex items-start justify-center gap-3 ">
         {/* side nav */}
-        <Box className="box-border h-[90vh]  w-80 sticky top-4 flex mt-3 flex-col justify-start items-start p-3 space-y-0 thin-right-Boxider">
-          <SideBar handleClickScroll={handleClickScroll}></SideBar>
-        </Box>
-        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-16">
+
+        <SideBar handleClickScroll={handleClickScroll}></SideBar>
+
+        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-20">
           {/* content */}
           <Box
             ref={ref}

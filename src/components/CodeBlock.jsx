@@ -100,7 +100,7 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
   };
   const [hover, setHoverState] = useState(false);
   const hoverBlock = () => {
-    setHoverState((prev) => (prev = !hover));
+    setHoverState(!hover);
   };
   return (
     <Box className="space-y-4  py-7  box-border">
@@ -110,7 +110,7 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
         </Typography>
       )}
       <SandpackProvider
-        theme={theme}
+        theme={theme2}
         template="react"
         customSetup={{
           entry: "index.css",
