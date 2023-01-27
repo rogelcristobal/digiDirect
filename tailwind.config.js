@@ -24,6 +24,7 @@ module.exports = {
 
       open:["Open Sans",'sams-serif'],
       plus:["Plus Jakarta Sans","sans-serif"],
+      inter:["Inter","sans-serif"]
       
      
      

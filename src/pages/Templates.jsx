@@ -79,7 +79,7 @@ const Templates = () => {
       <Box className="box-border space-y-12 mt-8">
         <TextContent
           anchor="inTheBoxAnchor"
-          sx="text-2xl   "
+          sx="sectionHeader-text   "
           title="What's in the box"
         >
           Refers to the items that are included with a product when it is
@@ -97,7 +97,7 @@ const Templates = () => {
         </TextContent>
         <TextContent
           anchor="inTheBoxBundleAnchor"
-          sx="text-[1.20rem] "
+          sx="sectionHeader-text"
           title="What's in the box (kit/bundle)"
         >
           This template can be utilized when the product listing pertains to a
@@ -106,10 +106,10 @@ const Templates = () => {
         </TextContent>
       </Box>
       {/*  specs */}
-      <Box className="box-border space-y-12 mt-14">
+      <Box className="box-border space-y-12 mt-12">
         <TextContent
           anchor="specificationAnchor"
-          sx="text-2xl "
+          sx="sectionHeader-text "
           title="Specifications"
         >
           Product specifications, also known as product specs, are a set of
@@ -138,10 +138,10 @@ const Templates = () => {
         </TextContent>
       </Box>
       {/*  description */}
-      <Box className="box-border space-y-12 mt-14 ">
+      <Box className="box-border space-y-12 mt-12 ">
         <TextContent
           anchor="descriptionAnchor"
-          sx="text-2xl "
+          sx="sectionHeader-text "
           title="Descriptions"
         >
           A product description in a product listing is a written summary of the
@@ -169,23 +169,23 @@ const Templates = () => {
           information about common problems and solutions.
         </TextContent>
         <TextContent anchor="descriptionAdvanceAnchor"
-          sx="text-[1.20rem] " title="Descriptions (advanced)">
+          sx="sectionHeader-text" title="Descriptions (advanced)">
           This template can be used to add more product features to a product
           listing.
           <CodeBlock  content={descriptionBest}></CodeBlock>
         </TextContent>
         <TextContent anchor="descriptionKitAnchor"
-          sx="text-[1.20rem] " title="Descriptions (kit/bundle)">
+          sx="sectionHeader-text" title="Descriptions (kit/bundle)">
           This template can be utilized when the product listing pertains to a
           kit or bundle, which includes two or more products within the package.
           <CodeBlock  content={descriptionKit}></CodeBlock>
         </TextContent>
       </Box>
       {/*  short desciprion */}
-      <Box className="box-border space-y-12 mt-14">
+      <Box className="box-border space-y-12 mt-12">
         <TextContent
           anchor="shortDescriptionAnchor"
-          sx="text-2xl "
+          sx="sectionHeader-text "
           title="Short Descriptions"
         >
           Short description shows key information about a product in a concise
@@ -204,7 +204,7 @@ const Templates = () => {
       <Box className="box-border space-y-12 mt-16">
         <TextContent
           anchor="SearchOptimizationAnchor"
-          sx="text-2xl "
+          sx="sectionHeader-text "
           title="Search engine optimization"
         >
           Search Engine Optimization (SEO) is the process of optimizing a
@@ -215,7 +215,7 @@ const Templates = () => {
         </TextContent>
         <TextContent
           anchor="metaTitleAnchor"
-          sx="text-[1.20rem] "
+          sx="sectionSubHeader-text"
           title="Meta title"
         >
           A meta title is a short text that appears at the top of a web page,
@@ -235,7 +235,7 @@ const Templates = () => {
 
         <TextContent
           anchor="metaKeywordsAnchor"
-          sx="text-[1.20rem] "
+          sx="sectionSubHeader-text"
           title="Meta keywords"
         >
           Meta keywords are a type of meta tag that can be included in the HTML
@@ -253,7 +253,7 @@ const Templates = () => {
 
         <TextContent
           anchor="metaDescriptionAnchor"
-          sx="text-[1.20rem] "
+          sx="sectionSubHeader-text"
           title="Meta description"
         >
           A meta description is a summary of a webpage's content that appears in
@@ -312,19 +312,19 @@ const Templates = () => {
 
         <SideBar handleClickScroll={handleClickScroll}></SideBar>
 
-        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-20">
+        <Box className=" w-full box-border h-full space-y-4 p-3 pb-40 pt-16">
           {/* content */}
           <Box
             ref={ref}
             className="box-border  flex flex-col items-start justify-start"
           >
-            <ArticleBlock title="Product listing templates">
+            <ArticleBlock title="Product listing templates" category="digiDirect">
               {content}
             </ArticleBlock>
           </Box>
         </Box>
       </Box>
-      <Box className="h-80 w-full box-border thin-top-divider thin-box-divider mt-3"></Box>
+      <Box className="h-80 w-full box-border thin-top-divider  mt-3"></Box>
     </Box>
   );
 };

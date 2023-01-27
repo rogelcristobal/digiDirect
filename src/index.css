@@ -118,7 +118,22 @@
     -webkit-text-stroke: 1.5px black;
     -webkit-text-fill-color: transparent;
   }
-  /* helvetica font */
+
+  .header-text {
+    @apply text-[30px] leading-[36px] tracking-[-0.75px] text-slate-900
+  }
+  .header-details {
+    @apply text-[18px] leading-[28px] text-[#354357]
+  }
+  .sectionHeader-text{
+    @apply text-[24px] leading-[32px] tracking-[-0.6px] font-bold
+  }
+  .sectionSubHeader-text{
+    @apply text-[20px] leading-[28px] tracking-[-0.5px] font-semibold
+  }
+  .sectionDetails-text{
+    @apply text-[16px] leading-[28px] 
+  }
 
   /* e-Ukraine font family*/
   @font-face {

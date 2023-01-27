@@ -11,7 +11,7 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
   const container = useRef(null);
   const theme2 = {
     colors: {
-      surface1: "#1f2937",
+      surface1: "#0f172a",
       surface2: "#243b4c",
       surface3: "#112331",
       clickable: "#6988a1",
@@ -103,9 +103,9 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
     setHoverState(!hover);
   };
   return (
-    <Box className="space-y-4  py-7  box-border">
+    <Box className="space-y-4  py-4  box-border">
       {text && (
-        <Typography variant="body1" className="text-lg font-semibold  font-plus">
+        <Typography variant="body1" className="sectionSubHeader-text text-slate-900">
           {text}
         </Typography>
       )}
@@ -131,7 +131,7 @@ const CodeBlock = ({ text, content, handleCopy, copyState, id }) => {
       >
         <SandpackLayout
           ref={container}
-          className="box-border flex items-center justify-center w-full  relative  rounded-none "
+          className="box-border flex items-center justify-center w-full  relative   rounded-lg"
         >
           <SandpackCodeViewer
             // showLineNumbers

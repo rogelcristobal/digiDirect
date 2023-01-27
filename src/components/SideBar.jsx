@@ -14,7 +14,7 @@ const value = [...refState].map((item)=>(item.id))
 
   console.log(value)
   return (
-    <Box className="box-border thin-box-divider h-[90vh]  w-[24rem] sticky top-16 flex mt-3 flex-col justify-start items-start p-3 space-y-0 thin-right-Boxider">
+    <Box className="box-border  h-[90vh]  w-[22rem] sticky top-16 flex mt-3 flex-col justify-start items-start p-3 space-y-0 thin-right-Boxider">
       {value.map((item, id) => {
         // console.log(item)
         return (

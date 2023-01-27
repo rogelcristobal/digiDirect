@@ -4,7 +4,7 @@ import TextContent from "./TextContent";
 
 import { BsCheckCircle } from "react-icons/bs";
 
-const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
+const ArticleBlock = ({ title, children, titleStyle, view, sx, id, category}) => {
   const [open, setOpen] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const [hoverLink, setHoverLink] = React.useState(false);
@@ -23,19 +23,19 @@ const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
     >
       <Box component="article" className="w-full  box-border  ">
         <TextContent
-          // category={article?.category}
-          sx={`space-y-8`}
+          category={category}
+          sx={`space-y-4`}
           title={
             <>
               <Typography
                 variant="body1"
-                className="text-3xl font-plus   font-semibold capitalize"
+                className="header-text font-inter   font-bold capitalize"
               >
                 {title}
               </Typography>
               <Typography
                 variant="h6"
-                className="text-[0.925rem] font-plus max-w-[45rem] pb-4 font-open tracking-tight "
+                className="header-details  max-w-[45rem] pb-4 font-inter  "
               >
                 A product listing is a description of a product that includes
                 its features, specs, pricing, and images. It is typically used
@@ -45,12 +45,12 @@ const ArticleBlock = ({ title, children, titleStyle, view, sx, id }) => {
             </>
           }
         >
-          <Typography
-            variant="h6"
-            className={`max-w-[45rem] font-open  mt-16    text-[0.925rem]  tracking-tight `}
+          <Box
+            
+            className={`max-w-[45rem] font-inter  thin-box-divider    text-[16px] leading-[28px] text-[#354357] `}
           >
             {children}
-          </Typography>
+          </Box>
         </TextContent>
       </Box>
     </Box>
